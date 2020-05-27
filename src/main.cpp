@@ -7,8 +7,8 @@ int main(int argc, char** argv)
 
     auto refBuilder = Gtk::Builder::create_from_file("MainWindow.ui");
 
-    MainWindow* pMainWindow = nullptr;
-    refBuilder->get_widget_derived("main_window", pMainWindow);
+    MainWindow* mainWindow = nullptr;
+    refBuilder->get_widget_derived("main_window", mainWindow);
 
-    return app->run(*pMainWindow);
+    return app->run(*mainWindow);
 }

@@ -12,6 +12,7 @@ namespace
 
 MainWindow::MainWindow(BaseObjectType* cobject, const Glib::RefPtr<Gtk::Builder>& refBuilder)
     : Gtk::Window{cobject}
+    , m_fullscreen{false}
 {
     set_default_size(1280, 720);
 
@@ -31,10 +32,20 @@ MainWindow::MainWindow(BaseObjectType* cobject, const Glib::RefPtr<Gtk::Builder>
     refBuilder->get_widget("quit_menu_item", quitMenuItem);
     quitMenuItem->signal_activate().connect(sigc::mem_fun(this, &MainWindow::onQuit));
 
-    m_webView.loadUri(WHATSAPP_WEB_URI);
+    Gtk::MenuItem* fullscreenMenuItem = nullptr;
+    refBuilder->get_widget("fullscreen_menu_item", fullscreenMenuItem);
+    fullscreenMenuItem->signal_activate().connect(sigc::mem_fun(this, &MainWindow::onFullscreen));
 
-    maximize();
+    signal_window_state_event().connect(sigc::mem_fun(this, &MainWindow::onWindowStateEvent));
+
+    m_webView.loadUri(WHATSAPP_WEB_URI);
     show_all();
+}
+
+bool MainWindow::onWindowStateEvent(GdkEventWindowState* event)
+{
+    m_fullscreen = event->new_window_state & GDK_WINDOW_STATE_FULLSCREEN;
+    return false;
 }
 
 void MainWindow::onRefresh()
@@ -44,6 +55,10 @@ void MainWindow::onRefresh()
 
 void MainWindow::onQuit()
 {
-    // TODO Use something else since this is deprecated.
-    Gtk::Main::quit();
+    close();
+}
+
+void MainWindow::onFullscreen()
+{
+    m_fullscreen ? unfullscreen() : fullscreen();
 }

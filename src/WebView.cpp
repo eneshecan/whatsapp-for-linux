@@ -1,10 +1,11 @@
 #include "WebView.h"
 #include <gtkmm/messagedialog.h>
+#include <glibmm/wrap.h>
 
 
 namespace
 {
-    static void loadChanged(WebKitWebView* webView, WebKitLoadEvent loadEvent, gpointer userData)
+    void loadChanged(WebKitWebView* webView, WebKitLoadEvent loadEvent, gpointer userData)
     {
         auto webViewWidget = reinterpret_cast<WebView*>(userData);
         if (!webViewWidget)
@@ -27,7 +28,7 @@ namespace
         }
     }
 
-    static gboolean permissionRequest(WebKitWebView*, WebKitPermissionRequest* request, GtkWindow*)
+    gboolean permissionRequest(WebKitWebView*, WebKitPermissionRequest* request, GtkWindow*)
     {
         auto dialog = Gtk::MessageDialog{"Notification Request", false, Gtk::MESSAGE_QUESTION, Gtk::BUTTONS_YES_NO};
         dialog.set_secondary_text("Do you want WhatsApp to send you notifications?");

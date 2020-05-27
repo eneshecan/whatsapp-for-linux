@@ -5,7 +5,8 @@
 #include <webkit2/webkit2.h>
 
 
-class WebView : public Gtk::Widget
+class WebView
+    : public Gtk::Widget
 {
     public:
         WebView();
