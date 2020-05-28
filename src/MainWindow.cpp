@@ -10,7 +10,7 @@ namespace
 }
 
 
-MainWindow::MainWindow(BaseObjectType* cobject, const Glib::RefPtr<Gtk::Builder>& refBuilder)
+MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const& refBuilder)
     : Gtk::Window{cobject}
     , m_fullscreen{false}
 {

@@ -9,7 +9,7 @@ class MainWindow
     : public Gtk::Window
 {
     public:
-        MainWindow(BaseObjectType* cobject, const Glib::RefPtr<Gtk::Builder>& refBuilder);
+        MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const& refBuilder);
         ~MainWindow() override = default;
 
     private:

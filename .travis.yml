@@ -26,8 +26,12 @@ before_script:
   - eval "${MATRIX_EVAL}"
   - cmake --version
   - mkdir -p build/debug
-  - ln -s ui/ build/debug/
-  - cd build/debug
+  - mkdir -p build/release
+  - cp -r ui build/debug
+  - cp -r ui build/release
 
 script:
+  - cd build/debug
   - cmake -j2 -DCMAKE_BUILD_TYPE=Debug ../..
+  - cd ../release
+  - cmake -j2 -DCMAKE_BUILD_TYPE=Release ../..
