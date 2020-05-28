@@ -12,7 +12,7 @@ An unofficial WhatsApp linux client written in C++ with the help of gtkmm-3.0 an
 
 ## Build & Run
 
-1. Create a debug build directory. `mkdir build/debug`
+1. Create a debug build directory. `mkdir -p build/debug`
 2. Build. `cmake -DCMAKE_BUILD_TYPE=Debug --build build/debug`
 3. Create symbolic links to ui files in build folder. `ln -s ui/ build/debug/`
 4. Run. `./build/debug/WhatsApp`

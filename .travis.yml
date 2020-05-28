@@ -1,0 +1,33 @@
+
+language: cpp
+
+jobs:
+  include:
+    - os: linux
+      dist: bionic
+      compiler: gcc
+      env:
+        - GCC_VER="9"
+        - MATRIX_EVAL="CC=gcc-${GCC_VER} && CXX=g++-${GCC_VER}"
+
+      addons:
+        apt:
+          update: true
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - gcc-9
+            - g++-9
+            - cmake
+            - libgtkmm-3.0-dev
+            - libwebkit2gtk-4.0-dev
+
+before_script:
+  - eval "${MATRIX_EVAL}"
+  - cmake --version
+  - mkdir -p build/debug
+  - ln -s ui/ build/debug/
+  - cd build/debug
+
+script:
+  - cmake -j2 -DCMAKE_BUILD_TYPE=Debug ../..
