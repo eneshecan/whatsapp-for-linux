@@ -16,7 +16,7 @@ MainWindow::MainWindow(BaseObjectType* cobject, const Glib::RefPtr<Gtk::Builder>
 {
     set_default_size(1280, 720);
 
-    auto const appIcon = Gdk::Pixbuf::create_from_file("icon.ico");
+    auto const appIcon = Gdk::Pixbuf::create_from_file("ui/icon/whatsapp.ico");
     // TODO Use set_icon_list instead.
     set_icon(appIcon);
 
