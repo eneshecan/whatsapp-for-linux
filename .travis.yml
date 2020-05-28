@@ -8,7 +8,7 @@ jobs:
       compiler: gcc
       env:
         - GCC_VER="9"
-        - MATRIX_EVAL="CXX=g++-${GCC_VER}"
+        - MATRIX_EVAL="CC=gcc-${GCC_VER} && CXX=g++-${GCC_VER}"
 
       addons:
         apt:
@@ -16,6 +16,7 @@ jobs:
           sources:
             - ubuntu-toolchain-r-test
           packages:
+            - gcc-9
             - g++-9
             - cmake
             - libgtkmm-3.0-dev
