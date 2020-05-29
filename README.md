@@ -4,6 +4,8 @@ An unofficial WhatsApp linux client written in C++ with the help of gtkmm-3.0 an
 
 [![Build Status](https://travis-ci.com/eneshecan/whatsapp-for-linux.svg?branch=master)](https://travis-ci.com/eneshecan/whatsapp-for-linux)
 
+![App Window](https://github.com/eneshecan/whatsapp-for-linux/blob/master/screenshot/app.png)
+
 
 ## Dependencies
 
