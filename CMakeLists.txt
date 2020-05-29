@@ -9,5 +9,5 @@ PKG_CHECK_MODULES(GTKMM3 gtkmm-3.0 REQUIRED)
 PKG_CHECK_MODULES(WEBKIT webkit2gtk-4.0 REQUIRED)
 include_directories(${GTKMM3_INCLUDE_DIRS} ${WEBKIT_INCLUDE_DIRS})
 
-add_executable(WhatsApp src/main.cpp src/MainWindow.cpp src/WebView.cpp)
+add_executable(WhatsApp src/main.cpp src/MainWindow.cpp src/WebView.cpp src/Settings.cpp)
 target_link_libraries(WhatsApp ${GTKMM3_LIBRARIES} ${WEBKIT_LIBRARIES})

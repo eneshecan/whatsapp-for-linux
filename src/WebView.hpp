@@ -15,6 +15,5 @@ class WebView
         operator WebKitWebView*();
 
     public:
-        void loadUri(const Glib::ustring& uri);
         void refresh();
 };

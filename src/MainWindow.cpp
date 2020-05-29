@@ -4,12 +4,6 @@
 #include <gtkmm/aboutdialog.h>
 
 
-namespace
-{
-    constexpr auto const WHATSAPP_WEB_URI = "https://web.whatsapp.com/";
-}
-
-
 MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const& refBuilder)
     : Gtk::Window{cobject}
     , m_fullscreen{false}
@@ -47,7 +41,6 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
 
     signal_window_state_event().connect(sigc::mem_fun(this, &MainWindow::onWindowStateEvent));
 
-    m_webView.loadUri(WHATSAPP_WEB_URI);
     show_all();
 }
 
