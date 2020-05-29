@@ -1,7 +1,7 @@
-#include "MainWindow.h"
+#include "MainWindow.hpp"
 #include <gtkmm/grid.h>
 #include <gtkmm/menuitem.h>
-#include <gtkmm/main.h>
+#include <gtkmm/aboutdialog.h>
 
 
 namespace
@@ -41,6 +41,10 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
     refBuilder->get_widget("fullscreen_menu_item", fullscreenMenuItem);
     fullscreenMenuItem->signal_activate().connect(sigc::mem_fun(this, &MainWindow::onFullscreen));
 
+    Gtk::MenuItem* aboutMenuItem = nullptr;
+    refBuilder->get_widget("about_menu_item", aboutMenuItem);
+    aboutMenuItem->signal_activate().connect(sigc::mem_fun(this, &MainWindow::onAbout));
+
     signal_window_state_event().connect(sigc::mem_fun(this, &MainWindow::onWindowStateEvent));
 
     m_webView.loadUri(WHATSAPP_WEB_URI);
@@ -66,4 +70,19 @@ void MainWindow::onQuit()
 void MainWindow::onFullscreen()
 {
     m_fullscreen ? unfullscreen() : fullscreen();
+}
+
+void MainWindow::onAbout()
+{
+    auto aboutDialog = Gtk::AboutDialog{};
+
+    aboutDialog.set_title("About");
+    aboutDialog.set_program_name("whatsapp-for-linux");
+    aboutDialog.set_logo_icon_name("help-about");
+    aboutDialog.set_comments("An unofficial WhatsApp linux client desktop application.");
+    aboutDialog.set_website("https://github.com/eneshecan/whatsapp-for-linux");
+    aboutDialog.set_website_label("Github Repo");
+    aboutDialog.set_license_type(Gtk::LICENSE_GPL_3_0);
+
+    aboutDialog.run();
 }

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "WebView.h"
+#include "WebView.hpp"
 #include <gtkmm/window.h>
 #include <gtkmm/builder.h>
 
@@ -19,8 +19,9 @@ class MainWindow
         void onRefresh();
         void onQuit();
         void onFullscreen();
+        void onAbout();
 
     private:
-        WebView m_webView;
-        bool    m_fullscreen;
+        WebView      m_webView;
+        bool         m_fullscreen;
 };

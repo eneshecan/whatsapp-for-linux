@@ -1,4 +1,4 @@
-#include "WebView.h"
+#include "WebView.hpp"
 #include <gtkmm/messagedialog.h>
 
 
