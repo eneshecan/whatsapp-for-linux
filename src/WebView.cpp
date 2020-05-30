@@ -32,6 +32,11 @@ namespace
         return TRUE;
     }
 
+    gboolean contextMenu(WebKitWebView*, WebKitContextMenu*, GdkEvent*, WebKitHitTestResult*, gpointer)
+    {
+        return TRUE;
+    }
+
     void initializeNotificationPermission(WebKitWebContext* context, gpointer)
     {
         if (Settings::instance().allowPermissions())
@@ -52,6 +57,7 @@ WebView::WebView()
     auto const webContext = webkit_web_view_get_context(*this);
 
     g_signal_connect(*this, "permission-request", G_CALLBACK(permissionRequest), this);
+    g_signal_connect(*this, "context-menu", G_CALLBACK(contextMenu), this);
     g_signal_connect(webContext, "initialize-notification-permissions", G_CALLBACK(initializeNotificationPermission), this);
 
     webkit_web_view_load_uri(*this, WHATSAPP_WEB_URI);
