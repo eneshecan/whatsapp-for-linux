@@ -7,6 +7,10 @@ An unofficial WhatsApp linux client written in C++ with the help of gtkmm-3.0 an
 ![App Window](https://github.com/eneshecan/whatsapp-for-linux/blob/master/screenshot/app.png)
 
 
+## Contributing
+Please read [CONTRIBUTING.md](CONTRIBUTING.md).
+
+
 ## Dependencies
 
 * cmake >= 3.2
