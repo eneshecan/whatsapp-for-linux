@@ -20,7 +20,7 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
 
     Gtk::Grid* mainGrid = nullptr;
     refBuilder->get_widget("main_grid", mainGrid);
-    mainGrid->attach(m_webView, 0, 1);
+    mainGrid->attach(m_webView, 0, 1, 1, 1);
     m_webView.set_vexpand();
 
     Gtk::MenuItem* refreshMenuItem = nullptr;
