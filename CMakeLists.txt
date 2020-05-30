@@ -11,3 +11,4 @@ include_directories(${GTKMM3_INCLUDE_DIRS} ${WEBKIT_INCLUDE_DIRS})
 
 add_executable(WhatsApp src/main.cpp src/MainWindow.cpp src/WebView.cpp src/Settings.cpp)
 target_link_libraries(WhatsApp ${GTKMM3_LIBRARIES} ${WEBKIT_LIBRARIES})
+install(TARGETS WhatsApp DESTINATION bin)
