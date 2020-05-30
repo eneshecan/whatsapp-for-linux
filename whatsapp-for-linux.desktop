@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=WhatsApp for Linux
+GenericName=Unofficial WhatsApp client
+Exec=WhatsApp
+Icon=whatsapp-for-linux
