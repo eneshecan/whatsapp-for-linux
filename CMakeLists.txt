@@ -12,7 +12,7 @@ set(RESOURCE_PATH "share/whatsapp-for-linux" CACHE PATH "Path (relative to CMAKE
 if(INSTALL_RESOURCES)
     set(RESOURCE_DIR ${CMAKE_INSTALL_PREFIX}/${RESOURCE_PATH})
 else()
-    set(RESOURCE_DIR)
+    set(RESOURCE_DIR .)
 endif()
 
 # Process Config.hpp.in.
