@@ -15,7 +15,7 @@ else()
     set(RESOURCE_DIR)
 endif()
 
-# Process config.hpp.in.
+# Process Config.hpp.in.
 configure_file(src/Config.hpp.in Config.hpp)
 
 # So that the source code can #include config.hpp

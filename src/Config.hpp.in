@@ -1,7 +1,7 @@
 #pragma once
 
 /** This file is automatically processed by CMake.
- *  Make any changes to src/config.hpp.in, not config.hpp
+ *  Make any changes to src/Config.hpp.in, not Config.hpp
  */
 
 #include <filesystem>

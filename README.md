@@ -20,13 +20,14 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Build & Run
 
-For development:
+### Development:
 
 1. Create a debug build directory. `mkdir -p build/debug`
 2. Build. `cmake -DCMAKE_BUILD_TYPE=Debug --build build/debug`
 3. Create symbolic links to ui files in build folder. `ln -s ui/ build/debug/`
 4. Run. `./build/debug/WhatsApp`
 
-For full installation, add `-DINSTALL_RESOURCES=on` to the CMake options, and
+### Full installation
+Add `-DINSTALL_RESOURCES=on` to the CMake options, and
 use `cmake --install build/debug` or `make install -C build/debug` after
 building (you'll probably need administrator privileges for the installation).
