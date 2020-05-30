@@ -11,12 +11,12 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
 {
     set_default_size(1280, 720);
 
-    auto const appIcon16x16   = Gdk::Pixbuf::create_from_file(iconDir / "16x16.ico");
-    auto const appIcon32x32   = Gdk::Pixbuf::create_from_file(iconDir / "32x32.ico");
-    auto const appIcon48x48   = Gdk::Pixbuf::create_from_file(iconDir / "48x48.ico");
-    auto const appIcon64x64   = Gdk::Pixbuf::create_from_file(iconDir / "64x64.ico");
-    auto const appIcon128x128 = Gdk::Pixbuf::create_from_file(iconDir / "128x128.ico");
-    auto const appIcon256x256 = Gdk::Pixbuf::create_from_file(iconDir / "256x256.ico");
+    auto const appIcon16x16   = Gdk::Pixbuf::create_from_file(iconDir + "/16x16.ico");
+    auto const appIcon32x32   = Gdk::Pixbuf::create_from_file(iconDir + "/32x32.ico");
+    auto const appIcon48x48   = Gdk::Pixbuf::create_from_file(iconDir + "/48x48.ico");
+    auto const appIcon64x64   = Gdk::Pixbuf::create_from_file(iconDir + "/64x64.ico");
+    auto const appIcon128x128 = Gdk::Pixbuf::create_from_file(iconDir + "/128x128.ico");
+    auto const appIcon256x256 = Gdk::Pixbuf::create_from_file(iconDir + "/256x256.ico");
     set_icon_list({appIcon16x16, appIcon32x32, appIcon48x48, appIcon64x64, appIcon128x128, appIcon256x256});
 
     Gtk::Grid* mainGrid = nullptr;

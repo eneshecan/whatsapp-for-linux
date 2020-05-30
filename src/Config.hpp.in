@@ -4,10 +4,10 @@
  *  Make any changes to src/Config.hpp.in, not Config.hpp
  */
 
-#include <filesystem>
+#include <string>
 
 #cmakedefine INSTALL_RESOURCES
 
-auto const resourceDir(std::filesystem::path("${RESOURCE_DIR}"));
-auto const uiDir(resourceDir / "ui");
-auto const iconDir(uiDir / "icon");
+auto const resourceDir = std::string{"${RESOURCE_DIR}"};
+auto const uiDir = resourceDir + "/ui";
+auto const iconDir = uiDir + "/icon";
