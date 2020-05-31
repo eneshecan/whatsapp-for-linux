@@ -27,8 +27,6 @@ before_script:
   - cmake --version
   - mkdir -p build/debug
   - mkdir -p build/release
-  - cp -r ui build/debug
-  - cp -r ui build/release
 
 script:
   - cd build/debug

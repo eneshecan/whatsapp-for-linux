@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<gresources>
+  <gresource prefix="main">
+    <file>ui/MainWindow.ui</file>
+    <file>icon/16x16.ico</file>
+    <file>icon/32x32.ico</file>
+    <file>icon/48x48.ico</file>
+    <file>icon/64x64.ico</file>
+    <file>icon/128x128.ico</file>
+    <file>icon/256x256.ico</file>
+  </gresource>
+</gresources>
