@@ -33,5 +33,7 @@ before_script:
 script:
   - cd build/debug
   - cmake -j2 -DCMAKE_BUILD_TYPE=Debug ../..
+  - make
   - cd ../release
   - cmake -j2 -DCMAKE_BUILD_TYPE=Release ../..
+  - make
