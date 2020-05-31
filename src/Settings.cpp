@@ -5,7 +5,8 @@
 
 namespace
 {
-    constexpr auto const FILE_NAME     = "settings.ini";
+    auto const CONFIG_DIR              = std::string{getenv("HOME")} + "/.config/whatsapp-for-linux";
+    auto const CONFIG_FILE_PATH        = CONFIG_DIR + "/settings.conf";
     constexpr auto const GROUP_NETWORK = "network";
 }
 
@@ -18,19 +19,22 @@ Settings& Settings::instance()
 
 Settings::Settings()
 {
-    auto inputFile = std::ifstream{FILE_NAME};
+    auto inputFile = std::ifstream{CONFIG_FILE_PATH};
     if (!inputFile.good())
     {
-        auto outputFile = std::ofstream{FILE_NAME};
+        auto const createDirCommand = "mkdir -p " + CONFIG_DIR;
+        system(createDirCommand.c_str());
+
+        auto outputFile = std::ofstream{CONFIG_FILE_PATH};
         outputFile << '[' << GROUP_NETWORK << ']';
     }
 
-    keyFile.load_from_file(FILE_NAME);
+    keyFile.load_from_file(CONFIG_FILE_PATH);
 }
 
 Settings::~Settings()
 {
-    keyFile.save_to_file(FILE_NAME);
+    keyFile.save_to_file(CONFIG_FILE_PATH);
 }
 
 void Settings::setAllowPermissions(bool allow)
