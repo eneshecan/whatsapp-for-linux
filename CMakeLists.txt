@@ -20,3 +20,4 @@ target_link_libraries(whatsapp-for-linux ${GTKMM3_LIBRARIES} ${WEBKIT_LIBRARIES}
 
 install(TARGETS whatsapp-for-linux DESTINATION usr/bin)
 install(FILES ${CMAKE_SOURCE_DIR}/resource/desktop/whatsapp-for-linux.desktop DESTINATION usr/share/applications)
+install(FILES ${CMAKE_SOURCE_DIR}/resource/icon/whatsapp-for-linux.png DESTINATION /usr/share/icons/hicolor/scalable/apps)

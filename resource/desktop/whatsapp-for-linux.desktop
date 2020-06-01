@@ -6,5 +6,5 @@ Name=WhatsApp
 GenericName=Unofficial WhatsApp client
 Comment=An unofficial WhatsApp linux client desktop application.
 Exec=whatsapp-for-linux
-Icon=whatsapp-for-linux.png
+Icon=/usr/share/icons/hicolor/scalable/apps/whatsapp-for-linux.png
 Categories=GTK;GNOME;Network;
