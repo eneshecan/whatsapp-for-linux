@@ -1,0 +1,38 @@
+name: whatsapp-for-linux
+base: core18
+version: '1.0.0'
+summary: An unofficial WhatsApp linux client.
+description: An unofficial WhatsApp linux client written in C++ with the help of gtkmm-3.0 and webkit2.
+grade: devel
+confinement: devmode
+
+parts:
+  whatsapp-for-linux:
+    source-type: git
+    source-branch: master
+    source: https://github.com/eneshecan/whatsapp-for-linux
+    plugin: cmake
+    configflags:
+      - -DCMAKE_BUILD_TYPE=Release
+    build-packages:
+      - g++
+      - cmake
+      - make
+      - libgtkmm-3.0-dev
+      - libwebkit2gtk-4.0-dev
+    stage-packages:
+      - libgtkmm-3.0-1v5
+
+apps:
+  whatsapp-for-linux:
+    command: usr/bin/whatsapp-for-linux
+    desktop: usr/share/applications/whatsapp-for-linux.desktop
+    extensions: [gnome-3-28] # This takes care of most of the things for us
+    plugs:
+      - network
+      - browser-support
+      - camera
+      - audio-playback
+      - audio-record
+      - home
+      - opengl
