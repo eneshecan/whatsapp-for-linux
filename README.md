@@ -24,7 +24,7 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md).
 
 1. Create a debug build directory. `mkdir -p build/debug`
 2. Build. `cmake -DCMAKE_BUILD_TYPE=Debug --build build/debug`
-3. Run. `./build/debug/WhatsApp`
+3. Run. `./build/debug/whatsapp-for-linux`
 
 ### Full installation
 use `cmake --install build/debug` or `make install -C build/debug` after
