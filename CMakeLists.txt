@@ -19,4 +19,4 @@ add_executable(whatsapp-for-linux src/Resources.c src/main.cpp src/MainWindow.cp
 target_link_libraries(whatsapp-for-linux ${GTKMM3_LIBRARIES} ${WEBKIT_LIBRARIES})
 
 install(TARGETS whatsapp-for-linux DESTINATION usr/bin)
-install(FILES resource/desktop/whatsapp-for-linux.desktop DESTINATION usr/share/applications)
+install(FILES ${CMAKE_SOURCE_DIR}/resource/desktop/whatsapp-for-linux.desktop DESTINATION usr/share/applications)
