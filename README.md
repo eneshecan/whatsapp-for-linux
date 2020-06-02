@@ -31,3 +31,7 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md).
 ### Full installation
 use `cmake --install build/debug` or `make install -C build/debug` after
 building (You'll probably need administrator privileges for the installation).
+
+
+## Install
+Check out [releases](https://github.com/eneshecan/whatsapp-for-linux/releases) for available packages.
