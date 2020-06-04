@@ -4,7 +4,7 @@ version: '1.0.2'
 summary: An unofficial WhatsApp linux client.
 description: An unofficial WhatsApp linux client written in C++ with the help of gtkmm-3.0 and webkit2.
 grade: stable
-confinement: classic
+confinement: strict
 
 parts:
   whatsapp-for-linux:
@@ -22,9 +22,20 @@ parts:
       - libwebkit2gtk-4.0-dev
     stage-packages:
       - libgtkmm-3.0-1v5
-      - libwebkit2gtk-4.0-37
 
 apps:
   whatsapp-for-linux:
-    command: usr/bin/whatsapp-for-linux
+    command: desktop-launch whatsapp-for-linux
     desktop: usr/share/applications/whatsapp-for-linux.desktop
+    extensions: [gnome-3-28] # This takes care of most of the things for us
+    plugs:
+      - account-control
+      - network
+      - network-manager
+      - browser-support
+      - camera
+      - audio-playback
+      - audio-record
+      - home
+      - opengl
+      - upower-observe
