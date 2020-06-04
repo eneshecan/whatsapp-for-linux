@@ -1,0 +1,5 @@
+whatsapp-for-linux (1.0.2) stable; urgency=medium
+
+  * Change Snap confinement to classic
+
+ -- Enes Hecan <nshecan@gmail.com>  Thu, 4 Jun 2020 17:52:10 +0200
