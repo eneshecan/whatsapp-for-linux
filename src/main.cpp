@@ -3,7 +3,7 @@
 
 int main(int argc, char** argv)
 {
-    auto const app = Gtk::Application::create(argc, argv, {});
+    auto const app = Gtk::Application::create(argc, argv, "com.github.whatsapp-for-linux");
 
     auto const refBuilder = Gtk::Builder::create_from_resource("/main/ui/MainWindow.ui");
 

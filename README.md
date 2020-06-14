@@ -22,7 +22,7 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Build & Run
 
-### Development:
+### Development
 
 1. Create a debug build directory and go into it. `mkdir -p build/debug && cd build/debug`
 2. Build cmake. `cmake -DCMAKE_BUILD_TYPE=Debug ../..`
