@@ -34,7 +34,7 @@ namespace
 
     gboolean contextMenu(WebKitWebView*, WebKitContextMenu*, GdkEvent*, WebKitHitTestResult*, gpointer)
     {
-        return TRUE;
+        return FALSE;
     }
 
     void initializeNotificationPermission(WebKitWebContext* context, gpointer)
