@@ -1,5 +1,6 @@
 #include "WebView.hpp"
 #include <gtkmm/messagedialog.h>
+#include <iostream>
 #include "Settings.hpp"
 
 
@@ -32,6 +33,27 @@ namespace
         return TRUE;
     }
 
+    gboolean decidePolicy(WebKitWebView*, WebKitPolicyDecision* decision, WebKitPolicyDecisionType decisionType, gpointer)
+    {
+        switch (decisionType)
+        {
+            case WEBKIT_POLICY_DECISION_TYPE_NEW_WINDOW_ACTION:
+            {
+                auto const navigationDecision = WEBKIT_NAVIGATION_POLICY_DECISION(decision);
+                auto const navigationAction = webkit_navigation_policy_decision_get_navigation_action(navigationDecision);
+                auto const request = webkit_navigation_action_get_request(navigationAction);
+                auto const uri = webkit_uri_request_get_uri(request);
+
+                GError* error = nullptr;
+                gtk_show_uri_on_window(nullptr, uri, GDK_CURRENT_TIME, &error);
+            } break;
+            default:
+                break;
+        }
+
+        return FALSE;
+    }
+
     gboolean contextMenu(WebKitWebView*, WebKitContextMenu*, GdkEvent*, WebKitHitTestResult*, gpointer)
     {
         return FALSE;
@@ -57,6 +79,7 @@ WebView::WebView()
     auto const webContext = webkit_web_view_get_context(*this);
 
     g_signal_connect(*this, "permission-request", G_CALLBACK(permissionRequest), this);
+    g_signal_connect(*this, "decide-policy", G_CALLBACK(decidePolicy), this);
     g_signal_connect(*this, "context-menu", G_CALLBACK(contextMenu), this);
     g_signal_connect(webContext, "initialize-notification-permissions", G_CALLBACK(initializeNotificationPermission), this);
 
