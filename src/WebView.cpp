@@ -1,7 +1,7 @@
 #include "WebView.hpp"
+#include "Settings.hpp"
 #include <gtkmm/messagedialog.h>
 #include <gtkmm/filechooserdialog.h>
-#include "Settings.hpp"
 
 
 namespace

@@ -1,6 +1,8 @@
 # How to contribute
 
-I'm really happy you're reading this, because we need volunteer developers to help this project.
+I'm really happy you're reading this, because I need volunteers to help this project.
+You can contribute by opening issues, resolving any issue especially [good first issues](https://github.com/eneshecan/whatsapp-for-linux/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22),
+improving documentation etc.
 
 
 ## Submitting changes

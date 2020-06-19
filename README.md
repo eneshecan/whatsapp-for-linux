@@ -15,7 +15,7 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Dependencies
 
-* cmake >= 3.2
+* cmake >= 3.8
 * gtkmm-3.0
 * webkit2gtk-4.0
 
@@ -31,8 +31,8 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ### Local installation
 If you want to install it locally, use `make install` inside the build directory after
-building (You'll probably need administrator privileges for the installation).
+building (You'll probably need administrator privileges for this).
 
 
-## Install
+## Using whatsapp-for-linux
 Check out [releases](https://github.com/eneshecan/whatsapp-for-linux/releases) for available packages.

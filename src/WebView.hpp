@@ -1,6 +1,5 @@
 #pragma once
 
-
 #include <gtkmm/widget.h>
 #include <webkit2/webkit2.h>
 
