@@ -1,5 +1,6 @@
 #include "WebView.hpp"
 #include <gtkmm/messagedialog.h>
+#include <gtkmm/filechooserdialog.h>
 #include <iostream>
 #include "Settings.hpp"
 
@@ -59,6 +60,24 @@ namespace
         return FALSE;
     }
 
+    void downloadStarted(WebKitWebContext*, WebKitDownload* download, gpointer)
+    {
+        auto dialog = Gtk::FileChooserDialog{"Select a folder", Gtk::FILE_CHOOSER_ACTION_SELECT_FOLDER};
+        dialog.add_button("Select", Gtk::RESPONSE_OK);
+        dialog.add_button("Cancel", Gtk::RESPONSE_CANCEL);
+
+        int result = dialog.run();
+        switch(result)
+        {
+            case Gtk::RESPONSE_OK:
+                webkit_download_set_destination(download, dialog.get_filename().c_str());
+                break;
+            case Gtk::RESPONSE_CANCEL:
+            default:
+                break;
+        }
+    }
+
     void initializeNotificationPermission(WebKitWebContext* context, gpointer)
     {
         if (Settings::instance().allowPermissions())
@@ -81,6 +100,7 @@ WebView::WebView()
     g_signal_connect(*this, "permission-request", G_CALLBACK(permissionRequest), this);
     g_signal_connect(*this, "decide-policy", G_CALLBACK(decidePolicy), this);
     g_signal_connect(*this, "context-menu", G_CALLBACK(contextMenu), this);
+    g_signal_connect(webContext, "download-started", G_CALLBACK(downloadStarted), this);
     g_signal_connect(webContext, "initialize-notification-permissions", G_CALLBACK(initializeNotificationPermission), this);
 
     webkit_web_view_load_uri(*this, WHATSAPP_WEB_URI);
