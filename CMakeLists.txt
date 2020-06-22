@@ -4,6 +4,8 @@ project(whatsapp-for-linux)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+include(GNUInstallDirs)
+
 add_custom_command(
     OUTPUT ${CMAKE_SOURCE_DIR}/src/Resources.c
     COMMAND glib-compile-resources --target=${CMAKE_SOURCE_DIR}/src/Resources.c --generate-source gresource.xml
@@ -18,6 +20,6 @@ include_directories(${GTKMM3_INCLUDE_DIRS} ${WEBKIT_INCLUDE_DIRS})
 add_executable(whatsapp-for-linux src/Resources.c src/main.cpp src/MainWindow.cpp src/WebView.cpp src/Settings.cpp)
 target_link_libraries(whatsapp-for-linux ${GTKMM3_LIBRARIES} ${WEBKIT_LIBRARIES})
 
-install(TARGETS whatsapp-for-linux DESTINATION usr/bin)
-install(FILES ${CMAKE_SOURCE_DIR}/resource/desktop/whatsapp-for-linux.desktop DESTINATION usr/share/applications)
-install(FILES ${CMAKE_SOURCE_DIR}/resource/icon/whatsapp-for-linux.png DESTINATION /usr/share/icons/hicolor/scalable/apps)
+install(TARGETS whatsapp-for-linux DESTINATION ${CMAKE_INSTALL_BINDIR})
+install(FILES ${CMAKE_SOURCE_DIR}/resource/desktop/whatsapp-for-linux.desktop DESTINATION ${CMAKE_INSTALL_DATADIR}/applications)
+install(FILES ${CMAKE_SOURCE_DIR}/resource/icon/whatsapp-for-linux.png DESTINATION ${CMAKE_INSTALL_DATADIR}/icons/hicolor/256x256/apps)
