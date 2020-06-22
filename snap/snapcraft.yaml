@@ -14,7 +14,7 @@ parts:
     plugin: cmake
     override-pull: |
       snapcraftctl pull
-      sed -i.bak -e 's|Icon=whatsapp-for-linux|Icon=/usr/share/icons/hicolor/scalable/apps/whatsapp-for-linux.png|g' resource/desktop/whatsapp-for-linux.desktop
+      sed -i.bak -e 's|Icon=whatsapp-for-linux|Icon=share/icons/hicolor/256x256/apps/whatsapp-for-linux.png|g' resource/desktop/whatsapp-for-linux.desktop
     configflags:
       - -DCMAKE_BUILD_TYPE=Release
     build-packages:
@@ -35,7 +35,7 @@ slots:
 apps:
   whatsapp-for-linux:
     command: desktop-launch whatsapp-for-linux
-    desktop: usr/share/applications/whatsapp-for-linux.desktop
+    desktop: share/applications/whatsapp-for-linux.desktop
     common-id: com.github.whatsapp-for-linux
     extensions: [gnome-3-28] # This takes care of most of the things for us
     plugs:
