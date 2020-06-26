@@ -15,11 +15,13 @@ class Settings
     public:
         void setAllowPermissions(bool allow);
         bool allowPermissions() const;
+        void setDarkMode(bool enable);
+        bool darkMode() const;
 
     private:
         Settings();
         ~Settings();
 
     private:
-        Glib::KeyFile keyFile;
+        Glib::KeyFile m_keyFile;
 };

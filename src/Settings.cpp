@@ -7,7 +7,15 @@ namespace
 {
     auto const CONFIG_DIR              = std::string{getenv("HOME")} + "/.config/whatsapp-for-linux";
     auto const CONFIG_FILE_PATH        = CONFIG_DIR + "/settings.conf";
-    constexpr auto const GROUP_NETWORK = "network";
+    constexpr auto const GROUP_GENERAL = "General";
+    constexpr auto const GROUP_NETWORK = "Network";
+
+
+    void addGroupToFile(std::string_view group)
+    {
+        auto file = std::ofstream{CONFIG_FILE_PATH, std::ios::app};
+        file << '[' << group << ']' << '\n';
+    }
 }
 
 
@@ -25,21 +33,30 @@ Settings::Settings()
         auto const createDirCommand = "mkdir -p " + CONFIG_DIR;
         system(createDirCommand.c_str());
 
-        auto outputFile = std::ofstream{CONFIG_FILE_PATH};
-        outputFile << '[' << GROUP_NETWORK << ']';
+        std::ofstream{CONFIG_FILE_PATH};
     }
 
-    keyFile.load_from_file(CONFIG_FILE_PATH);
+    m_keyFile.load_from_file(CONFIG_FILE_PATH);
+    if (!m_keyFile.has_group(GROUP_GENERAL))
+    {
+        addGroupToFile(GROUP_GENERAL);
+        m_keyFile.load_from_file(CONFIG_FILE_PATH);
+    }
+    if (!m_keyFile.has_group(GROUP_NETWORK))
+    {
+        addGroupToFile(GROUP_NETWORK);
+        m_keyFile.load_from_file(CONFIG_FILE_PATH);
+    }
 }
 
 Settings::~Settings()
 {
-    keyFile.save_to_file(CONFIG_FILE_PATH);
+    m_keyFile.save_to_file(CONFIG_FILE_PATH);
 }
 
 void Settings::setAllowPermissions(bool allow)
 {
-    keyFile.set_boolean(GROUP_NETWORK, "allow_permissions", allow);
+    m_keyFile.set_boolean(GROUP_NETWORK, "allow_permissions", allow);
 }
 
 bool Settings::allowPermissions() const
@@ -47,7 +64,7 @@ bool Settings::allowPermissions() const
     auto allow = false;
     try
     {
-        allow = keyFile.get_boolean(GROUP_NETWORK, "allow_permissions");
+        allow = m_keyFile.get_boolean(GROUP_NETWORK, "allow_permissions");
     }
     catch (Glib::KeyFileError const& error)
     {
@@ -55,4 +72,24 @@ bool Settings::allowPermissions() const
     }
 
     return allow;
+}
+
+void Settings::setDarkMode(bool enable)
+{
+    m_keyFile.set_boolean(GROUP_GENERAL, "dark_mode", enable);
+}
+
+bool Settings::darkMode() const
+{
+    auto enable = false;
+    try
+    {
+        enable = m_keyFile.get_boolean(GROUP_GENERAL, "dark_mode");
+    }
+    catch (Glib::KeyFileError const& error)
+    {
+        std::cerr << "Settings: " <<  error.what() << std::endl;
+    }
+
+    return enable;
 }

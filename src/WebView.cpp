@@ -6,8 +6,32 @@
 
 namespace
 {
-    constexpr auto const WHATSAPP_WEB_URI = "https://web.whatsapp.com/";
+    constexpr auto const WHATSAPP_WEB_URI        = "https://web.whatsapp.com/";
+    constexpr auto const SCRIPT_DARK_MODE        = "document.body.className=\"web dark\"";
+    constexpr auto const SCRIPT_REVERT_DARK_MODE = "document.body.className=\"web\"";
 
+
+    void loadChanged(WebKitWebView* webView, WebKitLoadEvent loadEvent, gpointer userData)
+    {
+        auto webViewWidget = reinterpret_cast<WebView*>(userData);
+        if (!webViewWidget)
+        {
+            return;
+        }
+
+        switch(loadEvent)
+        {
+            case WEBKIT_LOAD_FINISHED:
+                // In case the widget couldn't set dark mode properly because load wasn't finished yet
+                if (webViewWidget->darkMode())
+                {
+                    webkit_web_view_run_javascript(webView, SCRIPT_DARK_MODE, nullptr, nullptr, nullptr);
+                }
+                break;
+            default:
+                break;
+        }
+    }
 
     gboolean permissionRequest(WebKitWebView*, WebKitPermissionRequest* request, GtkWindow*)
     {
@@ -93,14 +117,16 @@ namespace
 
 WebView::WebView()
     : Gtk::Widget{webkit_web_view_new()}
+    , m_darkMode{false}
 {
     auto const webContext = webkit_web_view_get_context(*this);
 
-    g_signal_connect(*this, "permission-request", G_CALLBACK(permissionRequest), this);
-    g_signal_connect(*this, "decide-policy", G_CALLBACK(decidePolicy), this);
-    g_signal_connect(*this, "context-menu", G_CALLBACK(contextMenu), this);
-    g_signal_connect(webContext, "download-started", G_CALLBACK(downloadStarted), this);
-    g_signal_connect(webContext, "initialize-notification-permissions", G_CALLBACK(initializeNotificationPermission), this);
+    g_signal_connect(*this, "load-changed", G_CALLBACK(loadChanged), this);
+    g_signal_connect(*this, "permission-request", G_CALLBACK(permissionRequest), nullptr);
+    g_signal_connect(*this, "decide-policy", G_CALLBACK(decidePolicy), nullptr);
+    g_signal_connect(*this, "context-menu", G_CALLBACK(contextMenu), nullptr);
+    g_signal_connect(webContext, "download-started", G_CALLBACK(downloadStarted), nullptr);
+    g_signal_connect(webContext, "initialize-notification-permissions", G_CALLBACK(initializeNotificationPermission), nullptr);
 
     webkit_web_view_load_uri(*this, WHATSAPP_WEB_URI);
 }
@@ -113,4 +139,20 @@ WebView::operator WebKitWebView*()
 void WebView::refresh()
 {
     webkit_web_view_reload(*this);
+}
+
+void WebView::setDarkMode(bool enable)
+{
+    if (m_darkMode == enable)
+    {
+        return;
+    }
+
+    m_darkMode = enable;
+    webkit_web_view_run_javascript(*this, m_darkMode ? SCRIPT_DARK_MODE : SCRIPT_REVERT_DARK_MODE, nullptr, nullptr, nullptr);
+}
+
+bool WebView::darkMode() const
+{
+    return m_darkMode;
 }

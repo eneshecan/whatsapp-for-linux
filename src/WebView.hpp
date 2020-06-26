@@ -11,8 +11,14 @@ class WebView
         WebView();
         ~WebView() override = default;
 
+    public:
         operator WebKitWebView*();
 
     public:
         void refresh();
+        void setDarkMode(bool enable);
+        bool darkMode() const;
+
+    private:
+        bool m_darkMode;
 };

@@ -73,6 +73,15 @@
                         <accelerator key="F11" signal="activate"/>
                       </object>
                     </child>
+                    <child>
+                      <object class="GtkCheckMenuItem" id="dark_mode_menu_item">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label">Dark Mode</property>
+                        <property name="use_underline">True</property>
+                        <accelerator key="d" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+                      </object>
+                    </child>
                   </object>
                 </child>
               </object>

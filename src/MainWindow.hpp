@@ -3,6 +3,7 @@
 #include "WebView.hpp"
 #include <gtkmm/window.h>
 #include <gtkmm/builder.h>
+#include <gtkmm/checkmenuitem.h>
 
 
 class MainWindow
@@ -10,7 +11,7 @@ class MainWindow
 {
     public:
         MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const& refBuilder);
-        ~MainWindow() override = default;
+        ~MainWindow() override;
 
     private:
         bool onWindowStateEvent(GdkEventWindowState* event);
@@ -19,9 +20,11 @@ class MainWindow
         void onRefresh();
         void onQuit();
         void onFullscreen();
+        void onDarkMode();
         void onAbout();
 
     private:
-        WebView      m_webView;
-        bool         m_fullscreen;
+        WebView             m_webView;
+        bool                m_fullscreen;
+        Gtk::CheckMenuItem* m_darkModeMenuItem;
 };
