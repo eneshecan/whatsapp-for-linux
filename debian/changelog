@@ -1,7 +1,5 @@
 whatsapp-for-linux (1.0.6) stable; urgency=medium
 
-  * Open urls in default browser
-  * Select a destination folder for downloads
-  * Allow running only one instance of the application
+  * See https://github.com/eneshecan/whatsapp-for-linux/releases
 
  -- Enes Hecan <nshecan@gmail.com>  Fri, 19 Jun 2020 13:36:00 +0200
