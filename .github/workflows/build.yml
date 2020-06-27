@@ -1,0 +1,37 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      
+    - name: dependencies
+      run: |
+        sudo apt install libgtkmm-3.0-dev
+        sudo apt install libwebkit2gtk-4.0-dev
+      
+    - name: configure
+      run: |
+        mkdir -p build/debug
+        mkdir -p build/release
+        
+    - name: debug build
+      run: |
+        cd build/debug
+        cmake -j4 -DCMAKE_BUILD_TYPE=Debug ../..
+        make
+        
+    - name: release build
+      run: |
+        cd build/release
+        cmake -j4 -DCMAKE_BUILD_TYPE=Release ../..
+        make
