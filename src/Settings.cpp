@@ -14,7 +14,7 @@ namespace
     void addGroupToFile(std::string_view group)
     {
         auto file = std::ofstream{CONFIG_FILE_PATH, std::ios::app};
-        file << '[' << group << ']' << '\n';
+        file << '\n' << '[' << group << ']' << '\n';
     }
 }
 
