@@ -37,6 +37,8 @@
 build/
 
 # Temporary UI Files
-src/Resources.c
 *.ui~
 *.ui#
+
+# Build artifacts
+src/Resources.c
