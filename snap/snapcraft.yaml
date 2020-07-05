@@ -1,20 +1,22 @@
 name: whatsapp-for-linux
 base: core18
-version: '1.0.7'
 summary: An unofficial WhatsApp linux client.
 description: An unofficial WhatsApp linux client written in C++ with the help of gtkmm-3.0 and webkit2.
 grade: stable
 confinement: strict
+adopt-info: whatsapp-for-linux
 
 parts:
   whatsapp-for-linux:
-    source-type: git
-    source-branch: master
-    source: https://github.com/eneshecan/whatsapp-for-linux
+    source-type: local
+    source: .
     plugin: cmake
     override-pull: |
       snapcraftctl pull
       sed -i.bak -e 's|Icon=whatsapp-for-linux|Icon=share/icons/hicolor/256x256/apps/whatsapp-for-linux.png|g' resource/desktop/whatsapp-for-linux.desktop
+      version=$(cat "src/VERSION")
+      echo "Setting version to ${version}."
+      snapcraftctl set-version $version
     configflags:
       - -DCMAKE_BUILD_TYPE=Release
     build-packages:

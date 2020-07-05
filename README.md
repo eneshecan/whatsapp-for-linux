@@ -10,7 +10,13 @@ An unofficial WhatsApp linux client written in C++ with the help of gtkmm-3.0 an
 ![App Window](https://github.com/eneshecan/whatsapp-for-linux/blob/master/screenshot/app.png)
 
 
+## Using whatsapp-for-linux
+
+Check out [releases](https://github.com/eneshecan/whatsapp-for-linux/releases) for available packages.
+
+
 ## Contributing
+
 Please read [CONTRIBUTING.md](CONTRIBUTING.md).
 
 
@@ -31,9 +37,19 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md).
 4. Run. `./whatsapp-for-linux`
 
 ### Local installation
+
 If you want to install it locally, use `make install` inside the build directory after
 building (You'll probably need administrator privileges for this).
 
 
-## Using whatsapp-for-linux
-Check out [releases](https://github.com/eneshecan/whatsapp-for-linux/releases) for available packages.
+## Packaging
+
+In order for the packages to get the version information, build cmake before generating any package.
+
+### Debian
+
+Run `dpkg-buildpackage -uc -us -ui`.
+
+### Snap
+
+Run `snapcraft`.

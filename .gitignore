@@ -41,4 +41,6 @@ build/
 *.ui#
 
 # Build artifacts
+src/VERSION
+src/Version.hpp
 src/Resources.c

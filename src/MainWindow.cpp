@@ -1,4 +1,5 @@
 #include "MainWindow.hpp"
+#include "Version.hpp"
 #include "Settings.hpp"
 #include <gtkmm/grid.h>
 #include <gtkmm/aboutdialog.h>
@@ -85,6 +86,7 @@ void MainWindow::onAbout()
     auto aboutDialog = Gtk::AboutDialog{};
 
     aboutDialog.set_title("About");
+    aboutDialog.set_version(VERSION);
     aboutDialog.set_program_name("whatsapp-for-linux");
     aboutDialog.set_logo_icon_name("help-about");
     aboutDialog.set_comments("An unofficial WhatsApp linux client desktop application.");
