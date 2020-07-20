@@ -73,23 +73,3 @@ bool Settings::allowPermissions() const
 
     return allow;
 }
-
-void Settings::setDarkMode(bool enable)
-{
-    m_keyFile.set_boolean(GROUP_GENERAL, "dark_mode", enable);
-}
-
-bool Settings::darkMode() const
-{
-    auto enable = false;
-    try
-    {
-        enable = m_keyFile.get_boolean(GROUP_GENERAL, "dark_mode");
-    }
-    catch (Glib::KeyFileError const& error)
-    {
-        std::cerr << "Settings: " <<  error.what() << std::endl;
-    }
-
-    return enable;
-}

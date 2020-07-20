@@ -44,3 +44,5 @@ build/
 src/VERSION
 src/Version.hpp
 src/Resources.c
+
+.vscode/

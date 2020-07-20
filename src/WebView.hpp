@@ -16,9 +16,4 @@ class WebView
 
     public:
         void refresh();
-        void setDarkMode(bool enable);
-        bool darkMode() const;
-
-    private:
-        bool m_darkMode;
 };
