@@ -7,8 +7,6 @@
 namespace
 {
     constexpr auto const WHATSAPP_WEB_URI        = "https://web.whatsapp.com/";
-    constexpr auto const SCRIPT_REVERT_DARK_MODE = "document.body.className=\"web\"";
-
 
     void loadChanged(WebKitWebView* webView, WebKitLoadEvent loadEvent, gpointer userData)
     {
