@@ -8,15 +8,6 @@ namespace
 {
     constexpr auto const WHATSAPP_WEB_URI        = "https://web.whatsapp.com/";
 
-    void loadChanged(WebKitWebView* webView, WebKitLoadEvent loadEvent, gpointer userData)
-    {
-        auto webViewWidget = reinterpret_cast<WebView*>(userData);
-        if (!webViewWidget)
-        {
-            return;
-        }
-    }
-
     gboolean permissionRequest(WebKitWebView*, WebKitPermissionRequest* request, GtkWindow*)
     {
         // TODO Think about handling this in MainWindow by signaling and holding a ref to the request in WebView.
@@ -104,7 +95,6 @@ WebView::WebView()
 {
     auto const webContext = webkit_web_view_get_context(*this);
 
-    g_signal_connect(*this, "load-changed", G_CALLBACK(loadChanged), this);
     g_signal_connect(*this, "permission-request", G_CALLBACK(permissionRequest), nullptr);
     g_signal_connect(*this, "decide-policy", G_CALLBACK(decidePolicy), nullptr);
     g_signal_connect(*this, "context-menu", G_CALLBACK(contextMenu), nullptr);
