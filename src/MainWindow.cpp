@@ -34,13 +34,6 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
     refBuilder->get_widget("fullscreen_menu_item", fullscreenMenuItem);
     fullscreenMenuItem->signal_activate().connect(sigc::mem_fun(this, &MainWindow::onFullscreen));
 
-    refBuilder->get_widget("dark_mode_menu_item", m_darkModeMenuItem);
-    m_darkModeMenuItem->signal_activate().connect(sigc::mem_fun(this, &MainWindow::onDarkMode));
-    if (Settings::instance().darkMode())
-    {
-        m_darkModeMenuItem->activate();
-    }
-
     Gtk::MenuItem* aboutMenuItem = nullptr;
     refBuilder->get_widget("about_menu_item", aboutMenuItem);
     aboutMenuItem->signal_activate().connect(sigc::mem_fun(this, &MainWindow::onAbout));
@@ -52,7 +45,7 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
 
 MainWindow::~MainWindow()
 {
-    Settings::instance().setDarkMode(m_darkModeMenuItem->get_active());
+    
 }
 
 bool MainWindow::onWindowStateEvent(GdkEventWindowState* event)
@@ -74,11 +67,6 @@ void MainWindow::onQuit()
 void MainWindow::onFullscreen()
 {
     m_fullscreen ? unfullscreen() : fullscreen();
-}
-
-void MainWindow::onDarkMode()
-{
-    m_webView.setDarkMode(m_darkModeMenuItem->get_active());
 }
 
 void MainWindow::onAbout()

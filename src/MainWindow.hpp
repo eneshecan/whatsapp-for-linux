@@ -20,11 +20,9 @@ class MainWindow
         void onRefresh();
         void onQuit();
         void onFullscreen();
-        void onDarkMode();
         void onAbout();
 
     private:
         WebView             m_webView;
         bool                m_fullscreen;
-        Gtk::CheckMenuItem* m_darkModeMenuItem;
 };

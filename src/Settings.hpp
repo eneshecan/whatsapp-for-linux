@@ -15,8 +15,6 @@ class Settings
     public:
         void setAllowPermissions(bool allow);
         bool allowPermissions() const;
-        void setDarkMode(bool enable);
-        bool darkMode() const;
 
     private:
         Settings();
