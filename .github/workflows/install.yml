@@ -17,8 +17,7 @@ jobs:
     - name: dependencies
       run: |
         sudo apt update
-        sudo apt install libgtkmm-3.0-dev
-        sudo apt install libwebkit2gtk-4.0-dev
+        sudo apt -y install libgtkmm-3.0-dev libwebkit2gtk-4.0-dev
 
     - name: configure
       run: mkdir -p build/release
