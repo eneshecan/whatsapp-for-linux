@@ -43,11 +43,6 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
     show_all();
 }
 
-MainWindow::~MainWindow()
-{
-    
-}
-
 bool MainWindow::onWindowStateEvent(GdkEventWindowState* event)
 {
     m_fullscreen = event->new_window_state & GDK_WINDOW_STATE_FULLSCREEN;
