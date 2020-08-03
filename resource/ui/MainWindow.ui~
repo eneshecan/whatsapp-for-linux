@@ -113,12 +113,7 @@
             <property name="receives_default">True</property>
             <property name="popover">GlobalMenuPopover</property>
             <child>
-              <object class="GtkImage">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="stock">gtk-properties</property>
-                <property name="icon_size">1</property>
-              </object>
+              <placeholder/>
             </child>
           </object>
         </child>

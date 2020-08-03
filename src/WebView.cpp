@@ -1,12 +1,21 @@
 #include "WebView.hpp"
 #include "Settings.hpp"
+#include <locale>
 #include <gtkmm/messagedialog.h>
 #include <gtkmm/filechooserdialog.h>
 
 
 namespace
 {
-    constexpr auto const WHATSAPP_WEB_URI        = "https://web.whatsapp.com/";
+    constexpr auto const WHATSAPP_WEB_URI = "https://web.whatsapp.com/";
+
+
+    std::string systemLanguage()
+    {
+        auto lang = std::locale("").name();
+        lang = lang.substr(0, lang.find('.'));
+        return lang;
+    }
 
     gboolean permissionRequest(WebKitWebView*, WebKitPermissionRequest* request, GtkWindow*)
     {
@@ -100,6 +109,14 @@ WebView::WebView()
     g_signal_connect(*this, "context-menu", G_CALLBACK(contextMenu), nullptr);
     g_signal_connect(webContext, "download-started", G_CALLBACK(downloadStarted), nullptr);
     g_signal_connect(webContext, "initialize-notification-permissions", G_CALLBACK(initializeNotificationPermission), nullptr);
+
+    auto const lang = systemLanguage();
+    gchar const* const spellCheckingLangs[] = {lang.c_str(), 0};
+    webkit_web_context_set_spell_checking_languages(webContext, spellCheckingLangs);
+    webkit_web_context_set_spell_checking_enabled(webContext, TRUE);
+
+    auto const settings = webkit_web_view_get_settings(*this);
+    webkit_settings_set_enable_developer_extras(settings, TRUE);
 
     webkit_web_view_load_uri(*this, WHATSAPP_WEB_URI);
 }

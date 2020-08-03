@@ -22,30 +22,25 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
     mainGrid->attach(m_webView, 0, 1, 1, 1);
     m_webView.set_vexpand();
 
-    Gtk::MenuItem* refreshMenuItem = nullptr;
-    refBuilder->get_widget("refresh_menu_item", refreshMenuItem);
+    Gtk::Button* refreshMenuItem = nullptr;
+    refBuilder->get_widget("refresh_button", refreshMenuItem);
     refreshMenuItem->signal_activate().connect(sigc::mem_fun(this, &MainWindow::onRefresh));
 
-    Gtk::MenuItem* quitMenuItem = nullptr;
-    refBuilder->get_widget("quit_menu_item", quitMenuItem);
+    Gtk::Button* quitMenuItem = nullptr;
+    refBuilder->get_widget("quit_button", quitMenuItem);
     quitMenuItem->signal_activate().connect(sigc::mem_fun(this, &MainWindow::onQuit));
 
-    Gtk::MenuItem* fullscreenMenuItem = nullptr;
-    refBuilder->get_widget("fullscreen_menu_item", fullscreenMenuItem);
+    Gtk::Button* fullscreenMenuItem = nullptr;
+    refBuilder->get_widget("fullscreen_button", fullscreenMenuItem);
     fullscreenMenuItem->signal_activate().connect(sigc::mem_fun(this, &MainWindow::onFullscreen));
 
-    Gtk::MenuItem* aboutMenuItem = nullptr;
-    refBuilder->get_widget("about_menu_item", aboutMenuItem);
+    Gtk::Button* aboutMenuItem = nullptr;
+    refBuilder->get_widget("about_button", aboutMenuItem);
     aboutMenuItem->signal_activate().connect(sigc::mem_fun(this, &MainWindow::onAbout));
 
     signal_window_state_event().connect(sigc::mem_fun(this, &MainWindow::onWindowStateEvent));
 
     show_all();
-}
-
-MainWindow::~MainWindow()
-{
-    
 }
 
 bool MainWindow::onWindowStateEvent(GdkEventWindowState* event)

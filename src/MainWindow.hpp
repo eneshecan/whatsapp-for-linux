@@ -11,7 +11,7 @@ class MainWindow
 {
     public:
         MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const& refBuilder);
-        ~MainWindow() override;
+        ~MainWindow() override = default;
 
     private:
         bool onWindowStateEvent(GdkEventWindowState* event);
