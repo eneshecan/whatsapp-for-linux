@@ -1,7 +1,0 @@
-/home/icar/github/whatsapp-for-linux-master/build/debug/CMakeFiles/install/strip.dir
-/home/icar/github/whatsapp-for-linux-master/build/debug/CMakeFiles/install/local.dir
-/home/icar/github/whatsapp-for-linux-master/build/debug/CMakeFiles/install.dir
-/home/icar/github/whatsapp-for-linux-master/build/debug/CMakeFiles/list_install_components.dir
-/home/icar/github/whatsapp-for-linux-master/build/debug/CMakeFiles/rebuild_cache.dir
-/home/icar/github/whatsapp-for-linux-master/build/debug/CMakeFiles/edit_cache.dir
-/home/icar/github/whatsapp-for-linux-master/build/debug/CMakeFiles/whatsapp-for-linux.dir
