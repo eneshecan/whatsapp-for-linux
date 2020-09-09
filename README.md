@@ -3,6 +3,7 @@
 An unofficial WhatsApp linux client written in C++ with the help of gtkmm-3.0 and webkit2.
 
 [![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-white.svg)](https://snapcraft.io/whatsapp-for-linux)
+[![Get it from AUR](https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Arch_Linux_logo.svg/200px-Arch_Linux_logo.svg.png)](https://aur.archlinux.org/packages/whatsapp-for-linux)
 
 [![Action Status](https://github.com/eneshecan/whatsapp-for-linux/workflows/Build/badge.svg)](https://github.com/eneshecan/whatsapp-for-linux/actions)
 [![Action Status](https://github.com/eneshecan/whatsapp-for-linux/workflows/Install/badge.svg)](https://github.com/eneshecan/whatsapp-for-linux/actions)
