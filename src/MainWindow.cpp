@@ -24,14 +24,14 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
 
     Gtk::Button* refreshButton = nullptr;
     refBuilder->get_widget("refresh_button", refreshButton);
-    refreshButton->set_image_from_icon_name("view-refresh-symbolic", Gtk::BuiltinIconSize::ICON_SIZE_BUTTON);
-    refreshButton->set_always_show_image(true);
+    refreshButton->set_image_from_icon_name("view-refresh");
+    refreshButton->set_always_show_image();
     refreshButton->signal_clicked().connect(sigc::mem_fun(this, &MainWindow::onRefresh));
 
     Gtk::Button* headerMenuButton = nullptr;
     refBuilder->get_widget("header_menu_button", headerMenuButton);
-    headerMenuButton->set_image_from_icon_name("start-here", Gtk::BuiltinIconSize::ICON_SIZE_BUTTON);
-    headerMenuButton->set_always_show_image(true);
+    headerMenuButton->set_image_from_icon_name("start-here");
+    headerMenuButton->set_always_show_image();
 
     Gtk::MenuItem* quitMenuItem = nullptr;
     refBuilder->get_widget("quit_menu_item", quitMenuItem);
