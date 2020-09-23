@@ -16,4 +16,6 @@ class WebView
 
     public:
         void refresh();
+        double zoomIn();
+        double zoomOut();
 };

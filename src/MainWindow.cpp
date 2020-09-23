@@ -4,6 +4,7 @@
 #include <gtkmm/grid.h>
 #include <gtkmm/aboutdialog.h>
 
+Gtk::Label* zoomLevelLabel = nullptr;
 
 MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const& refBuilder)
     : Gtk::Window{cobject}
@@ -33,17 +34,27 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
     headerMenuButton->set_image_from_icon_name("start-here");
     headerMenuButton->set_always_show_image();
 
-    Gtk::MenuItem* quitMenuItem = nullptr;
-    refBuilder->get_widget("quit_menu_item", quitMenuItem);
-    quitMenuItem->signal_activate().connect(sigc::mem_fun(this, &MainWindow::onQuit));
+    refBuilder->get_widget("zoom_level_label", zoomLevelLabel);
 
-    Gtk::MenuItem* fullscreenMenuItem = nullptr;
-    refBuilder->get_widget("fullscreen_menu_item", fullscreenMenuItem);
-    fullscreenMenuItem->signal_activate().connect(sigc::mem_fun(this, &MainWindow::onFullscreen));
+    Gtk::Button* zoomOutButton = nullptr;
+    refBuilder->get_widget("zoom_out_button", zoomOutButton);
+    zoomOutButton->signal_clicked().connect(sigc::mem_fun(this, &MainWindow::onZoomOut));
 
-    Gtk::MenuItem* aboutMenuItem = nullptr;
-    refBuilder->get_widget("about_menu_item", aboutMenuItem);
-    aboutMenuItem->signal_activate().connect(sigc::mem_fun(this, &MainWindow::onAbout));
+    Gtk::Button* zoomInButton = nullptr;
+    refBuilder->get_widget("zoom_in_button", zoomInButton);
+    zoomInButton->signal_clicked().connect(sigc::mem_fun(this, &MainWindow::onZoomIn));
+
+    Gtk::Button* quitButton = nullptr;
+    refBuilder->get_widget("quit_button", quitButton);
+    quitButton->signal_clicked().connect(sigc::mem_fun(this, &MainWindow::onQuit));
+
+    Gtk::Button* fullscreenButton = nullptr;
+    refBuilder->get_widget("fullscreen_button", fullscreenButton);
+    fullscreenButton->signal_clicked().connect(sigc::mem_fun(this, &MainWindow::onFullscreen));
+
+    Gtk::Button* aboutButton = nullptr;
+    refBuilder->get_widget("about_button", aboutButton);
+    aboutButton->signal_clicked().connect(sigc::mem_fun(this, &MainWindow::onAbout));
 
     signal_window_state_event().connect(sigc::mem_fun(this, &MainWindow::onWindowStateEvent));
 
@@ -69,6 +80,22 @@ void MainWindow::onQuit()
 void MainWindow::onFullscreen()
 {
     m_fullscreen ? unfullscreen() : fullscreen();
+}
+
+void MainWindow::onZoomIn()
+{
+    double newZoomLevel { m_webView.zoomIn() };
+    newZoomLevel *= 100;
+
+    zoomLevelLabel->set_text(std::to_string(static_cast<int>(newZoomLevel)) + "%");
+}
+
+void MainWindow::onZoomOut()
+{
+    double newZoomLevel { m_webView.zoomOut() };
+    newZoomLevel *= 100;
+
+    zoomLevelLabel->set_text(std::to_string(static_cast<int>(newZoomLevel)) + "%");
 }
 
 void MainWindow::onAbout()

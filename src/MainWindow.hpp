@@ -21,6 +21,8 @@ class MainWindow
         void onQuit();
         void onFullscreen();
         void onAbout();
+        void onZoomIn();
+        void onZoomOut();
 
     private:
         WebView             m_webView;

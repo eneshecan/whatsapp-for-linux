@@ -130,3 +130,25 @@ void WebView::refresh()
 {
     webkit_web_view_reload(*this);
 }
+
+double WebView::zoomIn()
+{
+    double zoomLevel { webkit_web_view_get_zoom_level(*this) };
+    if (zoomLevel >= 2) return zoomLevel;
+
+    zoomLevel += 0.05;
+    webkit_web_view_set_zoom_level(*this, zoomLevel);
+
+    return zoomLevel;
+}
+
+double WebView::zoomOut()
+{
+    double zoomLevel { webkit_web_view_get_zoom_level(*this) };
+    if (zoomLevel <= 0.5) return zoomLevel;
+
+    zoomLevel -= 0.05;
+    webkit_web_view_set_zoom_level(*this, zoomLevel);
+
+    return zoomLevel;
+}
