@@ -27,8 +27,6 @@
 *.out
 *.app
 
-# JetBrains
-.idea/
 
 # File-based project format:
 *.iws
@@ -45,4 +43,6 @@ src/VERSION
 src/Version.hpp
 src/Resources.c
 
+# IDE folders
+.idea/
 .vscode/
