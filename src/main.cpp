@@ -1,6 +1,6 @@
 #include "MainWindow.hpp"
 #include "gtkmm.h"
-#include "/usr/include/libappindicator3-0.1/libappindicator/app-indicator.h"
+#include "libappindicator/app-indicator.h"
 
 
 int main(int argc, char** argv)
