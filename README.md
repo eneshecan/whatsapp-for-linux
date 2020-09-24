@@ -26,6 +26,7 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md).
 * cmake >= 3.8
 * gtkmm-3.0
 * webkit2gtk-4.0
+* libappindicator-0.1
 
 
 ## Build & Run
