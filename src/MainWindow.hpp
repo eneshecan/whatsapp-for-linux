@@ -15,11 +15,12 @@ class MainWindow
 
     private:
         bool onWindowStateEvent(GdkEventWindowState* event);
+        bool onClose(GdkEventAny* event);
 
     private:
         void onRefresh();
         void onQuit();
-        void onClosetotray();
+        void onClosetotray(Gtk::CheckMenuItem* item);
         void onFullscreen();
         void onAbout();
 

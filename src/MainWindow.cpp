@@ -36,7 +36,7 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
 
     Gtk::CheckMenuItem* closetotrayMenuItem = nullptr;
     refBuilder->get_widget("closetotray_menu_item", closetotrayMenuItem);
-    closetotrayMenuItem->signal_toggled().connect(sigc::mem_fun(this, &MainWindow::onClosetotray));
+    closetotrayMenuItem->signal_toggled().connect(sigc::bind(sigc::mem_fun(this, &MainWindow::onClosetotray), closetotrayMenuItem));
 
     Gtk::MenuItem* quitMenuItem = nullptr;
     refBuilder->get_widget("quit_menu_item", quitMenuItem);
@@ -51,6 +51,7 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
     aboutMenuItem->signal_activate().connect(sigc::mem_fun(this, &MainWindow::onAbout));
 
     signal_window_state_event().connect(sigc::mem_fun(this, &MainWindow::onWindowStateEvent));
+    signal_delete_event().connect(sigc::mem_fun(this, &MainWindow::onClose));
 
     show_all();
 }
@@ -61,6 +62,17 @@ bool MainWindow::onWindowStateEvent(GdkEventWindowState* event)
     return false;
 }
 
+bool MainWindow::onClose(GdkEventAny* event)
+{
+    if ( m_closetotray == true ) {
+        set_skip_taskbar_hint(true);
+        iconify();
+        return true;
+    } else {
+        return false;
+    }
+}
+
 void MainWindow::onRefresh()
 {
     m_webView.refresh();
@@ -68,12 +80,12 @@ void MainWindow::onRefresh()
 
 void MainWindow::onQuit()
 {
-    close();
+    exit(0);
 }
 
-void MainWindow::onClosetotray()
+void MainWindow::onClosetotray(Gtk::CheckMenuItem* item)
 {
-    m_closetotray = is_active();
+    m_closetotray = item->get_active();
 }
 
 void MainWindow::onFullscreen()

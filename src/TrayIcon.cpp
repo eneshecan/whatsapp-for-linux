@@ -22,6 +22,7 @@ TrayIcon::TrayIcon(MainWindow* window, Glib::RefPtr<Gtk::Builder> const& refBuil
 };
 
 void TrayIcon::onOpen(MainWindow* window) {
+    window->set_skip_taskbar_hint(false);
     window->present();
 }
 
