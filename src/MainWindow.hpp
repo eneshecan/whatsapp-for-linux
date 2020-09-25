@@ -19,10 +19,12 @@ class MainWindow
     private:
         void onRefresh();
         void onQuit();
+        void onClosetotray();
         void onFullscreen();
         void onAbout();
 
     private:
         WebView             m_webView;
         bool                m_fullscreen;
+        bool                m_closetotray;
 };

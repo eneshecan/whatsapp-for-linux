@@ -8,6 +8,7 @@
 MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const& refBuilder)
     : Gtk::Window{cobject}
     , m_fullscreen{false}
+    , m_closetotray{false}
 {
     set_default_size(1280, 720);
 
@@ -32,6 +33,10 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
     refBuilder->get_widget("header_menu_button", headerMenuButton);
     headerMenuButton->set_image_from_icon_name("view-more");
     headerMenuButton->set_always_show_image();
+
+    Gtk::CheckMenuItem* closetotrayMenuItem = nullptr;
+    refBuilder->get_widget("closetotray_menu_item", closetotrayMenuItem);
+    closetotrayMenuItem->signal_toggled().connect(sigc::mem_fun(this, &MainWindow::onClosetotray));
 
     Gtk::MenuItem* quitMenuItem = nullptr;
     refBuilder->get_widget("quit_menu_item", quitMenuItem);
@@ -64,6 +69,11 @@ void MainWindow::onRefresh()
 void MainWindow::onQuit()
 {
     close();
+}
+
+void MainWindow::onClosetotray()
+{
+    m_closetotray = is_active();
 }
 
 void MainWindow::onFullscreen()
