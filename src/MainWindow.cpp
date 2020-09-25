@@ -30,7 +30,7 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
 
     Gtk::Button* headerMenuButton = nullptr;
     refBuilder->get_widget("header_menu_button", headerMenuButton);
-    headerMenuButton->set_image_from_icon_name("start-here");
+    headerMenuButton->set_image_from_icon_name("view-more");
     headerMenuButton->set_always_show_image();
 
     Gtk::MenuItem* quitMenuItem = nullptr;
@@ -78,7 +78,7 @@ void MainWindow::onAbout()
     aboutDialog.set_title("About");
     aboutDialog.set_version(VERSION);
     aboutDialog.set_program_name("whatsapp-for-linux");
-    aboutDialog.set_logo_icon_name("help-about");
+    aboutDialog.set_logo_icon_name("whatsapp-for-linux");
     aboutDialog.set_comments("An unofficial WhatsApp linux client desktop application.");
     aboutDialog.set_website("https://github.com/eneshecan/whatsapp-for-linux");
     aboutDialog.set_website_label("Github Repo");
