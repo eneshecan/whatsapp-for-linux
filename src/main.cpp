@@ -14,7 +14,7 @@ int main(int argc, char** argv)
     refBuilder->get_widget_derived("main_window", mainWindow);
     pMainWindow.reset(mainWindow);
     
-    TrayIcon trayIcon(mainWindow, refBuilder);
+    auto const trayIcon = TrayIcon{mainWindow, refBuilder};
 
     return app->run(*mainWindow);
 }
