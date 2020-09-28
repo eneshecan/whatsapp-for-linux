@@ -45,6 +45,14 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
     refBuilder->get_widget("about_menu_item", aboutMenuItem);
     aboutMenuItem->signal_activate().connect(sigc::mem_fun(this, &MainWindow::onAbout));
 
+    Gtk::MenuItem* zoomInMenuItem = nullptr;
+    refBuilder->get_widget("zoomin_menu_item", zoomInMenuItem);
+    zoomInMenuItem->signal_activate().connect(sigc::mem_fun(this, &MainWindow::onZoomIn));
+
+    Gtk::MenuItem* zoomOutMenuItem = nullptr;
+    refBuilder->get_widget("zoomout_menu_item", zoomOutMenuItem);
+    zoomOutMenuItem->signal_activate().connect(sigc::mem_fun(this, &MainWindow::onZoomOut));
+
     signal_window_state_event().connect(sigc::mem_fun(this, &MainWindow::onWindowStateEvent));
 
     show_all();
@@ -69,6 +77,16 @@ void MainWindow::onQuit()
 void MainWindow::onFullscreen()
 {
     m_fullscreen ? unfullscreen() : fullscreen();
+}
+
+void MainWindow::onZoomIn()
+{
+    m_webView.zoomIn();
+}
+
+void MainWindow::onZoomOut()
+{
+    m_webView.zoomOut();
 }
 
 void MainWindow::onAbout()
