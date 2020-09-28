@@ -21,11 +21,13 @@ TrayIcon::TrayIcon(MainWindow* window, Glib::RefPtr<Gtk::Builder> const& refBuil
     app_indicator_set_attention_icon (trayIcon, "whatsapp-for-linux");
 };
 
-void TrayIcon::onOpen(MainWindow* window) {
+void TrayIcon::onOpen(MainWindow* window)
+{
     window->set_skip_taskbar_hint(false);
     window->present();
 }
 
-void TrayIcon::onQuit() {
+void TrayIcon::onQuit()
+{
 	exit(0);
 }
