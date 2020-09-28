@@ -15,21 +15,36 @@
       </object>
     </child>
     <child>
-      <object class="GtkMenuItem" id="zoomin_menu_item">
+      <object class="GtkMenuItem" id="menu_zoom">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="label" translatable="yes">Zoom In</property>
+        <property name="label" translatable="yes">Zoom</property>
         <property name="use_underline">True</property>
-        <accelerator key="plus" signal="activate" modifiers="GDK_CONTROL_MASK"/>
-      </object>
-    </child>
-    <child>
-      <object class="GtkMenuItem" id="zoomout_menu_item">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="label" translatable="yes">Zoom Out</property>
-        <property name="use_underline">True</property>
-        <accelerator key="minus" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+        <child type="submenu">
+          <object class="GtkMenu">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="tearoff_title">Zoom</property>
+            <child>
+              <object class="GtkMenuItem" id="zoomin_menu_item">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Zoom In</property>
+                <property name="use_underline">True</property>
+                <accelerator key="plus" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+              </object>
+            </child>
+            <child>
+              <object class="GtkMenuItem" id="zoomout_menu_item">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Zoom Out</property>
+                <property name="use_underline">True</property>
+                <accelerator key="minus" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+              </object>
+            </child>
+          </object>
+        </child>
       </object>
     </child>
     <child>

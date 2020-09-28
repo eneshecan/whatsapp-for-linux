@@ -118,6 +118,7 @@ WebView::WebView()
     auto const settings = webkit_web_view_get_settings(*this);
     webkit_settings_set_enable_developer_extras(settings, TRUE);
 
+    webkit_web_view_set_zoom_level(*this, Settings::instance().zoomLevel());
     webkit_web_view_load_uri(*this, WHATSAPP_WEB_URI);
 }
 
@@ -133,18 +134,26 @@ void WebView::refresh()
 
 void WebView::zoomIn()
 {
-    double zoomLevel { webkit_web_view_get_zoom_level(*this) };
-    if (zoomLevel >= 2) return;
+    auto zoomLevel { webkit_web_view_get_zoom_level(*this) };
+    if (zoomLevel >= 2)
+    {
+        return;
+    }
 
     zoomLevel += 0.05;
+    Settings::instance().setZoomLevel(zoomLevel);
     webkit_web_view_set_zoom_level(*this, zoomLevel);
 }
 
 void WebView::zoomOut()
 {
-    double zoomLevel { webkit_web_view_get_zoom_level(*this) };
-    if (zoomLevel <= 0.5) return;
+    auto zoomLevel { webkit_web_view_get_zoom_level(*this) };
+    if (zoomLevel <= 0.5)
+    {
+        return;
+    }
 
     zoomLevel -= 0.05;
+    Settings::instance().setZoomLevel(zoomLevel);
     webkit_web_view_set_zoom_level(*this, zoomLevel);
 }

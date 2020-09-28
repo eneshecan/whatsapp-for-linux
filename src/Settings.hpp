@@ -15,6 +15,8 @@ class Settings
     public:
         void setAllowPermissions(bool allow);
         bool allowPermissions() const;
+        void setZoomLevel(double zoomLevel);
+        double zoomLevel() const;
 
     private:
         Settings();
