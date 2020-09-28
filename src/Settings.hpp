@@ -15,6 +15,8 @@ class Settings
     public:
         void setAllowPermissions(bool allow);
         bool allowPermissions() const;
+        void setCloseToTray(bool closetotray);
+        bool closeToTray() const;
 
     private:
         Settings();
