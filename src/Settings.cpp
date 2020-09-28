@@ -73,3 +73,23 @@ bool Settings::allowPermissions() const
 
     return allow;
 }
+
+void Settings::setCloseToTray(bool closetotray)
+{
+    m_keyFile.set_boolean(GROUP_GENERAL, "close_to_tray", closetotray);
+}
+
+bool Settings::closeToTray() const
+{
+    auto closetotray = false;
+    try
+    {
+        closetotray = m_keyFile.get_boolean(GROUP_GENERAL, "close_to_tray");
+    }
+    catch (Glib::KeyFileError const& error)
+    {
+        std::cerr << "Settings: " <<  error.what() << std::endl;
+    }
+
+    return closetotray;
+}
