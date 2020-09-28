@@ -18,7 +18,7 @@ add_custom_command(
 FIND_PACKAGE(PkgConfig REQUIRED)
 PKG_CHECK_MODULES(GTKMM3 gtkmm-3.0 REQUIRED)
 PKG_CHECK_MODULES(WEBKIT webkit2gtk-4.0 REQUIRED)
-PKG_CHECK_MODULES(APP_INDICATOR appindicator-0.1 REQUIRED)
+PKG_CHECK_MODULES(APP_INDICATOR appindicator3-0.1 REQUIRED)
 include_directories(${GTKMM3_INCLUDE_DIRS} ${WEBKIT_INCLUDE_DIRS} ${APP_INDICATOR_INCLUDE_DIRS})
 
 add_executable(whatsapp-for-linux src/main.cpp src/Version.hpp src/Resources.c src/MainWindow.cpp src/WebView.cpp src/Settings.cpp src/TrayIcon.cpp)
