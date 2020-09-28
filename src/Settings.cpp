@@ -81,7 +81,7 @@ void Settings::setZoomLevel(double zoomLevel)
 
 double Settings::zoomLevel() const
 {
-    auto zoomLevel { 1.0 };
+    auto zoomLevel = 1.0;
     try
     {
         zoomLevel = m_keyFile.get_double(GROUP_GENERAL, "zoom_level");

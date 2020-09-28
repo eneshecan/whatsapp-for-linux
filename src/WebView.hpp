@@ -9,7 +9,7 @@ class WebView
 {
     public:
         WebView();
-        ~WebView() override = default;
+        ~WebView() override;
 
     public:
         operator WebKitWebView*();
@@ -18,4 +18,7 @@ class WebView
         void refresh();
         void zoomIn();
         void zoomOut();
+
+    private:
+        double m_zoomLevel;
 };

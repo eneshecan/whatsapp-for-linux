@@ -1,6 +1,7 @@
 #include "MainWindow.hpp"
 #include "Version.hpp"
 #include "Settings.hpp"
+#include <gtkmm/menuitem.h>
 #include <gtkmm/grid.h>
 #include <gtkmm/aboutdialog.h>
 
@@ -60,7 +61,7 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
 
 bool MainWindow::onWindowStateEvent(GdkEventWindowState* event)
 {
-    m_fullscreen = event->new_window_state & GDK_WINDOW_STATE_FULLSCREEN;
+    m_fullscreen = (event->new_window_state & GDK_WINDOW_STATE_FULLSCREEN);
     return false;
 }
 

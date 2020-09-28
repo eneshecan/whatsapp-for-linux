@@ -13,9 +13,9 @@ class Settings
         Settings& operator=(Settings const&) = delete;
 
     public:
-        void setAllowPermissions(bool allow);
-        bool allowPermissions() const;
-        void setZoomLevel(double zoomLevel);
+        void   setAllowPermissions(bool allow);
+        bool   allowPermissions() const;
+        void   setZoomLevel(double zoomLevel);
         double zoomLevel() const;
 
     private:
