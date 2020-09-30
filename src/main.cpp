@@ -1,5 +1,4 @@
 #include "MainWindow.hpp"
-#include "TrayIcon.hpp"
 
 
 int main(int argc, char** argv)
@@ -13,8 +12,6 @@ int main(int argc, char** argv)
     MainWindow* mainWindow = nullptr;
     refBuilder->get_widget_derived("main_window", mainWindow);
     pMainWindow.reset(mainWindow);
-    
-    auto const trayIcon = TrayIcon{mainWindow, refBuilder};
 
     return app->run(*mainWindow);
 }

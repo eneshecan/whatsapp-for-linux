@@ -1,6 +1,7 @@
 #include "MainWindow.hpp"
 #include "Version.hpp"
 #include "Settings.hpp"
+#include "TrayIcon.hpp"
 #include <gtkmm/grid.h>
 #include <gtkmm/aboutdialog.h>
 
@@ -18,6 +19,8 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
     auto const appIcon128x128 = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/128x128/apps/whatsapp-for-linux.png");
     set_icon_list({appIcon16x16, appIcon32x32, appIcon64x64, appIcon128x128});
     set_default_icon(appIcon64x64);
+    
+    auto m_trayIcon = TrayIcon{this, refBuilder};
 
     Gtk::Grid* mainGrid = nullptr;
     refBuilder->get_widget("main_grid", mainGrid);
@@ -38,6 +41,7 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
     Gtk::CheckMenuItem* closetotrayMenuItem = nullptr;
     refBuilder->get_widget("closetotray_menu_item", closetotrayMenuItem);
     closetotrayMenuItem->set_active(m_closetotray);
+    m_trayIcon.set_active(m_closetotray);
     closetotrayMenuItem->signal_toggled().connect(sigc::bind(sigc::mem_fun(this, &MainWindow::onClosetotray), closetotrayMenuItem));
 
     Gtk::MenuItem* quitMenuItem = nullptr;
@@ -89,6 +93,7 @@ void MainWindow::onClosetotray(Gtk::CheckMenuItem* item)
 {
     m_closetotray = item->get_active();
     Settings::instance().setCloseToTray(m_closetotray);
+    //m_trayIcon->set_active(m_closetotray);
 }
 
 void MainWindow::onFullscreen()
