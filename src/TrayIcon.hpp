@@ -1,6 +1,7 @@
 #pragma once
 
-#include "MainWindow.hpp"
+#include <gtkmm/window.h>
+#include <gtkmm/builder.h>
 #include <gtkmm/menu.h>
 #include <libappindicator/app-indicator.h>
 
@@ -8,13 +9,13 @@
 class TrayIcon
 {
     public:
-        TrayIcon(MainWindow* window, Glib::RefPtr<Gtk::Builder> const& refBuilder);
+        TrayIcon(Gtk::Window* window, Glib::RefPtr<Gtk::Builder> const& refBuilder);
 
     public:
         void set_active(bool active);
 
     private:
-        void onOpen(MainWindow* window);
+        void onOpen(Gtk::Window* window);
         void onQuit();
 
     private:

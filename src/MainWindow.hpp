@@ -1,6 +1,7 @@
 #pragma once
 
 #include "WebView.hpp"
+#include "TrayIcon.hpp"
 #include <gtkmm/window.h>
 #include <gtkmm/builder.h>
 #include <gtkmm/checkmenuitem.h>
@@ -26,6 +27,7 @@ class MainWindow
 
     private:
         WebView             m_webView;
+        TrayIcon            m_trayIcon;
         bool                m_fullscreen;
         bool                m_closetotray;
 };
