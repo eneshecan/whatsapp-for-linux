@@ -1,7 +1,7 @@
 #include "TrayIcon.hpp"
 
 
-TrayIcon::TrayIcon(MainWindow* window, Glib::RefPtr<Gtk::Builder> const& refBuilder)
+TrayIcon::TrayIcon(Gtk::Window* window, Glib::RefPtr<Gtk::Builder> const& refBuilder)
     : t_trayIcon{app_indicator_new("whatsapp-for-linux", "whatsapp-for-linux", APP_INDICATOR_CATEGORY_COMMUNICATIONS)}
 {
     Gtk::Menu* menu = nullptr;
@@ -25,7 +25,7 @@ void TrayIcon::set_active(bool active)
     app_indicator_set_status(t_trayIcon, active ? APP_INDICATOR_STATUS_ACTIVE : APP_INDICATOR_STATUS_PASSIVE);
 }
 
-void TrayIcon::onOpen(MainWindow* window)
+void TrayIcon::onOpen(Gtk::Window* window)
 {
     window->set_skip_taskbar_hint(false);
     window->present();
