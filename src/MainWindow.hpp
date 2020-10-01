@@ -4,6 +4,7 @@
 #include "TrayIcon.hpp"
 #include <gtkmm/window.h>
 #include <gtkmm/builder.h>
+#include <gtkmm/checkmenuitem.h>
 
 
 class MainWindow

@@ -2,7 +2,6 @@
 #include "Version.hpp"
 #include "Settings.hpp"
 #include "TrayIcon.hpp"
-#include <gtkmm/menuitem.h>
 #include <gtkmm/grid.h>
 #include <gtkmm/aboutdialog.h>
 
