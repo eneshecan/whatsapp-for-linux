@@ -24,6 +24,8 @@ class MainWindow
         void onClosetotray(Gtk::CheckMenuItem* item);
         void onFullscreen();
         void onAbout();
+        void onZoomIn();
+        void onZoomOut();
 
     private:
         WebView             m_webView;

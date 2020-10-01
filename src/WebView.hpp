@@ -9,11 +9,16 @@ class WebView
 {
     public:
         WebView();
-        ~WebView() override = default;
+        ~WebView() override;
 
     public:
         operator WebKitWebView*();
 
     public:
         void refresh();
+        void zoomIn();
+        void zoomOut();
+
+    private:
+        double m_zoomLevel;
 };

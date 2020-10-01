@@ -1,6 +1,7 @@
 #include "MainWindow.hpp"
 #include "Version.hpp"
 #include "Settings.hpp"
+#include "TrayIcon.hpp"
 #include <gtkmm/grid.h>
 #include <gtkmm/aboutdialog.h>
 
@@ -54,6 +55,14 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
     refBuilder->get_widget("about_menu_item", aboutMenuItem);
     aboutMenuItem->signal_activate().connect(sigc::mem_fun(this, &MainWindow::onAbout));
 
+    Gtk::MenuItem* zoomInMenuItem = nullptr;
+    refBuilder->get_widget("zoomin_menu_item", zoomInMenuItem);
+    zoomInMenuItem->signal_activate().connect(sigc::mem_fun(this, &MainWindow::onZoomIn));
+
+    Gtk::MenuItem* zoomOutMenuItem = nullptr;
+    refBuilder->get_widget("zoomout_menu_item", zoomOutMenuItem);
+    zoomOutMenuItem->signal_activate().connect(sigc::mem_fun(this, &MainWindow::onZoomOut));
+
     signal_window_state_event().connect(sigc::mem_fun(this, &MainWindow::onWindowStateEvent));
     signal_delete_event().connect(sigc::mem_fun(this, &MainWindow::onClose));
 
@@ -62,7 +71,7 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
 
 bool MainWindow::onWindowStateEvent(GdkEventWindowState* event)
 {
-    m_fullscreen = event->new_window_state & GDK_WINDOW_STATE_FULLSCREEN;
+    m_fullscreen = (event->new_window_state & GDK_WINDOW_STATE_FULLSCREEN);
     return false;
 }
 
@@ -97,6 +106,16 @@ void MainWindow::onClosetotray(Gtk::CheckMenuItem* item)
 void MainWindow::onFullscreen()
 {
     m_fullscreen ? unfullscreen() : fullscreen();
+}
+
+void MainWindow::onZoomIn()
+{
+    m_webView.zoomIn();
+}
+
+void MainWindow::onZoomOut()
+{
+    m_webView.zoomOut();
 }
 
 void MainWindow::onAbout()
