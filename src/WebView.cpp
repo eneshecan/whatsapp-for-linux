@@ -101,6 +101,7 @@ namespace
 
 WebView::WebView()
     : Gtk::Widget{webkit_web_view_new()}
+    , m_zoomLevel{Settings::instance().zoomLevel()}
 {
     auto const webContext = webkit_web_view_get_context(*this);
 
@@ -118,7 +119,13 @@ WebView::WebView()
     auto const settings = webkit_web_view_get_settings(*this);
     webkit_settings_set_enable_developer_extras(settings, TRUE);
 
+    webkit_web_view_set_zoom_level(*this, m_zoomLevel);
     webkit_web_view_load_uri(*this, WHATSAPP_WEB_URI);
+}
+
+WebView::~WebView()
+{
+    Settings::instance().setZoomLevel(m_zoomLevel);
 }
 
 WebView::operator WebKitWebView*()
@@ -129,4 +136,28 @@ WebView::operator WebKitWebView*()
 void WebView::refresh()
 {
     webkit_web_view_reload(*this);
+}
+
+void WebView::zoomIn()
+{
+    m_zoomLevel = webkit_web_view_get_zoom_level(*this);
+    if (m_zoomLevel >= 2)
+    {
+        return;
+    }
+
+    m_zoomLevel += 0.05;
+    webkit_web_view_set_zoom_level(*this, m_zoomLevel);
+}
+
+void WebView::zoomOut()
+{
+    m_zoomLevel = webkit_web_view_get_zoom_level(*this);
+    if (m_zoomLevel <= 0.5)
+    {
+        return;
+    }
+
+    m_zoomLevel -= 0.05;
+    webkit_web_view_set_zoom_level(*this, m_zoomLevel);
 }

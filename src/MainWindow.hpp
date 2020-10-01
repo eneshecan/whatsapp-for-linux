@@ -3,7 +3,6 @@
 #include "WebView.hpp"
 #include <gtkmm/window.h>
 #include <gtkmm/builder.h>
-#include <gtkmm/checkmenuitem.h>
 
 
 class MainWindow
@@ -23,6 +22,8 @@ class MainWindow
         void onClosetotray(Gtk::CheckMenuItem* item);
         void onFullscreen();
         void onAbout();
+        void onZoomIn();
+        void onZoomOut();
 
     private:
         WebView             m_webView;

@@ -74,6 +74,26 @@ bool Settings::allowPermissions() const
     return allow;
 }
 
+void Settings::setZoomLevel(double zoomLevel)
+{
+    m_keyFile.set_double(GROUP_GENERAL, "zoom_level", zoomLevel);
+}
+
+double Settings::zoomLevel() const
+{
+    auto zoomLevel = 1.0;
+    try
+    {
+        zoomLevel = m_keyFile.get_double(GROUP_GENERAL, "zoom_level");
+    }
+    catch (Glib::KeyFileError const& error)
+    {
+        std::cerr << "Settings: " << error.what() << std::endl;
+    }
+
+    return zoomLevel;
+}
+
 void Settings::setCloseToTray(bool closetotray)
 {
     m_keyFile.set_boolean(GROUP_GENERAL, "close_to_tray", closetotray);
