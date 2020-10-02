@@ -11,12 +11,12 @@ class MainWindow
     : public Gtk::Window
 {
     public:
-        MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const& refBuilder);
+        MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const& refBuilder, Glib::RefPtr<Gtk::Application> const& app);
         ~MainWindow() override = default;
 
     private:
         bool onWindowStateEvent(GdkEventWindowState* event);
-        bool onClose(GdkEventAny* event);
+        bool onClose(GdkEventAny* event, Glib::RefPtr<Gtk::Application> const& app);
 
     private:
         void onRefresh();

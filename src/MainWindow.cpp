@@ -5,7 +5,7 @@
 #include <gtkmm/aboutdialog.h>
 
 
-MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const& refBuilder)
+MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const& refBuilder, Glib::RefPtr<Gtk::Application> const& app)
     : Gtk::Window{cobject}
     , m_trayIcon{TrayIcon{this, refBuilder}}
     , m_fullscreen{false}
@@ -63,7 +63,7 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
     zoomOutMenuItem->signal_activate().connect(sigc::mem_fun(this, &MainWindow::onZoomOut));
 
     signal_window_state_event().connect(sigc::mem_fun(this, &MainWindow::onWindowStateEvent));
-    signal_delete_event().connect(sigc::mem_fun(this, &MainWindow::onClose));
+    signal_delete_event().connect(sigc::bind(sigc::mem_fun(this, &MainWindow::onClose), app));
 
     show_all();
 }
@@ -74,11 +74,11 @@ bool MainWindow::onWindowStateEvent(GdkEventWindowState* event)
     return false;
 }
 
-bool MainWindow::onClose(GdkEventAny* event)
+bool MainWindow::onClose(GdkEventAny* event, Glib::RefPtr<Gtk::Application> const& app)
 {
     if ( m_closetotray == true ) {
-        set_skip_taskbar_hint(true);
-        iconify();
+        app->hold();
+        hide();
         return true;
     } else {
         return false;
