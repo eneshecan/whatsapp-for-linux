@@ -27,8 +27,7 @@ void TrayIcon::set_active(bool active)
 
 void TrayIcon::onOpen(Gtk::Window* window)
 {
-    window->set_skip_taskbar_hint(false);
-    window->present();
+    window->show();
 }
 
 void TrayIcon::onQuit()

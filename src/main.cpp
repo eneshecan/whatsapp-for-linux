@@ -10,7 +10,7 @@ int main(int argc, char** argv)
     auto pMainWindow = std::unique_ptr<MainWindow>{};
 
     MainWindow* mainWindow = nullptr;
-    refBuilder->get_widget_derived("main_window", mainWindow);
+    refBuilder->get_widget_derived("main_window", mainWindow, app);
     pMainWindow.reset(mainWindow);
 
     return app->run(*mainWindow);
