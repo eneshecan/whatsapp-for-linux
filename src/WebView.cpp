@@ -19,7 +19,6 @@ namespace
 
     gboolean permissionRequest(WebKitWebView*, WebKitPermissionRequest* request, GtkWindow*)
     {
-        // TODO Think about handling this in MainWindow by signaling and holding a ref to the request in WebView.
         auto dialog = Gtk::MessageDialog{"Notification Request", false, Gtk::MESSAGE_QUESTION, Gtk::BUTTONS_YES_NO};
         dialog.set_secondary_text("Do you allow WhatsApp to send you notifications?");
 
@@ -73,7 +72,7 @@ namespace
         dialog.add_button("Select", Gtk::RESPONSE_OK);
         dialog.add_button("Cancel", Gtk::RESPONSE_CANCEL);
 
-        int result = dialog.run();
+        auto const result = dialog.run();
         switch(result)
         {
             case Gtk::RESPONSE_OK:
