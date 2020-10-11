@@ -7,7 +7,7 @@
 
 
 MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const& refBuilder)
-    : Gtk::Window{cobject}
+    : Gtk::ApplicationWindow{cobject}
     , m_fullscreen{false}
 {
     set_default_size(1280, 720);
@@ -28,6 +28,8 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
     refreshButton->set_image_from_icon_name("view-refresh");
     refreshButton->set_always_show_image();
     refreshButton->signal_clicked().connect(sigc::mem_fun(this, &MainWindow::onRefresh));
+
+    refBuilder->get_widget("header_bar", m_headerBar);
 
     Gtk::Button* headerMenuButton = nullptr;
     refBuilder->get_widget("header_menu_button", headerMenuButton);
@@ -54,15 +56,30 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
     refBuilder->get_widget("zoomout_menu_item", zoomOutMenuItem);
     zoomOutMenuItem->signal_activate().connect(sigc::mem_fun(this, &MainWindow::onZoomOut));
 
-    signal_window_state_event().connect(sigc::mem_fun(this, &MainWindow::onWindowStateEvent));
-
     show_all();
+
+    m_headerBar->set_visible(Settings::instance().headerBar());
 }
 
-bool MainWindow::onWindowStateEvent(GdkEventWindowState* event)
+bool MainWindow::on_key_press_event(GdkEventKey* keyEvent)
 {
-    m_fullscreen = (event->new_window_state & GDK_WINDOW_STATE_FULLSCREEN);
-    return false;
+    switch (keyEvent->keyval)
+    {
+        case GDK_KEY_Alt_L:
+            m_headerBar->set_visible(!m_headerBar->is_visible());
+            Settings::instance().setHeaderBar(m_headerBar->is_visible());
+            return true;
+
+        default:
+            return Gtk::ApplicationWindow::on_key_press_event(keyEvent);
+    }
+}
+
+bool MainWindow::on_window_state_event(GdkEventWindowState *windowStateEvent)
+{
+    m_fullscreen = (windowStateEvent->new_window_state & GDK_WINDOW_STATE_FULLSCREEN);
+
+    return Gtk::ApplicationWindow::on_window_state_event(windowStateEvent);
 }
 
 void MainWindow::onRefresh()

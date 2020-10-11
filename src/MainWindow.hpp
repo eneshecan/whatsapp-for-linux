@@ -1,19 +1,21 @@
 #pragma once
 
 #include "WebView.hpp"
-#include <gtkmm/window.h>
+#include <gtkmm/applicationwindow.h>
 #include <gtkmm/builder.h>
+#include <gtkmm/headerbar.h>
 
 
 class MainWindow
-    : public Gtk::Window
+    : public Gtk::ApplicationWindow
 {
     public:
         MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const& refBuilder);
-        ~MainWindow() override = default;
+        virtual ~MainWindow() override = default;
 
-    private:
-        bool onWindowStateEvent(GdkEventWindowState* event);
+    protected:
+        bool on_key_press_event(GdkEventKey* keyEvent) override;
+        bool on_window_state_event(GdkEventWindowState* windowStateEvent) override;
 
     private:
         void onRefresh();
@@ -25,5 +27,6 @@ class MainWindow
 
     private:
         WebView             m_webView;
+        Gtk::HeaderBar*     m_headerBar;
         bool                m_fullscreen;
 };
