@@ -9,7 +9,7 @@ class WebView
 {
     public:
         WebView();
-        virtual ~WebView() override;
+        ~WebView() override;
 
     public:
         operator WebKitWebView*();
