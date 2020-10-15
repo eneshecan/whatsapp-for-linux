@@ -5,11 +5,10 @@
 #include <gtkmm/aboutdialog.h>
 
 
-MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const& refBuilder, Glib::RefPtr<Gtk::Application> const& app)
-    : Gtk::Window{cobject}
+MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const& refBuilder)
+    : Gtk::ApplicationWindow{cobject}
     , m_trayIcon{TrayIcon{this, refBuilder}}
     , m_fullscreen{false}
-    , m_closetotray{Settings::instance().closeToTray()}
 {
     set_default_size(1280, 720);
 
@@ -38,9 +37,9 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
 
     Gtk::CheckMenuItem* closetotrayMenuItem = nullptr;
     refBuilder->get_widget("closetotray_menu_item", closetotrayMenuItem);
-    closetotrayMenuItem->set_active(m_closetotray);
-    m_trayIcon.set_active(m_closetotray);
-    closetotrayMenuItem->signal_toggled().connect(sigc::bind(sigc::mem_fun(this, &MainWindow::onClosetotray), closetotrayMenuItem));
+    m_trayIcon.set_active(Settings::instance().closeToTray());
+    closetotrayMenuItem->set_active(m_trayIcon.active());
+    closetotrayMenuItem->signal_toggled().connect(sigc::bind(sigc::mem_fun(this, &MainWindow::onCloseToTray), closetotrayMenuItem));
 
     Gtk::MenuItem* quitMenuItem = nullptr;
     refBuilder->get_widget("quit_menu_item", quitMenuItem);
@@ -63,9 +62,14 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
     zoomOutMenuItem->signal_activate().connect(sigc::mem_fun(this, &MainWindow::onZoomOut));
 
     signal_window_state_event().connect(sigc::mem_fun(this, &MainWindow::onWindowStateEvent));
-    signal_delete_event().connect(sigc::bind(sigc::mem_fun(this, &MainWindow::onClose), app));
+    signal_delete_event().connect(sigc::mem_fun(this, &MainWindow::onDelete));
 
     show_all();
+}
+
+MainWindow::~MainWindow()
+{
+    Settings::instance().setCloseToTray(m_trayIcon.active());
 }
 
 bool MainWindow::onWindowStateEvent(GdkEventWindowState* event)
@@ -74,13 +78,16 @@ bool MainWindow::onWindowStateEvent(GdkEventWindowState* event)
     return false;
 }
 
-bool MainWindow::onClose(GdkEventAny* event, Glib::RefPtr<Gtk::Application> const& app)
+bool MainWindow::onDelete(GdkEventAny*)
 {
-    if ( m_closetotray == true ) {
-        app->hold();
+    if (m_trayIcon.active())
+    {
+        get_application()->hold();
         hide();
         return true;
-    } else {
+    }
+    else
+    {
         return false;
     }
 }
@@ -92,14 +99,20 @@ void MainWindow::onRefresh()
 
 void MainWindow::onQuit()
 {
-    exit(0);
+    close();
 }
 
-void MainWindow::onClosetotray(Gtk::CheckMenuItem* item)
+void MainWindow::onCloseToTray(Gtk::CheckMenuItem* item)
 {
-    m_closetotray = item->get_active();
-    Settings::instance().setCloseToTray(m_closetotray);
-    m_trayIcon.set_active(m_closetotray);
+    if (item->get_active())
+    {
+        iconify();
+    }
+    else
+    {
+        deiconify();
+    }
+    m_trayIcon.set_active(item->get_active());
 }
 
 void MainWindow::onFullscreen()
@@ -124,7 +137,6 @@ void MainWindow::onAbout()
     aboutDialog.set_title("About");
     aboutDialog.set_version(VERSION);
     aboutDialog.set_program_name("whatsapp-for-linux");
-    aboutDialog.set_logo_icon_name("whatsapp-for-linux");
     aboutDialog.set_comments("An unofficial WhatsApp linux client desktop application.");
     aboutDialog.set_website("https://github.com/eneshecan/whatsapp-for-linux");
     aboutDialog.set_website_label("Github Repo");

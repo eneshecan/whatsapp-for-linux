@@ -94,6 +94,25 @@ double Settings::zoomLevel() const
     return zoomLevel;
 }
 
+void Settings::setHeaderBar(bool enable)
+{
+    m_keyFile.set_boolean(GROUP_GENERAL, "header_bar", enable);
+}
+
+bool Settings::headerBar() const
+{
+    auto enable = true;
+    try
+    {
+        enable = m_keyFile.get_boolean(GROUP_GENERAL, "header_bar");
+    }
+    catch (Glib::KeyFileError const& error)
+    {
+        std::cerr << "Settings: " <<  error.what() << std::endl;
+    }
+    return enable;
+}
+
 void Settings::setCloseToTray(bool closetotray)
 {
     m_keyFile.set_boolean(GROUP_GENERAL, "close_to_tray", closetotray);
