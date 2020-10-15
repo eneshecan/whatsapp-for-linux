@@ -28,6 +28,7 @@ parts:
       - libappindicator3-dev
     stage-packages:
       - libgtkmm-3.0-1v5
+      - libappindicator3-1
 
 slots:
   dbus-app:
