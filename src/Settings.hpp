@@ -17,6 +17,8 @@ class Settings
         bool   allowPermissions() const;
         void   setZoomLevel(double zoomLevel);
         double zoomLevel() const;
+        void   setHeaderBar(bool enable);
+        bool   headerBar() const;
         void   setCloseToTray(bool closetotray);
         bool   closeToTray() const;
 
