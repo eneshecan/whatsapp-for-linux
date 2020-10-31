@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.36.0 -->
+<!-- Generated with glade 3.38.1 -->
 <interface>
-  <requires lib="gtk+" version="3.20"/>
+  <requires lib="gtk+" version="3.24"/>
   <object class="GtkMenu" id="header_menu">
     <property name="visible">True</property>
-    <property name="can_focus">False</property>
+    <property name="can-focus">False</property>
     <child>
       <object class="GtkMenuItem" id="fullscreen_menu_item">
         <property name="visible">True</property>
-        <property name="can_focus">False</property>
+        <property name="can-focus">False</property>
         <property name="label" translatable="yes">Fullscreen</property>
-        <property name="use_underline">True</property>
+        <property name="use-underline">True</property>
         <accelerator key="F11" signal="activate"/>
       </object>
     </child>
     <child>
       <object class="GtkMenuItem" id="menu_zoom">
         <property name="visible">True</property>
-        <property name="can_focus">False</property>
+        <property name="can-focus">False</property>
         <property name="label" translatable="yes">Zoom</property>
-        <property name="use_underline">True</property>
+        <property name="use-underline">True</property>
         <child type="submenu">
           <object class="GtkMenu">
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="tearoff_title">Zoom</property>
+            <property name="can-focus">False</property>
+            <property name="tearoff-title">Zoom</property>
             <child>
               <object class="GtkMenuItem" id="zoomin_menu_item">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
+                <property name="can-focus">False</property>
                 <property name="label" translatable="yes">Zoom In</property>
-                <property name="use_underline">True</property>
+                <property name="use-underline">True</property>
                 <accelerator key="plus" signal="activate" modifiers="GDK_CONTROL_MASK"/>
               </object>
             </child>
             <child>
               <object class="GtkMenuItem" id="zoomout_menu_item">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
+                <property name="can-focus">False</property>
                 <property name="label" translatable="yes">Zoom Out</property>
-                <property name="use_underline">True</property>
+                <property name="use-underline">True</property>
                 <accelerator key="minus" signal="activate" modifiers="GDK_CONTROL_MASK"/>
               </object>
             </child>
@@ -50,59 +50,71 @@
     <child>
       <object class="GtkMenuItem" id="about_menu_item">
         <property name="visible">True</property>
-        <property name="can_focus">False</property>
+        <property name="can-focus">False</property>
         <property name="label" translatable="yes">About</property>
-        <property name="use_underline">True</property>
+        <property name="use-underline">True</property>
         <accelerator key="F1" signal="activate"/>
       </object>
     </child>
     <child>
       <object class="GtkMenuItem" id="quit_menu_item">
         <property name="visible">True</property>
-        <property name="can_focus">False</property>
+        <property name="can-focus">False</property>
         <property name="label" translatable="yes">Quit</property>
-        <property name="use_underline">True</property>
+        <property name="use-underline">True</property>
       </object>
     </child>
   </object>
-  <object class="GtkWindow" id="main_window">
-    <property name="can_focus">False</property>
+  <object class="GtkApplicationWindow" id="main_window">
+    <property name="can-focus">False</property>
     <property name="title" translatable="yes">WhatsApp</property>
     <child>
+      <!-- n-columns=0 n-rows=0 -->
       <object class="GtkGrid" id="main_grid">
         <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="column_homogeneous">True</property>
+        <property name="can-focus">False</property>
+        <property name="column-homogeneous">True</property>
       </object>
     </child>
     <child type="titlebar">
       <object class="GtkHeaderBar" id="header_bar">
         <property name="visible">True</property>
-        <property name="can_focus">False</property>
+        <property name="can-focus">False</property>
         <property name="title" translatable="yes">WhatsApp for Linux</property>
-        <property name="has_subtitle">False</property>
-        <property name="show_close_button">True</property>
+        <property name="has-subtitle">False</property>
+        <property name="show-close-button">True</property>
         <child>
           <object class="GtkButton" id="refresh_button">
             <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+            <child>
+              <object class="GtkImage" id="refresh_image">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="icon-name">view-refresh</property>
+              </object>
+            </child>
             <accelerator key="F5" signal="clicked"/>
           </object>
         </child>
         <child>
           <object class="GtkMenuButton" id="header_menu_button">
             <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="focus_on_click">False</property>
-            <property name="receives_default">True</property>
+            <property name="can-focus">True</property>
+            <property name="focus-on-click">False</property>
+            <property name="receives-default">True</property>
             <property name="popup">header_menu</property>
             <child>
-              <placeholder/>
+              <object class="GtkImage" id="header_menu_image">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="icon-name">start-here</property>
+              </object>
             </child>
           </object>
           <packing>
-            <property name="pack_type">end</property>
+            <property name="pack-type">end</property>
             <property name="position">1</property>
           </packing>
         </child>

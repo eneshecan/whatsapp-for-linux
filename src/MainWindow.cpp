@@ -17,6 +17,7 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
     auto const appIcon64x64   = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/64x64/apps/whatsapp-for-linux.png");
     auto const appIcon128x128 = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/128x128/apps/whatsapp-for-linux.png");
     set_icon_list({appIcon16x16, appIcon32x32, appIcon64x64, appIcon128x128});
+    set_default_icon(appIcon64x64);
 
     Gtk::Grid* mainGrid = nullptr;
     refBuilder->get_widget("main_grid", mainGrid);
@@ -25,7 +26,6 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
 
     Gtk::Button* refreshButton = nullptr;
     refBuilder->get_widget("refresh_button", refreshButton);
-    refreshButton->set_image_from_icon_name("view-refresh");
     refreshButton->set_always_show_image();
     refreshButton->signal_clicked().connect(sigc::mem_fun(this, &MainWindow::onRefresh));
 
@@ -33,7 +33,6 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
 
     Gtk::Button* headerMenuButton = nullptr;
     refBuilder->get_widget("header_menu_button", headerMenuButton);
-    headerMenuButton->set_image_from_icon_name("start-here");
     headerMenuButton->set_always_show_image();
 
     Gtk::MenuItem* quitMenuItem = nullptr;
@@ -114,7 +113,6 @@ void MainWindow::onAbout()
     aboutDialog.set_title("About");
     aboutDialog.set_version(VERSION);
     aboutDialog.set_program_name("whatsapp-for-linux");
-    aboutDialog.set_logo_icon_name("help-about");
     aboutDialog.set_comments("An unofficial WhatsApp linux client desktop application.");
     aboutDialog.set_website("https://github.com/eneshecan/whatsapp-for-linux");
     aboutDialog.set_website_label("Github Repo");
