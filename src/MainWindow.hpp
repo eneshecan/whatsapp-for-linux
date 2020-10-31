@@ -11,7 +11,7 @@ class MainWindow
 {
     public:
         MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const& refBuilder);
-        ~MainWindow() override = default;
+        ~MainWindow() override;
 
     protected:
         bool on_key_press_event(GdkEventKey* keyEvent) override;
@@ -28,5 +28,6 @@ class MainWindow
     private:
         WebView             m_webView;
         Gtk::HeaderBar*     m_headerBar;
+        bool                m_headerBarVisible;
         bool                m_fullscreen;
 };

@@ -9,6 +9,7 @@
 MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const& refBuilder)
     : Gtk::ApplicationWindow{cobject}
     , m_fullscreen{false}
+    , m_headerBarVisible{false}
 {
     set_default_size(1280, 720);
 
@@ -57,7 +58,13 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
 
     show_all();
 
-    m_headerBar->set_visible(Settings::instance().headerBar());
+    m_headerBarVisible = Settings::instance().headerBar();
+    m_headerBar->set_visible(m_headerBarVisible);
+}
+
+MainWindow::~MainWindow()
+{
+    Settings::instance().setHeaderBar(m_headerBarVisible);
 }
 
 bool MainWindow::on_key_press_event(GdkEventKey* keyEvent)
@@ -65,8 +72,8 @@ bool MainWindow::on_key_press_event(GdkEventKey* keyEvent)
     switch (keyEvent->keyval)
     {
         case GDK_KEY_Alt_L:
-            m_headerBar->set_visible(!m_headerBar->is_visible());
-            Settings::instance().setHeaderBar(m_headerBar->is_visible());
+            m_headerBarVisible = !m_headerBar->is_visible();
+            m_headerBar->set_visible(m_headerBarVisible);
             return true;
 
         default:
