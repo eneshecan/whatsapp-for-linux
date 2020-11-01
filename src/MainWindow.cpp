@@ -23,14 +23,9 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
 
     Gtk::Button* refreshButton = nullptr;
     refBuilder->get_widget("refresh_button", refreshButton);
-    refreshButton->set_always_show_image();
     refreshButton->signal_clicked().connect(sigc::mem_fun(this, &MainWindow::onRefresh));
 
     refBuilder->get_widget("header_bar", m_headerBar);
-
-    Gtk::Button* headerMenuButton = nullptr;
-    refBuilder->get_widget("header_menu_button", headerMenuButton);
-    headerMenuButton->set_always_show_image();
 
     Gtk::MenuItem* fullscreenMenuItem = nullptr;
     refBuilder->get_widget("fullscreen_menu_item", fullscreenMenuItem);
