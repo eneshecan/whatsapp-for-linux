@@ -68,6 +68,8 @@
   <object class="GtkApplicationWindow" id="main_window">
     <property name="can-focus">False</property>
     <property name="title" translatable="yes">WhatsApp</property>
+    <property name="default-width">1280</property>
+    <property name="default-height">720</property>
     <child>
       <!-- n-columns=0 n-rows=0 -->
       <object class="GtkGrid" id="main_grid">

@@ -8,11 +8,7 @@
 
 MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const& refBuilder)
     : Gtk::ApplicationWindow{cobject}
-    , m_fullscreen{false}
-    , m_headerBarVisible{false}
 {
-    set_default_size(1280, 720);
-
     auto const appIcon16x16   = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/16x16/apps/whatsapp-for-linux.png");
     auto const appIcon32x32   = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/32x32/apps/whatsapp-for-linux.png");
     auto const appIcon64x64   = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/64x64/apps/whatsapp-for-linux.png");
@@ -36,17 +32,9 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
     refBuilder->get_widget("header_menu_button", headerMenuButton);
     headerMenuButton->set_always_show_image();
 
-    Gtk::MenuItem* quitMenuItem = nullptr;
-    refBuilder->get_widget("quit_menu_item", quitMenuItem);
-    quitMenuItem->signal_activate().connect(sigc::mem_fun(this, &MainWindow::onQuit));
-
     Gtk::MenuItem* fullscreenMenuItem = nullptr;
     refBuilder->get_widget("fullscreen_menu_item", fullscreenMenuItem);
     fullscreenMenuItem->signal_activate().connect(sigc::mem_fun(this, &MainWindow::onFullscreen));
-
-    Gtk::MenuItem* aboutMenuItem = nullptr;
-    refBuilder->get_widget("about_menu_item", aboutMenuItem);
-    aboutMenuItem->signal_activate().connect(sigc::mem_fun(this, &MainWindow::onAbout));
 
     Gtk::MenuItem* zoomInMenuItem = nullptr;
     refBuilder->get_widget("zoomin_menu_item", zoomInMenuItem);
@@ -55,6 +43,14 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
     Gtk::MenuItem* zoomOutMenuItem = nullptr;
     refBuilder->get_widget("zoomout_menu_item", zoomOutMenuItem);
     zoomOutMenuItem->signal_activate().connect(sigc::mem_fun(this, &MainWindow::onZoomOut));
+
+    Gtk::MenuItem* aboutMenuItem = nullptr;
+    refBuilder->get_widget("about_menu_item", aboutMenuItem);
+    aboutMenuItem->signal_activate().connect(sigc::mem_fun(this, &MainWindow::onAbout));
+
+    Gtk::MenuItem* quitMenuItem = nullptr;
+    refBuilder->get_widget("quit_menu_item", quitMenuItem);
+    quitMenuItem->signal_activate().connect(sigc::mem_fun(this, &MainWindow::onQuit));
 
     show_all();
 
