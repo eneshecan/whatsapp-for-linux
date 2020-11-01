@@ -20,9 +20,7 @@ parts:
     configflags:
       - -DCMAKE_BUILD_TYPE=Release
     build-packages:
-      - g++
-      - cmake
-      - make
+      - build-essential
       - libgtkmm-3.0-dev
       - libwebkit2gtk-4.0-dev
     stage-packages:
@@ -36,7 +34,7 @@ slots:
 
 apps:
   whatsapp-for-linux:
-    command: desktop-launch whatsapp-for-linux
+    command: bin/whatsapp-for-linux
     desktop: share/applications/whatsapp-for-linux.desktop
     common-id: com.github.whatsapp-for-linux
     extensions: [gnome-3-28] # This takes care of most of the things for us
