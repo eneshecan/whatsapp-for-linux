@@ -58,7 +58,7 @@ MainWindow::~MainWindow()
     Settings::instance().setHeaderBar(m_headerBarVisible);
 }
 
-bool MainWindow::on_key_press_event(GdkEventKey* keyEvent)
+bool MainWindow::on_key_release_event(GdkEventKey* keyEvent)
 {
     switch (keyEvent->keyval)
     {
