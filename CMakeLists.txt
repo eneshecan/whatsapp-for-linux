@@ -13,6 +13,7 @@ add_custom_command(
     OUTPUT ${CMAKE_SOURCE_DIR}/src/Resources.c
     COMMAND glib-compile-resources --target=${CMAKE_SOURCE_DIR}/src/Resources.c --generate-source gresource.xml
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/resource
+    COMMENT "Compiling ui resources"
 )
 
 FIND_PACKAGE(PkgConfig REQUIRED)
