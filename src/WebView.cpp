@@ -73,7 +73,7 @@ namespace
         dialog.add_button("Cancel", Gtk::RESPONSE_CANCEL);
 
         auto const result = dialog.run();
-        switch(result)
+        switch (result)
         {
             case Gtk::RESPONSE_OK:
                 webkit_download_set_destination(download, dialog.get_filename().c_str());
