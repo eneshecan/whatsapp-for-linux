@@ -41,11 +41,13 @@ apps:
     plugs:
       - network
       - network-manager
+      - network-manager-observe
       - browser-support
       - camera
       - audio-playback
       - audio-record
       - home
+      - removable-media
       - opengl
       - upower-observe
     slots:
