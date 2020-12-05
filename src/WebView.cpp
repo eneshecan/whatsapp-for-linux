@@ -4,7 +4,6 @@
 #include <gtkmm/messagedialog.h>
 #include <gtkmm/filechooserdialog.h>
 
-
 namespace
 {
     constexpr auto const WHATSAPP_WEB_URI = "https://web.whatsapp.com/";
@@ -68,8 +67,8 @@ namespace
 
     void downloadStarted(WebKitWebContext*, WebKitDownload* download, gpointer)
     {
-        auto dialog = Gtk::FileChooserDialog{"Select a folder", Gtk::FILE_CHOOSER_ACTION_SELECT_FOLDER};
-        dialog.add_button("Select", Gtk::RESPONSE_OK);
+        auto dialog = Gtk::FileChooserDialog{"Select Folder", Gtk::FILE_CHOOSER_ACTION_SELECT_FOLDER};
+        dialog.add_button("Ok", Gtk::RESPONSE_OK);
         dialog.add_button("Cancel", Gtk::RESPONSE_CANCEL);
 
         auto const result = dialog.run();

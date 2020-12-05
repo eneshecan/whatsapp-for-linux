@@ -1,7 +1,6 @@
 #include <iostream>
 #include "MainWindow.hpp"
 
-
 int main(int argc, char** argv)
 {
     auto const app = Gtk::Application::create(argc, argv, "com.github.whatsapp-for-linux");

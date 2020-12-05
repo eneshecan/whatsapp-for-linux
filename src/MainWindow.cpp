@@ -5,7 +5,6 @@
 #include <gtkmm/grid.h>
 #include <gtkmm/aboutdialog.h>
 
-
 MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const& refBuilder)
     : Gtk::ApplicationWindow{cobject}
 {

@@ -2,14 +2,12 @@
 #include <fstream>
 #include <iostream>
 
-
 namespace
 {
     auto const CONFIG_DIR              = std::string{getenv("HOME")} + "/.config/whatsapp-for-linux";
     auto const CONFIG_FILE_PATH        = CONFIG_DIR + "/settings.conf";
     constexpr auto const GROUP_GENERAL = "General";
     constexpr auto const GROUP_NETWORK = "Network";
-
 
     void addGroupToFile(std::string_view group)
     {

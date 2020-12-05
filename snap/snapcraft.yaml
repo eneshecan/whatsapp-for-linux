@@ -15,7 +15,7 @@ parts:
       snapcraftctl pull
       sed -i.bak -e 's|Icon=whatsapp-for-linux|Icon=share/icons/hicolor/256x256/apps/whatsapp-for-linux.png|g' resource/desktop/whatsapp-for-linux.desktop
       version=$(cat "src/VERSION")
-      echo "Setting version to ${version}."
+      echo "Setting version to ${version}"
       snapcraftctl set-version $version
     configflags:
       - -DCMAKE_BUILD_TYPE=Release

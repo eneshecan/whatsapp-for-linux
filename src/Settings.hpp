@@ -2,7 +2,6 @@
 
 #include <glibmm/keyfile.h>
 
-
 class Settings
 {
     public:
