@@ -30,8 +30,8 @@ class MainWindow
         void onZoomOut();
 
     private:
-        TrayIcon            m_trayIcon;
-        WebView             m_webView;
-        Gtk::HeaderBar*     m_headerBar;
-        bool                m_fullscreen;
+        TrayIcon        m_trayIcon;
+        WebView         m_webView;
+        Gtk::HeaderBar* m_headerBar;
+        bool            m_fullscreen;
 };

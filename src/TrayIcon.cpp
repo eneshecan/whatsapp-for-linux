@@ -1,12 +1,15 @@
 #include "TrayIcon.hpp"
+#include <gtkmm/icontheme.h>
 
-// TODO Find a nice way to get our icon path
 TrayIcon::TrayIcon()
-    : m_appIndicator{app_indicator_new("com.github.whatsapp-for-linux.app-indicator", "/usr/local/share/icons/hicolor/16x16/apps/whatsapp-for-linux.png", APP_INDICATOR_CATEGORY_COMMUNICATIONS)}
+    : m_appIndicator{app_indicator_new("com.github.whatsapp-for-linux.indicator", "whatsapp-for-linux-indicator", APP_INDICATOR_CATEGORY_COMMUNICATIONS)}
     , m_popupMenu{}
     , m_signalActivate{}
     , m_signalQuit{}
 {
+    auto const pixbuf = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/16x16/apps/whatsapp-for-linux.png");
+    Gtk::IconTheme::get_default()->add_builtin_icon("whatsapp-for-linux-indicator", Gtk::ICON_SIZE_MENU, pixbuf);
+
     auto const showMenuItem = Gtk::make_managed<Gtk::MenuItem>("Open");
     auto const quitMenuItem = Gtk::make_managed<Gtk::MenuItem>("Quit");
     m_popupMenu.append(*showMenuItem);
