@@ -9,7 +9,7 @@
       <object class="GtkCheckMenuItem" id="close_to_tray_menu_item">
         <property name="visible">True</property>
         <property name="can-focus">False</property>
-        <property name="label" translatable="yes">Close to Tray</property>
+        <property name="label" translatable="yes">Close To Tray</property>
         <property name="use-underline">True</property>
       </object>
     </child>

@@ -12,7 +12,7 @@ class MainWindow
 {
     public:
         MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const& refBuilder);
-        ~MainWindow() override;
+        ~MainWindow() override = default;
 
     protected:
         bool on_key_release_event(GdkEventKey* keyEvent) override;
@@ -22,7 +22,7 @@ class MainWindow
     private:
         void onRefresh();
         void onShow();
-        void onQuit();
+        void onQuit(bool immediate);
         void onCloseToTray(Gtk::CheckMenuItem* menuItem);
         void onFullscreen();
         void onAbout();
@@ -33,7 +33,5 @@ class MainWindow
         TrayIcon            m_trayIcon;
         WebView             m_webView;
         Gtk::HeaderBar*     m_headerBar;
-        bool                m_headerBarVisible;
         bool                m_fullscreen;
-        bool                m_onHold;
 };

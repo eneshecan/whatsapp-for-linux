@@ -1,9 +1,10 @@
 #include <iostream>
+#include "Application.hpp"
 #include "MainWindow.hpp"
 
 int main(int argc, char** argv)
 {
-    auto const app = Gtk::Application::create(argc, argv, "com.github.whatsapp-for-linux");
+    auto app = Application{argc, argv, "com.github.whatsapp-for-linux"};
 
     auto mainWindow = std::unique_ptr<MainWindow>{};
     try
@@ -20,5 +21,5 @@ int main(int argc, char** argv)
         return 1;
     }
 
-    return app->run(*mainWindow);
+    return app.run(*mainWindow);
 }

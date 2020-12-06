@@ -1,4 +1,5 @@
 #include "MainWindow.hpp"
+#include "Application.hpp"
 #include "Version.hpp"
 #include "Settings.hpp"
 #include <gtkmm/menuitem.h>
@@ -9,9 +10,7 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
     : Gtk::ApplicationWindow{cobject}
     , m_trayIcon{}
     , m_webView{}
-    , m_headerBarVisible{false}
     , m_fullscreen{false}
-    , m_onHold{false}
 {
     auto const appIcon16x16   = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/16x16/apps/whatsapp-for-linux.png");
     auto const appIcon32x32   = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/32x32/apps/whatsapp-for-linux.png");
@@ -34,8 +33,6 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
     Gtk::CheckMenuItem* closeToTrayMenuItem = nullptr;
     refBuilder->get_widget("close_to_tray_menu_item", closeToTrayMenuItem);
     closeToTrayMenuItem->signal_toggled().connect(sigc::bind(sigc::mem_fun(this, &MainWindow::onCloseToTray), closeToTrayMenuItem));
-    closeToTrayMenuItem->set_active(true);
-    m_trayIcon.setVisible(true);
 
     Gtk::MenuItem* fullscreenMenuItem = nullptr;
     refBuilder->get_widget("fullscreen_menu_item", fullscreenMenuItem);
@@ -55,19 +52,17 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
 
     Gtk::MenuItem* quitMenuItem = nullptr;
     refBuilder->get_widget("quit_menu_item", quitMenuItem);
-    quitMenuItem->signal_activate().connect(sigc::mem_fun(this, &MainWindow::onQuit));
+    quitMenuItem->signal_activate().connect(sigc::bind(sigc::mem_fun(this, &MainWindow::onQuit), false));
 
     m_trayIcon.signalActivate().connect(sigc::mem_fun(this, &MainWindow::onShow));
+    m_trayIcon.signalQuit().connect(sigc::bind(sigc::mem_fun(this, &MainWindow::onQuit), true));
 
     show_all();
 
-    m_headerBarVisible = Settings::instance().headerBar();
-    m_headerBar->set_visible(m_headerBarVisible);
-}
+    m_trayIcon.setVisible(Settings::instance().closeToTray());
+    closeToTrayMenuItem->set_active(m_trayIcon.visible());
 
-MainWindow::~MainWindow()
-{
-    Settings::instance().setHeaderBar(m_headerBarVisible);
+    m_headerBar->set_visible(Settings::instance().headerBar());
 }
 
 bool MainWindow::on_key_release_event(GdkEventKey* keyEvent)
@@ -75,9 +70,12 @@ bool MainWindow::on_key_release_event(GdkEventKey* keyEvent)
     switch (keyEvent->keyval)
     {
         case GDK_KEY_Alt_L:
-            m_headerBarVisible = !m_headerBar->is_visible();
-            m_headerBar->set_visible(m_headerBarVisible);
+        {
+            auto const visible = !m_headerBar->is_visible();
+            m_headerBar->set_visible(visible);
+            Settings::instance().setHeaderBar(visible);
             return true;
+        }
 
         default:
             return Gtk::ApplicationWindow::on_key_press_event(keyEvent);
@@ -95,25 +93,12 @@ bool MainWindow::on_delete_event(GdkEventAny* any_event)
 {
     if (m_trayIcon.visible())
     {
-        if (!m_onHold)
-        {
-            auto const& app = get_application();
-            if (app)
-            {
-                app->hold();
-            }
-            m_onHold = true;
-        }
+        Application::instance().keepAlive();
         hide();
     }
-    else if (m_onHold)
+    else
     {
-        auto const& app = get_application();
-        if (app)
-        {
-            app->release();
-        }
-        m_onHold = false;
+        Application::instance().endKeepAlive();
     }
 
     return false;
@@ -126,11 +111,19 @@ void MainWindow::onRefresh()
 
 void MainWindow::onShow()
 {
-    show();
+    if (!is_visible())
+    {
+        Application::instance().add_window(*this);
+        show();
+    }
 }
 
-void MainWindow::onQuit()
+void MainWindow::onQuit(bool immediate)
 {
+    if (immediate && m_trayIcon.visible())
+    {
+        m_trayIcon.setVisible(false);
+    }
     close();
 }
 
@@ -141,7 +134,9 @@ void MainWindow::onFullscreen()
 
 void MainWindow::onCloseToTray(Gtk::CheckMenuItem* menuItem)
 {
-    m_trayIcon.setVisible(menuItem->get_active());
+    auto const visible = menuItem->get_active();
+    m_trayIcon.setVisible(visible);
+    Settings::instance().setCloseToTray(visible);
 }
 
 void MainWindow::onZoomIn()
