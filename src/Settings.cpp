@@ -24,6 +24,7 @@ Settings& Settings::instance()
 }
 
 Settings::Settings()
+    : m_keyFile{}
 {
     auto inputFile = std::ifstream{CONFIG_FILE_PATH};
     if (!inputFile.good())

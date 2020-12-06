@@ -7,6 +7,11 @@
 
 MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const& refBuilder)
     : Gtk::ApplicationWindow{cobject}
+    , m_trayIcon{}
+    , m_webView{}
+    , m_headerBarVisible{false}
+    , m_fullscreen{false}
+    , m_onHold{false}
 {
     auto const appIcon16x16   = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/16x16/apps/whatsapp-for-linux.png");
     auto const appIcon32x32   = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/32x32/apps/whatsapp-for-linux.png");
@@ -25,6 +30,12 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
     refreshButton->signal_clicked().connect(sigc::mem_fun(this, &MainWindow::onRefresh));
 
     refBuilder->get_widget("header_bar", m_headerBar);
+
+    Gtk::CheckMenuItem* closeToTrayMenuItem = nullptr;
+    refBuilder->get_widget("close_to_tray_menu_item", closeToTrayMenuItem);
+    closeToTrayMenuItem->signal_toggled().connect(sigc::bind(sigc::mem_fun(this, &MainWindow::onCloseToTray), closeToTrayMenuItem));
+    closeToTrayMenuItem->set_active(true);
+    m_trayIcon.setVisible(true);
 
     Gtk::MenuItem* fullscreenMenuItem = nullptr;
     refBuilder->get_widget("fullscreen_menu_item", fullscreenMenuItem);
@@ -45,6 +56,8 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
     Gtk::MenuItem* quitMenuItem = nullptr;
     refBuilder->get_widget("quit_menu_item", quitMenuItem);
     quitMenuItem->signal_activate().connect(sigc::mem_fun(this, &MainWindow::onQuit));
+
+    m_trayIcon.signalActivate().connect(sigc::mem_fun(this, &MainWindow::onShow));
 
     show_all();
 
@@ -78,9 +91,42 @@ bool MainWindow::on_window_state_event(GdkEventWindowState *windowStateEvent)
     return Gtk::ApplicationWindow::on_window_state_event(windowStateEvent);
 }
 
+bool MainWindow::on_delete_event(GdkEventAny* any_event)
+{
+    if (m_trayIcon.visible())
+    {
+        if (!m_onHold)
+        {
+            auto const& app = get_application();
+            if (app)
+            {
+                app->hold();
+            }
+            m_onHold = true;
+        }
+        hide();
+    }
+    else if (m_onHold)
+    {
+        auto const& app = get_application();
+        if (app)
+        {
+            app->release();
+        }
+        m_onHold = false;
+    }
+
+    return false;
+}
+
 void MainWindow::onRefresh()
 {
     m_webView.refresh();
+}
+
+void MainWindow::onShow()
+{
+    show();
 }
 
 void MainWindow::onQuit()
@@ -91,6 +137,11 @@ void MainWindow::onQuit()
 void MainWindow::onFullscreen()
 {
     m_fullscreen ? unfullscreen() : fullscreen();
+}
+
+void MainWindow::onCloseToTray(Gtk::CheckMenuItem* menuItem)
+{
+    m_trayIcon.setVisible(menuItem->get_active());
 }
 
 void MainWindow::onZoomIn()

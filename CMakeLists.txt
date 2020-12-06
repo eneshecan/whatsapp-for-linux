@@ -21,7 +21,7 @@ PKG_CHECK_MODULES(GTKMM3 gtkmm-3.0 REQUIRED)
 PKG_CHECK_MODULES(WEBKIT webkit2gtk-4.0 REQUIRED)
 include_directories(${GTKMM3_INCLUDE_DIRS} ${WEBKIT_INCLUDE_DIRS})
 
-add_executable(whatsapp-for-linux src/main.cpp src/Version.hpp src/Resources.c src/MainWindow.cpp src/WebView.cpp src/Settings.cpp)
+add_executable(whatsapp-for-linux src/main.cpp src/Version.hpp src/Resources.c src/MainWindow.cpp src/TrayIcon.cpp src/WebView.cpp src/Settings.cpp)
 target_link_libraries(whatsapp-for-linux ${GTKMM3_LIBRARIES} ${WEBKIT_LIBRARIES})
 
 install(TARGETS whatsapp-for-linux DESTINATION ${CMAKE_INSTALL_BINDIR})
