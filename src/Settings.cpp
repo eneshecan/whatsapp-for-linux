@@ -24,6 +24,7 @@ Settings& Settings::instance()
 }
 
 Settings::Settings()
+    : m_keyFile{}
 {
     auto inputFile = std::ifstream{CONFIG_FILE_PATH};
     if (!inputFile.good())
@@ -50,6 +51,26 @@ Settings::Settings()
 Settings::~Settings()
 {
     m_keyFile.save_to_file(CONFIG_FILE_PATH);
+}
+
+void Settings::setCloseToTray(bool enable)
+{
+    m_keyFile.set_boolean(GROUP_GENERAL, "close_to_tray", enable);
+}
+
+bool Settings::closeToTray() const
+{
+    auto enable = true;
+    try
+    {
+        enable = m_keyFile.get_boolean(GROUP_GENERAL, "close_to_tray");
+    }
+    catch (Glib::KeyFileError const& error)
+    {
+        std::cerr << "Settings: " <<  error.what() << std::endl;
+    }
+
+    return enable;
 }
 
 void Settings::setAllowPermissions(bool allow)

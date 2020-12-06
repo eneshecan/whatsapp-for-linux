@@ -12,6 +12,8 @@ class Settings
         Settings& operator=(Settings const&) = delete;
 
     public:
+        void   setCloseToTray(bool enable);
+        bool   closeToTray() const;
         void   setAllowPermissions(bool allow);
         bool   allowPermissions() const;
         void   setZoomLevel(double zoomLevel);

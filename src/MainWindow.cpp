@@ -1,4 +1,5 @@
 #include "MainWindow.hpp"
+#include "Application.hpp"
 #include "Version.hpp"
 #include "Settings.hpp"
 #include <gtkmm/menuitem.h>
@@ -7,6 +8,9 @@
 
 MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const& refBuilder)
     : Gtk::ApplicationWindow{cobject}
+    , m_trayIcon{}
+    , m_webView{}
+    , m_fullscreen{false}
 {
     auto const appIcon16x16   = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/16x16/apps/whatsapp-for-linux.png");
     auto const appIcon32x32   = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/32x32/apps/whatsapp-for-linux.png");
@@ -26,6 +30,10 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
 
     refBuilder->get_widget("header_bar", m_headerBar);
 
+    Gtk::CheckMenuItem* closeToTrayMenuItem = nullptr;
+    refBuilder->get_widget("close_to_tray_menu_item", closeToTrayMenuItem);
+    closeToTrayMenuItem->signal_toggled().connect(sigc::bind(sigc::mem_fun(this, &MainWindow::onCloseToTray), closeToTrayMenuItem));
+
     Gtk::MenuItem* fullscreenMenuItem = nullptr;
     refBuilder->get_widget("fullscreen_menu_item", fullscreenMenuItem);
     fullscreenMenuItem->signal_activate().connect(sigc::mem_fun(this, &MainWindow::onFullscreen));
@@ -44,17 +52,17 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
 
     Gtk::MenuItem* quitMenuItem = nullptr;
     refBuilder->get_widget("quit_menu_item", quitMenuItem);
-    quitMenuItem->signal_activate().connect(sigc::mem_fun(this, &MainWindow::onQuit));
+    quitMenuItem->signal_activate().connect(sigc::bind(sigc::mem_fun(this, &MainWindow::onQuit), false));
+
+    m_trayIcon.signalActivate().connect(sigc::mem_fun(this, &MainWindow::onShow));
+    m_trayIcon.signalQuit().connect(sigc::bind(sigc::mem_fun(this, &MainWindow::onQuit), true));
 
     show_all();
 
-    m_headerBarVisible = Settings::instance().headerBar();
-    m_headerBar->set_visible(m_headerBarVisible);
-}
+    m_trayIcon.setVisible(Settings::instance().closeToTray());
+    closeToTrayMenuItem->set_active(m_trayIcon.visible());
 
-MainWindow::~MainWindow()
-{
-    Settings::instance().setHeaderBar(m_headerBarVisible);
+    m_headerBar->set_visible(Settings::instance().headerBar());
 }
 
 bool MainWindow::on_key_release_event(GdkEventKey* keyEvent)
@@ -62,9 +70,12 @@ bool MainWindow::on_key_release_event(GdkEventKey* keyEvent)
     switch (keyEvent->keyval)
     {
         case GDK_KEY_Alt_L:
-            m_headerBarVisible = !m_headerBar->is_visible();
-            m_headerBar->set_visible(m_headerBarVisible);
+        {
+            auto const visible = !m_headerBar->is_visible();
+            m_headerBar->set_visible(visible);
+            Settings::instance().setHeaderBar(visible);
             return true;
+        }
 
         default:
             return Gtk::ApplicationWindow::on_key_press_event(keyEvent);
@@ -78,19 +89,54 @@ bool MainWindow::on_window_state_event(GdkEventWindowState *windowStateEvent)
     return Gtk::ApplicationWindow::on_window_state_event(windowStateEvent);
 }
 
+bool MainWindow::on_delete_event(GdkEventAny* any_event)
+{
+    if (m_trayIcon.visible())
+    {
+        Application::instance().keepAlive();
+        hide();
+    }
+    else
+    {
+        Application::instance().endKeepAlive();
+    }
+
+    return false;
+}
+
 void MainWindow::onRefresh()
 {
     m_webView.refresh();
 }
 
-void MainWindow::onQuit()
+void MainWindow::onShow()
 {
+    if (!is_visible())
+    {
+        Application::instance().add_window(*this);
+        show();
+    }
+}
+
+void MainWindow::onQuit(bool immediate)
+{
+    if (immediate && m_trayIcon.visible())
+    {
+        m_trayIcon.setVisible(false);
+    }
     close();
 }
 
 void MainWindow::onFullscreen()
 {
     m_fullscreen ? unfullscreen() : fullscreen();
+}
+
+void MainWindow::onCloseToTray(Gtk::CheckMenuItem* menuItem)
+{
+    auto const visible = menuItem->get_active();
+    m_trayIcon.setVisible(visible);
+    Settings::instance().setCloseToTray(visible);
 }
 
 void MainWindow::onZoomIn()
