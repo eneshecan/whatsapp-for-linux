@@ -2,7 +2,7 @@
 Type=Application
 Encoding=UTF-8
 Version=1.0
-Name=WhatsApp
+Name=WhatsApp for Linux
 GenericName=Unofficial WhatsApp client
 Comment=An unofficial WhatsApp linux client desktop application.
 Exec=whatsapp-for-linux
