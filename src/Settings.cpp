@@ -60,7 +60,7 @@ void Settings::setCloseToTray(bool enable)
 
 bool Settings::closeToTray() const
 {
-    auto enable = true;
+    auto enable = false;
     try
     {
         enable = m_keyFile.get_boolean(GROUP_GENERAL, "close_to_tray");
