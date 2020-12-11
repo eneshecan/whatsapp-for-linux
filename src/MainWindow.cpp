@@ -78,6 +78,18 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
     m_headerBar->set_visible(Settings::instance().headerBar());
 }
 
+bool MainWindow::on_key_press_event(GdkEventKey* keyEvent){
+    switch (keyEvent->keyval)
+    {
+        case GDK_KEY_F11:
+            onFullscreen();
+            return true;
+        
+        default:
+            return Gtk::ApplicationWindow::on_key_press_event(keyEvent);
+    }
+}
+
 bool MainWindow::on_key_release_event(GdkEventKey* keyEvent)
 {
     switch (keyEvent->keyval)
@@ -94,6 +106,7 @@ bool MainWindow::on_key_release_event(GdkEventKey* keyEvent)
             return Gtk::ApplicationWindow::on_key_press_event(keyEvent);
     }
 }
+
 
 bool MainWindow::on_window_state_event(GdkEventWindowState *windowStateEvent)
 {

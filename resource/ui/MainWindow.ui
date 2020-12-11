@@ -120,7 +120,7 @@
         </child>
         <child>
           <object class="GtkButton" id="fullscreen_button">
-            <property name="label" translatable="yes">Fullscreen</property>
+            <property name="label" translatable="yes">Fullscreen                              F11</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
