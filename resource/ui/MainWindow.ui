@@ -23,13 +23,13 @@
       </object>
     </child>
     <child>
-      <object class="GtkMenuItem" id="menu_zoom">
+      <object class="GtkMenuItem" id="zoom_menu_item">
         <property name="visible">True</property>
         <property name="can-focus">False</property>
         <property name="label" translatable="yes">Zoom</property>
         <property name="use-underline">True</property>
         <child type="submenu">
-          <object class="GtkMenu">
+          <object class="GtkMenu" id="zoom_menu">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <child>
@@ -114,6 +114,7 @@
             <property name="focus-on-click">False</property>
             <property name="receives-default">True</property>
             <property name="popup">header_menu</property>
+            <property name="use-popover">False</property>
             <child>
               <object class="GtkImage" id="header_menu_image">
                 <property name="visible">True</property>
