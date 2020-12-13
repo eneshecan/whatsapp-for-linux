@@ -7,6 +7,14 @@
 #include <gtkmm/switch.h>
 #include <gtkmm/aboutdialog.h>
 
+namespace
+{
+    std::string zoomLevelToStr(double level)
+    {
+        return std::to_string(static_cast<int>(std::round(level * 100))).append("%");
+    }
+}
+
 MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const& refBuilder)
     : Gtk::ApplicationWindow{cobject}
     , m_trayIcon{}
@@ -41,21 +49,15 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
 
     Gtk::Label* zoomLevelLabel = nullptr;
     refBuilder->get_widget("zoom_level_label", zoomLevelLabel);
-    auto const zoomLabel = std::to_string(static_cast<int>(std::round(m_webView.zoomLevel() * 100))).append("%");
-    zoomLevelLabel->set_label(zoomLabel);
-    m_webView.signalZoomLevel().connect([zoomLevelLabel](double zoomLevel)
-        {
-            auto const str = std::to_string(static_cast<int>(std::round(zoomLevel * 100))).append("%");
-            zoomLevelLabel->set_label(str);
-        });
+    zoomLevelLabel->set_label(zoomLevelToStr(m_webView.zoomLevel()));
 
     Gtk::Button* zoomInButton = nullptr;
     refBuilder->get_widget("zoom_in_button", zoomInButton);
-    zoomInButton->signal_clicked().connect(sigc::mem_fun(this, &MainWindow::onZoomIn));
+    zoomInButton->signal_clicked().connect(sigc::bind(sigc::mem_fun(this, &MainWindow::onZoomIn), zoomLevelLabel));
 
     Gtk::Button* zoomOutButton = nullptr;
     refBuilder->get_widget("zoom_out_button", zoomOutButton);
-    zoomOutButton->signal_clicked().connect(sigc::mem_fun(this, &MainWindow::onZoomOut));
+    zoomOutButton->signal_clicked().connect(sigc::bind(sigc::mem_fun(this, &MainWindow::onZoomOut), zoomLevelLabel));
 
     Gtk::Button* aboutButton = nullptr;
     refBuilder->get_widget("about_button", aboutButton);
@@ -151,14 +153,16 @@ bool MainWindow::onCloseToTray(bool visible)
     return false;
 }
 
-void MainWindow::onZoomIn()
+void MainWindow::onZoomIn(Gtk::Label* zoomLevelLabel)
 {
-    m_webView.zoomIn();
+    auto const level = m_webView.zoomIn();
+    zoomLevelLabel->set_label(zoomLevelToStr(level));
 }
 
-void MainWindow::onZoomOut()
+void MainWindow::onZoomOut(Gtk::Label* zoomLevelLabel)
 {
-    m_webView.zoomOut();
+    auto const level = m_webView.zoomOut();
+    zoomLevelLabel->set_label(zoomLevelToStr(level));
 }
 
 void MainWindow::onAbout()

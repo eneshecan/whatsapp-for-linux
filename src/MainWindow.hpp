@@ -5,6 +5,7 @@
 #include <gtkmm/applicationwindow.h>
 #include <gtkmm/builder.h>
 #include <gtkmm/headerbar.h>
+#include <gtkmm/label.h>
 
 class MainWindow
     : public Gtk::ApplicationWindow
@@ -25,8 +26,8 @@ class MainWindow
         bool onCloseToTray(bool state);
         void onFullscreen();
         void onAbout();
-        void onZoomIn();
-        void onZoomOut();
+        void onZoomIn(Gtk::Label* zoomLevelLabel);
+        void onZoomOut(Gtk::Label* zoomLevelLabel);
 
     private:
         TrayIcon        m_trayIcon;
