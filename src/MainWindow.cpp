@@ -78,7 +78,8 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
     m_headerBar->set_visible(Settings::instance().headerBar());
 }
 
-bool MainWindow::on_key_press_event(GdkEventKey* keyEvent){
+bool MainWindow::on_key_press_event(GdkEventKey* keyEvent)
+{
     switch (keyEvent->keyval)
     {
         case GDK_KEY_F11:
