@@ -139,23 +139,31 @@ void WebView::refresh()
 void WebView::zoomIn()
 {
     m_zoomLevel = webkit_web_view_get_zoom_level(*this);
-    if (m_zoomLevel >= 2)
+    if (m_zoomLevel < 2)
     {
-        return;
+        m_zoomLevel += 0.05;
+        webkit_web_view_set_zoom_level(*this, m_zoomLevel);
+        m_signalZoomLevel.emit(m_zoomLevel);
     }
-
-    m_zoomLevel += 0.05;
-    webkit_web_view_set_zoom_level(*this, m_zoomLevel);
 }
 
 void WebView::zoomOut()
 {
     m_zoomLevel = webkit_web_view_get_zoom_level(*this);
-    if (m_zoomLevel <= 0.5)
+    if (m_zoomLevel > 0.5)
     {
-        return;
+        m_zoomLevel -= 0.05;
+        webkit_web_view_set_zoom_level(*this, m_zoomLevel);
+        m_signalZoomLevel.emit(m_zoomLevel);
     }
+}
 
-    m_zoomLevel -= 0.05;
-    webkit_web_view_set_zoom_level(*this, m_zoomLevel);
+sigc::signal<void, double> WebView::signalZoomLevel() const
+{
+    return m_signalZoomLevel;
+}
+
+double WebView::zoomLevel() const
+{
+    return m_zoomLevel;
 }

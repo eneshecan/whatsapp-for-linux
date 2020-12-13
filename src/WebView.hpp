@@ -14,10 +14,15 @@ class WebView
         operator WebKitWebView*();
 
     public:
-        void refresh();
-        void zoomIn();
-        void zoomOut();
+        void   refresh();
+        void   zoomIn();
+        void   zoomOut();
+        double zoomLevel() const;
+
+    public:
+        sigc::signal<void, double> signalZoomLevel() const;
 
     private:
-        double m_zoomLevel;
+        double                     m_zoomLevel;
+        sigc::signal<void, double> m_signalZoomLevel;
 };

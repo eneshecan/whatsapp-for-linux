@@ -2,8 +2,9 @@
 #include "Application.hpp"
 #include "Version.hpp"
 #include "Settings.hpp"
-#include <gtkmm/menuitem.h>
 #include <gtkmm/grid.h>
+#include <gtkmm/button.h>
+#include <gtkmm/switch.h>
 #include <gtkmm/aboutdialog.h>
 
 MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const& refBuilder)
@@ -30,29 +31,39 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
 
     refBuilder->get_widget("header_bar", m_headerBar);
 
-    Gtk::CheckMenuItem* closeToTrayMenuItem = nullptr;
-    refBuilder->get_widget("close_to_tray_menu_item", closeToTrayMenuItem);
-    closeToTrayMenuItem->signal_toggled().connect(sigc::bind(sigc::mem_fun(this, &MainWindow::onCloseToTray), closeToTrayMenuItem));
+    Gtk::Switch* closeToTraySwitch = nullptr;
+    refBuilder->get_widget("close_to_tray_switch", closeToTraySwitch);
+    closeToTraySwitch->signal_state_set().connect(sigc::mem_fun(this, &MainWindow::onCloseToTray), false);
 
-    Gtk::MenuItem* fullscreenMenuItem = nullptr;
-    refBuilder->get_widget("fullscreen_menu_item", fullscreenMenuItem);
-    fullscreenMenuItem->signal_activate().connect(sigc::mem_fun(this, &MainWindow::onFullscreen));
+    Gtk::Button* fullscreenButton = nullptr;
+    refBuilder->get_widget("fullscreen_button", fullscreenButton);
+    fullscreenButton->signal_clicked().connect(sigc::mem_fun(this, &MainWindow::onFullscreen));
 
-    Gtk::MenuItem* zoomInMenuItem = nullptr;
-    refBuilder->get_widget("zoomin_menu_item", zoomInMenuItem);
-    zoomInMenuItem->signal_activate().connect(sigc::mem_fun(this, &MainWindow::onZoomIn));
+    Gtk::Label* zoomLevelLabel = nullptr;
+    refBuilder->get_widget("zoom_level_label", zoomLevelLabel);
+    auto const zoomLabel = std::to_string(static_cast<int>(std::round(m_webView.zoomLevel() * 100))).append("%");
+    zoomLevelLabel->set_label(zoomLabel);
+    m_webView.signalZoomLevel().connect([zoomLevelLabel](double zoomLevel)
+        {
+            auto const str = std::to_string(static_cast<int>(std::round(zoomLevel * 100))).append("%");
+            zoomLevelLabel->set_label(str);
+        });
 
-    Gtk::MenuItem* zoomOutMenuItem = nullptr;
-    refBuilder->get_widget("zoomout_menu_item", zoomOutMenuItem);
-    zoomOutMenuItem->signal_activate().connect(sigc::mem_fun(this, &MainWindow::onZoomOut));
+    Gtk::Button* zoomInButton = nullptr;
+    refBuilder->get_widget("zoom_in_button", zoomInButton);
+    zoomInButton->signal_clicked().connect(sigc::mem_fun(this, &MainWindow::onZoomIn));
 
-    Gtk::MenuItem* aboutMenuItem = nullptr;
-    refBuilder->get_widget("about_menu_item", aboutMenuItem);
-    aboutMenuItem->signal_activate().connect(sigc::mem_fun(this, &MainWindow::onAbout));
+    Gtk::Button* zoomOutButton = nullptr;
+    refBuilder->get_widget("zoom_out_button", zoomOutButton);
+    zoomOutButton->signal_clicked().connect(sigc::mem_fun(this, &MainWindow::onZoomOut));
 
-    Gtk::MenuItem* quitMenuItem = nullptr;
-    refBuilder->get_widget("quit_menu_item", quitMenuItem);
-    quitMenuItem->signal_activate().connect(sigc::bind(sigc::mem_fun(this, &MainWindow::onQuit), false));
+    Gtk::Button* aboutButton = nullptr;
+    refBuilder->get_widget("about_button", aboutButton);
+    aboutButton->signal_clicked().connect(sigc::mem_fun(this, &MainWindow::onAbout));
+
+    Gtk::Button* quitButton = nullptr;
+    refBuilder->get_widget("quit_button", quitButton);
+    quitButton->signal_clicked().connect(sigc::bind(sigc::mem_fun(this, &MainWindow::onQuit), false));
 
     m_trayIcon.signalActivate().connect(sigc::mem_fun(this, &MainWindow::onShow));
     m_trayIcon.signalQuit().connect(sigc::bind(sigc::mem_fun(this, &MainWindow::onQuit), true));
@@ -60,7 +71,7 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
     show_all();
 
     m_trayIcon.setVisible(Settings::instance().closeToTray());
-    closeToTrayMenuItem->set_active(m_trayIcon.visible());
+    closeToTraySwitch->set_state(m_trayIcon.visible());
 
     m_headerBar->set_visible(Settings::instance().headerBar());
 }
@@ -132,11 +143,12 @@ void MainWindow::onFullscreen()
     m_fullscreen ? unfullscreen() : fullscreen();
 }
 
-void MainWindow::onCloseToTray(Gtk::CheckMenuItem* menuItem)
+bool MainWindow::onCloseToTray(bool visible)
 {
-    auto const visible = menuItem->get_active();
     m_trayIcon.setVisible(visible);
     Settings::instance().setCloseToTray(visible);
+
+    return false;
 }
 
 void MainWindow::onZoomIn()

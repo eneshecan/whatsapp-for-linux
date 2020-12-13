@@ -5,7 +5,6 @@
 #include <gtkmm/applicationwindow.h>
 #include <gtkmm/builder.h>
 #include <gtkmm/headerbar.h>
-#include <gtkmm/checkmenuitem.h>
 
 class MainWindow
     : public Gtk::ApplicationWindow
@@ -23,7 +22,7 @@ class MainWindow
         void onRefresh();
         void onShow();
         void onQuit(bool immediate);
-        void onCloseToTray(Gtk::CheckMenuItem* menuItem);
+        bool onCloseToTray(bool state);
         void onFullscreen();
         void onAbout();
         void onZoomIn();

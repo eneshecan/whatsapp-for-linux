@@ -2,73 +2,164 @@
 <!-- Generated with glade 3.38.2 -->
 <interface>
   <requires lib="gtk+" version="3.22"/>
-  <object class="GtkMenu" id="header_menu">
-    <property name="visible">True</property>
+  <object class="GtkPopover" id="header_menu">
     <property name="can-focus">False</property>
     <child>
-      <object class="GtkCheckMenuItem" id="close_to_tray_menu_item">
+      <object class="GtkBox" id="header_menu_box">
         <property name="visible">True</property>
         <property name="can-focus">False</property>
-        <property name="label" translatable="yes">Close To Tray</property>
-        <property name="use-underline">True</property>
-      </object>
-    </child>
-    <child>
-      <object class="GtkMenuItem" id="fullscreen_menu_item">
-        <property name="visible">True</property>
-        <property name="can-focus">False</property>
-        <property name="label" translatable="yes">Fullscreen</property>
-        <property name="use-underline">True</property>
-        <accelerator key="F11" signal="activate"/>
-      </object>
-    </child>
-    <child>
-      <object class="GtkMenuItem" id="zoom_menu_item">
-        <property name="visible">True</property>
-        <property name="can-focus">False</property>
-        <property name="label" translatable="yes">Zoom</property>
-        <property name="use-underline">True</property>
-        <child type="submenu">
-          <object class="GtkMenu" id="zoom_menu">
+        <property name="margin-start">5</property>
+        <property name="margin-end">5</property>
+        <property name="margin-top">5</property>
+        <property name="margin-bottom">5</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">5</property>
+        <property name="homogeneous">True</property>
+        <child>
+          <object class="GtkButtonBox" id="zoom_buttonbox">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
+            <property name="spacing">5</property>
+            <property name="homogeneous">True</property>
+            <property name="layout-style">center</property>
             <child>
-              <object class="GtkMenuItem" id="zoomin_menu_item">
+              <object class="GtkButton" id="zoom_out_button">
                 <property name="visible">True</property>
-                <property name="can-focus">False</property>
-                <property name="label" translatable="yes">Zoom In</property>
-                <property name="use-underline">True</property>
-                <accelerator key="plus" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+                <property name="can-focus">True</property>
+                <property name="receives-default">True</property>
+                <property name="always-show-image">True</property>
+                <child>
+                  <object class="GtkImage">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="icon-name">zoom-out</property>
+                  </object>
+                </child>
               </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
             </child>
             <child>
-              <object class="GtkMenuItem" id="zoomout_menu_item">
+              <object class="GtkLabel" id="zoom_level_label">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="label" translatable="yes">Zoom Out</property>
-                <property name="use-underline">True</property>
-                <accelerator key="minus" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+                <property name="label" translatable="yes">100%</property>
               </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="zoom_in_button">
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="receives-default">True</property>
+                <property name="always-show-image">True</property>
+                <child>
+                  <object class="GtkImage">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="icon-name">zoom-in</property>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">2</property>
+              </packing>
             </child>
           </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">0</property>
+          </packing>
         </child>
-      </object>
-    </child>
-    <child>
-      <object class="GtkMenuItem" id="about_menu_item">
-        <property name="visible">True</property>
-        <property name="can-focus">False</property>
-        <property name="label" translatable="yes">About</property>
-        <property name="use-underline">True</property>
-        <accelerator key="F1" signal="activate"/>
-      </object>
-    </child>
-    <child>
-      <object class="GtkMenuItem" id="quit_menu_item">
-        <property name="visible">True</property>
-        <property name="can-focus">False</property>
-        <property name="label" translatable="yes">Quit</property>
-        <property name="use-underline">True</property>
+        <child>
+          <object class="GtkButtonBox" id="close_to_tray_buttonbox">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="spacing">5</property>
+            <property name="homogeneous">True</property>
+            <property name="layout-style">center</property>
+            <child>
+              <object class="GtkLabel" id="close_to_tray_label">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="label" translatable="yes">Close To Tray</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkSwitch" id="close_to_tray_switch">
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="fullscreen_button">
+            <property name="label" translatable="yes">Fullscreen</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+            <property name="relief">none</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="about_button">
+            <property name="label" translatable="yes">About</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+            <property name="relief">none</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">3</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="quit_button">
+            <property name="label" translatable="yes">Quit</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+            <property name="relief">none</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">4</property>
+          </packing>
+        </child>
       </object>
     </child>
   </object>
@@ -113,8 +204,7 @@
             <property name="can-focus">True</property>
             <property name="focus-on-click">False</property>
             <property name="receives-default">True</property>
-            <property name="popup">header_menu</property>
-            <property name="use-popover">False</property>
+            <property name="popover">header_menu</property>
             <child>
               <object class="GtkImage" id="header_menu_image">
                 <property name="visible">True</property>
