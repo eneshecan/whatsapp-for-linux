@@ -52,35 +52,41 @@ namespace
 
                 GError* error = nullptr;
                 gtk_show_uri_on_window(nullptr, uri, GDK_CURRENT_TIME, &error);
-            } break;
+                return TRUE;
+            }
+
             default:
-                break;
+                return FALSE;
         }
-
-        return FALSE;
     }
 
-    gboolean contextMenu(WebKitWebView*, WebKitContextMenu*, GdkEvent*, WebKitHitTestResult*, gpointer)
+    gboolean downloadDecideDestination(WebKitDownload* download, char* suggestedFilename, gpointer)
     {
-        return FALSE;
-    }
-
-    void downloadStarted(WebKitWebContext*, WebKitDownload* download, gpointer)
-    {
-        auto dialog = Gtk::FileChooserDialog{"Select Folder", Gtk::FILE_CHOOSER_ACTION_SELECT_FOLDER};
+        auto dialog = Gtk::FileChooserDialog{"Save File", Gtk::FILE_CHOOSER_ACTION_SAVE};
         dialog.add_button("Ok", Gtk::RESPONSE_OK);
         dialog.add_button("Cancel", Gtk::RESPONSE_CANCEL);
+        dialog.set_current_name(suggestedFilename);
 
         auto const result = dialog.run();
         switch (result)
         {
             case Gtk::RESPONSE_OK:
-                webkit_download_set_destination(download, dialog.get_filename().c_str());
-                break;
+            {
+                auto const destination = "file://" + dialog.get_filename();
+                webkit_download_set_destination(download, destination.c_str());
+                return TRUE;
+            }
+
             case Gtk::RESPONSE_CANCEL:
             default:
-                break;
+                webkit_download_cancel(download);
+                return FALSE;
         }
+    }
+
+    void downloadStarted(WebKitWebContext*, WebKitDownload* download, gpointer)
+    {
+        g_signal_connect(download, "decide-destination", G_CALLBACK(downloadDecideDestination), nullptr);
     }
 
     void initializeNotificationPermission(WebKitWebContext* context, gpointer)
@@ -105,7 +111,6 @@ WebView::WebView()
 
     g_signal_connect(*this, "permission-request", G_CALLBACK(permissionRequest), nullptr);
     g_signal_connect(*this, "decide-policy", G_CALLBACK(decidePolicy), nullptr);
-    g_signal_connect(*this, "context-menu", G_CALLBACK(contextMenu), nullptr);
     g_signal_connect(webContext, "download-started", G_CALLBACK(downloadStarted), nullptr);
     g_signal_connect(webContext, "initialize-notification-permissions", G_CALLBACK(initializeNotificationPermission), nullptr);
 
