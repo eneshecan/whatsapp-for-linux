@@ -12,7 +12,6 @@ class MainWindow
 {
     public:
         MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const& refBuilder);
-        ~MainWindow() override = default;
 
     protected:
         bool on_key_press_event(GdkEventKey* keyEvent) override;
