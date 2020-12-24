@@ -18,7 +18,7 @@ Check out [releases](https://github.com/eneshecan/whatsapp-for-linux/releases) f
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](CONTRIBUTING.md).
+Please read [contributing](.github/contributing.md).
 
 
 ## Dependencies
