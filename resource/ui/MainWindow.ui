@@ -13,14 +13,11 @@
         <property name="margin-top">5</property>
         <property name="margin-bottom">5</property>
         <property name="orientation">vertical</property>
-        <property name="spacing">5</property>
-        <property name="homogeneous">True</property>
         <child>
           <object class="GtkButtonBox" id="zoom_buttonbox">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <property name="spacing">5</property>
-            <property name="homogeneous">True</property>
             <property name="layout-style">center</property>
             <child>
               <object class="GtkButton" id="zoom_out_button">
@@ -40,6 +37,7 @@
                 <property name="expand">False</property>
                 <property name="fill">True</property>
                 <property name="position">0</property>
+                <property name="non-homogeneous">True</property>
               </packing>
             </child>
             <child>
@@ -52,6 +50,7 @@
                 <property name="expand">False</property>
                 <property name="fill">True</property>
                 <property name="position">1</property>
+                <property name="non-homogeneous">True</property>
               </packing>
             </child>
             <child>
@@ -72,6 +71,7 @@
                 <property name="expand">False</property>
                 <property name="fill">True</property>
                 <property name="position">2</property>
+                <property name="non-homogeneous">True</property>
               </packing>
             </child>
           </object>
@@ -82,11 +82,21 @@
           </packing>
         </child>
         <child>
+          <object class="GtkSeparator" id="separator_1">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
           <object class="GtkButtonBox" id="close_to_tray_buttonbox">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <property name="spacing">5</property>
-            <property name="homogeneous">True</property>
             <property name="layout-style">center</property>
             <child>
               <object class="GtkLabel" id="close_to_tray_label">
@@ -98,6 +108,7 @@
                 <property name="expand">False</property>
                 <property name="fill">True</property>
                 <property name="position">0</property>
+                <property name="non-homogeneous">True</property>
               </packing>
             </child>
             <child>
@@ -109,18 +120,19 @@
                 <property name="expand">False</property>
                 <property name="fill">True</property>
                 <property name="position">2</property>
+                <property name="non-homogeneous">True</property>
               </packing>
             </child>
           </object>
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="position">1</property>
+            <property name="position">2</property>
           </packing>
         </child>
         <child>
           <object class="GtkButton" id="fullscreen_button">
-            <property name="label" translatable="yes">Fullscreen                F11</property>
+            <property name="label" translatable="yes">Fullscreen    F11</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
@@ -129,7 +141,18 @@
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="position">2</property>
+            <property name="position">3</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkSeparator" id="separator_2">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">4</property>
           </packing>
         </child>
         <child>
@@ -143,7 +166,7 @@
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="position">3</property>
+            <property name="position">5</property>
           </packing>
         </child>
         <child>
@@ -157,7 +180,7 @@
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="position">4</property>
+            <property name="position">6</property>
           </packing>
         </child>
       </object>
