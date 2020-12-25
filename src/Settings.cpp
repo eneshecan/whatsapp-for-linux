@@ -30,7 +30,7 @@ Settings::Settings()
     if (!inputFile.good())
     {
         auto const createDirCommand = "mkdir -p " + CONFIG_DIR;
-        (void)system(createDirCommand.c_str());
+        system(createDirCommand.c_str());
 
         std::ofstream{CONFIG_FILE_PATH};
     }
