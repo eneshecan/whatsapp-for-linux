@@ -4,7 +4,7 @@
 
 namespace
 {
-    auto const CONFIG_DIR              = std::string{getenv("HOME")} + "/.config/whatsapp-for-linux";
+    auto const CONFIG_DIR              = std::string{g_get_user_config_dir()} + "/whatsapp-for-linux";
     auto const CONFIG_FILE_PATH        = CONFIG_DIR + "/settings.conf";
     constexpr auto const GROUP_GENERAL = "General";
     constexpr auto const GROUP_NETWORK = "Network";
@@ -30,7 +30,7 @@ Settings::Settings()
     if (!inputFile.good())
     {
         auto const createDirCommand = "mkdir -p " + CONFIG_DIR;
-        system(createDirCommand.c_str());
+        (void)system(createDirCommand.c_str());
 
         std::ofstream{CONFIG_FILE_PATH};
     }
