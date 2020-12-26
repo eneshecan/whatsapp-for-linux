@@ -31,6 +31,7 @@ jobs:
           echo "RELEASE_TAG=v${version}" >> "$GITHUB_ENV"
 
       - name: Push Tag
+        id: push-tag
         uses: anothrNick/github-tag-action@1.33.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -44,7 +45,12 @@ jobs:
           onlyLastTag: true
 
       - name: Build Debian Package
+        id: dpkg-buildpackage
         run: dpkg-buildpackage -uc -us -ui
+
+      - name: Build Snap Package
+        id: snapcraft
+        uses: snapcore/action-build@v1
 
       - name: Create Release
         id: create-release
@@ -68,3 +74,14 @@ jobs:
           asset_path: "../whatsapp-for-linux_${{ env.RELEASE_NAME }}_amd64.deb"
           asset_name: "whatsapp-for-linux_${{ env.RELEASE_NAME }}_amd64.deb"
           asset_content_type: application/deb
+
+      - name: Upload Snap Package
+        id: upload-snap-package
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create-release.outputs.upload_url }}
+          asset_path: ${{ steps.snapcraft.outputs.snap }}
+          asset_name: ${{ steps.snapcraft.outputs.snap }}
+          asset_content_type: application/snap
