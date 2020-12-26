@@ -30,6 +30,14 @@ jobs:
           echo "RELEASE_NAME=${version}" >> "$GITHUB_ENV"
           echo "RELEASE_TAG=v${version}" >> "$GITHUB_ENV"
 
+      - name: Build Debian Package
+        id: dpkg-buildpackage
+        run: dpkg-buildpackage -uc -us -ui
+
+      - name: Build Snap Package
+        id: snapcraft
+        uses: snapcore/action-build@v1
+
       - name: Push Tag
         id: push-tag
         uses: anothrNick/github-tag-action@1.33.0
@@ -43,14 +51,6 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           onlyLastTag: true
-
-      - name: Build Debian Package
-        id: dpkg-buildpackage
-        run: dpkg-buildpackage -uc -us -ui
-
-      - name: Build Snap Package
-        id: snapcraft
-        uses: snapcore/action-build@v1
 
       - name: Create Release
         id: create-release
