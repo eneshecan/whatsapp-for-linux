@@ -17,7 +17,7 @@ jobs:
       - name: Install Dependencies
         run: |
           sudo apt update
-          sudo apt -y install libgtkmm-3.0-dev libwebkit2gtk-4.0-dev libappindicator3-dev
+          sudo apt -y install build-essential libgtkmm-3.0-dev libwebkit2gtk-4.0-dev libappindicator3-dev
 
       - name: Configure
         run: |
