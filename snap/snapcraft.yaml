@@ -1,7 +1,7 @@
 name: whatsapp-for-linux
 base: core18
-summary: An unofficial WhatsApp linux client.
-description: An unofficial WhatsApp linux client written in C++ with the help of gtkmm-3.0 and webkit2.
+summary: Unofficial WhatsApp client
+description: An unofficial WhatsApp desktop application for linux
 grade: stable
 confinement: strict
 adopt-info: whatsapp-for-linux
