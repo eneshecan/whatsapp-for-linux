@@ -67,6 +67,7 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
     refBuilder->get_widget("quit_button", quitButton);
     quitButton->signal_clicked().connect(sigc::bind(sigc::mem_fun(this, &MainWindow::onQuit), false));
 
+    m_webView.signalNotification().connect(sigc::mem_fun(&m_trayIcon, &TrayIcon::setAttention));
     m_trayIcon.signalActivate().connect(sigc::mem_fun(this, &MainWindow::onShow));
     m_trayIcon.signalQuit().connect(sigc::bind(sigc::mem_fun(this, &MainWindow::onQuit), true));
 

@@ -100,17 +100,42 @@ namespace
             webkit_web_context_initialize_notification_permissions(context, allowedOrigins, nullptr);
         }
     }
+
+    void notificationDestroyed(WebKitNotification*, gpointer userData)
+    {
+        auto const webView = reinterpret_cast<WebView*>(userData);
+        if (webView)
+        {
+            webView->signalNotification().emit(false);
+        }
+    }
+
+    gboolean showNotification(WebKitWebView*, WebKitNotification* notification, gpointer userData)
+    {
+        auto const webView = reinterpret_cast<WebView*>(userData);
+        if (webView)
+        {
+            webView->signalNotification().emit(true);
+        }
+
+        g_signal_connect(notification, "clicked", G_CALLBACK(notificationDestroyed), webView);
+        g_signal_connect(notification, "closed", G_CALLBACK(notificationDestroyed), webView);
+
+        return FALSE;
+    }
 }
 
 
 WebView::WebView()
     : Gtk::Widget{webkit_web_view_new()}
     , m_zoomLevel{Settings::instance().zoomLevel()}
+    , m_signalNotification{}
 {
     auto const webContext = webkit_web_view_get_context(*this);
 
     g_signal_connect(*this, "permission-request", G_CALLBACK(permissionRequest), nullptr);
     g_signal_connect(*this, "decide-policy", G_CALLBACK(decidePolicy), nullptr);
+    g_signal_connect(*this, "show-notification", G_CALLBACK(showNotification), this);
     g_signal_connect(webContext, "download-started", G_CALLBACK(downloadStarted), nullptr);
     g_signal_connect(webContext, "initialize-notification-permissions", G_CALLBACK(initializeNotificationPermission), nullptr);
 
@@ -168,4 +193,9 @@ double WebView::zoomOut()
 double WebView::zoomLevel() const noexcept
 {
     return m_zoomLevel;
+}
+
+sigc::signal<void, bool> WebView::signalNotification() const noexcept
+{
+    return m_signalNotification;
 }

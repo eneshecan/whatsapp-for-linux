@@ -19,6 +19,10 @@ class WebView
         double zoomOut();
         double zoomLevel() const noexcept;
 
+    public:
+        sigc::signal<void, bool> signalNotification() const noexcept;
+
     private:
-        double m_zoomLevel;
+        double                   m_zoomLevel;
+        sigc::signal<void, bool> m_signalNotification;
 };
