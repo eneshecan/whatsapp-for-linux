@@ -26,3 +26,4 @@ If applicable, add screenshots to help explain your problem.
 **Environment**
  - Distro [e.g. Ubuntu, Arch Linux]
  - Package [e.g. snap, debian]
+ - Desktop Environment or Window Manager [e.g. Gnome, i3wm]
