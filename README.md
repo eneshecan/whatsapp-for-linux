@@ -12,6 +12,16 @@ An unofficial WhatsApp desktop application written in C++.
 ![App Window](screenshot/app.png)
 
 
+## Features
+
+* Features come with whatsapp web except audio and image capture
+* Zoom in/out
+* System tray icon
+* Fullscreen mode
+* Show/Hide titlebar on *Alt* key
+* Spell check in system language
+
+
 ## Using whatsapp-for-linux
 
 Check out [releases](https://github.com/eneshecan/whatsapp-for-linux/releases) for available packages.
