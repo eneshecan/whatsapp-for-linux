@@ -211,6 +211,7 @@
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
+            <property name="tooltip-text" translatable="yes">Refresh  F5</property>
             <child>
               <object class="GtkImage" id="refresh_image">
                 <property name="visible">True</property>
