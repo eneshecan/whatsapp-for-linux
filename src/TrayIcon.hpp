@@ -7,7 +7,6 @@ class TrayIcon
 {
     public:
         TrayIcon();
-        ~TrayIcon() = default;
 
     public:
         void setVisible(bool visible);

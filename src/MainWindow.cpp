@@ -189,7 +189,7 @@ void MainWindow::onAbout()
     aboutDialog.set_program_name("whatsapp-for-linux");
     aboutDialog.set_comments("An unofficial WhatsApp desktop application for linux.");
     aboutDialog.set_website("https://github.com/eneshecan/whatsapp-for-linux");
-    aboutDialog.set_website_label("Github Repo");
+    aboutDialog.set_website_label("Github Repository");
     aboutDialog.set_license_type(Gtk::LICENSE_GPL_3_0);
 
     aboutDialog.run();

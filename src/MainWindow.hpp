@@ -5,7 +5,6 @@
 #include <gtkmm/applicationwindow.h>
 #include <gtkmm/builder.h>
 #include <gtkmm/headerbar.h>
-#include <gtkmm/label.h>
 
 class MainWindow
     : public Gtk::ApplicationWindow

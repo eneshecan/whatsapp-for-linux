@@ -17,7 +17,7 @@ int main(int argc, char** argv)
     }
     catch (Glib::Exception const& error)
     {
-        std::cerr << "Failed load ui resource: " << error.what() << std::endl;
+        std::cerr << "Failed to load ui resource: " << error.what() << std::endl;
         return 1;
     }
 
