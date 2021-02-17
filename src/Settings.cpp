@@ -149,4 +149,6 @@ bool Settings::startAtTray() const
     {
         std::cerr << "Settings: " << error.what() << std::endl;
     }
+
+    return enable;
 }

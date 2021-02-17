@@ -23,6 +23,7 @@ class MainWindow
         void onShow();
         void onQuit(bool immediate);
         bool onCloseToTray(bool state);
+        bool onStartAtTray(bool visible);
         void onFullscreen();
         void onAbout();
         void onZoomIn(Gtk::Label* zoomLevelLabel);

@@ -6,6 +6,7 @@
 #include <gtkmm/button.h>
 #include <gtkmm/switch.h>
 #include <gtkmm/aboutdialog.h>
+#include <iostream>
 
 namespace
 {
@@ -43,6 +44,10 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
     refBuilder->get_widget("close_to_tray_switch", closeToTraySwitch);
     closeToTraySwitch->signal_state_set().connect(sigc::mem_fun(this, &MainWindow::onCloseToTray), false);
 
+    Gtk::Switch* startAtTraySwitch = nullptr;
+    refBuilder->get_widget("start_at_tray_switch", startAtTraySwitch);
+    startAtTraySwitch->signal_state_set().connect(sigc::mem_fun(this, &MainWindow::onStartAtTray), false);
+
     Gtk::Button* fullscreenButton = nullptr;
     refBuilder->get_widget("fullscreen_button", fullscreenButton);
     fullscreenButton->signal_clicked().connect(sigc::mem_fun(this, &MainWindow::onFullscreen));
@@ -74,6 +79,7 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
     show_all();
 
     m_trayIcon.setVisible(Settings::instance().closeToTray());
+    startAtTraySwitch->set_state(Settings::instance().startAtTray());
     closeToTraySwitch->set_state(m_trayIcon.visible());
 
     m_headerBar->set_visible(Settings::instance().headerBar());
@@ -126,6 +132,10 @@ bool MainWindow::on_delete_event(GdkEventAny* any_event)
     }
     else
     {
+        if(Settings::instance().startAtTray())
+        {
+            Settings::instance().setCloseToTray(true);
+        }
         Application::instance().endKeepAlive();
     }
 
@@ -165,6 +175,12 @@ bool MainWindow::onCloseToTray(bool visible)
     m_trayIcon.setVisible(visible);
     Settings::instance().setCloseToTray(visible);
 
+    return false;
+}
+
+bool MainWindow::onStartAtTray(bool visible)
+{
+    Settings::instance().setStartAtTray(visible);
     return false;
 }
 
