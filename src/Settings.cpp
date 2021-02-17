@@ -132,3 +132,21 @@ bool Settings::headerBar() const
 
     return enable;
 }
+
+void Settings::setStartAtTray(bool enable)
+{
+    m_keyFile.set_boolean(GROUP_GENERAL, "start_at_tray", enable);
+}
+
+bool Settings::startAtTray() const
+{
+    auto enable = false;
+    try
+    {
+        enable = m_keyFile.get_boolean(GROUP_GENERAL, "start_at_tray");
+    }
+    catch (Glib::KeyFileError const& error)
+    {
+        std::cerr << "Settings: " << error.what() << std::endl;
+    }
+}
