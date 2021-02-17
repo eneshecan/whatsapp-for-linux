@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Application.hpp"
 #include "MainWindow.hpp"
+#include "Settings.hpp"
 
 int main(int argc, char** argv)
 {
@@ -21,5 +22,17 @@ int main(int argc, char** argv)
         return 1;
     }
 
-    return app.run(*mainWindow);
+    int retCode = 0;
+    if(Settings::instance().closeToTray())
+    {
+        mainWindow->hide();
+        Application::instance().keepAlive();
+        retCode = app.run();
+    }
+    else
+    {
+        retCode = app.run(*mainWindow);
+    }
+
+    return retCode;
 }
