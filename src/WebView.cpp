@@ -1,5 +1,6 @@
 #include "WebView.hpp"
 #include "Settings.hpp"
+#include <iostream>
 #include <locale>
 #include <gtkmm/messagedialog.h>
 #include <gtkmm/filechooserdialog.h>
@@ -11,9 +12,16 @@ namespace
 
     std::string systemLanguage()
     {
-        auto lang = std::locale("").name();
-        lang = lang.substr(0, lang.find('.'));
-        return lang;
+        try
+        {
+            auto const lang = std::locale{""}.name();
+            return lang.substr(0, lang.find('.'));
+        }
+        catch (std::runtime_error const& error)
+        {
+            std::cerr << "WebView: " << error.what() << std::endl;
+            return "en_US";
+        }
     }
 
     gboolean permissionRequest(WebKitWebView*, WebKitPermissionRequest* request, GtkWindow*)
@@ -141,8 +149,8 @@ WebView::WebView()
 
     auto const lang = systemLanguage();
     gchar const* const spellCheckingLangs[] = {lang.c_str(), 0};
-    webkit_web_context_set_spell_checking_languages(webContext, spellCheckingLangs);
     webkit_web_context_set_spell_checking_enabled(webContext, TRUE);
+    webkit_web_context_set_spell_checking_languages(webContext, spellCheckingLangs);
 
     auto const settings = webkit_web_view_get_settings(*this);
     webkit_settings_set_enable_developer_extras(settings, TRUE);
