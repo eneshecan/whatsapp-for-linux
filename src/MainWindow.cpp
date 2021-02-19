@@ -6,7 +6,6 @@
 #include <gtkmm/button.h>
 #include <gtkmm/switch.h>
 #include <gtkmm/aboutdialog.h>
-#include <iostream>
 
 namespace
 {
@@ -78,7 +77,7 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
 
     show_all();
 
-    m_trayIcon.setVisible(Settings::instance().closeToTray());
+    m_trayIcon.setVisible(Settings::instance().closeToTray() || Settings::instance().startAtTray());
     startAtTraySwitch->set_state(Settings::instance().startAtTray());
     closeToTraySwitch->set_state(m_trayIcon.visible());
 
@@ -132,10 +131,6 @@ bool MainWindow::on_delete_event(GdkEventAny* any_event)
     }
     else
     {
-        if(Settings::instance().startAtTray())
-        {
-            Settings::instance().setCloseToTray(true);
-        }
         Application::instance().endKeepAlive();
     }
 
