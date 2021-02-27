@@ -1,4 +1,5 @@
 #include "Settings.hpp"
+#include <sys/stat.h>
 #include <fstream>
 #include <iostream>
 
@@ -29,9 +30,11 @@ Settings::Settings()
     auto inputFile = std::ifstream{CONFIG_FILE_PATH};
     if (!inputFile.good())
     {
-        auto const createDirCommand = "mkdir -p " + CONFIG_DIR;
-        system(createDirCommand.c_str());
-
+        if (mkdir(CONFIG_DIR.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH) == -1)
+        {
+            std::cerr << "Settings: Failed to create config directory: " << strerror(errno) << std::endl;
+            return;
+        }
         std::ofstream{CONFIG_FILE_PATH};
     }
 
