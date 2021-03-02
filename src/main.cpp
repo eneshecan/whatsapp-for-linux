@@ -2,9 +2,21 @@
 #include "Application.hpp"
 #include "MainWindow.hpp"
 
+namespace
+{
+    void sigterm(int)
+    {
+        Application::instance().quit();
+    }
+}
+
 int main(int argc, char** argv)
 {
     auto app = Application{argc, argv, "com.github.whatsapp-for-linux"};
+
+    signal(SIGINT,  sigterm);
+    signal(SIGTERM, sigterm);
+    signal(SIGPIPE, SIG_IGN);
 
     auto mainWindow = std::unique_ptr<MainWindow>{};
     try
