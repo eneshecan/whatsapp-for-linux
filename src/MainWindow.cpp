@@ -65,11 +65,11 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
 
     Gtk::Button* quitButton = nullptr;
     refBuilder->get_widget("quit_button", quitButton);
-    quitButton->signal_clicked().connect(sigc::bind(sigc::mem_fun(this, &MainWindow::onQuit), false));
+    quitButton->signal_clicked().connect(sigc::mem_fun(this, &MainWindow::onQuit));
 
     m_webView.signalNotification().connect(sigc::mem_fun(&m_trayIcon, &TrayIcon::setAttention));
     m_trayIcon.signalActivate().connect(sigc::mem_fun(this, &MainWindow::onShow));
-    m_trayIcon.signalQuit().connect(sigc::bind(sigc::mem_fun(this, &MainWindow::onQuit), true));
+    m_trayIcon.signalQuit().connect(sigc::mem_fun(this, &MainWindow::onQuit));
 
     show_all();
 
@@ -86,10 +86,21 @@ bool MainWindow::on_key_press_event(GdkEventKey* keyEvent)
         case GDK_KEY_F11:
             onFullscreen();
             return true;
-        
+
+        case GDK_KEY_Q:
+        case GDK_KEY_q:
+            if (keyEvent->state & GDK_CONTROL_MASK)
+            {
+                onQuit();
+                return true;
+            }
+            break;
+
         default:
-            return Gtk::ApplicationWindow::on_key_press_event(keyEvent);
+            break;
     }
+
+    return Gtk::ApplicationWindow::on_key_press_event(keyEvent);
 }
 
 bool MainWindow::on_key_release_event(GdkEventKey* keyEvent)
@@ -105,8 +116,10 @@ bool MainWindow::on_key_release_event(GdkEventKey* keyEvent)
         }
 
         default:
-            return Gtk::ApplicationWindow::on_key_press_event(keyEvent);
+            break;
     }
+
+    return Gtk::ApplicationWindow::on_key_release_event(keyEvent);
 }
 
 
@@ -146,9 +159,9 @@ void MainWindow::onShow()
     }
 }
 
-void MainWindow::onQuit(bool immediate)
+void MainWindow::onQuit()
 {
-    if (immediate && m_trayIcon.visible())
+    if (m_trayIcon.visible())
     {
         m_trayIcon.setVisible(false);
     }

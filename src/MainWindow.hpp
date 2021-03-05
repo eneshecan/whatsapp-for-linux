@@ -21,7 +21,7 @@ class MainWindow
     private:
         void onRefresh();
         void onShow();
-        void onQuit(bool immediate);
+        void onQuit();
         bool onCloseToTray(bool state);
         void onFullscreen();
         void onAbout();
