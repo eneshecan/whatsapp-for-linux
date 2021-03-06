@@ -1,7 +1,7 @@
 name: whatsapp-for-linux
 base: core18
-summary: An unofficial WhatsApp linux client.
-description: An unofficial WhatsApp linux client written in C++ with the help of gtkmm-3.0 and webkit2.
+summary: Unofficial WhatsApp client
+description: An unofficial WhatsApp desktop application for linux
 grade: stable
 confinement: strict
 adopt-info: whatsapp-for-linux
@@ -27,6 +27,10 @@ parts:
     stage-packages:
       - libgtkmm-3.0-1v5
       - libappindicator3-1
+      - gstreamer1.0-plugins-base
+      - gstreamer1.0-plugins-good
+      - gstreamer1.0-plugins-bad
+      - gstreamer1.0-libav
 
 slots:
   dbus-app:
@@ -39,7 +43,7 @@ apps:
     command: bin/whatsapp-for-linux
     desktop: share/applications/whatsapp-for-linux.desktop
     common-id: com.github.whatsapp-for-linux
-    extensions: [gnome-3-28] # This takes care of most of the things for us
+    extensions: [gnome-3-28]  # This takes care of most of the things for us
     plugs:
       - network
       - network-manager
@@ -52,5 +56,6 @@ apps:
       - removable-media
       - opengl
       - upower-observe
+      - screen-inhibit-control
     slots:
       - dbus-app

@@ -2,9 +2,21 @@
 #include "Application.hpp"
 #include "MainWindow.hpp"
 
+namespace
+{
+    void sigterm(int)
+    {
+        Application::instance().quit();
+    }
+}
+
 int main(int argc, char** argv)
 {
     auto app = Application{argc, argv, "com.github.whatsapp-for-linux"};
+
+    signal(SIGINT,  sigterm);
+    signal(SIGTERM, sigterm);
+    signal(SIGPIPE, SIG_IGN);
 
     auto mainWindow = std::unique_ptr<MainWindow>{};
     try
@@ -17,7 +29,7 @@ int main(int argc, char** argv)
     }
     catch (Glib::Exception const& error)
     {
-        std::cerr << "Failed load ui resource: " << error.what() << std::endl;
+        std::cerr << "Failed to load ui resource: " << error.what() << std::endl;
         return 1;
     }
 

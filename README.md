@@ -1,14 +1,25 @@
 # whatsapp-for-linux
 
-An unofficial WhatsApp linux client written in C++ with the help of gtkmm-3.0 and webkit2.
+An unofficial WhatsApp desktop application written in C++.
 
 [![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/whatsapp-for-linux)
 [![Get it from AUR](https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Arch_Linux_logo.svg/200px-Arch_Linux_logo.svg.png)](https://aur.archlinux.org/packages/whatsapp-for-linux)
 
 [![Action Status](https://github.com/eneshecan/whatsapp-for-linux/workflows/Build/badge.svg)](https://github.com/eneshecan/whatsapp-for-linux/actions)
 [![Action Status](https://github.com/eneshecan/whatsapp-for-linux/workflows/Install/badge.svg)](https://github.com/eneshecan/whatsapp-for-linux/actions)
+[![Action Status](https://github.com/eneshecan/whatsapp-for-linux/workflows/Release/badge.svg)](https://github.com/eneshecan/whatsapp-for-linux/actions)
 
-![App Window](https://github.com/eneshecan/whatsapp-for-linux/blob/master/screenshot/app.png)
+![App Window](screenshot/app.png)
+
+
+## Features
+
+* Features come with whatsapp web except audio and image capture
+* Zoom in/out
+* System tray icon
+* Fullscreen mode
+* Show/Hide titlebar on *Alt* key
+* Spell check in system language
 
 
 ## Using whatsapp-for-linux
@@ -18,7 +29,7 @@ Check out [releases](https://github.com/eneshecan/whatsapp-for-linux/releases) f
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](CONTRIBUTING.md).
+Please read [contributing](.github/contributing.md).
 
 
 ## Dependencies

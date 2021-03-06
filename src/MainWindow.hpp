@@ -5,14 +5,12 @@
 #include <gtkmm/applicationwindow.h>
 #include <gtkmm/builder.h>
 #include <gtkmm/headerbar.h>
-#include <gtkmm/label.h>
 
 class MainWindow
     : public Gtk::ApplicationWindow
 {
     public:
         MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const& refBuilder);
-        ~MainWindow() override = default;
 
     protected:
         bool on_key_press_event(GdkEventKey* keyEvent) override;
@@ -23,7 +21,7 @@ class MainWindow
     private:
         void onRefresh();
         void onShow();
-        void onQuit(bool immediate);
+        void onQuit();
         bool onCloseToTray(bool state);
         void onFullscreen();
         void onAbout();

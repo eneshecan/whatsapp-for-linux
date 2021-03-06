@@ -7,15 +7,15 @@ class TrayIcon
 {
     public:
         TrayIcon();
-        ~TrayIcon() = default;
 
     public:
         void setVisible(bool visible);
         bool visible() const;
+        void setAttention(bool attention);
 
     public:
-        sigc::signal<void> signalActivate() const;
-        sigc::signal<void> signalQuit() const;
+        sigc::signal<void> signalActivate() const noexcept;
+        sigc::signal<void> signalQuit() const noexcept;
 
     private:
         AppIndicator*      m_appIndicator;

@@ -1,0 +1,87 @@
+name: Release
+
+on:
+  push:
+    branches: [ release ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        run: |
+          sudo apt update
+          sudo apt -y install build-essential libgtkmm-3.0-dev libwebkit2gtk-4.0-dev libappindicator3-dev debhelper
+
+      - name: Build
+        run: |
+          mkdir build
+          cd build
+          cmake -j4 -DCMAKE_BUILD_TYPE=Release ..
+          make
+
+      - name: Set Version
+        run: |
+          version=$(cat "src/VERSION")
+          echo "RELEASE_NAME=${version}" >> "$GITHUB_ENV"
+          echo "RELEASE_TAG=v${version}" >> "$GITHUB_ENV"
+
+      - name: Build Debian Package
+        id: dpkg-buildpackage
+        run: dpkg-buildpackage -uc -us -ui
+
+      - name: Build Snap Package
+        id: snapcraft
+        uses: snapcore/action-build@v1
+
+      - name: Push Tag
+        id: push-tag
+        uses: anothrNick/github-tag-action@1.33.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CUSTOM_TAG: ${{ env.RELEASE_TAG }}
+
+      - name: Generate Changelog
+        id: generate-changelog
+        uses: heinrichreimer/github-changelog-generator-action@v2.2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          onlyLastTag: true
+
+      - name: Create Release
+        id: create-release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ env.RELEASE_TAG }}
+          release_name: ${{ env.RELEASE_NAME }}
+          body: ${{ steps.generate-changelog.outputs.changelog }}
+          draft: false
+          prerelease: false
+
+      - name: Upload Debian Package
+        id: upload-debian-package
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create-release.outputs.upload_url }}
+          asset_path: "../whatsapp-for-linux_${{ env.RELEASE_NAME }}_amd64.deb"
+          asset_name: "whatsapp-for-linux_${{ env.RELEASE_NAME }}_amd64.deb"
+          asset_content_type: application/deb
+
+      - name: Upload Snap Package
+        id: upload-snap-package
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create-release.outputs.upload_url }}
+          asset_path: ${{ steps.snapcraft.outputs.snap }}
+          asset_name: ${{ steps.snapcraft.outputs.snap }}
+          asset_content_type: application/snap

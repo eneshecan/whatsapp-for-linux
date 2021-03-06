@@ -10,7 +10,6 @@ class Application
 
     public:
         Application(int argc, char** argv, Glib::ustring const& id);
-        ~Application() override = default;
 
     public:
         void keepAlive();
@@ -18,5 +17,7 @@ class Application
 
     private:
         static Application* m_instance;
-        bool                m_onHold;
+
+    private:
+        bool m_onHold;
 };
