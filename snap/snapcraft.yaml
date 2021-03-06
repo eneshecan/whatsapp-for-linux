@@ -31,7 +31,7 @@ parts:
       - gstreamer1.0-plugins-good
       - gstreamer1.0-plugins-bad
       - gstreamer1.0-libav
-
+      - glib-networking
 slots:
   dbus-app:
     interface: dbus
