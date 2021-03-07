@@ -27,11 +27,12 @@ parts:
     stage-packages:
       - libgtkmm-3.0-1v5
       - libappindicator3-1
+      - glib-networking
       - gstreamer1.0-plugins-base
       - gstreamer1.0-plugins-good
       - gstreamer1.0-plugins-bad
       - gstreamer1.0-libav
-      - glib-networking
+
 slots:
   dbus-app:
     interface: dbus
