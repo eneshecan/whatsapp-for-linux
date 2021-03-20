@@ -131,16 +131,16 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButtonBox" id="start_at_tray_buttonbox">
+          <object class="GtkButtonBox" id="start_in_tray_buttonbox">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <property name="spacing">5</property>
             <property name="layout-style">center</property>
             <child>
-              <object class="GtkLabel" id="start_at_tray_label">
+              <object class="GtkLabel" id="start_in_tray_label">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="label" translatable="yes">Start At Tray</property>
+                <property name="label" translatable="yes">Start In Tray</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -150,14 +150,14 @@
               </packing>
             </child>
             <child>
-              <object class="GtkSwitch" id="start_at_tray_switch">
+              <object class="GtkSwitch" id="start_in_tray_switch">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
-                <property name="position">3</property>
+                <property name="position">2</property>
                 <property name="non-homogeneous">True</property>
               </packing>
             </child>

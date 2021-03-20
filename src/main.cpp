@@ -22,8 +22,9 @@ int main(int argc, char** argv)
         return 1;
     }
 
-    int retCode = 0;
-    if(Settings::instance().startAtTray())
+    auto retCode = 0;
+    
+    if(Settings::instance().startInTray())
     {
         mainWindow->hide();
         Application::instance().keepAlive();

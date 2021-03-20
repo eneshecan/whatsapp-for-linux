@@ -133,17 +133,17 @@ bool Settings::headerBar() const
     return enable;
 }
 
-void Settings::setStartAtTray(bool enable)
+void Settings::setStartInTray(bool enable)
 {
-    m_keyFile.set_boolean(GROUP_GENERAL, "start_at_tray", enable);
+    m_keyFile.set_boolean(GROUP_GENERAL, "start_in_tray", enable);
 }
 
-bool Settings::startAtTray() const
+bool Settings::startInTray() const
 {
     auto enable = false;
     try
     {
-        enable = m_keyFile.get_boolean(GROUP_GENERAL, "start_at_tray");
+        enable = m_keyFile.get_boolean(GROUP_GENERAL, "start_in_tray");
     }
     catch (Glib::KeyFileError const& error)
     {
