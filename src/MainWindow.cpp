@@ -43,6 +43,10 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
     refBuilder->get_widget("close_to_tray_switch", closeToTraySwitch);
     closeToTraySwitch->signal_state_set().connect(sigc::mem_fun(this, &MainWindow::onCloseToTray), false);
 
+    Gtk::Switch* startInTraySwitch = nullptr;
+    refBuilder->get_widget("start_in_tray_switch", startInTraySwitch);
+    startInTraySwitch->signal_state_set().connect(sigc::mem_fun(this, &MainWindow::onStartInTray), false);
+
     Gtk::Button* fullscreenButton = nullptr;
     refBuilder->get_widget("fullscreen_button", fullscreenButton);
     fullscreenButton->signal_clicked().connect(sigc::mem_fun(this, &MainWindow::onFullscreen));
@@ -73,8 +77,9 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
 
     show_all();
 
-    m_trayIcon.setVisible(Settings::instance().closeToTray());
-    closeToTraySwitch->set_state(m_trayIcon.visible());
+    m_trayIcon.setVisible(Settings::instance().closeToTray() || Settings::instance().startInTray());
+    startInTraySwitch->set_state(Settings::instance().startInTray());
+    closeToTraySwitch->set_state(Settings::instance().closeToTray());
 
     m_headerBar->set_visible(Settings::instance().headerBar());
 }
@@ -178,6 +183,12 @@ bool MainWindow::onCloseToTray(bool visible)
     m_trayIcon.setVisible(visible);
     Settings::instance().setCloseToTray(visible);
 
+    return false;
+}
+
+bool MainWindow::onStartInTray(bool visible)
+{
+    Settings::instance().setStartInTray(visible);
     return false;
 }
 

@@ -20,6 +20,8 @@ class Settings
         double zoomLevel() const;
         void   setHeaderBar(bool enable);
         bool   headerBar() const;
+        void   setStartInTray(bool enable);
+        bool   startInTray() const;
 
     private:
         Settings();
