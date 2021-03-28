@@ -1,11 +1,10 @@
 #include "MainWindow.hpp"
+#include <gtkmm/grid.h>
+#include <gtkmm/button.h>
+#include <gtkmm/aboutdialog.h>
 #include "Application.hpp"
 #include "Version.hpp"
 #include "Settings.hpp"
-#include <gtkmm/grid.h>
-#include <gtkmm/button.h>
-#include <gtkmm/switch.h>
-#include <gtkmm/aboutdialog.h>
 
 namespace
 {
@@ -39,13 +38,13 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
 
     refBuilder->get_widget("header_bar", m_headerBar);
 
-    Gtk::Switch* closeToTraySwitch = nullptr;
-    refBuilder->get_widget("close_to_tray_switch", closeToTraySwitch);
-    closeToTraySwitch->signal_state_set().connect(sigc::mem_fun(this, &MainWindow::onCloseToTray), false);
-
     Gtk::Switch* startInTraySwitch = nullptr;
     refBuilder->get_widget("start_in_tray_switch", startInTraySwitch);
     startInTraySwitch->signal_state_set().connect(sigc::mem_fun(this, &MainWindow::onStartInTray), false);
+
+    Gtk::Switch* closeToTraySwitch = nullptr;
+    refBuilder->get_widget("close_to_tray_switch", closeToTraySwitch);
+    closeToTraySwitch->signal_state_set().connect(sigc::bind(sigc::mem_fun(this, &MainWindow::onCloseToTray), startInTraySwitch), false);
 
     Gtk::Button* fullscreenButton = nullptr;
     refBuilder->get_widget("fullscreen_button", fullscreenButton);
@@ -77,9 +76,10 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
 
     show_all();
 
-    m_trayIcon.setVisible(Settings::instance().closeToTray() || Settings::instance().startInTray());
-    startInTraySwitch->set_state(Settings::instance().startInTray());
-    closeToTraySwitch->set_state(Settings::instance().closeToTray());
+    m_trayIcon.setVisible(Settings::instance().closeToTray());
+    closeToTraySwitch->set_state(m_trayIcon.visible());
+    startInTraySwitch->set_state(Settings::instance().startInTray() && m_trayIcon.visible());
+    startInTraySwitch->set_sensitive(m_trayIcon.visible());
 
     m_headerBar->set_visible(Settings::instance().headerBar());
 }
@@ -178,10 +178,16 @@ void MainWindow::onFullscreen()
     m_fullscreen ? unfullscreen() : fullscreen();
 }
 
-bool MainWindow::onCloseToTray(bool visible)
+bool MainWindow::onCloseToTray(bool visible, Gtk::Switch* startInTraySwitch)
 {
     m_trayIcon.setVisible(visible);
     Settings::instance().setCloseToTray(visible);
+
+    if (!visible)
+    {
+        startInTraySwitch->set_active(false);
+    }
+    startInTraySwitch->set_sensitive(visible);
 
     return false;
 }

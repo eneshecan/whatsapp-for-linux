@@ -1,10 +1,12 @@
 #pragma once
 
-#include "TrayIcon.hpp"
-#include "WebView.hpp"
 #include <gtkmm/applicationwindow.h>
 #include <gtkmm/builder.h>
 #include <gtkmm/headerbar.h>
+#include <gtkmm/label.h>
+#include <gtkmm/switch.h>
+#include "TrayIcon.hpp"
+#include "WebView.hpp"
 
 class MainWindow
     : public Gtk::ApplicationWindow
@@ -22,7 +24,7 @@ class MainWindow
         void onRefresh();
         void onShow();
         void onQuit();
-        bool onCloseToTray(bool state);
+        bool onCloseToTray(bool visible, Gtk::Switch* startInTraySwitch);
         bool onStartInTray(bool visible);
         void onFullscreen();
         void onAbout();
