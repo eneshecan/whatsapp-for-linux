@@ -19,7 +19,7 @@ An unofficial WhatsApp desktop application written in C++.
 * System tray icon
 * Fullscreen mode
 * Show/Hide titlebar on *Alt* key
-* Spell check in system language
+* Spell check in system language. You might need to install the corresponding dictionary to get this working i.e. `aspell-en` package for English
 
 
 ## Using whatsapp-for-linux
