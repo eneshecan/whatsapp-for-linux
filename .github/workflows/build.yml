@@ -27,11 +27,11 @@ jobs:
       - name: Debug Build
         run: |
           cd build/debug
-          cmake -j4 -DCMAKE_BUILD_TYPE=Debug ../..
-          make
+          cmake -DCMAKE_BUILD_TYPE=Debug ../..
+          make -j4
 
       - name: Release Build
         run: |
           cd build/release
-          cmake -j4 -DCMAKE_BUILD_TYPE=Release ../..
-          make
+          cmake -DCMAKE_BUILD_TYPE=Release ../..
+          make -j4
