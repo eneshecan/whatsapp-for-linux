@@ -71,7 +71,8 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
     quitButton->signal_clicked().connect(sigc::mem_fun(this, &MainWindow::onQuit));
 
     m_webView.signalNotification().connect(sigc::mem_fun(&m_trayIcon, &TrayIcon::setAttention));
-    m_trayIcon.signalActivate().connect(sigc::mem_fun(this, &MainWindow::onShow));
+    m_trayIcon.signalOpen().connect(sigc::mem_fun(this, &MainWindow::onShow));
+    m_trayIcon.signalAbout().connect(sigc::mem_fun(this, &MainWindow::onAbout));
     m_trayIcon.signalQuit().connect(sigc::mem_fun(this, &MainWindow::onQuit));
 
     show_all();

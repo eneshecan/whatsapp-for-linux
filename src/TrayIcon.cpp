@@ -4,7 +4,8 @@
 TrayIcon::TrayIcon()
     : m_appIndicator{app_indicator_new("com.github.whatsapp-for-linux.tray", "whatsapp-for-linux-tray-active", APP_INDICATOR_CATEGORY_COMMUNICATIONS)}
     , m_popupMenu{}
-    , m_signalActivate{}
+    , m_signalOpen{}
+    , m_signalAbout{}
     , m_signalQuit{}
 {
     auto const activePixbuf = Gdk::Pixbuf::create_from_resource("/main/image/tray/active.png");
@@ -13,14 +14,17 @@ TrayIcon::TrayIcon()
     Gtk::IconTheme::get_default()->add_builtin_icon("whatsapp-for-linux-tray-attention", Gtk::ICON_SIZE_MENU, attentionPixbuf);
     app_indicator_set_attention_icon(m_appIndicator, "whatsapp-for-linux-tray-attention");
 
-    auto const showMenuItem = Gtk::manage(new Gtk::MenuItem{"Open"});
+    auto const openMenuItem = Gtk::manage(new Gtk::MenuItem{"Open"});
+    auto const aboutMenuItem = Gtk::manage(new Gtk::MenuItem{"About"});
     auto const quitMenuItem = Gtk::manage(new Gtk::MenuItem{"Quit"});
-    m_popupMenu.append(*showMenuItem);
+    m_popupMenu.append(*openMenuItem);
+    m_popupMenu.append(*aboutMenuItem);
     m_popupMenu.append(*quitMenuItem);
 
     app_indicator_set_menu(m_appIndicator, m_popupMenu.gobj());
 
-    showMenuItem->signal_activate().connect([this]{ m_signalActivate.emit(); });
+    openMenuItem->signal_activate().connect([this]{ m_signalOpen.emit(); });
+    aboutMenuItem->signal_activate().connect([this]{ m_signalAbout.emit(); });
     quitMenuItem->signal_activate().connect([this]{ m_signalQuit.emit(); });
 
     m_popupMenu.show_all();
@@ -39,16 +43,6 @@ bool TrayIcon::visible() const
     return (app_indicator_get_status(m_appIndicator) != APP_INDICATOR_STATUS_PASSIVE);
 }
 
-sigc::signal<void> TrayIcon::signalActivate() const noexcept
-{
-    return m_signalActivate;
-}
-
-sigc::signal<void> TrayIcon::signalQuit() const noexcept
-{
-    return m_signalQuit;
-}
-
 void TrayIcon::setAttention(bool attention)
 {
     if (!visible())
@@ -57,4 +51,19 @@ void TrayIcon::setAttention(bool attention)
     }
 
     app_indicator_set_status(m_appIndicator, (attention ? APP_INDICATOR_STATUS_ATTENTION : APP_INDICATOR_STATUS_ACTIVE));
+}
+
+sigc::signal<void> TrayIcon::signalOpen() const noexcept
+{
+    return m_signalOpen;
+}
+
+sigc::signal<void> TrayIcon::signalAbout() const noexcept
+{
+    return m_signalAbout;
+}
+
+sigc::signal<void> TrayIcon::signalQuit() const noexcept
+{
+    return m_signalQuit;
 }
