@@ -1,22 +1,19 @@
-# Compiled Object files
+# Compiled object files
 *.slo
 *.lo
 *.o
 *.obj
 
-# Precompiled Headers
+# Precompiled headers
 *.gch
 *.pch
 
-# Compiled Dynamic libraries
+# Compiled dynamic libraries
 *.so
 *.dylib
 *.dll
 
-# Fortran module files
-*.mod
-
-# Compiled Static libraries
+# Compiled static libraries
 *.lai
 *.la
 *.a
@@ -27,16 +24,12 @@
 *.out
 *.app
 
-
-# File-based project format:
-*.iws
-
-# Build
-build/
-
-# Temporary UI Files
+# Temporary ui files
 *.ui~
 *.ui#
+
+# Common build directory
+build/
 
 # Build artifacts
 src/VERSION
