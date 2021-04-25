@@ -6,24 +6,29 @@ namespace
 {
     std::pair<char const*, char const*> getTrayIconNames()
     {
+        constexpr auto const WHATSAPP_TRAY                     = "whatsapp-tray";
+        constexpr auto const WHATSAPP_TRAY_ATTENTION           = "whatsapp-tray-attention";
+        constexpr auto const WHATSAPP_FOR_LINUX_TRAY           = "whatsapp-for-linux-tray";
+        constexpr auto const WHATSAPP_FOR_LINUX_TRAY_ATTENTION = "whatsapp-for-linux-tray-attention";
+
         auto const iconTheme = Gtk::IconTheme::get_default();
-        if (iconTheme->has_icon("whatsapp-tray") && iconTheme->has_icon("whatsapp-tray-attention"))
+        if (iconTheme->has_icon(WHATSAPP_TRAY) && iconTheme->has_icon(WHATSAPP_TRAY_ATTENTION))
         {
-            return {"whatsapp-tray", "whatsapp-tray-attention"};
+            return {WHATSAPP_TRAY, WHATSAPP_TRAY_ATTENTION};
         }
-        else if (iconTheme->has_icon("whatsapp-for-linux-tray") && iconTheme->has_icon("whatsapp-for-linux-tray-attention"))
+        else if (iconTheme->has_icon(WHATSAPP_FOR_LINUX_TRAY) && iconTheme->has_icon(WHATSAPP_FOR_LINUX_TRAY_ATTENTION))
         {
-            return {"whatsapp-for-linux-tray", "whatsapp-for-linux-tray-attention"};
+            return {WHATSAPP_FOR_LINUX_TRAY, WHATSAPP_FOR_LINUX_TRAY_ATTENTION};
         }
         else
         {
             auto const trayPixbuf = Gdk::Pixbuf::create_from_resource("/main/image/tray/whatsapp-for-linux-tray.png");
             auto const attentionPixbuf = Gdk::Pixbuf::create_from_resource("/main/image/tray/whatsapp-for-linux-tray-attention.png");
-            iconTheme->add_builtin_icon("whatsapp-for-linux-tray", Gtk::ICON_SIZE_MENU, trayPixbuf);
-            iconTheme->add_builtin_icon("whatsapp-for-linux-tray-attention", Gtk::ICON_SIZE_MENU, attentionPixbuf);
-            if (iconTheme->has_icon("whatsapp-for-linux-tray") && iconTheme->has_icon("whatsapp-for-linux-tray-attention"))
+            iconTheme->add_builtin_icon(WHATSAPP_FOR_LINUX_TRAY, Gtk::ICON_SIZE_MENU, trayPixbuf);
+            iconTheme->add_builtin_icon(WHATSAPP_FOR_LINUX_TRAY_ATTENTION, Gtk::ICON_SIZE_MENU, attentionPixbuf);
+            if (iconTheme->has_icon(WHATSAPP_FOR_LINUX_TRAY) && iconTheme->has_icon(WHATSAPP_FOR_LINUX_TRAY_ATTENTION))
             {
-                return {"whatsapp-for-linux-tray", "whatsapp-for-linux-tray-attention"};
+                return {WHATSAPP_FOR_LINUX_TRAY, WHATSAPP_FOR_LINUX_TRAY_ATTENTION};
             }
             else
             {
