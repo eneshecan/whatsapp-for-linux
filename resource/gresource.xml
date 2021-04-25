@@ -6,7 +6,7 @@
     <file>image/icons/hicolor/32x32/apps/whatsapp-for-linux.png</file>
     <file>image/icons/hicolor/64x64/apps/whatsapp-for-linux.png</file>
     <file>image/icons/hicolor/128x128/apps/whatsapp-for-linux.png</file>
-    <file>image/tray/active.png</file>
-    <file>image/tray/attention.png</file>
+    <file>image/tray/whatsapp-for-linux-tray.png</file>
+    <file>image/tray/whatsapp-for-linux-tray-attention.png</file>
   </gresource>
 </gresources>

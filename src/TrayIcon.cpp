@@ -2,16 +2,17 @@
 #include <gtkmm/icontheme.h>
 
 TrayIcon::TrayIcon()
-    : m_appIndicator{app_indicator_new("com.github.whatsapp-for-linux.tray", "whatsapp-for-linux-tray-active", APP_INDICATOR_CATEGORY_COMMUNICATIONS)}
+    : m_appIndicator{app_indicator_new("com.github.whatsapp-for-linux.tray", "", APP_INDICATOR_CATEGORY_COMMUNICATIONS)}
     , m_popupMenu{}
     , m_signalOpen{}
     , m_signalAbout{}
     , m_signalQuit{}
 {
-    auto const activePixbuf = Gdk::Pixbuf::create_from_resource("/main/image/tray/active.png");
-    auto const attentionPixbuf = Gdk::Pixbuf::create_from_resource("/main/image/tray/attention.png");
-    Gtk::IconTheme::get_default()->add_builtin_icon("whatsapp-for-linux-tray-active", Gtk::ICON_SIZE_MENU, activePixbuf);
+    auto const trayPixbuf = Gdk::Pixbuf::create_from_resource("/main/image/tray/whatsapp-for-linux-tray.png");
+    auto const attentionPixbuf = Gdk::Pixbuf::create_from_resource("/main/image/tray/whatsapp-for-linux-tray-attention.png");
+    Gtk::IconTheme::get_default()->add_builtin_icon("whatsapp-for-linux-tray", Gtk::ICON_SIZE_MENU, trayPixbuf);
     Gtk::IconTheme::get_default()->add_builtin_icon("whatsapp-for-linux-tray-attention", Gtk::ICON_SIZE_MENU, attentionPixbuf);
+    app_indicator_set_icon(m_appIndicator, "whatsapp-for-linux-tray");
     app_indicator_set_attention_icon(m_appIndicator, "whatsapp-for-linux-tray-attention");
 
     auto const openMenuItem = Gtk::manage(new Gtk::MenuItem{"Open"});
