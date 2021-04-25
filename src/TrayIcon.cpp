@@ -4,7 +4,7 @@
 
 namespace
 {
-    std::pair<Glib::ustring, Glib::ustring> getTrayIconNames()
+    std::pair<char const*, char const*> getTrayIconNames()
     {
         auto const iconTheme = Gtk::IconTheme::get_default();
         if (iconTheme->has_icon("whatsapp-tray") && iconTheme->has_icon("whatsapp-tray-attention"))
@@ -41,8 +41,8 @@ TrayIcon::TrayIcon()
     , m_signalQuit{}
 {
     auto const [trayIconName, attentionIconName] = getTrayIconNames();
-    app_indicator_set_icon_full(m_appIndicator, trayIconName.c_str(), "Whatsapp for Linux Tray");
-    app_indicator_set_attention_icon_full(m_appIndicator, attentionIconName.c_str(), "Whatsapp for Linux Tray Attention");
+    app_indicator_set_icon_full(m_appIndicator, trayIconName, "Whatsapp for Linux Tray");
+    app_indicator_set_attention_icon_full(m_appIndicator, attentionIconName, "Whatsapp for Linux Tray Attention");
 
     auto const openMenuItem = Gtk::manage(new Gtk::MenuItem{"Open"});
     auto const aboutMenuItem = Gtk::manage(new Gtk::MenuItem{"About"});
