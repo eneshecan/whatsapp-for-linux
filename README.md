@@ -4,7 +4,7 @@ An unofficial WhatsApp desktop application written in C++.
 
 [![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/whatsapp-for-linux)
 [![Get it from AUR](https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Arch_Linux_logo.svg/200px-Arch_Linux_logo.svg.png)](https://aur.archlinux.org/packages/whatsapp-for-linux)
-<a href="https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/applications/networking/instant-messengers/whatsapp-for-linux/default.nix#L33m/"><img src="https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/nixos.svg.png" alt="drawing" width="200"/>
+<a href="https://search.nixos.org/packages?channel=20.09&show=whatsapp-for-linux&from=0&size=50&sort=relevance&query=whatsapp-for-linux"><img src="https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/nixos.svg.png" alt="drawing" width="200"/>
 
 [![Action Status](https://github.com/eneshecan/whatsapp-for-linux/workflows/Build/badge.svg)](https://github.com/eneshecan/whatsapp-for-linux/actions)
 [![Action Status](https://github.com/eneshecan/whatsapp-for-linux/workflows/Install/badge.svg)](https://github.com/eneshecan/whatsapp-for-linux/actions)
