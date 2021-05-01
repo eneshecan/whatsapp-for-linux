@@ -14,10 +14,11 @@ class WebView
         operator WebKitWebView*();
 
     public:
-        void   refresh();
-        double zoomIn();
-        double zoomOut();
-        double zoomLevel() const noexcept;
+        void        refresh();
+        void        zoomIn();
+        void        zoomOut();
+        double      getZoomLevel() const noexcept;
+        std::string getZoomLevelString() const noexcept;
 
     public:
         sigc::signal<void, bool> signalNotification() const noexcept;

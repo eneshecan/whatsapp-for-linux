@@ -73,14 +73,14 @@ void TrayIcon::setVisible(bool visible)
     app_indicator_set_status(m_appIndicator, (visible ? APP_INDICATOR_STATUS_ACTIVE : APP_INDICATOR_STATUS_PASSIVE));
 }
 
-bool TrayIcon::visible() const
+bool TrayIcon::isVisible() const
 {
     return (app_indicator_get_status(m_appIndicator) != APP_INDICATOR_STATUS_PASSIVE);
 }
 
 void TrayIcon::setAttention(bool attention)
 {
-    if (!visible())
+    if (!isVisible())
     {
         return;
     }

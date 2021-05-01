@@ -5,7 +5,7 @@
 class Settings
 {
     public:
-        static Settings& instance();
+        static Settings& getInstance();
 
     public:
         Settings(Settings const&) = delete;
@@ -13,15 +13,15 @@ class Settings
 
     public:
         void   setCloseToTray(bool enable);
-        bool   closeToTray() const;
+        bool   getCloseToTray() const;
         void   setAllowPermissions(bool allow);
-        bool   allowPermissions() const;
+        bool   getAllowPermissions() const;
         void   setZoomLevel(double zoomLevel);
-        double zoomLevel() const;
+        double getZoomLevel() const;
         void   setHeaderBar(bool enable);
-        bool   headerBar() const;
+        bool   getHeaderBar() const;
         void   setStartInTray(bool enable);
-        bool   startInTray() const;
+        bool   getStartInTray() const;
 
     private:
         Settings();

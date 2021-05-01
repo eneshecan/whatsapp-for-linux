@@ -7,7 +7,7 @@ namespace
 {
     void sigterm(int)
     {
-        Application::instance().quit();
+        Application::getInstance().quit();
     }
 }
 
@@ -36,10 +36,10 @@ int main(int argc, char** argv)
 
     auto retCode = 0;
 
-    if (Settings::instance().startInTray() && Settings::instance().closeToTray())
+    if (Settings::getInstance().getStartInTray() && Settings::getInstance().getCloseToTray())
     {
         mainWindow->hide();
-        Application::instance().keepAlive();
+        Application::getInstance().keepAlive();
         retCode = app.run();
     }
     else

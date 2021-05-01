@@ -6,14 +6,6 @@
 #include "Version.hpp"
 #include "Settings.hpp"
 
-namespace
-{
-    std::string zoomLevelToStr(double level)
-    {
-        return std::to_string(static_cast<int>(std::round(level * 100))).append("%");
-    }
-}
-
 MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const& refBuilder)
     : Gtk::ApplicationWindow{cobject}
     , m_trayIcon{}
@@ -51,7 +43,7 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
 
     Gtk::Label* zoomLevelLabel = nullptr;
     refBuilder->get_widget("zoom_level_label", zoomLevelLabel);
-    zoomLevelLabel->set_label(zoomLevelToStr(m_webView.zoomLevel()));
+    zoomLevelLabel->set_label(m_webView.getZoomLevelString());
 
     Gtk::Button* zoomInButton = nullptr;
     refBuilder->get_widget("zoom_in_button", zoomInButton);
@@ -76,12 +68,12 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
 
     show_all();
 
-    m_trayIcon.setVisible(Settings::instance().closeToTray());
-    closeToTraySwitch->set_state(m_trayIcon.visible());
-    startInTraySwitch->set_state(Settings::instance().startInTray() && m_trayIcon.visible());
-    startInTraySwitch->set_sensitive(m_trayIcon.visible());
+    m_trayIcon.setVisible(Settings::getInstance().getCloseToTray());
+    closeToTraySwitch->set_state(m_trayIcon.isVisible());
+    startInTraySwitch->set_state(Settings::getInstance().getStartInTray() && m_trayIcon.isVisible());
+    startInTraySwitch->set_sensitive(m_trayIcon.isVisible());
 
-    m_headerBar->set_visible(Settings::instance().headerBar());
+    m_headerBar->set_visible(Settings::getInstance().getHeaderBar());
 }
 
 bool MainWindow::on_key_press_event(GdkEventKey* keyEvent)
@@ -116,7 +108,7 @@ bool MainWindow::on_key_release_event(GdkEventKey* keyEvent)
         {
             auto const visible = !m_headerBar->is_visible();
             m_headerBar->set_visible(visible);
-            Settings::instance().setHeaderBar(visible);
+            Settings::getInstance().setHeaderBar(visible);
             return true;
         }
 
@@ -137,14 +129,14 @@ bool MainWindow::on_window_state_event(GdkEventWindowState *windowStateEvent)
 
 bool MainWindow::on_delete_event(GdkEventAny* any_event)
 {
-    if (m_trayIcon.visible())
+    if (m_trayIcon.isVisible())
     {
-        Application::instance().keepAlive();
+        Application::getInstance().keepAlive();
         hide();
     }
     else
     {
-        Application::instance().endKeepAlive();
+        Application::getInstance().endKeepAlive();
     }
 
     return false;
@@ -159,14 +151,14 @@ void MainWindow::onShow()
 {
     if (!is_visible())
     {
-        Application::instance().add_window(*this);
+        Application::getInstance().add_window(*this);
         show();
     }
 }
 
 void MainWindow::onQuit()
 {
-    if (m_trayIcon.visible())
+    if (m_trayIcon.isVisible())
     {
         m_trayIcon.setVisible(false);
     }
@@ -181,7 +173,7 @@ void MainWindow::onFullscreen()
 bool MainWindow::onCloseToTray(bool visible, Gtk::Switch* startInTraySwitch)
 {
     m_trayIcon.setVisible(visible);
-    Settings::instance().setCloseToTray(visible);
+    Settings::getInstance().setCloseToTray(visible);
 
     if (!visible)
     {
@@ -194,20 +186,20 @@ bool MainWindow::onCloseToTray(bool visible, Gtk::Switch* startInTraySwitch)
 
 bool MainWindow::onStartInTray(bool visible)
 {
-    Settings::instance().setStartInTray(visible);
+    Settings::getInstance().setStartInTray(visible);
     return false;
 }
 
 void MainWindow::onZoomIn(Gtk::Label* zoomLevelLabel)
 {
-    auto const level = m_webView.zoomIn();
-    zoomLevelLabel->set_label(zoomLevelToStr(level));
+    m_webView.zoomIn();
+    zoomLevelLabel->set_label(m_webView.getZoomLevelString());
 }
 
 void MainWindow::onZoomOut(Gtk::Label* zoomLevelLabel)
 {
-    auto const level = m_webView.zoomOut();
-    zoomLevelLabel->set_label(zoomLevelToStr(level));
+    m_webView.zoomOut();
+    zoomLevelLabel->set_label(m_webView.getZoomLevelString());
 }
 
 void MainWindow::onAbout()

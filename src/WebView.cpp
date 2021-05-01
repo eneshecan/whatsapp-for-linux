@@ -34,11 +34,11 @@ namespace
         {
             case Gtk::RESPONSE_YES:
                 webkit_permission_request_allow(request);
-                Settings::instance().setAllowPermissions(true);
+                Settings::getInstance().setAllowPermissions(true);
                 break;
             case Gtk::RESPONSE_NO:
                 webkit_permission_request_deny(request);
-                Settings::instance().setAllowPermissions(false);
+                Settings::getInstance().setAllowPermissions(false);
                 break;
             default:
                 break;
@@ -99,7 +99,7 @@ namespace
 
     void initializeNotificationPermission(WebKitWebContext* context, gpointer)
     {
-        if (Settings::instance().allowPermissions())
+        if (Settings::getInstance().getAllowPermissions())
         {
             auto const origin = webkit_security_origin_new_for_uri(WHATSAPP_WEB_URI);
             auto const allowedOrigins = g_list_alloc();
@@ -136,7 +136,7 @@ namespace
 
 WebView::WebView()
     : Gtk::Widget{webkit_web_view_new()}
-    , m_zoomLevel{Settings::instance().zoomLevel()}
+    , m_zoomLevel{Settings::getInstance().getZoomLevel()}
     , m_signalNotification{}
 {
     auto const webContext = webkit_web_view_get_context(*this);
@@ -161,7 +161,7 @@ WebView::WebView()
 
 WebView::~WebView()
 {
-    Settings::instance().setZoomLevel(m_zoomLevel);
+    Settings::getInstance().setZoomLevel(m_zoomLevel);
 }
 
 WebView::operator WebKitWebView*()
@@ -174,7 +174,7 @@ void WebView::refresh()
     webkit_web_view_reload(*this);
 }
 
-double WebView::zoomIn()
+void WebView::zoomIn()
 {
     m_zoomLevel = webkit_web_view_get_zoom_level(*this);
     if (m_zoomLevel < 2)
@@ -182,11 +182,9 @@ double WebView::zoomIn()
         m_zoomLevel += 0.05;
         webkit_web_view_set_zoom_level(*this, m_zoomLevel);
     }
-
-    return m_zoomLevel;
 }
 
-double WebView::zoomOut()
+void WebView::zoomOut()
 {
     m_zoomLevel = webkit_web_view_get_zoom_level(*this);
     if (m_zoomLevel > 0.5)
@@ -194,13 +192,16 @@ double WebView::zoomOut()
         m_zoomLevel -= 0.05;
         webkit_web_view_set_zoom_level(*this, m_zoomLevel);
     }
+}
 
+double WebView::getZoomLevel() const noexcept
+{
     return m_zoomLevel;
 }
 
-double WebView::zoomLevel() const noexcept
+std::string WebView::getZoomLevelString() const noexcept
 {
-    return m_zoomLevel;
+    return std::to_string(static_cast<int>(std::round(getZoomLevel() * 100))).append("%");
 }
 
 sigc::signal<void, bool> WebView::signalNotification() const noexcept

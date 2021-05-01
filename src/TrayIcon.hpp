@@ -10,7 +10,7 @@ class TrayIcon
 
     public:
         void setVisible(bool visible);
-        bool visible() const;
+        bool isVisible() const;
         void setAttention(bool attention);
 
     public:

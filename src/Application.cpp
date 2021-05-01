@@ -2,7 +2,7 @@
 
 Application* Application::m_instance = nullptr;
 
-Application& Application::instance()
+Application& Application::getInstance()
 {
     return *m_instance;
 }

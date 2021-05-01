@@ -6,7 +6,7 @@ class Application
     : public Gtk::Application
 {
     public:
-        static Application& instance();
+        static Application& getInstance();
 
     public:
         Application(int argc, char** argv, Glib::ustring const& id);

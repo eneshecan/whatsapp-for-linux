@@ -18,7 +18,7 @@ namespace
 }
 
 
-Settings& Settings::instance()
+Settings& Settings::getInstance()
 {
     static auto instance = Settings{};
     return instance;
@@ -61,7 +61,7 @@ void Settings::setCloseToTray(bool enable)
     m_keyFile.set_boolean(GROUP_GENERAL, "close_to_tray", enable);
 }
 
-bool Settings::closeToTray() const
+bool Settings::getCloseToTray() const
 {
     auto enable = false;
     try
@@ -81,7 +81,7 @@ void Settings::setAllowPermissions(bool allow)
     m_keyFile.set_boolean(GROUP_NETWORK, "allow_permissions", allow);
 }
 
-bool Settings::allowPermissions() const
+bool Settings::getAllowPermissions() const
 {
     auto allow = false;
     try
@@ -101,7 +101,7 @@ void Settings::setZoomLevel(double zoomLevel)
     m_keyFile.set_double(GROUP_GENERAL, "zoom_level", zoomLevel);
 }
 
-double Settings::zoomLevel() const
+double Settings::getZoomLevel() const
 {
     auto zoomLevel = 1.0;
     try
@@ -121,7 +121,7 @@ void Settings::setHeaderBar(bool enable)
     m_keyFile.set_boolean(GROUP_GENERAL, "header_bar", enable);
 }
 
-bool Settings::headerBar() const
+bool Settings::getHeaderBar() const
 {
     auto enable = true;
     try
@@ -141,7 +141,7 @@ void Settings::setStartInTray(bool enable)
     m_keyFile.set_boolean(GROUP_GENERAL, "start_in_tray", enable);
 }
 
-bool Settings::startInTray() const
+bool Settings::getStartInTray() const
 {
     auto enable = false;
     try
