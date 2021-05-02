@@ -69,4 +69,4 @@ Please read [contributing](.github/contributing.md).
 
 ### Code Contributors
 
-[![Code Contributors](https://opencollective.com/whatsapp-for-linux/contributors.svg?width=890&button=false)]()
+[![Code Contributors](https://opencollective.com/whatsapp-for-linux/contributors.svg?width=880&button=false)](https://github.com/eneshecan/whatsapp-for-linux/graphs/contributors)
