@@ -33,6 +33,10 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
     refBuilder->get_widget("start_in_tray_switch", startInTraySwitch);
     startInTraySwitch->signal_state_set().connect(sigc::mem_fun(this, &MainWindow::onStartInTray), false);
 
+    Gtk::Switch* autostartSwitch = nullptr;
+    refBuilder->get_widget("autostart_switch", autostartSwitch);
+    autostartSwitch->signal_state_set().connect(sigc::mem_fun(this, &MainWindow::onAutostart), false);
+
     Gtk::Switch* closeToTraySwitch = nullptr;
     refBuilder->get_widget("close_to_tray_switch", closeToTraySwitch);
     closeToTraySwitch->signal_state_set().connect(sigc::bind(sigc::mem_fun(this, &MainWindow::onCloseToTray), startInTraySwitch), false);
@@ -72,6 +76,7 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
     closeToTraySwitch->set_state(m_trayIcon.isVisible());
     startInTraySwitch->set_state(Settings::getInstance().getStartInTray() && m_trayIcon.isVisible());
     startInTraySwitch->set_sensitive(m_trayIcon.isVisible());
+    autostartSwitch->set_state(Settings::getInstance().getAutostart());
 
     m_headerBar->set_visible(Settings::getInstance().getHeaderBar());
 }
@@ -187,6 +192,12 @@ bool MainWindow::onCloseToTray(bool visible, Gtk::Switch* startInTraySwitch)
 bool MainWindow::onStartInTray(bool visible)
 {
     Settings::getInstance().setStartInTray(visible);
+    return false;
+}
+
+bool MainWindow::onAutostart(bool autostart)
+{
+    Settings::getInstance().setAutostart(autostart);
     return false;
 }
 

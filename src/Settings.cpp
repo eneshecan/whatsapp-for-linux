@@ -2,13 +2,21 @@
 #include <sys/stat.h>
 #include <fstream>
 #include <iostream>
+#include <giomm/file.h>
 
 namespace
 {
-    auto const CONFIG_DIR              = std::string{g_get_user_config_dir()} + "/whatsapp-for-linux";
-    auto const CONFIG_FILE_PATH        = CONFIG_DIR + "/settings.conf";
-    constexpr auto const GROUP_GENERAL = "General";
-    constexpr auto const GROUP_NETWORK = "Network";
+    auto const CONFIG_DIR                            = std::string{g_get_user_config_dir()};
+    auto const CONFIG_APP_DIR                        = CONFIG_DIR +  "/whatsapp-for-linux";
+    auto const CONFIG_FILE_PATH                      = CONFIG_APP_DIR + "/settings.conf";
+    auto const AUTOSTART_DESKTOP_FILE_PATH           = CONFIG_DIR + "/autostart/whatsapp-for-linux.desktop";
+    constexpr auto const GROUP_GENERAL               = "General";
+    constexpr auto const GROUP_NETWORK               = "Network";
+    constexpr auto const POSSIBLE_DESKTOP_FILE_PATHS = {
+            "/usr/local/share/applications/whatsapp-for-linux.desktop",
+            "/usr/share/applications/whatsapp-for-linux.desktop",
+            "/snap/whatsapp-for-linux/current/share/applications/whatsapp-for-linux.desktop"
+    };
 
     void addGroupToFile(std::string_view group)
     {
@@ -30,7 +38,7 @@ Settings::Settings()
     auto inputFile = std::ifstream{CONFIG_FILE_PATH};
     if (!inputFile.good())
     {
-        if (mkdir(CONFIG_DIR.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH) == -1)
+        if (mkdir(CONFIG_APP_DIR.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH) == -1)
         {
             std::cerr << "Settings: Failed to create config directory: " << strerror(errno) << std::endl;
             return;
@@ -154,4 +162,40 @@ bool Settings::getStartInTray() const
     }
 
     return enable;
+}
+
+void Settings::setAutostart(bool autostart)
+{
+    auto gfileDest = Gio::File::create_for_path(AUTOSTART_DESKTOP_FILE_PATH);
+    if(autostart)
+    {
+        auto it = std::find_if(POSSIBLE_DESKTOP_FILE_PATHS.begin(), POSSIBLE_DESKTOP_FILE_PATHS.end(),[](auto const& elem){
+            auto gfile = Gio::File::create_for_path(elem);
+            return gfile->query_exists();
+        });
+
+        if (it == POSSIBLE_DESKTOP_FILE_PATHS.end())
+        {
+            std::cerr << "Settings: Failed to find desktop file" << std::endl;
+            return;
+        }
+        auto gfileSrc = Gio::File::create_for_path(*it);
+        if(!gfileDest->query_exists())
+            gfileSrc->copy(gfileDest);
+    }
+    else
+    {
+        if(!gfileDest->query_exists())
+        {
+            std::cerr << "Settings: Desktop file in autostart path does not exists" << std::endl;
+            return;
+        }
+        gfileDest->remove();
+    }
+}
+
+bool Settings::getAutostart()
+{
+    auto gfileDesktop = Gio::File::create_for_path(AUTOSTART_DESKTOP_FILE_PATH);
+    return gfileDesktop->query_exists();
 }

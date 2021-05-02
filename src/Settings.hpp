@@ -22,6 +22,8 @@ class Settings
         bool   getHeaderBar() const;
         void   setStartInTray(bool enable);
         bool   getStartInTray() const;
+        void   setAutostart(bool autostart);
+        bool   getAutostart();
 
     private:
         Settings();

@@ -135,7 +135,7 @@
           <object class="GtkButtonBox" id="start_in_tray_buttonbox">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
-            <property name="spacing">5</property>
+            <property name="spacing">10</property>
             <property name="layout-style">center</property>
             <child>
               <object class="GtkLabel" id="start_in_tray_label">
@@ -170,6 +170,44 @@
           </packing>
         </child>
         <child>
+          <object class="GtkButtonBox" id="autostart_buttonbox">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="spacing">24</property>
+            <property name="layout-style">center</property>
+            <child>
+              <object class="GtkLabel" id="autostart_label">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="label" translatable="yes">Autostart</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+                <property name="non-homogeneous">True</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkSwitch" id="autostart_switch">
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">2</property>
+                <property name="non-homogeneous">True</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">4</property>
+          </packing>
+        </child>
+        <child>
           <object class="GtkButton" id="fullscreen_button">
             <property name="label" translatable="yes">Fullscreen    F11</property>
             <property name="visible">True</property>
@@ -180,7 +218,7 @@
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="position">4</property>
+            <property name="position">5</property>
           </packing>
         </child>
         <child>
@@ -191,7 +229,7 @@
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="position">5</property>
+            <property name="position">6</property>
           </packing>
         </child>
         <child>
@@ -205,7 +243,7 @@
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="position">6</property>
+            <property name="position">7</property>
           </packing>
         </child>
         <child>
@@ -219,7 +257,7 @@
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="position">7</property>
+            <property name="position">8</property>
           </packing>
         </child>
       </object>
