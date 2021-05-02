@@ -27,11 +27,6 @@ An unofficial WhatsApp desktop application written in C++.
 Check out [releases](https://github.com/eneshecan/whatsapp-for-linux/releases) for available packages.
 
 
-## Contributing
-
-Please read [contributing](.github/contributing.md).
-
-
 ## Dependencies
 
 * cmake >= 3.8
@@ -66,3 +61,12 @@ Run `dpkg-buildpackage -uc -us -ui`.
 ### Snap
 
 Run `snapcraft`.
+
+
+## Contributing
+
+Please read [contributing](.github/contributing.md).
+
+### Code Contributors
+
+[![Code Contributors](https://opencollective.com/whatsapp-for-linux/contributors.svg?width=890&button=false)]()
