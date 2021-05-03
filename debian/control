@@ -1,12 +1,29 @@
 Source: whatsapp-for-linux
 Section: web
 Priority: optional
-Maintainer: Enes Hecan <nshecan@gmail.com>
-Build-Depends: debhelper (>=10)
-Standards-Version: 3.9.6
+Maintainer: Enes Hecan <nshecan@gmail.com>,
+            Francisco Vilmar Cardoso Ruviaro <francisco.ruviaro@riseup.net>
+Build-Depends: cmake,
+               debhelper-compat (= 13),
+               libappindicator3-dev,
+               libgtkmm-3.0-dev,
+               libwebkit2gtk-4.0-dev,
+               pkg-config
+Standards-Version: 4.5.1
 Homepage: https://github.com/eneshecan/whatsapp-for-linux
+Rules-Requires-Root: no
 
 Package: whatsapp-for-linux
-Architecture: amd64
-Description: An unofficial WhatsApp desktop application for linux
-Depends: libgtkmm-3.0-1v5, libwebkit2gtk-4.0-37, libappindicator3-1
+Architecture: any
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
+Description: Unofficial WhatsApp desktop application
+ WhatsApp Messenger is a cross-platform mobile messaging app
+ which allows you to exchange messages, via Internet, without
+ having to pay for SMS.
+ .
+ In addition to basic messaging, WhatsApp users can create
+ groups, send each other unlimited images, video and audio
+ media messages.
+ .
+ This is an unofficial WhatsApp desktop application.
