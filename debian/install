@@ -1,3 +1,0 @@
-obj-x86_64-linux-gnu/whatsapp-for-linux usr/bin
-resource/desktop/whatsapp-for-linux.desktop usr/share/applications/
-resource/image/icons/* /usr/share/icons
