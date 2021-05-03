@@ -1,9 +1,6 @@
-#!/bin/bash
+#!/usr/bin/make -f
 
-# Set version
-version=$(cat "src/VERSION")
-echo "Setting version to ${version}"
-sed -i -E "s/\((.*?)\)/($version)/g" debian/changelog
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 
 %:
-    dh $@
+	dh $@
