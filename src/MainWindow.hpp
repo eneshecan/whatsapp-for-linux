@@ -16,7 +16,6 @@ class MainWindow
 
     protected:
         bool on_key_press_event(GdkEventKey* keyEvent) override;
-        bool on_key_release_event(GdkEventKey* keyEvent) override;
         bool on_window_state_event(GdkEventWindowState* windowStateEvent) override;
         bool on_delete_event(GdkEventAny* any_event) override;
 

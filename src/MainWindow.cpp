@@ -84,6 +84,17 @@ bool MainWindow::on_key_press_event(GdkEventKey* keyEvent)
             onFullscreen();
             return true;
 
+        case GDK_KEY_H:
+        case GDK_KEY_h:
+            if (keyEvent->state & GDK_MOD1_MASK)
+            {
+                auto const visible = !m_headerBar->is_visible();
+                m_headerBar->set_visible(visible);
+                Settings::getInstance().setHeaderBar(visible);
+                return true;
+            }
+            break;
+
         case GDK_KEY_Q:
         case GDK_KEY_q:
             if (keyEvent->state & GDK_CONTROL_MASK)
@@ -99,26 +110,6 @@ bool MainWindow::on_key_press_event(GdkEventKey* keyEvent)
 
     return Gtk::ApplicationWindow::on_key_press_event(keyEvent);
 }
-
-bool MainWindow::on_key_release_event(GdkEventKey* keyEvent)
-{
-    switch (keyEvent->keyval)
-    {
-        case GDK_KEY_Alt_L:
-        {
-            auto const visible = !m_headerBar->is_visible();
-            m_headerBar->set_visible(visible);
-            Settings::getInstance().setHeaderBar(visible);
-            return true;
-        }
-
-        default:
-            break;
-    }
-
-    return Gtk::ApplicationWindow::on_key_release_event(keyEvent);
-}
-
 
 bool MainWindow::on_window_state_event(GdkEventWindowState *windowStateEvent)
 {

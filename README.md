@@ -18,7 +18,7 @@ An unofficial WhatsApp desktop application written in C++.
 * Zoom in/out
 * System tray icon
 * Fullscreen mode
-* Show/Hide titlebar on *Alt* key
+* Show/Hide headerbar by pressing *Alt+H*
 * Spell check in system language. You might need to install the corresponding dictionary to get this working i.e. `aspell-en` package for English
 
 
