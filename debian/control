@@ -2,11 +2,12 @@ Source: whatsapp-for-linux
 Section: web
 Priority: optional
 Maintainer: Enes Hecan <nshecan@gmail.com>
-Build-Depends: debhelper (>=10)
-Standards-Version: 3.9.6
+Build-Depends: debhelper (>=10), cmake, pkg-config, libappindicator3-dev, libgtkmm-3.0-dev, libwebkit2gtk-4.0-dev
+Standards-Version: 4.5.1
 Homepage: https://github.com/eneshecan/whatsapp-for-linux
+Rules-Requires-Root: no
 
 Package: whatsapp-for-linux
-Architecture: amd64
-Description: An unofficial WhatsApp desktop application for linux
+Architecture: any
 Depends: libgtkmm-3.0-1v5, libwebkit2gtk-4.0-37, libappindicator3-1
+Description: An unofficial WhatsApp desktop application for linux

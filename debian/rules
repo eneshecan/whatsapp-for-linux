@@ -6,4 +6,4 @@ echo "Setting version to ${version}"
 sed -i -E "s/\((.*?)\)/($version)/g" debian/changelog
 
 %:
-    dh $@
+ dh $@
