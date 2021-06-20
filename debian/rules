@@ -1,6 +1,10 @@
 #!/bin/bash
 
-# Set version
+mkdir -p build/release && cd build/release
+echo "Configuring cmake to generate the version information"
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_DIR=/usr ../..
+cd ../..
+
 version=$(cat "src/VERSION")
 echo "Setting version to ${version}"
 sed -i -E "s/\((.*?)\)/($version)/g" debian/changelog
