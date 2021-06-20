@@ -52,15 +52,13 @@ building (You'll probably need administrator privileges for this).
 
 ## Packaging
 
-In order for the packages to get the version information, build cmake before generating any package.
-
 ### Debian
 
 Run `dpkg-buildpackage -uc -us -ui`.
 
 ### Snap
 
-Run `snapcraft`.
+Run `snapcraft`. Pass `--use-lxd` option in a virtual environment.
 
 
 ## Contributing

@@ -13,6 +13,10 @@ parts:
     plugin: cmake
     override-pull: |
       snapcraftctl pull
+      mkdir -p build/release && cd build/release
+      echo "Configuring cmake to generate the version information"
+      cmake -DCMAKE_BUILD_TYPE=Release ../..
+      cd ../..
       sed -i.bak -e 's|Icon=whatsapp-for-linux|Icon=share/icons/hicolor/256x256/apps/whatsapp-for-linux.png|g' resource/desktop/whatsapp-for-linux.desktop
       version=$(cat "src/VERSION")
       echo "Setting version to ${version}"
