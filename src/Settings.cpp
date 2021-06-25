@@ -166,12 +166,12 @@ bool Settings::getStartInTray() const
 
 void Settings::setAutostart(bool autostart)
 {
-    auto gfileDest = Gio::File::create_for_path(AUTOSTART_DESKTOP_FILE_PATH);
-    if(autostart)
+    auto destFile = Gio::File::create_for_path(AUTOSTART_DESKTOP_FILE_PATH);
+    if (autostart)
     {
-        auto it = std::find_if(POSSIBLE_DESKTOP_FILE_PATHS.begin(), POSSIBLE_DESKTOP_FILE_PATHS.end(),[](auto const& elem){
-            auto gfile = Gio::File::create_for_path(elem);
-            return gfile->query_exists();
+        auto const it = std::find_if(POSSIBLE_DESKTOP_FILE_PATHS.begin(), POSSIBLE_DESKTOP_FILE_PATHS.end(),[](auto const& elem){
+            auto const file = Gio::File::create_for_path(elem);
+            return file->query_exists();
         });
 
         if (it == POSSIBLE_DESKTOP_FILE_PATHS.end())
@@ -179,23 +179,25 @@ void Settings::setAutostart(bool autostart)
             std::cerr << "Settings: Failed to find desktop file" << std::endl;
             return;
         }
-        auto gfileSrc = Gio::File::create_for_path(*it);
-        if(!gfileDest->query_exists())
-            gfileSrc->copy(gfileDest);
+        auto const srcFile = Gio::File::create_for_path(*it);
+        if (!destFile->query_exists())
+        {
+            srcFile->copy(destFile);
+        }
     }
     else
     {
-        if(!gfileDest->query_exists())
+        if (!destFile->query_exists())
         {
             std::cerr << "Settings: Desktop file in autostart path does not exists" << std::endl;
             return;
         }
-        gfileDest->remove();
+        destFile->remove();
     }
 }
 
 bool Settings::getAutostart()
 {
-    auto gfileDesktop = Gio::File::create_for_path(AUTOSTART_DESKTOP_FILE_PATH);
-    return gfileDesktop->query_exists();
+    auto const desktopFile = Gio::File::create_for_path(AUTOSTART_DESKTOP_FILE_PATH);
+    return desktopFile->query_exists();
 }
