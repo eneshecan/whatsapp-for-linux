@@ -17,6 +17,7 @@ An unofficial WhatsApp desktop application written in C++.
 * Features come with whatsapp web except audio and image capture
 * Zoom in/out
 * System tray icon
+* Autostart with system
 * Fullscreen mode
 * Show/Hide headerbar by pressing *Alt+H*
 * Spell check in system language. You might need to install the corresponding dictionary to get this working i.e. `aspell-en` package for English
