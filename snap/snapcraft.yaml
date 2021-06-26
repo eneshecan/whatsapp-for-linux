@@ -13,7 +13,7 @@ parts:
     plugin: cmake
     override-pull: |
       snapcraftctl pull
-      mkdir -p build/release && cd build/release
+      mkdir -p build/release && cd build/release && rm CMakeCache.txt
       echo "Configuring cmake to generate the version information"
       cmake -DCMAKE_BUILD_TYPE=Release ../..
       cd ../..
