@@ -96,35 +96,13 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButtonBox" id="close_to_tray_buttonbox">
+          <object class="GtkModelButton" id="close_to_tray_button">
+            <property name="text" translatable="yes">Close To Tray</property>
             <property name="visible">True</property>
-            <property name="can-focus">False</property>
-            <property name="spacing">4</property>
-            <child>
-              <object class="GtkLabel" id="close_to_tray_label">
-                <property name="visible">True</property>
-                <property name="can-focus">False</property>
-                <property name="label" translatable="yes">Close To Tray</property>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">0</property>
-                <property name="non-homogeneous">True</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkSwitch" id="close_to_tray_switch">
-                <property name="visible">True</property>
-                <property name="can-focus">True</property>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">2</property>
-                <property name="non-homogeneous">True</property>
-              </packing>
-            </child>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+            <property name="relief">none</property>
+            <property name="role">check</property>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -133,35 +111,13 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButtonBox" id="start_in_tray_buttonbox">
+          <object class="GtkModelButton" id="start_in_tray_button">
+            <property name="text" translatable="yes">Start In Tray</property>
             <property name="visible">True</property>
-            <property name="can-focus">False</property>
-            <property name="spacing">4</property>
-            <child>
-              <object class="GtkLabel" id="start_in_tray_label">
-                <property name="visible">True</property>
-                <property name="can-focus">False</property>
-                <property name="label" translatable="yes">Start In Tray</property>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">0</property>
-                <property name="non-homogeneous">True</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkSwitch" id="start_in_tray_switch">
-                <property name="visible">True</property>
-                <property name="can-focus">True</property>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">2</property>
-                <property name="non-homogeneous">True</property>
-              </packing>
-            </child>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+            <property name="relief">none</property>
+            <property name="role">check</property>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -170,35 +126,13 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButtonBox" id="autostart_buttonbox">
+          <object class="GtkModelButton" id="autostart_button">
+            <property name="text" translatable="yes">Autostart</property>
             <property name="visible">True</property>
-            <property name="can-focus">False</property>
-            <property name="spacing">4</property>
-            <child>
-              <object class="GtkLabel" id="autostart_label">
-                <property name="visible">True</property>
-                <property name="can-focus">False</property>
-                <property name="label" translatable="yes">Autostart</property>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">0</property>
-                <property name="non-homogeneous">True</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkSwitch" id="autostart_switch">
-                <property name="visible">True</property>
-                <property name="can-focus">True</property>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">2</property>
-                <property name="non-homogeneous">True</property>
-              </packing>
-            </child>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+            <property name="relief">none</property>
+            <property name="role">check</property>
           </object>
           <packing>
             <property name="expand">False</property>
