@@ -14,6 +14,13 @@
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="visible">1</property>
+                <property name="accelerator">F5</property>
+                <property name="title" translatable="yes">Refresh Page</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">1</property>
                 <property name="accelerator">F11</property>
                 <property name="title" translatable="yes">Enter/Exit Fullscreen</property>
               </object>

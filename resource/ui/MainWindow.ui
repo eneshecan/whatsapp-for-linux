@@ -238,12 +238,12 @@
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
-            <property name="tooltip-text" translatable="yes">Refresh  F5</property>
+            <property name="tooltip-text" translatable="yes">Refresh</property>
             <child>
               <object class="GtkImage" id="refresh_image">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="icon-name">view-refresh</property>
+                <property name="icon-name">view-refresh-symbolic</property>
               </object>
             </child>
             <accelerator key="F5" signal="clicked"/>
