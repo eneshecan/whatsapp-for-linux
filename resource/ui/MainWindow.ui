@@ -25,6 +25,7 @@
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
+                <property name="relief">none</property>
                 <property name="always-show-image">True</property>
                 <child>
                   <object class="GtkImage">
@@ -59,6 +60,7 @@
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
+                <property name="relief">none</property>
                 <property name="always-show-image">True</property>
                 <child>
                   <object class="GtkImage">
@@ -205,8 +207,8 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton" id="fullscreen_button">
-            <property name="label" translatable="yes">Fullscreen    F11</property>
+          <object class="GtkModelButton" id="fullscreen_button">
+            <property name="text" translatable="yes">Fullscreen    F11</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
@@ -230,8 +232,8 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton" id="about_button">
-            <property name="label" translatable="yes">About</property>
+          <object class="GtkModelButton" id="about_button">
+            <property name="text" translatable="yes">About</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
@@ -244,8 +246,8 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton" id="quit_button">
-            <property name="label" translatable="yes">Quit    Ctrl+Q</property>
+          <object class="GtkModelButton" id="quit_button">
+            <property name="text" translatable="yes">Quit    Ctrl+Q</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
@@ -311,7 +313,7 @@
               <object class="GtkImage" id="header_menu_image">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="icon-name">start-here</property>
+                <property name="icon-name">open-menu-symbolic</property>
               </object>
             </child>
           </object>
