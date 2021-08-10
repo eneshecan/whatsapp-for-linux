@@ -1,6 +1,7 @@
 #include "MainWindow.hpp"
 #include <gtkmm/grid.h>
 #include <gtkmm/button.h>
+#include <gtkmm/modelbutton.h>
 #include <gtkmm/aboutdialog.h>
 #include "Application.hpp"
 #include "Version.hpp"
@@ -29,17 +30,17 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
 
     refBuilder->get_widget("header_bar", m_headerBar);
 
-    Gtk::Switch* startInTraySwitch = nullptr;
-    refBuilder->get_widget("start_in_tray_switch", startInTraySwitch);
-    startInTraySwitch->signal_state_set().connect(sigc::mem_fun(this, &MainWindow::onStartInTray), false);
+    Gtk::ModelButton* startInTrayButton = nullptr;
+    refBuilder->get_widget("start_in_tray_button", startInTrayButton);
+    startInTrayButton->signal_clicked().connect(sigc::bind(sigc::mem_fun(this, &MainWindow::onStartInTray), startInTrayButton));
 
-    Gtk::Switch* autostartSwitch = nullptr;
-    refBuilder->get_widget("autostart_switch", autostartSwitch);
-    autostartSwitch->signal_state_set().connect(sigc::mem_fun(this, &MainWindow::onAutostart), false);
+    Gtk::ModelButton* autostartButton = nullptr;
+    refBuilder->get_widget("autostart_button", autostartButton);
+    autostartButton->signal_clicked().connect(sigc::bind(sigc::mem_fun(this, &MainWindow::onAutostart), autostartButton));
 
-    Gtk::Switch* closeToTraySwitch = nullptr;
-    refBuilder->get_widget("close_to_tray_switch", closeToTraySwitch);
-    closeToTraySwitch->signal_state_set().connect(sigc::bind(sigc::mem_fun(this, &MainWindow::onCloseToTray), startInTraySwitch), false);
+    Gtk::ModelButton* closeToTrayButton = nullptr;
+    refBuilder->get_widget("close_to_tray_button", closeToTrayButton);
+    closeToTrayButton->signal_clicked().connect(sigc::bind(sigc::mem_fun(this, &MainWindow::onCloseToTray), closeToTrayButton, startInTrayButton));
 
     Gtk::Button* fullscreenButton = nullptr;
     refBuilder->get_widget("fullscreen_button", fullscreenButton);
@@ -73,10 +74,10 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
     show_all();
 
     m_trayIcon.setVisible(Settings::getInstance().getCloseToTray());
-    closeToTraySwitch->set_state(m_trayIcon.isVisible());
-    startInTraySwitch->set_state(Settings::getInstance().getStartInTray() && m_trayIcon.isVisible());
-    startInTraySwitch->set_sensitive(m_trayIcon.isVisible());
-    autostartSwitch->set_state(Settings::getInstance().getAutostart());
+    closeToTrayButton->property_active() = m_trayIcon.isVisible();
+    startInTrayButton->property_active() = Settings::getInstance().getStartInTray() && m_trayIcon.isVisible();
+    startInTrayButton->set_sensitive(m_trayIcon.isVisible());
+    autostartButton->property_active() = Settings::getInstance().getAutostart();
 
     m_headerBar->set_visible(Settings::getInstance().getHeaderBar());
 }
@@ -166,30 +167,35 @@ void MainWindow::onFullscreen()
     m_fullscreen ? unfullscreen() : fullscreen();
 }
 
-bool MainWindow::onCloseToTray(bool visible, Gtk::Switch* startInTraySwitch)
+void MainWindow::onCloseToTray(Gtk::ModelButton* closeToTrayButton, Gtk::ModelButton* startInTrayButton)
 {
+    auto const visible = !closeToTrayButton->property_active();
+    closeToTrayButton->property_active() = visible;
+
     m_trayIcon.setVisible(visible);
     Settings::getInstance().setCloseToTray(visible);
 
     if (!visible)
     {
-        startInTraySwitch->set_active(false);
+        startInTrayButton->property_active() = false;
     }
-    startInTraySwitch->set_sensitive(visible);
-
-    return false;
+    startInTrayButton->set_sensitive(visible);
 }
 
-bool MainWindow::onStartInTray(bool visible)
+void MainWindow::onStartInTray(Gtk::ModelButton* startInTrayButton)
 {
+    auto const visible = !startInTrayButton->property_active();
+    startInTrayButton->property_active() = visible;
+
     Settings::getInstance().setStartInTray(visible);
-    return false;
 }
 
-bool MainWindow::onAutostart(bool autostart)
+void MainWindow::onAutostart(Gtk::ModelButton* autostartButton)
 {
+    auto const autostart = !autostartButton->property_active();
+    autostartButton->property_active() = autostart;
+
     Settings::getInstance().setAutostart(autostart);
-    return false;
 }
 
 void MainWindow::onZoomIn(Gtk::Label* zoomLevelLabel)
