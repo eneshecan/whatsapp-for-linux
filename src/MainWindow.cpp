@@ -3,6 +3,7 @@
 #include <gtkmm/button.h>
 #include <gtkmm/modelbutton.h>
 #include <gtkmm/aboutdialog.h>
+#include <gtkmm/shortcutswindow.h>
 #include "Application.hpp"
 #include "Version.hpp"
 #include "Settings.hpp"
@@ -12,6 +13,7 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
     , m_trayIcon{}
     , m_webView{}
     , m_fullscreen{false}
+    , m_shortcutsWindow{nullptr}
 {
     auto const appIcon16x16   = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/16x16/apps/whatsapp-for-linux.png");
     auto const appIcon32x32   = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/32x32/apps/whatsapp-for-linux.png");
@@ -57,6 +59,10 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
     Gtk::Button* zoomOutButton = nullptr;
     refBuilder->get_widget("zoom_out_button", zoomOutButton);
     zoomOutButton->signal_clicked().connect(sigc::bind(sigc::mem_fun(this, &MainWindow::onZoomOut), zoomLevelLabel));
+
+    Gtk::Button* shortcutsButton = nullptr;
+    refBuilder->get_widget("shortcuts_button", shortcutsButton);
+    shortcutsButton->signal_clicked().connect(sigc::mem_fun(this, &MainWindow::onShortcuts));
 
     Gtk::Button* aboutButton = nullptr;
     refBuilder->get_widget("about_button", aboutButton);
@@ -106,6 +112,14 @@ bool MainWindow::on_key_press_event(GdkEventKey* keyEvent)
             if (keyEvent->state & GDK_CONTROL_MASK)
             {
                 onQuit();
+                return true;
+            }
+            break;
+
+        case GDK_KEY_question:
+            if (keyEvent->state & GDK_CONTROL_MASK)
+            {
+                onShortcuts();
                 return true;
             }
             break;
@@ -223,4 +237,17 @@ void MainWindow::onAbout()
     aboutDialog.set_license_type(Gtk::LICENSE_GPL_3_0);
 
     aboutDialog.run();
+}
+
+void MainWindow::onShortcuts()
+{
+    if (!m_shortcutsWindow)
+    {
+        auto const refBuilder = Gtk::Builder::create_from_resource("/main/ui/ShortcutsWindow.ui");
+
+        refBuilder->get_widget("shortcuts_window", m_shortcutsWindow);
+    }
+
+    m_shortcutsWindow->set_transient_for(*this);
+    m_shortcutsWindow->show_all();
 }

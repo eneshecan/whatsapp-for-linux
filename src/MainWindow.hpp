@@ -28,12 +28,14 @@ class MainWindow
         void onAutostart(Gtk::ModelButton* autostartButton);
         void onFullscreen();
         void onAbout();
+        void onShortcuts();
         void onZoomIn(Gtk::Label* zoomLevelLabel);
         void onZoomOut(Gtk::Label* zoomLevelLabel);
 
     private:
-        TrayIcon        m_trayIcon;
-        WebView         m_webView;
-        Gtk::HeaderBar* m_headerBar;
-        bool            m_fullscreen;
+        TrayIcon              m_trayIcon;
+        WebView               m_webView;
+        Gtk::HeaderBar*       m_headerBar;
+        Gtk::ShortcutsWindow* m_shortcutsWindow;
+        bool                  m_fullscreen;
 };
