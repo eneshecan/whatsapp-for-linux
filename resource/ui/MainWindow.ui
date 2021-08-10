@@ -142,7 +142,7 @@
         </child>
         <child>
           <object class="GtkModelButton" id="fullscreen_button">
-            <property name="text" translatable="yes">Fullscreen    F11</property>
+            <property name="text" translatable="yes">_Fullscreen</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
@@ -166,12 +166,11 @@
           </packing>
         </child>
         <child>
-          <object class="GtkModelButton" id="about_button">
-            <property name="text" translatable="yes">About</property>
+          <object class="GtkModelButton" id="shortcuts_button">
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
-            <property name="relief">none</property>
+            <property name="text" translatable="yes">_Keyboard Shortcuts</property>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -180,8 +179,8 @@
           </packing>
         </child>
         <child>
-          <object class="GtkModelButton" id="quit_button">
-            <property name="text" translatable="yes">Quit    Ctrl+Q</property>
+          <object class="GtkModelButton" id="about_button">
+            <property name="text" translatable="yes">_About</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
@@ -191,6 +190,20 @@
             <property name="expand">False</property>
             <property name="fill">True</property>
             <property name="position">8</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkModelButton" id="quit_button">
+            <property name="text" translatable="yes">_Quit</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+            <property name="relief">none</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">9</property>
           </packing>
         </child>
       </object>
