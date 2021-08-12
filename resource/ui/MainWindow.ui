@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated with glade 3.38.2 -->
 <interface>
-  <requires lib="gtk+" version="3.22"/>
+  <requires lib="gtk+" version="3.24"/>
   <object class="GtkPopover" id="header_menu">
     <property name="can-focus">False</property>
     <child>
@@ -31,7 +31,7 @@
                   <object class="GtkImage">
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
-                    <property name="icon-name">zoom-out</property>
+                    <property name="icon-name">zoom-out-symbolic</property>
                   </object>
                 </child>
               </object>
@@ -66,7 +66,7 @@
                   <object class="GtkImage">
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
-                    <property name="icon-name">zoom-in</property>
+                    <property name="icon-name">zoom-in-symbolic</property>
                   </object>
                 </child>
               </object>
@@ -97,12 +97,12 @@
         </child>
         <child>
           <object class="GtkModelButton" id="close_to_tray_button">
-            <property name="text" translatable="yes">Close To Tray</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
             <property name="relief">none</property>
             <property name="role">check</property>
+            <property name="text" translatable="yes">Close To Tray</property>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -112,12 +112,12 @@
         </child>
         <child>
           <object class="GtkModelButton" id="start_in_tray_button">
-            <property name="text" translatable="yes">Start In Tray</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
             <property name="relief">none</property>
             <property name="role">check</property>
+            <property name="text" translatable="yes">Start In Tray</property>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -127,12 +127,12 @@
         </child>
         <child>
           <object class="GtkModelButton" id="autostart_button">
-            <property name="text" translatable="yes">Autostart</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
             <property name="relief">none</property>
             <property name="role">check</property>
+            <property name="text" translatable="yes">Autostart</property>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -142,11 +142,11 @@
         </child>
         <child>
           <object class="GtkModelButton" id="fullscreen_button">
-            <property name="text" translatable="yes">_Fullscreen</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
             <property name="relief">none</property>
+            <property name="text" translatable="yes">_Fullscreen</property>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -180,11 +180,11 @@
         </child>
         <child>
           <object class="GtkModelButton" id="about_button">
-            <property name="text" translatable="yes">_About</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
             <property name="relief">none</property>
+            <property name="text" translatable="yes">_About</property>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -194,10 +194,10 @@
         </child>
         <child>
           <object class="GtkModelButton" id="quit_button">
-            <property name="text" translatable="yes">_Quit</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
+            <property name="text" translatable="yes">_Quit</property>
             <property name="relief">none</property>
           </object>
           <packing>

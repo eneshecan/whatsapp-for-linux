@@ -27,10 +27,10 @@ class MainWindow
         void onStartInTray(Gtk::ModelButton* startInTrayButton);
         void onAutostart(Gtk::ModelButton* autostartButton);
         void onFullscreen();
-        void onAbout();
-        void onShortcuts();
         void onZoomIn(Gtk::Label* zoomLevelLabel);
         void onZoomOut(Gtk::Label* zoomLevelLabel);
+        void onShortcuts();
+        void onAbout();
 
     private:
         TrayIcon              m_trayIcon;

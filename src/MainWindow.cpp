@@ -12,8 +12,9 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
     : Gtk::ApplicationWindow{cobject}
     , m_trayIcon{}
     , m_webView{}
-    , m_fullscreen{false}
+    , m_headerBar{nullptr}
     , m_shortcutsWindow{nullptr}
+    , m_fullscreen{false}
 {
     auto const appIcon16x16   = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/16x16/apps/whatsapp-for-linux.png");
     auto const appIcon32x32   = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/32x32/apps/whatsapp-for-linux.png");
@@ -176,11 +177,6 @@ void MainWindow::onQuit()
     close();
 }
 
-void MainWindow::onFullscreen()
-{
-    m_fullscreen ? unfullscreen() : fullscreen();
-}
-
 void MainWindow::onCloseToTray(Gtk::ModelButton* closeToTrayButton, Gtk::ModelButton* startInTrayButton)
 {
     auto const visible = !closeToTrayButton->property_active();
@@ -212,6 +208,11 @@ void MainWindow::onAutostart(Gtk::ModelButton* autostartButton)
     Settings::getInstance().setAutostart(autostart);
 }
 
+void MainWindow::onFullscreen()
+{
+    m_fullscreen ? unfullscreen() : fullscreen();
+}
+
 void MainWindow::onZoomIn(Gtk::Label* zoomLevelLabel)
 {
     m_webView.zoomIn();
@@ -222,6 +223,19 @@ void MainWindow::onZoomOut(Gtk::Label* zoomLevelLabel)
 {
     m_webView.zoomOut();
     zoomLevelLabel->set_label(m_webView.getZoomLevelString());
+}
+
+void MainWindow::onShortcuts()
+{
+    if (!m_shortcutsWindow)
+    {
+        auto const refBuilder = Gtk::Builder::create_from_resource("/main/ui/ShortcutsWindow.ui");
+
+        refBuilder->get_widget("shortcuts_window", m_shortcutsWindow);
+    }
+
+    m_shortcutsWindow->set_transient_for(*this);
+    m_shortcutsWindow->show_all();
 }
 
 void MainWindow::onAbout()
@@ -236,18 +250,6 @@ void MainWindow::onAbout()
     aboutDialog.set_website_label("Github Repository");
     aboutDialog.set_license_type(Gtk::LICENSE_GPL_3_0);
 
+    aboutDialog.set_transient_for(*this);
     aboutDialog.run();
-}
-
-void MainWindow::onShortcuts()
-{
-    if (!m_shortcutsWindow)
-    {
-        auto const refBuilder = Gtk::Builder::create_from_resource("/main/ui/ShortcutsWindow.ui");
-
-        refBuilder->get_widget("shortcuts_window", m_shortcutsWindow);
-    }
-
-    m_shortcutsWindow->set_transient_for(*this);
-    m_shortcutsWindow->show_all();
 }
