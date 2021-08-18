@@ -1,5 +1,6 @@
 #include "Settings.hpp"
 #include <sys/stat.h>
+#include <type_traits>
 #include <fstream>
 #include <iostream>
 #include <giomm/file.h>
@@ -23,6 +24,56 @@ namespace
         auto file = std::ofstream{CONFIG_FILE_PATH, std::ios::app};
         file << '\n' << '[' << group << ']' << '\n';
     }
+
+    template<typename ValueType>
+    void setValue(Glib::KeyFile& keyFile, Glib::ustring const& group, Glib::ustring const& key, ValueType const& value)
+    {
+        if constexpr (std::is_same<ValueType, bool>::value)
+        {
+            keyFile.set_boolean(group, key, value);
+        }
+        else if constexpr (std::is_same<ValueType, double>::value)
+        {
+            keyFile.set_double(group, key, value);
+        }
+        else if constexpr (std::is_same<ValueType, Glib::ustring>::value)
+        {
+            keyFile.set_string(group, key, value);
+        }
+        else
+        {
+            keyFile.set_value(group, key, value);
+        }
+    }
+
+    template<typename ValueType>
+    ValueType getValue(Glib::KeyFile const& keyFile, Glib::ustring const& group, Glib::ustring const& key, ValueType const& defaultValue = {})
+    {
+        try
+        {
+            if constexpr (std::is_same<ValueType, bool>::value)
+            {
+                return keyFile.get_boolean(group, key);
+            }
+            else if constexpr (std::is_same<ValueType, double>::value)
+            {
+                return keyFile.get_double(group, key);
+            }
+            else if constexpr (std::is_same<ValueType, Glib::ustring>::value)
+            {
+                return keyFile.get_string(group, key);
+            }
+            else
+            {
+                return keyFile.get_value(group, key);
+            }
+        }
+        catch (Glib::KeyFileError const& error)
+        {
+            std::cerr << "Settings: " <<  error.what() << ", returning default value." << std::endl;
+            return defaultValue;
+        }
+    }
 }
 
 
@@ -35,7 +86,7 @@ Settings& Settings::getInstance()
 Settings::Settings()
     : m_keyFile{}
 {
-    auto inputFile = std::ifstream{CONFIG_FILE_PATH};
+    auto const inputFile = std::ifstream{CONFIG_FILE_PATH};
     if (!inputFile.good())
     {
         if (mkdir(CONFIG_APP_DIR.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH) == -1)
@@ -66,102 +117,52 @@ Settings::~Settings()
 
 void Settings::setCloseToTray(bool enable)
 {
-    m_keyFile.set_boolean(GROUP_GENERAL, "close_to_tray", enable);
+    setValue(m_keyFile, GROUP_GENERAL, "close_to_tray", enable);
 }
 
 bool Settings::getCloseToTray() const
 {
-    auto enable = false;
-    try
-    {
-        enable = m_keyFile.get_boolean(GROUP_GENERAL, "close_to_tray");
-    }
-    catch (Glib::KeyFileError const& error)
-    {
-        std::cerr << "Settings: " <<  error.what() << std::endl;
-    }
-
-    return enable;
+    return getValue(m_keyFile, GROUP_GENERAL, "close_to_tray", false);
 }
 
 void Settings::setAllowPermissions(bool allow)
 {
-    m_keyFile.set_boolean(GROUP_NETWORK, "allow_permissions", allow);
+    setValue(m_keyFile, GROUP_NETWORK, "allow_permissions", allow);
 }
 
 bool Settings::getAllowPermissions() const
 {
-    auto allow = false;
-    try
-    {
-        allow = m_keyFile.get_boolean(GROUP_NETWORK, "allow_permissions");
-    }
-    catch (Glib::KeyFileError const& error)
-    {
-        std::cerr << "Settings: " <<  error.what() << std::endl;
-    }
-
-    return allow;
+    return getValue(m_keyFile, GROUP_NETWORK, "allow_permissions", false);
 }
 
 void Settings::setZoomLevel(double zoomLevel)
 {
-    m_keyFile.set_double(GROUP_GENERAL, "zoom_level", zoomLevel);
+    setValue(m_keyFile, GROUP_GENERAL, "zoom_level", zoomLevel);
 }
 
 double Settings::getZoomLevel() const
 {
-    auto zoomLevel = 1.0;
-    try
-    {
-        zoomLevel = m_keyFile.get_double(GROUP_GENERAL, "zoom_level");
-    }
-    catch (Glib::KeyFileError const& error)
-    {
-        std::cerr << "Settings: " << error.what() << std::endl;
-    }
-
-    return zoomLevel;
+    return getValue(m_keyFile, GROUP_GENERAL, "zoom_level", 1.0);
 }
 
 void Settings::setHeaderBar(bool enable)
 {
-    m_keyFile.set_boolean(GROUP_GENERAL, "header_bar", enable);
+    setValue(m_keyFile, GROUP_GENERAL, "header_bar", enable);
 }
 
 bool Settings::getHeaderBar() const
 {
-    auto enable = true;
-    try
-    {
-        enable = m_keyFile.get_boolean(GROUP_GENERAL, "header_bar");
-    }
-    catch (Glib::KeyFileError const& error)
-    {
-        std::cerr << "Settings: " <<  error.what() << std::endl;
-    }
-
-    return enable;
+    return getValue(m_keyFile, GROUP_GENERAL, "header_bar", true);
 }
 
 void Settings::setStartInTray(bool enable)
 {
-    m_keyFile.set_boolean(GROUP_GENERAL, "start_in_tray", enable);
+    setValue(m_keyFile, GROUP_GENERAL, "start_in_tray", enable);
 }
 
 bool Settings::getStartInTray() const
 {
-    auto enable = false;
-    try
-    {
-        enable = m_keyFile.get_boolean(GROUP_GENERAL, "start_in_tray");
-    }
-    catch (Glib::KeyFileError const& error)
-    {
-        std::cerr << "Settings: " << error.what() << std::endl;
-    }
-
-    return enable;
+    return getValue(m_keyFile, GROUP_GENERAL, "start_in_tray", false);
 }
 
 void Settings::setAutostart(bool autostart)
