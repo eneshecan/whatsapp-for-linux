@@ -45,7 +45,7 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
     refBuilder->get_widget("close_to_tray_button", closeToTrayButton);
     closeToTrayButton->signal_clicked().connect(sigc::bind(sigc::mem_fun(this, &MainWindow::onCloseToTray), closeToTrayButton, startInTrayButton));
 
-    Gtk::Button* fullscreenButton = nullptr;
+    Gtk::ModelButton* fullscreenButton = nullptr;
     refBuilder->get_widget("fullscreen_button", fullscreenButton);
     fullscreenButton->signal_clicked().connect(sigc::mem_fun(this, &MainWindow::onFullscreen));
 
@@ -61,15 +61,15 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
     refBuilder->get_widget("zoom_out_button", zoomOutButton);
     zoomOutButton->signal_clicked().connect(sigc::bind(sigc::mem_fun(this, &MainWindow::onZoomOut), zoomLevelLabel));
 
-    Gtk::Button* shortcutsButton = nullptr;
+    Gtk::ModelButton* shortcutsButton = nullptr;
     refBuilder->get_widget("shortcuts_button", shortcutsButton);
     shortcutsButton->signal_clicked().connect(sigc::mem_fun(this, &MainWindow::onShortcuts));
 
-    Gtk::Button* aboutButton = nullptr;
+    Gtk::ModelButton* aboutButton = nullptr;
     refBuilder->get_widget("about_button", aboutButton);
     aboutButton->signal_clicked().connect(sigc::mem_fun(this, &MainWindow::onAbout));
 
-    Gtk::Button* quitButton = nullptr;
+    Gtk::ModelButton* quitButton = nullptr;
     refBuilder->get_widget("quit_button", quitButton);
     quitButton->signal_clicked().connect(sigc::mem_fun(this, &MainWindow::onQuit));
 
