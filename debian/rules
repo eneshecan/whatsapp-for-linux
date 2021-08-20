@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mkdir -p build/release && cd build/release
+mkdir -p build/release && cd build/release && rm -f CMakeCache.txt
 echo "Configuring cmake to generate the version information"
 cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_DIR=/usr ../..
 cd ../..
