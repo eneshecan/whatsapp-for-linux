@@ -91,8 +91,12 @@ Settings::Settings()
     {
         if (mkdir(CONFIG_APP_DIR.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH) == -1)
         {
-            std::cerr << "Settings: Failed to create config directory: " << strerror(errno) << std::endl;
-            return;
+            auto const errorNumber = errno;
+            if (errorNumber != EEXIST)
+            {
+                std::cerr << "Settings: Failed to create config directory: " << strerror(errorNumber) << std::endl;
+                return;
+            }
         }
         std::ofstream{CONFIG_FILE_PATH};
     }
