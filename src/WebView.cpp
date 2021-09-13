@@ -7,7 +7,7 @@
 
 namespace
 {
-    constexpr auto const WHATSAPP_WEB_URI = "https://web.whatsapp.com/";
+    constexpr auto const WHATSAPP_WEB_URI = "https://web.whatsapp.com";
 
 
     std::string systemLanguage()
@@ -106,6 +106,10 @@ namespace
             allowedOrigins->data = origin;
 
             webkit_web_context_initialize_notification_permissions(context, allowedOrigins, nullptr);
+        }
+        else
+        {
+            webkit_web_context_initialize_notification_permissions(context, nullptr, nullptr);
         }
     }
 
