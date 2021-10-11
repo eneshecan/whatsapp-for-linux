@@ -12,6 +12,7 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
     : Gtk::ApplicationWindow{cobject}
     , m_trayIcon{}
     , m_webView{}
+    , m_phoneNumberDialog{nullptr}
     , m_headerBar{nullptr}
     , m_shortcutsWindow{nullptr}
     , m_fullscreen{false}
@@ -26,6 +27,10 @@ MainWindow::MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const
     Gtk::Grid* mainGrid = nullptr;
     refBuilder->get_widget("main_grid", mainGrid);
     mainGrid->attach(m_webView, 0, 1, 1, 1);
+
+    Gtk::Button* openPhoneNumberButton = nullptr;
+    refBuilder->get_widget("open_phone_number_button", openPhoneNumberButton);
+    openPhoneNumberButton->signal_clicked().connect(sigc::mem_fun(this, &MainWindow::onOpenPhoneNumber));
 
     Gtk::Button* refreshButton = nullptr;
     refBuilder->get_widget("refresh_button", refreshButton);
@@ -152,6 +157,31 @@ bool MainWindow::on_delete_event(GdkEventAny* any_event)
     }
 
     return false;
+}
+
+void MainWindow::onOpenPhoneNumber()
+{
+    if (!m_phoneNumberDialog)
+    {
+        auto const refBuilder = Gtk::Builder::create_from_resource("/main/ui/PhoneNumberDialog.ui");
+
+        refBuilder->get_widget_derived("phone_number_dialog", m_phoneNumberDialog);
+    }
+
+    m_phoneNumberDialog->set_transient_for(*this);
+    m_phoneNumberDialog->signal_response().connect(sigc::mem_fun(this, &MainWindow::onPhoneNumberDialogResponse));
+    m_phoneNumberDialog->show_all();
+}
+
+void MainWindow::onPhoneNumberDialogResponse(int responseId)
+{
+    m_phoneNumberDialog->hide();
+
+    if (responseId == Gtk::ResponseType::RESPONSE_OK)
+    {
+        auto const phoneNumber = m_phoneNumberDialog->getPhoneNumber();
+        m_webView.openPhoneNumber(phoneNumber.c_str());
+    }
 }
 
 void MainWindow::onRefresh()

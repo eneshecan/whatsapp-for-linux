@@ -5,6 +5,7 @@
 #include <gtkmm/headerbar.h>
 #include <gtkmm/label.h>
 #include <gtkmm/modelbutton.h>
+#include "PhoneNumberDialog.hpp"
 #include "TrayIcon.hpp"
 #include "WebView.hpp"
 
@@ -20,6 +21,8 @@ class MainWindow
         bool on_delete_event(GdkEventAny* any_event) override;
 
     private:
+        void onOpenPhoneNumber();
+        void onPhoneNumberDialogResponse(int responseId);
         void onRefresh();
         void onShow();
         void onQuit();
@@ -35,6 +38,7 @@ class MainWindow
     private:
         TrayIcon              m_trayIcon;
         WebView               m_webView;
+        PhoneNumberDialog*    m_phoneNumberDialog;
         Gtk::HeaderBar*       m_headerBar;
         Gtk::ShortcutsWindow* m_shortcutsWindow;
         bool                  m_fullscreen;

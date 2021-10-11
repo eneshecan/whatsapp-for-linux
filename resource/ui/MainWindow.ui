@@ -250,6 +250,21 @@
           </object>
         </child>
         <child>
+          <object class="GtkButton" id="open_phone_number_button">
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+            <property name="tooltip-text" translatable="yes">Open chat with a phone number</property>
+            <child>
+              <object class="GtkImage" id="open_phone_number_image">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="icon-name">input-dialpad-symbolic</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
           <object class="GtkMenuButton" id="header_menu_button">
             <property name="visible">True</property>
             <property name="can-focus">True</property>

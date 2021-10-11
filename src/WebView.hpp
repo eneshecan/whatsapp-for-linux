@@ -14,6 +14,7 @@ class WebView
         operator WebKitWebView*();
 
     public:
+        void        openPhoneNumber(gchar const* phoneNumber);
         void        refresh();
         void        zoomIn();
         void        zoomOut();
