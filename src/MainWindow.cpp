@@ -180,7 +180,7 @@ void MainWindow::onPhoneNumberDialogResponse(int responseId)
     if (responseId == Gtk::ResponseType::RESPONSE_OK)
     {
         auto const phoneNumber = m_phoneNumberDialog->getPhoneNumber();
-        m_webView.openPhoneNumber(phoneNumber.c_str());
+        m_webView.openPhoneNumber(std::string(phoneNumber));
     }
 }
 

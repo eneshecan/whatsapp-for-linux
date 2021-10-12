@@ -179,15 +179,18 @@ WebView::operator WebKitWebView*()
     return WEBKIT_WEB_VIEW(gobj());
 }
 
-void WebView::openPhoneNumber(gchar const* phoneNumber)
+void WebView::openPhoneNumber(std::string const& phoneNumber)
 {
-    auto const script = std::string{"(function(){"
-            "var a = document.createElement(\"a\");"
-            "a.href = \"https://web.whatsapp.com/send?phone="} + phoneNumber + std::string{"\";"
-            "document.body.appendChild(a);"
-            "a.click();"
-            "a.remove();"
-        "})();"};
+    std::string script;
+    script.append("(function(){"
+                  "var a = document.createElement(\"a\");"
+                  "a.href = \"https://web.whatsapp.com/send?phone=");
+    script.append(phoneNumber);
+    script.append("\";"
+                  "document.body.appendChild(a);"
+                  "a.click();"
+                  "a.remove();"
+                  "})();");
     webkit_web_view_run_javascript(*this, script.c_str(), nullptr, nullptr, nullptr);
 }
 
