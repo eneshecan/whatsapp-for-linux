@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk+" version="3.22" />
+  <object class="GtkDialog" id="phone_number_dialog">
+    <property name="can-focus">False</property>
+    <property name="title" translatable="yes">Open chat by phone number</property>
+    <property name="modal">True</property>
+    <property name="type-hint">dialog</property>
+    <property name="border-width">10</property>
+    <property name="use-header-bar">1</property>
+    <child type="action">
+      <object class="GtkButton" id="cancel_button">
+        <property name="label">gtk-cancel</property>
+        <property name="use-stock">True</property>
+      </object>
+    </child>
+    <child type="action">
+      <object class="GtkButton" id="ok_button">
+        <property name="label">gtk-ok</property>
+        <property name="can-default">True</property>
+        <property name="use-stock">True</property>
+      </object>
+    </child>
+    <child internal-child="vbox">
+      <object class="GtkBox">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">4</property>
+        <child>
+          <object class="GtkLabel" id="phone_number_label">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Enter phone number (only digits)</property>
+            <property name="xalign">0</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkEntry" id="phone_number_entry">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="hexpand">True</property>
+            <property name="activates_default">True</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <action-widgets>
+      <action-widget response="cancel">cancel_button</action-widget>
+      <action-widget response="ok" default="true">ok_button</action-widget>
+    </action-widgets>
+  </object>
+</interface>

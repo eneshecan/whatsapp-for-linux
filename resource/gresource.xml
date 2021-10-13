@@ -2,6 +2,7 @@
 <gresources>
   <gresource prefix="main">
     <file>ui/MainWindow.ui</file>
+    <file>ui/PhoneNumberDialog.ui</file>
     <file>ui/ShortcutsWindow.ui</file>
     <file>image/icons/hicolor/16x16/apps/whatsapp-for-linux.png</file>
     <file>image/icons/hicolor/32x32/apps/whatsapp-for-linux.png</file>

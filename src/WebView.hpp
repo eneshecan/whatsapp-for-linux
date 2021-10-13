@@ -15,6 +15,7 @@ class WebView
 
     public:
         void        refresh();
+        void        openPhoneNumber(std::string const& phoneNumber);
         void        zoomIn();
         void        zoomOut();
         double      getZoomLevel() const noexcept;

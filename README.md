@@ -21,6 +21,7 @@ An unofficial WhatsApp desktop application written in C++.
 * Fullscreen mode
 * Show/Hide headerbar by pressing *Alt+H*
 * Spell check in system language. You might need to install the corresponding dictionary to get this working i.e. `aspell-en` package for English
+* Open chat with a phone number
 
 
 ## Using whatsapp-for-linux

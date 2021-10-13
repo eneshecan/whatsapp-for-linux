@@ -5,6 +5,7 @@
 #include <gtkmm/headerbar.h>
 #include <gtkmm/label.h>
 #include <gtkmm/modelbutton.h>
+#include "PhoneNumberDialog.hpp"
 #include "TrayIcon.hpp"
 #include "WebView.hpp"
 
@@ -21,6 +22,8 @@ class MainWindow
 
     private:
         void onRefresh();
+        void onOpenPhoneNumber();
+        void onPhoneNumberDialogResponse(int responseId);
         void onShow();
         void onQuit();
         void onCloseToTray(Gtk::ModelButton* closeToTrayButton, Gtk::ModelButton* startInTrayButton);
@@ -35,6 +38,7 @@ class MainWindow
     private:
         TrayIcon              m_trayIcon;
         WebView               m_webView;
+        PhoneNumberDialog*    m_phoneNumberDialog;
         Gtk::HeaderBar*       m_headerBar;
         Gtk::ShortcutsWindow* m_shortcutsWindow;
         bool                  m_fullscreen;

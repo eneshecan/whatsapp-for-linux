@@ -184,6 +184,23 @@ void WebView::refresh()
     webkit_web_view_reload(*this);
 }
 
+void WebView::openPhoneNumber(std::string const& phoneNumber)
+{
+    auto script = std::string{};
+    script.append("(function(){"
+        "var a = document.createElement(\"a\");"
+        "a.href = \"");
+    script.append(WHATSAPP_WEB_URI);
+    script.append("/send?phone=");
+    script.append(phoneNumber);
+    script.append("\";"
+        "document.body.appendChild(a);"
+        "a.click();"
+        "a.remove();"
+        "})();");
+    webkit_web_view_run_javascript(*this, script.c_str(), nullptr, nullptr, nullptr);
+}
+
 void WebView::zoomIn()
 {
     m_zoomLevel = webkit_web_view_get_zoom_level(*this);
