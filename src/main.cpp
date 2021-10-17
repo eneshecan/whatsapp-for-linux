@@ -1,4 +1,5 @@
 #include <cstdio>
+#include <clocale>
 #include <unistd.h>
 #include <iostream>
 #include "Application.hpp"
@@ -29,6 +30,8 @@ namespace
 
 int main(int argc, char** argv)
 {
+    setlocale(LC_ALL, "");
+
     redirectOutputToLogger();
 
     auto app = Application{argc, argv, "com.github.whatsapp-for-linux"};
