@@ -34,13 +34,14 @@ int main(int argc, char** argv)
 
     redirectOutputToLogger();
 
-    auto app = wfl::ui::Application{argc, argv, "com.github.whatsapp-for-linux"};
+    auto app = wfl::ui::Application{argc, argv, "com.github.whatsapp-for-linux", Gio::APPLICATION_HANDLES_OPEN};
 
     signal(SIGINT,  sigterm);
     signal(SIGTERM, sigterm);
     signal(SIGPIPE, SIG_IGN);
 
     auto mainWindow = std::unique_ptr<wfl::ui::MainWindow>{};
+
     try
     {
         auto const refBuilder = Gtk::Builder::create_from_resource("/main/ui/MainWindow.ui");
@@ -54,6 +55,16 @@ int main(int argc, char** argv)
         std::cerr << "Failed to load ui resource: " << error.what() << std::endl;
         return 1;
     }
+
+    app.signal_open().connect([&app, &mainWindow](Gtk::Application::type_vec_files const& files, const Glib::ustring&)
+    {
+        if (!files.empty())
+        {
+            // Activate the application if it's not running
+            app.activate();
+            mainWindow->openUrl(files.at(0U)->get_uri());
+        }
+    });
 
     auto retCode = 0;
 

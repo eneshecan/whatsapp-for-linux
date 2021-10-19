@@ -9,8 +9,8 @@ namespace wfl::ui
         return *m_instance;
     }
 
-    Application::Application(int argc, char** argv, Glib::ustring const& id)
-        : Gtk::Application{argc, argv, id}
+    Application::Application(int argc, char** argv, Glib::ustring const& id, Gio::ApplicationFlags flags)
+        : Gtk::Application{argc, argv, id, flags}
         , m_onHold{false}
     {
         if (!m_instance)
