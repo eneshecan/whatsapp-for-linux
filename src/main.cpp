@@ -2,9 +2,9 @@
 #include <clocale>
 #include <unistd.h>
 #include <iostream>
-#include "Application.hpp"
-#include "MainWindow.hpp"
-#include "Settings.hpp"
+#include "ui/Application.hpp"
+#include "ui/MainWindow.hpp"
+#include "util/Settings.hpp"
 
 namespace
 {
@@ -24,7 +24,7 @@ namespace
 
     void sigterm(int)
     {
-        Application::getInstance().quit();
+        wfl::ui::Application::getInstance().quit();
     }
 }
 
@@ -34,18 +34,18 @@ int main(int argc, char** argv)
 
     redirectOutputToLogger();
 
-    auto app = Application{argc, argv, "com.github.whatsapp-for-linux"};
+    auto app = wfl::ui::Application{argc, argv, "com.github.whatsapp-for-linux"};
 
     signal(SIGINT,  sigterm);
     signal(SIGTERM, sigterm);
     signal(SIGPIPE, SIG_IGN);
 
-    auto mainWindow = std::unique_ptr<MainWindow>{};
+    auto mainWindow = std::unique_ptr<wfl::ui::MainWindow>{};
     try
     {
         auto const refBuilder = Gtk::Builder::create_from_resource("/main/ui/MainWindow.ui");
 
-        MainWindow* window = nullptr;
+        wfl::ui::MainWindow* window = nullptr;
         refBuilder->get_widget_derived("main_window", window);
         mainWindow.reset(window);
     }
@@ -57,10 +57,10 @@ int main(int argc, char** argv)
 
     auto retCode = 0;
 
-    if (Settings::getInstance().getStartInTray() && Settings::getInstance().getCloseToTray())
+    if (wfl::util::Settings::getInstance().getStartInTray() && wfl::util::Settings::getInstance().getCloseToTray())
     {
         mainWindow->hide();
-        Application::getInstance().keepAlive();
+        wfl::ui::Application::getInstance().keepAlive();
         retCode = app.run();
     }
     else

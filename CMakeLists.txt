@@ -22,7 +22,16 @@ PKG_CHECK_MODULES(WEBKIT webkit2gtk-4.0 REQUIRED)
 PKG_CHECK_MODULES(APP_INDICATOR appindicator3-0.1 REQUIRED)
 include_directories(${GTKMM3_INCLUDE_DIRS} ${WEBKIT_INCLUDE_DIRS} ${APP_INDICATOR_INCLUDE_DIRS})
 
-add_executable(whatsapp-for-linux src/main.cpp src/Version.hpp src/Resources.c src/Application.cpp src/MainWindow.cpp src/PhoneNumberDialog.cpp src/TrayIcon.cpp src/WebView.cpp src/Settings.cpp)
+add_executable(whatsapp-for-linux
+    src/main.cpp
+    src/Version.hpp
+    src/Resources.c
+    src/util/Settings.cpp
+    src/ui/Application.cpp
+    src/ui/MainWindow.cpp
+    src/ui/PhoneNumberDialog.cpp
+    src/ui/TrayIcon.cpp
+    src/ui/WebView.cpp)
 target_link_libraries(whatsapp-for-linux ${GTKMM3_LIBRARIES} ${WEBKIT_LIBRARIES} ${APP_INDICATOR_LIBRARIES})
 
 install(TARGETS whatsapp-for-linux DESTINATION ${CMAKE_INSTALL_BINDIR})
