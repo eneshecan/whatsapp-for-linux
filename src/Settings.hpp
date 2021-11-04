@@ -1,6 +1,6 @@
 #pragma once
 
-#include <glibmm/keyfile.h>
+#include "SettingMap.hpp"
 
 class Settings
 {
@@ -30,5 +30,5 @@ class Settings
         ~Settings();
 
     private:
-        Glib::KeyFile m_keyFile;
+        SettingMap m_settingMap;
 };

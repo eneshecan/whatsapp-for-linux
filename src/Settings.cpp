@@ -1,6 +1,5 @@
 #include "Settings.hpp"
 #include <sys/stat.h>
-#include <type_traits>
 #include <fstream>
 #include <iostream>
 #include <giomm/file.h>
@@ -18,62 +17,6 @@ namespace
             "/usr/share/applications/whatsapp-for-linux.desktop",
             "/snap/whatsapp-for-linux/current/share/applications/whatsapp-for-linux.desktop"
     };
-
-    void addGroupToFile(std::string_view group)
-    {
-        auto file = std::ofstream{CONFIG_FILE_PATH, std::ios::app};
-        file << '\n' << '[' << group << ']' << '\n';
-    }
-
-    template<typename ValueType>
-    void setValue(Glib::KeyFile& keyFile, Glib::ustring const& group, Glib::ustring const& key, ValueType const& value)
-    {
-        if constexpr (std::is_same<ValueType, bool>::value)
-        {
-            keyFile.set_boolean(group, key, value);
-        }
-        else if constexpr (std::is_same<ValueType, double>::value)
-        {
-            keyFile.set_double(group, key, value);
-        }
-        else if constexpr (std::is_same<ValueType, Glib::ustring>::value)
-        {
-            keyFile.set_string(group, key, value);
-        }
-        else
-        {
-            keyFile.set_value(group, key, value);
-        }
-    }
-
-    template<typename ValueType>
-    ValueType getValue(Glib::KeyFile const& keyFile, Glib::ustring const& group, Glib::ustring const& key, ValueType const& defaultValue = {})
-    {
-        try
-        {
-            if constexpr (std::is_same<ValueType, bool>::value)
-            {
-                return keyFile.get_boolean(group, key);
-            }
-            else if constexpr (std::is_same<ValueType, double>::value)
-            {
-                return keyFile.get_double(group, key);
-            }
-            else if constexpr (std::is_same<ValueType, Glib::ustring>::value)
-            {
-                return keyFile.get_string(group, key);
-            }
-            else
-            {
-                return keyFile.get_value(group, key);
-            }
-        }
-        catch (Glib::KeyFileError const& error)
-        {
-            std::cerr << "Settings: " <<  error.what() << ", returning default value." << std::endl;
-            return defaultValue;
-        }
-    }
 }
 
 
@@ -84,7 +27,7 @@ Settings& Settings::getInstance()
 }
 
 Settings::Settings()
-    : m_keyFile{}
+    : m_settingMap{}
 {
     auto const inputFile = std::ifstream{CONFIG_FILE_PATH};
     if (!inputFile.good())
@@ -101,72 +44,62 @@ Settings::Settings()
         std::ofstream{CONFIG_FILE_PATH};
     }
 
-    m_keyFile.load_from_file(CONFIG_FILE_PATH);
-    if (!m_keyFile.has_group(GROUP_GENERAL))
-    {
-        addGroupToFile(GROUP_GENERAL);
-        m_keyFile.load_from_file(CONFIG_FILE_PATH);
-    }
-    if (!m_keyFile.has_group(GROUP_NETWORK))
-    {
-        addGroupToFile(GROUP_NETWORK);
-        m_keyFile.load_from_file(CONFIG_FILE_PATH);
-    }
+    m_settingMap.loadFromFile(CONFIG_FILE_PATH);
 }
 
 Settings::~Settings()
 {
-    m_keyFile.save_to_file(CONFIG_FILE_PATH);
+    m_settingMap.saveToFile(CONFIG_FILE_PATH);
 }
 
 void Settings::setCloseToTray(bool enable)
 {
-    setValue(m_keyFile, GROUP_GENERAL, "close_to_tray", enable);
+    m_settingMap.setValue(GROUP_GENERAL, "close_to_tray", enable);
 }
 
 bool Settings::getCloseToTray() const
 {
-    return getValue(m_keyFile, GROUP_GENERAL, "close_to_tray", false);
+    return m_settingMap.getValue(GROUP_GENERAL, "close_to_tray", false);
 }
 
 void Settings::setAllowPermissions(bool allow)
 {
-    setValue(m_keyFile, GROUP_NETWORK, "allow_permissions", allow);
+    m_settingMap.setValue(GROUP_NETWORK, "allow_permissions", allow);
 }
 
 bool Settings::getAllowPermissions() const
 {
-    return getValue(m_keyFile, GROUP_NETWORK, "allow_permissions", false);
+    return m_settingMap.getValue(GROUP_NETWORK, "allow_permissions", false);
 }
 
 void Settings::setZoomLevel(double zoomLevel)
 {
-    setValue(m_keyFile, GROUP_GENERAL, "zoom_level", zoomLevel);
+    m_settingMap.setValue(GROUP_GENERAL, "zoom_level", zoomLevel);
 }
 
 double Settings::getZoomLevel() const
 {
-    return getValue(m_keyFile, GROUP_GENERAL, "zoom_level", 1.0);
+    return m_settingMap.getValue(GROUP_GENERAL, "zoom_level", 1.0);
 }
 
 void Settings::setHeaderBar(bool enable)
 {
-    setValue(m_keyFile, GROUP_GENERAL, "header_bar", enable);
+    m_settingMap.setValue(GROUP_GENERAL, "header_bar", enable);
 }
 
 bool Settings::getHeaderBar() const
 {
-    return getValue(m_keyFile, GROUP_GENERAL, "header_bar", true);
+    return m_settingMap.getValue(GROUP_GENERAL, "header_bar", true);
 }
 
 void Settings::setStartInTray(bool enable)
 {
-    setValue(m_keyFile, GROUP_GENERAL, "start_in_tray", enable);
+    m_settingMap.setValue(GROUP_GENERAL, "start_in_tray", enable);
 }
 
 bool Settings::getStartInTray() const
 {
-    return getValue(m_keyFile, GROUP_GENERAL, "start_in_tray", false);
+    return m_settingMap.getValue(GROUP_GENERAL, "start_in_tray", false);
 }
 
 void Settings::setAutostart(bool autostart)
@@ -174,10 +107,11 @@ void Settings::setAutostart(bool autostart)
     auto destFile = Gio::File::create_for_path(AUTOSTART_DESKTOP_FILE_PATH);
     if (autostart)
     {
-        auto const it = std::find_if(POSSIBLE_DESKTOP_FILE_PATHS.begin(), POSSIBLE_DESKTOP_FILE_PATHS.end(),[](auto const& elem){
-            auto const file = Gio::File::create_for_path(elem);
-            return file->query_exists();
-        });
+        auto const it = std::find_if(POSSIBLE_DESKTOP_FILE_PATHS.begin(), POSSIBLE_DESKTOP_FILE_PATHS.end(),[](auto const& elem)
+            {
+                auto const file = Gio::File::create_for_path(elem);
+                return file->query_exists();
+            });
 
         if (it == POSSIBLE_DESKTOP_FILE_PATHS.end())
         {
@@ -194,7 +128,7 @@ void Settings::setAutostart(bool autostart)
     {
         if (!destFile->query_exists())
         {
-            std::cerr << "Settings: Desktop file in autostart path does not exists" << std::endl;
+            std::cerr << "Settings: Desktop file in autostart path does not exist" << std::endl;
             return;
         }
         destFile->remove();
