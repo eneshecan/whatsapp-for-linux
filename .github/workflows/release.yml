@@ -15,12 +15,12 @@ jobs:
       - name: Install Dependencies
         run: |
           sudo apt update && sudo apt upgrade
-          sudo apt -y install build-essential cmake pkg-config libgtkmm-3.0-dev libwebkit2gtk-4.0-dev libappindicator3-dev debhelper
+          sudo apt -y install build-essential cmake pkg-config libgtkmm-3.0-dev libwebkit2gtk-4.0-dev libappindicator3-dev debhelper zsync
 
       - name: Build
         run: |
           mkdir -p build/release && cd build/release
-          cmake -DCMAKE_BUILD_TYPE=Release ../..
+          cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr ../..
           make -j4
 
       - name: Set Version
@@ -36,6 +36,14 @@ jobs:
       - name: Build Snap Package
         id: snapcraft
         uses: snapcore/action-build@v1
+
+      - name: Build AppImage
+        id: appimage
+        uses: AppImageCrafters/build-appimage@master
+        with:
+          recipe: "./appimage/AppImageBuilder.yml"
+        env:
+          UPDATE_INFO: gh-releases-zsync|eneshecan|whatsapp-for-linux|latest|*x86_64.AppImage.zsync
 
       - name: Push Tag
         id: push-tag
@@ -84,3 +92,14 @@ jobs:
           asset_path: ${{ steps.snapcraft.outputs.snap }}
           asset_name: ${{ steps.snapcraft.outputs.snap }}
           asset_content_type: application/snap
+
+      - name: Upload AppImage Package
+        id: upload-appimage-package
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create-release.outputs.upload_url }}
+          asset_path: "whatsapp-for-linux-latest-x86_64.AppImage"
+          asset_name: "whatsapp-for-linux-latest-x86_64.AppImage"
+          asset_content_type: application/appimage
