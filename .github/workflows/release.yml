@@ -17,11 +17,12 @@ jobs:
           sudo apt update && sudo apt upgrade
           sudo apt -y install build-essential cmake pkg-config libgtkmm-3.0-dev libwebkit2gtk-4.0-dev libappindicator3-dev debhelper zsync
 
-      - name: Build
+      - name: Build & Install
         run: |
           mkdir -p build/release && cd build/release
           cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr ../..
           make -j4
+          make install DESTDIR=../../AppDir
 
       - name: Set Version
         run: |
@@ -37,7 +38,7 @@ jobs:
         id: snapcraft
         uses: snapcore/action-build@v1
 
-      - name: Build AppImage
+      - name: Build AppImage Package
         id: appimage
         uses: AppImageCrafters/build-appimage@master
         with:

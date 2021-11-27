@@ -77,6 +77,10 @@ Run `dpkg-buildpackage -uc -us -ui`.
 
 Run `snapcraft`. Pass `--use-lxd` option in a virtual environment.
 
+### AppImage
+Run `appimage-builder --skip-test --recipe ./appimage/AppImageBuilder.yml`.
+Make sure that the app is installed into the `<Project Root>/AppDir` directory before building the package.
+
 
 ## Contributing
 
