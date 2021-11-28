@@ -56,30 +56,52 @@ Check out [releases](https://github.com/eneshecan/whatsapp-for-linux/releases) f
 
 ### Development
 
-1. Create a debug build directory and go into it. `mkdir -p build/debug && cd build/debug`
-2. Build cmake. `cmake -DCMAKE_BUILD_TYPE=Debug ../..`
-3. Build makefile. `make`
-4. Run. `./whatsapp-for-linux`
+```bash
+# Create a debug build directory and go into it
+mkdir -p build/debug && cd build/debug
+
+# Build the project
+cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=/usr ../..
+make -j4
+
+# Run
+./whatsapp-for-linux
+```
 
 ### Local installation
 
-If you want to install it locally, use `make install` inside the build directory after
-building (You'll probably need administrator privileges for this).
+```bash
+# Run inside the build directory once the application is built
+# You'll probably need administrator privileges for this
+make install
+```
 
 
 ## Packaging
 
 ### Debian
 
-Run `dpkg-buildpackage -uc -us -ui`.
+```bash
+# Build the package
+dpkg-buildpackage -uc -us -ui
+```
 
 ### Snap
 
-Run `snapcraft`. Pass `--use-lxd` option in a virtual environment.
+```bash
+# Build the package. Pass --use-lxd option in a virtual environment
+snapcraft
+```
 
 ### AppImage
-Run `appimage-builder --skip-test --recipe ./appimage/AppImageBuilder.yml`.
-Make sure that the app is installed into the `<Project Root>/AppDir` directory before building the package.
+
+```bash
+# Make sure that the application is installed into the `<Project Root>/AppDir` directory
+make install DESTDIR=../../AppDir
+
+# Build the package
+appimage-builder --skip-test --recipe ./appimage/AppImageBuilder.yml
+```
 
 
 ## Contributing
