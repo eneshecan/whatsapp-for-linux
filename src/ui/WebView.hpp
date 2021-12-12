@@ -16,18 +16,25 @@ namespace wfl::ui
             operator WebKitWebView*();
 
         public:
-            void        refresh();
-            void        openPhoneNumber(std::string const& phoneNumber);
-            void        zoomIn();
-            void        zoomOut();
-            double      getZoomLevel() const noexcept;
-            std::string getZoomLevelString() const noexcept;
+            void            refresh();
+            // This is intended to use only from webkit's callback. Do not use externally!
+            void            setLoadStatus(WebKitLoadEvent loadEvent);
+            WebKitLoadEvent getLoadStatus() const noexcept;
+            void            sendRequest(std::string url);
+            void            openPhoneNumber(std::string const& phoneNumber);
+            void            zoomIn();
+            void            zoomOut();
+            double          getZoomLevel() const noexcept;
+            std::string     getZoomLevelString() const noexcept;
 
         public:
-            sigc::signal<void, bool> signalNotification() const noexcept;
+            sigc::signal<void, WebKitLoadEvent> signalLoadStatus() const noexcept;
+            sigc::signal<void, bool>            signalNotification() const noexcept;
 
         private:
-            double                   m_zoomLevel;
-            sigc::signal<void, bool> m_signalNotification;
+            double                              m_zoomLevel;
+            sigc::signal<void, WebKitLoadEvent> m_signalLoadStatus;
+            sigc::signal<void, bool>            m_signalNotification;
+            WebKitLoadEvent                     m_loadStatus;
     };
 }

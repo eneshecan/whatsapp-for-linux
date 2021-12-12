@@ -17,6 +17,9 @@ namespace wfl::ui
         public:
             MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const& refBuilder);
 
+        public:
+            void openUrl(std::string const& url);
+
         protected:
             bool on_key_press_event(GdkEventKey* keyEvent) override;
             bool on_window_state_event(GdkEventWindowState* windowStateEvent) override;
@@ -24,6 +27,7 @@ namespace wfl::ui
 
         private:
             void onRefresh();
+            void onLoadStatusChanged(WebKitLoadEvent loadEvent);
             void onOpenPhoneNumber();
             void onPhoneNumberDialogResponse(int responseId);
             void onShow();
@@ -40,6 +44,7 @@ namespace wfl::ui
         private:
             TrayIcon              m_trayIcon;
             WebView               m_webView;
+            Glib::ustring         m_pendingUrl;
             PhoneNumberDialog*    m_phoneNumberDialog;
             Gtk::HeaderBar*       m_headerBar;
             Gtk::ShortcutsWindow* m_shortcutsWindow;

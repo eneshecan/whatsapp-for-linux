@@ -14,6 +14,7 @@ namespace wfl::ui
         : Gtk::ApplicationWindow{cobject}
         , m_trayIcon{}
         , m_webView{}
+        , m_pendingUrl{}
         , m_phoneNumberDialog{nullptr}
         , m_headerBar{nullptr}
         , m_shortcutsWindow{nullptr}
@@ -32,29 +33,29 @@ namespace wfl::ui
 
         Gtk::Button* openPhoneNumberButton = nullptr;
         refBuilder->get_widget("open_phone_number_button", openPhoneNumberButton);
-        openPhoneNumberButton->signal_clicked().connect(sigc::mem_fun(this, &MainWindow::onOpenPhoneNumber));
+        openPhoneNumberButton->signal_clicked().connect(sigc::mem_fun(*this, &MainWindow::onOpenPhoneNumber));
 
         Gtk::Button* refreshButton = nullptr;
         refBuilder->get_widget("refresh_button", refreshButton);
-        refreshButton->signal_clicked().connect(sigc::mem_fun(this, &MainWindow::onRefresh));
+        refreshButton->signal_clicked().connect(sigc::mem_fun(*this, &MainWindow::onRefresh));
 
         refBuilder->get_widget("header_bar", m_headerBar);
 
         Gtk::ModelButton* startInTrayButton = nullptr;
         refBuilder->get_widget("start_in_tray_button", startInTrayButton);
-        startInTrayButton->signal_clicked().connect(sigc::bind(sigc::mem_fun(this, &MainWindow::onStartInTray), startInTrayButton));
+        startInTrayButton->signal_clicked().connect(sigc::bind(sigc::mem_fun(*this, &MainWindow::onStartInTray), startInTrayButton));
 
         Gtk::ModelButton* autostartButton = nullptr;
         refBuilder->get_widget("autostart_button", autostartButton);
-        autostartButton->signal_clicked().connect(sigc::bind(sigc::mem_fun(this, &MainWindow::onAutostart), autostartButton));
+        autostartButton->signal_clicked().connect(sigc::bind(sigc::mem_fun(*this, &MainWindow::onAutostart), autostartButton));
 
         Gtk::ModelButton* closeToTrayButton = nullptr;
         refBuilder->get_widget("close_to_tray_button", closeToTrayButton);
-        closeToTrayButton->signal_clicked().connect(sigc::bind(sigc::mem_fun(this, &MainWindow::onCloseToTray), closeToTrayButton, startInTrayButton));
+        closeToTrayButton->signal_clicked().connect(sigc::bind(sigc::mem_fun(*this, &MainWindow::onCloseToTray), closeToTrayButton, startInTrayButton));
 
         Gtk::ModelButton* fullscreenButton = nullptr;
         refBuilder->get_widget("fullscreen_button", fullscreenButton);
-        fullscreenButton->signal_clicked().connect(sigc::mem_fun(this, &MainWindow::onFullscreen));
+        fullscreenButton->signal_clicked().connect(sigc::mem_fun(*this, &MainWindow::onFullscreen));
 
         Gtk::Label* zoomLevelLabel = nullptr;
         refBuilder->get_widget("zoom_level_label", zoomLevelLabel);
@@ -62,28 +63,29 @@ namespace wfl::ui
 
         Gtk::Button* zoomInButton = nullptr;
         refBuilder->get_widget("zoom_in_button", zoomInButton);
-        zoomInButton->signal_clicked().connect(sigc::bind(sigc::mem_fun(this, &MainWindow::onZoomIn), zoomLevelLabel));
+        zoomInButton->signal_clicked().connect(sigc::bind(sigc::mem_fun(*this, &MainWindow::onZoomIn), zoomLevelLabel));
 
         Gtk::Button* zoomOutButton = nullptr;
         refBuilder->get_widget("zoom_out_button", zoomOutButton);
-        zoomOutButton->signal_clicked().connect(sigc::bind(sigc::mem_fun(this, &MainWindow::onZoomOut), zoomLevelLabel));
+        zoomOutButton->signal_clicked().connect(sigc::bind(sigc::mem_fun(*this, &MainWindow::onZoomOut), zoomLevelLabel));
 
         Gtk::ModelButton* shortcutsButton = nullptr;
         refBuilder->get_widget("shortcuts_button", shortcutsButton);
-        shortcutsButton->signal_clicked().connect(sigc::mem_fun(this, &MainWindow::onShortcuts));
+        shortcutsButton->signal_clicked().connect(sigc::mem_fun(*this, &MainWindow::onShortcuts));
 
         Gtk::ModelButton* aboutButton = nullptr;
         refBuilder->get_widget("about_button", aboutButton);
-        aboutButton->signal_clicked().connect(sigc::mem_fun(this, &MainWindow::onAbout));
+        aboutButton->signal_clicked().connect(sigc::mem_fun(*this, &MainWindow::onAbout));
 
         Gtk::ModelButton* quitButton = nullptr;
         refBuilder->get_widget("quit_button", quitButton);
-        quitButton->signal_clicked().connect(sigc::mem_fun(this, &MainWindow::onQuit));
+        quitButton->signal_clicked().connect(sigc::mem_fun(*this, &MainWindow::onQuit));
 
-        m_webView.signalNotification().connect(sigc::mem_fun(&m_trayIcon, &TrayIcon::setAttention));
-        m_trayIcon.signalOpen().connect(sigc::mem_fun(this, &MainWindow::onShow));
-        m_trayIcon.signalAbout().connect(sigc::mem_fun(this, &MainWindow::onAbout));
-        m_trayIcon.signalQuit().connect(sigc::mem_fun(this, &MainWindow::onQuit));
+        m_webView.signalLoadStatus().connect(sigc::mem_fun(*this, &MainWindow::onLoadStatusChanged));
+        m_webView.signalNotification().connect(sigc::mem_fun(m_trayIcon, &TrayIcon::setAttention));
+        m_trayIcon.signalOpen().connect(sigc::mem_fun(*this, &MainWindow::onShow));
+        m_trayIcon.signalAbout().connect(sigc::mem_fun(*this, &MainWindow::onAbout));
+        m_trayIcon.signalQuit().connect(sigc::mem_fun(*this, &MainWindow::onQuit));
 
         show_all();
 
@@ -94,6 +96,18 @@ namespace wfl::ui
         autostartButton->property_active() = util::Settings::getInstance().getAutostart();
 
         m_headerBar->set_visible(util::Settings::getInstance().getHeaderBar());
+    }
+
+    void MainWindow::openUrl(std::string const& url)
+    {
+        if (m_webView.getLoadStatus() == WEBKIT_LOAD_FINISHED)
+        {
+            m_webView.sendRequest(url);
+        }
+        else
+        {
+            m_pendingUrl = url;
+        }
     }
 
     bool MainWindow::on_key_press_event(GdkEventKey* keyEvent)
@@ -166,6 +180,15 @@ namespace wfl::ui
         m_webView.refresh();
     }
 
+    void MainWindow::onLoadStatusChanged(WebKitLoadEvent loadEvent)
+    {
+        if ((loadEvent == WEBKIT_LOAD_FINISHED) && !m_pendingUrl.empty())
+        {
+            m_webView.sendRequest(m_pendingUrl);
+            m_pendingUrl.clear();
+        }
+    }
+
     void MainWindow::onOpenPhoneNumber()
     {
         if (!m_phoneNumberDialog)
@@ -173,7 +196,7 @@ namespace wfl::ui
             auto const refBuilder = Gtk::Builder::create_from_resource("/main/ui/PhoneNumberDialog.ui");
             refBuilder->get_widget_derived("phone_number_dialog", m_phoneNumberDialog);
 
-            m_phoneNumberDialog->signal_response().connect(sigc::mem_fun(this, &MainWindow::onPhoneNumberDialogResponse));
+            m_phoneNumberDialog->signal_response().connect(sigc::mem_fun(*this, &MainWindow::onPhoneNumberDialogResponse));
         }
 
         m_phoneNumberDialog->set_transient_for(*this);

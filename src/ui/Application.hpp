@@ -11,7 +11,7 @@ namespace wfl::ui
             static Application& getInstance();
 
         public:
-            Application(int argc, char** argv, Glib::ustring const& id);
+            Application(int argc, char** argv, Glib::ustring const& id, Gio::ApplicationFlags flags = Gio::APPLICATION_FLAGS_NONE);
 
         public:
             void keepAlive();

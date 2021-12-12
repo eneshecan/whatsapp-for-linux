@@ -28,6 +28,14 @@ namespace wfl::ui
             }
         }
 
+        void loadChanged(WebKitWebView*, WebKitLoadEvent loadEvent, gpointer userData)
+        {
+            if (auto const webView = reinterpret_cast<WebView*>(userData); webView)
+            {
+                webView->setLoadStatus(loadEvent);
+            }
+        }
+
         gboolean permissionRequest(WebKitWebView*, WebKitPermissionRequest* request, GtkWindow*)
         {
             auto dialog = Gtk::MessageDialog{"Notification Request", false, Gtk::MESSAGE_QUESTION, Gtk::BUTTONS_YES_NO};
@@ -121,8 +129,7 @@ namespace wfl::ui
 
         void notificationDestroyed(WebKitNotification*, gpointer userData)
         {
-            auto const webView = reinterpret_cast<WebView*>(userData);
-            if (webView)
+            if (auto const webView = reinterpret_cast<WebView*>(userData); webView)
             {
                 webView->signalNotification().emit(false);
             }
@@ -147,10 +154,13 @@ namespace wfl::ui
     WebView::WebView()
         : Gtk::Widget{webkit_web_view_new()}
         , m_zoomLevel{util::Settings::getInstance().getZoomLevel()}
+        , m_signalLoadStatus{}
         , m_signalNotification{}
+        , m_loadStatus{WEBKIT_LOAD_STARTED}
     {
         auto const webContext = webkit_web_view_get_context(*this);
 
+        g_signal_connect(*this, "load-changed", G_CALLBACK(loadChanged), this);
         g_signal_connect(*this, "permission-request", G_CALLBACK(permissionRequest), nullptr);
         g_signal_connect(*this, "decide-policy", G_CALLBACK(decidePolicy), nullptr);
         g_signal_connect(*this, "show-notification", G_CALLBACK(showNotification), this);
@@ -186,21 +196,48 @@ namespace wfl::ui
         webkit_web_view_reload(*this);
     }
 
+    void WebView::setLoadStatus(WebKitLoadEvent loadEvent)
+    {
+        m_loadStatus = loadEvent;
+        m_signalLoadStatus.emit(m_loadStatus);
+    }
+
+    WebKitLoadEvent WebView::getLoadStatus() const noexcept
+    {
+        return m_loadStatus;
+    }
+
+    void WebView::sendRequest(std::string url)
+    {
+        auto const uriPrefix = std::string{"whatsapp:/"};
+        if (url.find(uriPrefix) != std::string::npos)
+        {
+            url.replace(0U, uriPrefix.size(), WHATSAPP_WEB_URI);
+
+            std::cerr << "WebView: Sending request: " << url << std::endl;
+
+            auto script = std::string{};
+            script.append("(function(){"
+                "var a = document.createElement(\"a\");"
+                "a.href = \"");
+            script.append(url);
+            script.append("\";"
+                "document.body.appendChild(a);"
+                "a.click();"
+                "a.remove();"
+                "})();");
+
+            webkit_web_view_run_javascript(*this, script.c_str(), nullptr, nullptr, nullptr);
+        }
+        else
+        {
+            std::cerr << "WebView: Invalid url: " << url << std::endl;
+        }
+    }
+
     void WebView::openPhoneNumber(std::string const& phoneNumber)
     {
-        auto script = std::string{};
-        script.append("(function(){"
-            "var a = document.createElement(\"a\");"
-            "a.href = \"");
-        script.append(WHATSAPP_WEB_URI);
-        script.append("/send?phone=");
-        script.append(phoneNumber);
-        script.append("\";"
-            "document.body.appendChild(a);"
-            "a.click();"
-            "a.remove();"
-            "})();");
-        webkit_web_view_run_javascript(*this, script.c_str(), nullptr, nullptr, nullptr);
+        sendRequest("whatsapp://send?phone=" + phoneNumber);
     }
 
     void WebView::zoomIn()
@@ -231,6 +268,11 @@ namespace wfl::ui
     std::string WebView::getZoomLevelString() const noexcept
     {
         return std::to_string(static_cast<int>(std::round(getZoomLevel() * 100))).append("%");
+    }
+
+    sigc::signal<void, WebKitLoadEvent> WebView::signalLoadStatus() const noexcept
+    {
+        return m_signalLoadStatus;
     }
 
     sigc::signal<void, bool> WebView::signalNotification() const noexcept
