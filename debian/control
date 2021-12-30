@@ -9,5 +9,6 @@ Rules-Requires-Root: no
 
 Package: whatsapp-for-linux
 Architecture: any
-Depends: libgtkmm-3.0-1v5, libwebkit2gtk-4.0-37, libappindicator3-1
+Depends: libgtkmm-3.0-1v5, libwebkit2gtk-4.0-37, libappindicator3-1,
+    glib-networking, gstreamer1.0-plugins-base, gstreamer1.0-plugins-good, gstreamer1.0-plugins-bad, gstreamer1.0-libav
 Description: An unofficial WhatsApp desktop application for linux
