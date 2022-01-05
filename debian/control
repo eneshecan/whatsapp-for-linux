@@ -19,7 +19,7 @@ Depends: glib-networking,
          gstreamer1.0-plugins-bad,
          gstreamer1.0-plugins-base,
          gstreamer1.0-plugins-good,
-         libappindicator3-1,
+         libayatana-appindicator3-1,
          libgtkmm-3.0-1v5,
          libwebkit2gtk-4.0-37
 Description: An unofficial WhatsApp desktop application for linux
