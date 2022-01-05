@@ -17,7 +17,7 @@ AppDir:
     include:
       - libgtkmm-3.0-1v5:amd64
       - libwebkit2gtk-4.0-37:amd64
-      - libappindicator3-1:amd64
+      - libayatana-appindicator3-1:amd64
       - glib-networking:amd64
       - gstreamer1.0-libav:amd64
       - gstreamer1.0-plugins-bad:amd64
@@ -59,7 +59,7 @@ AppDir:
       - /lib/x86_64-linux-gnu/libXrender.so.1
       - /lib/x86_64-linux-gnu/libaom.so.0
       - /lib/x86_64-linux-gnu/libapparmor.so.1
-      - /lib/x86_64-linux-gnu/libappindicator3.so.1
+      - /lib/x86_64-linux-gnu/libayatana-appindicator3.so.1
       - /lib/x86_64-linux-gnu/libasound.so.2
       - /lib/x86_64-linux-gnu/libaspell.so.15
       - /lib/x86_64-linux-gnu/libass.so.9
