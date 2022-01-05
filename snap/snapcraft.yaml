@@ -27,10 +27,10 @@ parts:
       - build-essential
       - libgtkmm-3.0-dev
       - libwebkit2gtk-4.0-dev
-      - libappindicator3-dev
+      - libayatana-appindicator3-dev
     stage-packages:
       - libgtkmm-3.0-1v5
-      - libappindicator3-1
+      - libayatana-appindicator3-1
       - glib-networking
       - gstreamer1.0-plugins-base
       - gstreamer1.0-plugins-good
