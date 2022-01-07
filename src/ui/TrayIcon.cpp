@@ -24,18 +24,7 @@ namespace wfl::ui
             }
             else
             {
-                auto const trayPixbuf = Gdk::Pixbuf::create_from_resource("/main/image/tray/whatsapp-for-linux-tray.png");
-                auto const attentionPixbuf = Gdk::Pixbuf::create_from_resource("/main/image/tray/whatsapp-for-linux-tray-attention.png");
-                iconTheme->add_builtin_icon(WHATSAPP_FOR_LINUX_TRAY, Gtk::ICON_SIZE_MENU, trayPixbuf);
-                iconTheme->add_builtin_icon(WHATSAPP_FOR_LINUX_TRAY_ATTENTION, Gtk::ICON_SIZE_MENU, attentionPixbuf);
-                if (iconTheme->has_icon(WHATSAPP_FOR_LINUX_TRAY) && iconTheme->has_icon(WHATSAPP_FOR_LINUX_TRAY_ATTENTION))
-                {
-                    return {WHATSAPP_FOR_LINUX_TRAY, WHATSAPP_FOR_LINUX_TRAY_ATTENTION};
-                }
-                else
-                {
-                    return {"indicator-messages", "indicator-messages-new"};
-                }
+                return {"indicator-messages", "indicator-messages-new"};
             }
         }
     }
