@@ -5,7 +5,7 @@ AppDir:
     id: whatsapp-for-linux
     name: whatsapp-for-linux
     icon: whatsapp-for-linux
-    version: latest
+    version: !ENV ${RELEASE_NAME}
     exec: usr/bin/whatsapp-for-linux
     exec_args: $@
   apt:
