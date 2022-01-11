@@ -1,11 +1,10 @@
 ---
 Language: Cpp
-AccessModifierOffset: -5
 AlignAfterOpenBracket: Align
-AlignConsecutiveAssignments: false
-AlignConsecutiveBitFields: false
-AlignConsecutiveDeclarations: true
-AlignConsecutiveMacros: true
+AlignConsecutiveAssignments: None
+AlignConsecutiveBitFields: None
+AlignConsecutiveDeclarations: None
+AlignConsecutiveMacros: None
 AlignEscapedNewlines: Right
 AlignOperands: Align
 AlignTrailingComments: false
@@ -44,6 +43,7 @@ DeriveLineEnding: true
 DerivePointerAlignment: false
 DisableFormat: false
 FixNamespaceComments: false
+IndentAccessModifiers: true
 IndentCaseBlocks: false
 IndentCaseLabels: true
 IndentExternBlock: AfterExternBlock
@@ -63,7 +63,7 @@ PenaltyExcessCharacter: 1145584
 PenaltyReturnTypeOnItsOwnLine: 58
 PointerAlignment: Left
 ReflowComments: false
-SortIncludes: false
+SortIncludes: Never
 SortUsingDeclarations: false
 SpaceAfterCStyleCast: false
 SpaceAfterLogicalNot: false
