@@ -5,6 +5,11 @@
 
 namespace wfl::ui
 {
+    namespace detail
+    {
+        void loadChanged(WebKitWebView*, WebKitLoadEvent loadEvent, gpointer userData);
+    }
+
     class WebView
         : public Gtk::Widget
     {
@@ -17,8 +22,6 @@ namespace wfl::ui
 
         public:
             void            refresh();
-            // This is intended to use only from webkit's callback. Do not use externally!
-            void            setLoadStatus(WebKitLoadEvent loadEvent);
             WebKitLoadEvent getLoadStatus() const noexcept;
             void            sendRequest(std::string url);
             void            openPhoneNumber(std::string const& phoneNumber);
@@ -32,9 +35,13 @@ namespace wfl::ui
             sigc::signal<void, bool>            signalNotification() const noexcept;
 
         private:
+            void        setLoadStatus(WebKitLoadEvent loadEvent);
+            friend void detail::loadChanged(WebKitWebView*, WebKitLoadEvent, gpointer);
+
+        private:
+            WebKitLoadEvent                     m_loadStatus;
             double                              m_zoomLevel;
             sigc::signal<void, WebKitLoadEvent> m_signalLoadStatus;
             sigc::signal<void, bool>            m_signalNotification;
-            WebKitLoadEvent                     m_loadStatus;
     };
 }

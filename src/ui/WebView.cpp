@@ -13,7 +13,6 @@ namespace wfl::ui
     {
         constexpr auto const WHATSAPP_WEB_URI = "https://web.whatsapp.com";
 
-
         std::optional<std::string> getSystemLanguage()
         {
             try
@@ -25,14 +24,6 @@ namespace wfl::ui
             {
                 std::cerr << "WebView: Failed to get system language: " << error.what() << std::endl;
                 return std::nullopt;
-            }
-        }
-
-        void loadChanged(WebKitWebView*, WebKitLoadEvent loadEvent, gpointer userData)
-        {
-            if (auto const webView = reinterpret_cast<WebView*>(userData); webView)
-            {
-                webView->setLoadStatus(loadEvent);
             }
         }
 
@@ -150,17 +141,28 @@ namespace wfl::ui
         }
     }
 
+    namespace detail
+    {
+        void loadChanged(WebKitWebView*, WebKitLoadEvent loadEvent, gpointer userData)
+        {
+            if (auto const webView = reinterpret_cast<WebView*>(userData); webView)
+            {
+                webView->setLoadStatus(loadEvent);
+            }
+        }
+    }
+
 
     WebView::WebView()
         : Gtk::Widget{webkit_web_view_new()}
+        , m_loadStatus{WEBKIT_LOAD_STARTED}
         , m_zoomLevel{util::Settings::getInstance().getZoomLevel()}
         , m_signalLoadStatus{}
         , m_signalNotification{}
-        , m_loadStatus{WEBKIT_LOAD_STARTED}
     {
         auto const webContext = webkit_web_view_get_context(*this);
 
-        g_signal_connect(*this, "load-changed", G_CALLBACK(loadChanged), this);
+        g_signal_connect(*this, "load-changed", G_CALLBACK(detail::loadChanged), this);
         g_signal_connect(*this, "permission-request", G_CALLBACK(permissionRequest), nullptr);
         g_signal_connect(*this, "decide-policy", G_CALLBACK(decidePolicy), nullptr);
         g_signal_connect(*this, "show-notification", G_CALLBACK(showNotification), this);
@@ -194,12 +196,6 @@ namespace wfl::ui
     void WebView::refresh()
     {
         webkit_web_view_reload(*this);
-    }
-
-    void WebView::setLoadStatus(WebKitLoadEvent loadEvent)
-    {
-        m_loadStatus = loadEvent;
-        m_signalLoadStatus.emit(m_loadStatus);
     }
 
     WebKitLoadEvent WebView::getLoadStatus() const noexcept
@@ -278,5 +274,11 @@ namespace wfl::ui
     sigc::signal<void, bool> WebView::signalNotification() const noexcept
     {
         return m_signalNotification;
+    }
+
+    void WebView::setLoadStatus(WebKitLoadEvent loadEvent)
+    {
+        m_loadStatus = loadEvent;
+        m_signalLoadStatus.emit(m_loadStatus);
     }
 }
