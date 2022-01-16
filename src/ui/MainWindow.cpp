@@ -219,6 +219,10 @@ namespace wfl::ui
             Application::getInstance().add_window(*this);
             show();
         }
+        else
+        {
+            present();
+        }
     }
 
     void MainWindow::onQuit()
