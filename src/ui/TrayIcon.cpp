@@ -40,7 +40,7 @@ namespace wfl::ui
         app_indicator_set_icon_full(m_appIndicator, trayIconName, "Whatsapp for Linux Tray");
         app_indicator_set_attention_icon_full(m_appIndicator, attentionIconName, "Whatsapp for Linux Tray Attention");
 
-        auto const openMenuItem = Gtk::manage(new Gtk::MenuItem{"Open"});
+        auto const openMenuItem = Gtk::manage(new Gtk::MenuItem{"Show"});
         auto const aboutMenuItem = Gtk::manage(new Gtk::MenuItem{"About"});
         auto const quitMenuItem = Gtk::manage(new Gtk::MenuItem{"Quit"});
         m_popupMenu.append(*openMenuItem);
