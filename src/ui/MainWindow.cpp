@@ -83,7 +83,7 @@ namespace wfl::ui
 
         m_webView.signalLoadStatus().connect(sigc::mem_fun(*this, &MainWindow::onLoadStatusChanged));
         m_webView.signalNotification().connect(sigc::mem_fun(m_trayIcon, &TrayIcon::setAttention));
-        m_trayIcon.signalOpen().connect(sigc::mem_fun(*this, &MainWindow::onShow));
+        m_trayIcon.signalShow().connect(sigc::mem_fun(*this, &MainWindow::onShow));
         m_trayIcon.signalAbout().connect(sigc::mem_fun(*this, &MainWindow::onAbout));
         m_trayIcon.signalQuit().connect(sigc::mem_fun(*this, &MainWindow::onQuit));
 

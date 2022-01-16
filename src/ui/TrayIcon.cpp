@@ -32,7 +32,7 @@ namespace wfl::ui
     TrayIcon::TrayIcon()
         : m_appIndicator{app_indicator_new("com.github.whatsapp-for-linux.tray", "", APP_INDICATOR_CATEGORY_COMMUNICATIONS)}
         , m_popupMenu{}
-        , m_signalOpen{}
+        , m_signalShow{}
         , m_signalAbout{}
         , m_signalQuit{}
     {
@@ -40,16 +40,16 @@ namespace wfl::ui
         app_indicator_set_icon_full(m_appIndicator, trayIconName, "Whatsapp for Linux Tray");
         app_indicator_set_attention_icon_full(m_appIndicator, attentionIconName, "Whatsapp for Linux Tray Attention");
 
-        auto const openMenuItem = Gtk::manage(new Gtk::MenuItem{"Show"});
+        auto const showMenuItem = Gtk::manage(new Gtk::MenuItem{"Show"});
         auto const aboutMenuItem = Gtk::manage(new Gtk::MenuItem{"About"});
         auto const quitMenuItem = Gtk::manage(new Gtk::MenuItem{"Quit"});
-        m_popupMenu.append(*openMenuItem);
+        m_popupMenu.append(*showMenuItem);
         m_popupMenu.append(*aboutMenuItem);
         m_popupMenu.append(*quitMenuItem);
 
         app_indicator_set_menu(m_appIndicator, m_popupMenu.gobj());
 
-        openMenuItem->signal_activate().connect([this]{ m_signalOpen.emit(); });
+        showMenuItem->signal_activate().connect([this]{ m_signalShow.emit(); });
         aboutMenuItem->signal_activate().connect([this]{ m_signalAbout.emit(); });
         quitMenuItem->signal_activate().connect([this]{ m_signalQuit.emit(); });
 
@@ -79,9 +79,9 @@ namespace wfl::ui
         app_indicator_set_status(m_appIndicator, (attention ? APP_INDICATOR_STATUS_ATTENTION : APP_INDICATOR_STATUS_ACTIVE));
     }
 
-    sigc::signal<void> TrayIcon::signalOpen() const noexcept
+    sigc::signal<void> TrayIcon::signalShow() const noexcept
     {
-        return m_signalOpen;
+        return m_signalShow;
     }
 
     sigc::signal<void> TrayIcon::signalAbout() const noexcept
