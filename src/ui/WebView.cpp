@@ -126,6 +126,14 @@ namespace wfl::ui
             }
         }
 
+        void notificationClicked(WebKitNotification*, gpointer userData)
+        {
+            if (auto const webView = reinterpret_cast<WebView*>(userData); webView)
+            {
+                webView->signalNotificationClicked().emit();
+            }
+        }
+
         gboolean showNotification(WebKitWebView*, WebKitNotification* notification, gpointer userData)
         {
             auto const webView = reinterpret_cast<WebView*>(userData);
@@ -134,7 +142,7 @@ namespace wfl::ui
                 webView->signalNotification().emit(true);
             }
 
-            g_signal_connect(notification, "clicked", G_CALLBACK(notificationDestroyed), webView);
+            g_signal_connect(notification, "clicked", G_CALLBACK(notificationClicked), webView);
             g_signal_connect(notification, "closed", G_CALLBACK(notificationDestroyed), webView);
 
             return FALSE;
@@ -159,6 +167,7 @@ namespace wfl::ui
         , m_zoomLevel{util::Settings::getInstance().getZoomLevel()}
         , m_signalLoadStatus{}
         , m_signalNotification{}
+        , m_signalNotificationClicked{}
     {
         auto const webContext = webkit_web_view_get_context(*this);
 
@@ -274,6 +283,11 @@ namespace wfl::ui
     sigc::signal<void, bool> WebView::signalNotification() const noexcept
     {
         return m_signalNotification;
+    }
+
+    sigc::signal<void> WebView::signalNotificationClicked() const noexcept
+    {
+        return m_signalNotificationClicked;
     }
 
     void WebView::setLoadStatus(WebKitLoadEvent loadEvent)
