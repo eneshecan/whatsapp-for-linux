@@ -33,6 +33,7 @@ namespace wfl::ui
         public:
             sigc::signal<void, WebKitLoadEvent> signalLoadStatus() const noexcept;
             sigc::signal<void, bool>            signalNotification() const noexcept;
+            sigc::signal<void>                  signalNotificationClicked() const noexcept;
 
         private:
             void        setLoadStatus(WebKitLoadEvent loadEvent);
@@ -43,5 +44,6 @@ namespace wfl::ui
             double                              m_zoomLevel;
             sigc::signal<void, WebKitLoadEvent> m_signalLoadStatus;
             sigc::signal<void, bool>            m_signalNotification;
+            sigc::signal<void>                  m_signalNotificationClicked;
     };
 }

@@ -32,6 +32,7 @@ namespace wfl::ui
             void onPhoneNumberDialogResponse(int responseId);
             void onShow();
             void onQuit();
+            void onNotificationClicked();
             void onCloseToTray(Gtk::ModelButton* closeToTrayButton, Gtk::ModelButton* startInTrayButton);
             void onStartInTray(Gtk::ModelButton* startInTrayButton);
             void onAutostart(Gtk::ModelButton* autostartButton);
