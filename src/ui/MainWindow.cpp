@@ -83,7 +83,7 @@ namespace wfl::ui
 
         m_webView.signalLoadStatus().connect(sigc::mem_fun(*this, &MainWindow::onLoadStatusChanged));
         m_webView.signalNotification().connect(sigc::mem_fun(m_trayIcon, &TrayIcon::setAttention));
-        m_webView.signalNotificationClicked().connect(sigc::mem_fun(*this, &MainWindow::onNotificationClicked));
+        m_webView.signalNotificationClicked().connect(sigc::mem_fun(*this, &MainWindow::onShow));
         m_trayIcon.signalShow().connect(sigc::mem_fun(*this, &MainWindow::onShow));
         m_trayIcon.signalAbout().connect(sigc::mem_fun(*this, &MainWindow::onAbout));
         m_trayIcon.signalQuit().connect(sigc::mem_fun(*this, &MainWindow::onQuit));
@@ -218,12 +218,9 @@ namespace wfl::ui
         if (!is_visible())
         {
             Application::getInstance().add_window(*this);
-            show();
         }
-        else
-        {
-            present();
-        }
+
+        present();
     }
 
     void MainWindow::onQuit()
@@ -309,13 +306,5 @@ namespace wfl::ui
 
         aboutDialog.set_transient_for(*this);
         aboutDialog.run();
-    }
-    void MainWindow::onNotificationClicked()
-    {
-        if (!is_visible())
-        {
-            Application::getInstance().add_window(*this);
-            show();
-        }
     }
 }
