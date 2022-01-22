@@ -17,10 +17,10 @@ add_custom_command(
 )
 
 FIND_PACKAGE(PkgConfig REQUIRED)
-PKG_CHECK_MODULES(GTKMM3 gtkmm-3.0 REQUIRED)
+PKG_CHECK_MODULES(GTKMM gtkmm-3.0 REQUIRED)
 PKG_CHECK_MODULES(WEBKIT webkit2gtk-4.0 REQUIRED)
-PKG_CHECK_MODULES(APP_INDICATOR ayatana-appindicator3-0.1 REQUIRED)
-include_directories(${GTKMM3_INCLUDE_DIRS} ${WEBKIT_INCLUDE_DIRS} ${APP_INDICATOR_INCLUDE_DIRS})
+PKG_CHECK_MODULES(APPINDICATOR ayatana-appindicator3-0.1 REQUIRED)
+include_directories(${GTKMM_INCLUDE_DIRS} ${WEBKIT_INCLUDE_DIRS} ${APPINDICATOR_INCLUDE_DIRS})
 
 add_executable(whatsapp-for-linux
     src/main.cpp
@@ -31,8 +31,9 @@ add_executable(whatsapp-for-linux
     src/ui/MainWindow.cpp
     src/ui/PhoneNumberDialog.cpp
     src/ui/TrayIcon.cpp
-    src/ui/WebView.cpp)
-target_link_libraries(whatsapp-for-linux ${GTKMM3_LIBRARIES} ${WEBKIT_LIBRARIES} ${APP_INDICATOR_LIBRARIES})
+    src/ui/WebView.cpp
+)
+target_link_libraries(whatsapp-for-linux ${GTKMM_LIBRARIES} ${WEBKIT_LIBRARIES} ${APPINDICATOR_LIBRARIES})
 
 install(TARGETS whatsapp-for-linux DESTINATION ${CMAKE_INSTALL_BINDIR})
 install(FILES ${CMAKE_SOURCE_DIR}/resource/desktop/whatsapp-for-linux.desktop DESTINATION ${CMAKE_INSTALL_DATADIR}/applications)
