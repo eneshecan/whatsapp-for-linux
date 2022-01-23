@@ -15,7 +15,7 @@ jobs:
       - name: Install Dependencies
         run: |
           sudo apt update && sudo apt upgrade
-          sudo apt -y install build-essential cmake pkg-config libgtkmm-3.0-dev libwebkit2gtk-4.0-dev libwebkit2gtk-4.0-37 libayatana-appindicator3-dev debhelper zsync
+          sudo apt -y install build-essential cmake pkg-config libgtkmm-3.0-dev libwebkit2gtk-4.0-dev libayatana-appindicator3-dev debhelper zsync
 
       - name: Build & Install
         run: |
