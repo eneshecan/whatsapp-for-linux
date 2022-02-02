@@ -30,7 +30,7 @@ namespace wfl::ui
         gboolean permissionRequest(WebKitWebView*, WebKitPermissionRequest* request, GtkWindow*)
         {
             auto dialog = Gtk::MessageDialog{"Notification Request", false, Gtk::MESSAGE_QUESTION, Gtk::BUTTONS_YES_NO};
-            dialog.set_secondary_text("Do you allow WhatsApp to send you notifications?");
+            dialog.set_secondary_text("Would you like Whatsapp to send you notifications?");
 
             auto const result = dialog.run();
             switch (result)
