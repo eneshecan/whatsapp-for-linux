@@ -217,6 +217,7 @@ namespace wfl::ui
     {
         if (!is_visible())
         {
+            m_trayIcon.setAttention(false);
             Application::getInstance().add_window(*this);
         }
 
