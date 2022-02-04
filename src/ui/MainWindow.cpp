@@ -82,7 +82,7 @@ namespace wfl::ui
         quitButton->signal_clicked().connect(sigc::mem_fun(*this, &MainWindow::onQuit));
 
         m_webView.signalLoadStatus().connect(sigc::mem_fun(*this, &MainWindow::onLoadStatusChanged));
-        m_webView.signalNotification().connect(sigc::mem_fun(m_trayIcon, &TrayIcon::setAttention));
+        m_webView.signalNotification().connect(sigc::mem_fun(*this, &MainWindow::onNotificationReceived));
         m_webView.signalNotificationClicked().connect(sigc::mem_fun(*this, &MainWindow::onShow));
         m_trayIcon.signalShow().connect(sigc::mem_fun(*this, &MainWindow::onShow));
         m_trayIcon.signalAbout().connect(sigc::mem_fun(*this, &MainWindow::onAbout));
@@ -210,6 +210,14 @@ namespace wfl::ui
         {
             auto const phoneNumber = m_phoneNumberDialog->getPhoneNumber();
             m_webView.openPhoneNumber(phoneNumber);
+        }
+    }
+
+    void MainWindow::onNotificationReceived(bool attention)
+    {
+        if(!is_visible())
+        {
+            m_trayIcon.setAttention(attention);
         }
     }
 
