@@ -30,6 +30,7 @@
 
 # Common build directory
 build/
+cmake-build-debug/
 
 # Build artifacts
 src/VERSION
