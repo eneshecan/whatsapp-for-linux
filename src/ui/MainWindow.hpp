@@ -30,7 +30,7 @@ namespace wfl::ui
             void onLoadStatusChanged(WebKitLoadEvent loadEvent);
             void onOpenPhoneNumber();
             void onPhoneNumberDialogResponse(int responseId);
-            void onNotificationReceived(bool attention);
+            void onNotificationChanged(bool attention);
             void onShow();
             void onQuit();
             void onCloseToTray(Gtk::ModelButton* closeToTrayButton, Gtk::ModelButton* startInTrayButton);

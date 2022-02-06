@@ -82,7 +82,7 @@ namespace wfl::ui
         quitButton->signal_clicked().connect(sigc::mem_fun(*this, &MainWindow::onQuit));
 
         m_webView.signalLoadStatus().connect(sigc::mem_fun(*this, &MainWindow::onLoadStatusChanged));
-        m_webView.signalNotification().connect(sigc::mem_fun(*this, &MainWindow::onNotificationReceived));
+        m_webView.signalNotification().connect(sigc::mem_fun(*this, &MainWindow::onNotificationChanged));
         m_webView.signalNotificationClicked().connect(sigc::mem_fun(*this, &MainWindow::onShow));
         m_trayIcon.signalShow().connect(sigc::mem_fun(*this, &MainWindow::onShow));
         m_trayIcon.signalAbout().connect(sigc::mem_fun(*this, &MainWindow::onAbout));
@@ -213,9 +213,9 @@ namespace wfl::ui
         }
     }
 
-    void MainWindow::onNotificationReceived(bool attention)
+    void MainWindow::onNotificationChanged(bool attention)
     {
-        if(!is_visible())
+        if (!is_visible())
         {
             m_trayIcon.setAttention(attention);
         }
