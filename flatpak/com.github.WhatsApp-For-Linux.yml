@@ -1,4 +1,4 @@
-app-id: com.eneshecan.WhatsApp-For-Linux
+app-id: com.github.WhatsApp-For-Linux
 runtime: org.gnome.Platform
 runtime-version: '41'
 sdk: org.gnome.Sdk
