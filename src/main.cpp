@@ -34,7 +34,7 @@ int main(int argc, char** argv)
 
     redirectOutputToLogger();
 
-    auto app = wfl::ui::Application{argc, argv, "com.github.whatsapp-for-linux", Gio::APPLICATION_HANDLES_OPEN};
+    auto app = wfl::ui::Application{argc, argv, "com.github.eneshecan.WhatsAppForLinux", Gio::APPLICATION_HANDLES_OPEN};
 
     signal(SIGINT,  sigterm);
     signal(SIGTERM, sigterm);

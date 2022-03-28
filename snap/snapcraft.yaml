@@ -41,13 +41,13 @@ slots:
   dbus-app:
     interface: dbus
     bus: session
-    name: com.github.whatsapp-for-linux
+    name: com.github.eneshecan.WhatsAppForLinux
 
 apps:
   whatsapp-for-linux:
     command: bin/whatsapp-for-linux
     desktop: share/applications/whatsapp-for-linux.desktop
-    common-id: com.github.whatsapp-for-linux
+    common-id: com.github.eneshecan.WhatsAppForLinux
     extensions: [gnome-3-28]  # This takes care of most of the things for us
     plugs:
       - network

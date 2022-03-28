@@ -30,7 +30,7 @@ namespace wfl::ui
     }
 
     TrayIcon::TrayIcon()
-        : m_appIndicator{app_indicator_new("com.github.whatsapp-for-linux.tray", "", APP_INDICATOR_CATEGORY_COMMUNICATIONS)}
+        : m_appIndicator{app_indicator_new("com.github.eneshecan.WhatsAppForLinux.tray", "", APP_INDICATOR_CATEGORY_COMMUNICATIONS)}
         , m_popupMenu{}
         , m_signalShow{}
         , m_signalAbout{}
