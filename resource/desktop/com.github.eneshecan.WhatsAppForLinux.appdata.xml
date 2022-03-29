@@ -6,6 +6,7 @@
   <project_license>GPL-3.0</project_license>
   <name>WhatsApp for Linux</name>
   <summary>An unofficial WhatsApp desktop application for Linux.</summary>
+  <content_rating type="oars-1.1" />
 
   <description>
     <p>
@@ -13,12 +14,12 @@
     </p>
   </description>
 
-  <launchable type="desktop-id">com.github.eneshecan.WhatsAppForLinux</launchable>
+  <launchable type="desktop-id">com.github.eneshecan.WhatsAppForLinux.desktop</launchable>
 
   <screenshots>
     <screenshot type="default">
       <caption>Application</caption>
-      <image>https://github.com/eneshecan/whatsapp-for-linux/blob/master/screenshot/app.png</image>
+      <image>https://raw.githubusercontent.com/eneshecan/whatsapp-for-linux/master/screenshot/app.png</image>
     </screenshot>
   </screenshots>
 
