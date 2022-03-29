@@ -12,15 +12,12 @@ finish-args:
   - --socket=pulseaudio
   - --share=network
   - --talk-name=org.freedesktop.Notifications
-  - --own-name=com.github.eneshecan.WhatsAppForLinux
   - --filesystem=xdg-desktop
   - --filesystem=xdg-documents
   - --filesystem=xdg-download
   - --filesystem=xdg-music
   - --filesystem=xdg-pictures
-  - --filesystem=xdg-videos 
-rename-desktop-file: whatsapp-for-linux.desktop
-rename-icon: whatsapp-for-linux
+  - --filesystem=xdg-videos
 cleanup:
   - "/include"
   - "*.la"
@@ -114,10 +111,15 @@ modules:
   - name: libdbusmenu-gtk3
     buildsystem: autotools
     build-options:
-      cflags: '-Wno-error'
-      env:
-        HAVE_VALGRIND_FALSE: '#'
-        HAVE_VALGRIND_TRUE: ''
+      cflags: -Wno-error
+    config-opts:
+      - --with-gtk=3
+      - --disable-dumper
+      - --disable-static
+      - --enable-tests
+      - --disable-gtk-doc
+      - --enable-introspection=no
+      - --disable-vala
     sources:
       - type: archive
         url: https://launchpad.net/libdbusmenu/16.04/16.04.0/+download/libdbusmenu-16.04.0.tar.gz
@@ -127,6 +129,7 @@ modules:
     buildsystem: cmake-ninja
     config-opts:
       - -DENABLE_BINDINGS_MONO=NO
+      - -DENABLE_BINDINGS_VALA=NO
     sources:
       - type: git
         url: https://github.com/AyatanaIndicators/libayatana-appindicator.git
@@ -137,5 +140,4 @@ modules:
     sources:
       - type: git
         url: https://github.com/eneshecan/whatsapp-for-linux.git
-        branch: release
         tag: v1.4.2

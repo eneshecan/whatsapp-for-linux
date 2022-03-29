@@ -20,10 +20,10 @@ namespace wfl::ui
         , m_shortcutsWindow{nullptr}
         , m_fullscreen{false}
     {
-        auto const appIcon16x16   = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/16x16/apps/whatsapp-for-linux.png");
-        auto const appIcon32x32   = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/32x32/apps/whatsapp-for-linux.png");
-        auto const appIcon64x64   = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/64x64/apps/whatsapp-for-linux.png");
-        auto const appIcon128x128 = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/128x128/apps/whatsapp-for-linux.png");
+        auto const appIcon16x16   = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/16x16/apps/com.github.eneshecan.WhatsAppForLinux.png");
+        auto const appIcon32x32   = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/32x32/apps/com.github.eneshecan.WhatsAppForLinux.png");
+        auto const appIcon64x64   = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/64x64/apps/com.github.eneshecan.WhatsAppForLinux.png");
+        auto const appIcon128x128 = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/128x128/apps/com.github.eneshecan.WhatsAppForLinux.png");
         set_icon_list({appIcon16x16, appIcon32x32, appIcon64x64, appIcon128x128});
         set_default_icon(appIcon64x64);
 

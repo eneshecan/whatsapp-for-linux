@@ -4,7 +4,7 @@ AppDir:
   app_info:
     id: whatsapp-for-linux
     name: whatsapp-for-linux
-    icon: whatsapp-for-linux
+    icon: com.github.eneshecan.WhatsAppForLinux
     version: !ENV ${RELEASE_NAME}
     exec: usr/bin/whatsapp-for-linux
     exec_args: $@

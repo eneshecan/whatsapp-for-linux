@@ -11,13 +11,13 @@ namespace wfl::util
         auto const CONFIG_DIR                            = std::string{g_get_user_config_dir()};
         auto const CONFIG_APP_DIR                        = CONFIG_DIR +  "/whatsapp-for-linux";
         auto const CONFIG_FILE_PATH                      = CONFIG_APP_DIR + "/settings.conf";
-        auto const AUTOSTART_DESKTOP_FILE_PATH           = CONFIG_DIR + "/autostart/whatsapp-for-linux.desktop";
+        auto const AUTOSTART_DESKTOP_FILE_PATH           = CONFIG_DIR + "/autostart/com.github.eneshecan.WhatsAppForLinux.desktop";
         constexpr auto const GROUP_GENERAL               = "General";
         constexpr auto const GROUP_NETWORK               = "Network";
         constexpr auto const POSSIBLE_DESKTOP_FILE_PATHS = {
-            "/usr/local/share/applications/whatsapp-for-linux.desktop",
-            "/usr/share/applications/whatsapp-for-linux.desktop",
-            "/snap/whatsapp-for-linux/current/share/applications/whatsapp-for-linux.desktop"
+            "/usr/local/share/applications/com.github.eneshecan.WhatsAppForLinux.desktop",
+            "/usr/share/applications/com.github.eneshecan.WhatsAppForLinux.desktop",
+            "/snap/whatsapp-for-linux/current/share/applications/com.github.eneshecan.WhatsAppForLinux.desktop"
         };
     }
 

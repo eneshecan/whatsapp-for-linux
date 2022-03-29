@@ -36,5 +36,6 @@ add_executable(whatsapp-for-linux
 target_link_libraries(whatsapp-for-linux ${GTKMM_LIBRARIES} ${WEBKIT_LIBRARIES} ${APPINDICATOR_LIBRARIES})
 
 install(TARGETS whatsapp-for-linux DESTINATION ${CMAKE_INSTALL_BINDIR})
-install(FILES ${CMAKE_SOURCE_DIR}/resource/desktop/whatsapp-for-linux.desktop DESTINATION ${CMAKE_INSTALL_DATADIR}/applications)
+install(FILES ${CMAKE_SOURCE_DIR}/resource/desktop/com.github.eneshecan.WhatsAppForLinux.desktop DESTINATION ${CMAKE_INSTALL_DATADIR}/applications)
+install(FILES ${CMAKE_SOURCE_DIR}/resource/desktop/com.github.eneshecan.WhatsAppForLinux.appdata.xml DESTINATION ${CMAKE_INSTALL_DATADIR}/metainfo)
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/resource/image/icons DESTINATION ${CMAKE_INSTALL_DATADIR})

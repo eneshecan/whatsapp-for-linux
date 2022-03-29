@@ -4,9 +4,9 @@
     <file>ui/MainWindow.ui</file>
     <file>ui/PhoneNumberDialog.ui</file>
     <file>ui/ShortcutsWindow.ui</file>
-    <file>image/icons/hicolor/16x16/apps/whatsapp-for-linux.png</file>
-    <file>image/icons/hicolor/32x32/apps/whatsapp-for-linux.png</file>
-    <file>image/icons/hicolor/64x64/apps/whatsapp-for-linux.png</file>
-    <file>image/icons/hicolor/128x128/apps/whatsapp-for-linux.png</file>
+    <file>image/icons/hicolor/16x16/apps/com.github.eneshecan.WhatsAppForLinux.png</file>
+    <file>image/icons/hicolor/32x32/apps/com.github.eneshecan.WhatsAppForLinux.png</file>
+    <file>image/icons/hicolor/64x64/apps/com.github.eneshecan.WhatsAppForLinux.png</file>
+    <file>image/icons/hicolor/128x128/apps/com.github.eneshecan.WhatsAppForLinux.png</file>
   </gresource>
 </gresources>

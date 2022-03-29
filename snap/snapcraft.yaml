@@ -17,7 +17,7 @@ parts:
       echo "Configuring cmake to generate the version information"
       cmake -DCMAKE_BUILD_TYPE=Release ../..
       cd ../..
-      sed -i.bak -e 's|Icon=whatsapp-for-linux|Icon=share/icons/hicolor/256x256/apps/whatsapp-for-linux.png|g' resource/desktop/whatsapp-for-linux.desktop
+      sed -i.bak -e 's|Icon=com.github.eneshecan.WhatsAppForLinux|Icon=share/icons/hicolor/256x256/apps/com.github.eneshecan.WhatsAppForLinux.png|g' resource/desktop/com.github.eneshecan.WhatsAppForLinux.desktop
       version=$(cat "src/VERSION")
       echo "Setting version to ${version}"
       snapcraftctl set-version $version
@@ -46,7 +46,7 @@ slots:
 apps:
   whatsapp-for-linux:
     command: bin/whatsapp-for-linux
-    desktop: share/applications/whatsapp-for-linux.desktop
+    desktop: share/applications/com.github.eneshecan.WhatsAppForLinux.desktop
     common-id: com.github.eneshecan.WhatsAppForLinux
     extensions: [gnome-3-28]  # This takes care of most of the things for us
     plugs:
