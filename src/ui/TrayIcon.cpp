@@ -10,8 +10,8 @@ namespace wfl::ui
         {
             constexpr auto const WHATSAPP_TRAY                     = "whatsapp-tray";
             constexpr auto const WHATSAPP_TRAY_ATTENTION           = "whatsapp-tray-attention";
-            constexpr auto const WHATSAPP_FOR_LINUX_TRAY           = "com.github.eneshecan.WhatsAppForLinux.Tray";
-            constexpr auto const WHATSAPP_FOR_LINUX_TRAY_ATTENTION = "com.github.eneshecan.WhatsAppForLinux.Tray.Attention";
+            constexpr auto const WHATSAPP_FOR_LINUX_TRAY           = "com.github.eneshecan.WhatsAppForLinux-tray";
+            constexpr auto const WHATSAPP_FOR_LINUX_TRAY_ATTENTION = "com.github.eneshecan.WhatsAppForLinux-tray-attention";
 
             auto const iconTheme = Gtk::IconTheme::get_default();
             if (iconTheme->has_icon(WHATSAPP_TRAY) && iconTheme->has_icon(WHATSAPP_TRAY_ATTENTION))
