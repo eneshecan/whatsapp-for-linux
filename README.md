@@ -3,6 +3,9 @@
 An unofficial WhatsApp desktop application written in C++.
 
 <p align="left">
+    <a href="https://flathub.org/apps/details/com.github.eneshecan.WhatsAppForLinux">
+        <img align="center" alt="Download on Flathub" src="https://flathub.org/assets/badges/flathub-badge-en.png" width="120">
+    </a>
     <a href="https://snapcraft.io/whatsapp-for-linux">
         <img align="center" alt="Get it from the Snap Store" src="https://snapcraft.io/static/images/badges/en/snap-store-black.svg" width="120">
     </a>
