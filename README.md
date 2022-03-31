@@ -96,16 +96,6 @@ dpkg-buildpackage -uc -us -ui
 snapcraft
 ```
 
-### Flatpak
-
-Note that the recipe is kept in this repository for testing purposes only
-since the actual packaging will be in a separate flathub repository.
-
-```bash
-# Build and install the package inside flatpak directory
-flatpak-builder --user --install --force-clean build com.github.eneshecan.WhatsAppForLinux
-```
-
 ### AppImage
 
 ```bash
