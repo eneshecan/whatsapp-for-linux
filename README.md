@@ -1,4 +1,4 @@
-# whatsapp-for-linux
+# WhatsApp for Linux
 
 An unofficial WhatsApp desktop application written in C++.
 
