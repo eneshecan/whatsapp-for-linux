@@ -58,15 +58,15 @@ namespace wfl::util
     template<typename ValueType>
     inline void SettingMap::setValue(Glib::ustring const& groupName, Glib::ustring const& key, ValueType const& value)
     {
-        if constexpr (std::is_same<ValueType, bool>::value)
+        if constexpr (std::is_same_v<ValueType, bool>)
         {
             m_map.set_boolean(groupName, key, value);
         }
-        else if constexpr (std::is_same<ValueType, double>::value)
+        else if constexpr (std::is_same_v<ValueType, double>)
         {
             m_map.set_double(groupName, key, value);
         }
-        else if constexpr (std::is_same<ValueType, Glib::ustring>::value)
+        else if constexpr (std::is_same_v<ValueType, Glib::ustring>)
         {
             m_map.set_string(groupName, key, value);
         }
@@ -81,15 +81,15 @@ namespace wfl::util
     {
         try
         {
-            if constexpr (std::is_same<ValueType, bool>::value)
+            if constexpr (std::is_same_v<ValueType, bool>)
             {
                 return m_map.get_boolean(groupName, key);
             }
-            else if constexpr (std::is_same<ValueType, double>::value)
+            else if constexpr (std::is_same_v<ValueType, double>)
             {
                 return m_map.get_double(groupName, key);
             }
-            else if constexpr (std::is_same<ValueType, Glib::ustring>::value)
+            else if constexpr (std::is_same_v<ValueType, Glib::ustring>)
             {
                 return m_map.get_string(groupName, key);
             }
