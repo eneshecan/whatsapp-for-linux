@@ -27,7 +27,7 @@ jobs:
       - name: Set Version
         run: |
           version=$(cat "build/release/generated/VERSION")
-          echo "RELEASE_NAME=${version}" >> "$GITHUB_ENV"
+          echo "RELEASE_VERSION=${version}" >> "$GITHUB_ENV"
           echo "RELEASE_TAG=v${version}" >> "$GITHUB_ENV"
 
       - name: Build Debian Package
@@ -44,7 +44,7 @@ jobs:
         with:
           recipe: "./appimage/AppImageBuilder.yml"
         env:
-          UPDATE_INFO: gh-releases-zsync|eneshecan|whatsapp-for-linux|${{ env.RELEASE_NAME }}|*x86_64.AppImage.zsync
+          UPDATE_INFO: gh-releases-zsync|eneshecan|whatsapp-for-linux|${{ env.RELEASE_VERSION }}|*x86_64.AppImage.zsync
 
       - name: Push Tag
         id: push-tag
@@ -67,7 +67,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ env.RELEASE_TAG }}
-          release_name: ${{ env.RELEASE_NAME }}
+          release_name: ${{ env.RELEASE_VERSION }}
           body: ${{ steps.generate-changelog.outputs.changelog }}
           draft: false
           prerelease: false
@@ -79,8 +79,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create-release.outputs.upload_url }}
-          asset_path: "../whatsapp-for-linux_${{ env.RELEASE_NAME }}_amd64.deb"
-          asset_name: "whatsapp-for-linux_${{ env.RELEASE_NAME }}_amd64.deb"
+          asset_path: "../whatsapp-for-linux_${{ env.RELEASE_VERSION }}_amd64.deb"
+          asset_name: "whatsapp-for-linux_${{ env.RELEASE_VERSION }}_amd64.deb"
           asset_content_type: application/deb
 
       - name: Upload Snap Package
@@ -101,6 +101,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create-release.outputs.upload_url }}
-          asset_path: "whatsapp-for-linux-${{ env.RELEASE_NAME }}-x86_64.AppImage"
-          asset_name: "whatsapp-for-linux-${{ env.RELEASE_NAME }}-x86_64.AppImage"
+          asset_path: "whatsapp-for-linux-${{ env.RELEASE_VERSION}}-x86_64.AppImage"
+          asset_name: "whatsapp-for-linux-${{ env.RELEASE_VERSION }}-x86_64.AppImage"
           asset_content_type: application/appimage

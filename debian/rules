@@ -1,13 +1,7 @@
 #!/bin/bash
 
-mkdir -p build/release && cd build/release && rm -f CMakeCache.txt
-echo "Configuring cmake to generate the version information"
-cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_DIR=/usr ../..
-version=$(cat "generated/VERSION")
-cd ../..
-
-echo "Setting version to ${version}"
-sed -i -E "s/\((.*?)\)/($version)/g" debian/changelog
+echo "Setting version to ${RELEASE_VERSION}"
+sed -i -E "s/\((.*?)\)/(${RELEASE_VERSION})/g" debian/changelog
 
 %:
  dh $@
