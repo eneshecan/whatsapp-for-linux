@@ -1,19 +1,23 @@
 cmake_minimum_required(VERSION 3.8)
-project(whatsapp-for-linux VERSION 1.4.2)
+project(
+    whatsapp-for-linux
+    VERSION 1.4.2
+    DESCRIPTION "An unofficial WhatsApp desktop application for Linux"
+    LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(WFL_VERSION ${CMAKE_PROJECT_VERSION})
+set(WFL_APP_ID "com.github.eneshecan.WhatsAppForLinux")
 
 include(GNUInstallDirs)
 
-file(WRITE "${CMAKE_SOURCE_DIR}/src/VERSION" ${PROJECT_VERSION})
-file(WRITE "${CMAKE_SOURCE_DIR}/src/Version.hpp" "constexpr auto const VERSION = \"${PROJECT_VERSION}\";\n")
-
-add_custom_command(
-    OUTPUT ${CMAKE_SOURCE_DIR}/src/Resources.c
-    COMMAND glib-compile-resources --target=${CMAKE_SOURCE_DIR}/src/Resources.c --generate-source gresource.xml
+message(STATUS "${CMAKE_PROJECT_NAME} version: ${WFL_VERSION}")
+file(WRITE "${CMAKE_CURRENT_BINARY_DIR}/generated/VERSION" ${WFL_VERSION})
+configure_file(${CMAKE_SOURCE_DIR}/src/Config.hpp.in ${CMAKE_CURRENT_BINARY_DIR}/generated/Config.hpp)
+execute_process(
+    COMMAND glib-compile-resources --target=${CMAKE_CURRENT_BINARY_DIR}/generated/Resources.c --generate-source gresource.xml
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/resource
-    COMMENT "Compiling ui resources"
 )
 
 FIND_PACKAGE(PkgConfig REQUIRED)
@@ -21,11 +25,11 @@ PKG_CHECK_MODULES(GTKMM gtkmm-3.0 REQUIRED)
 PKG_CHECK_MODULES(WEBKIT webkit2gtk-4.0 REQUIRED)
 PKG_CHECK_MODULES(APPINDICATOR ayatana-appindicator3-0.1 REQUIRED)
 include_directories(${GTKMM_INCLUDE_DIRS} ${WEBKIT_INCLUDE_DIRS} ${APPINDICATOR_INCLUDE_DIRS})
+include_directories(${CMAKE_CURRENT_BINARY_DIR}/generated/)
 
 add_executable(whatsapp-for-linux
     src/main.cpp
-    src/Version.hpp
-    src/Resources.c
+    ${CMAKE_CURRENT_BINARY_DIR}/generated/Resources.c
     src/util/Settings.cpp
     src/ui/Application.cpp
     src/ui/MainWindow.cpp

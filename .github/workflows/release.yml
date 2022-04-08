@@ -26,7 +26,7 @@ jobs:
 
       - name: Set Version
         run: |
-          version=$(cat "src/VERSION")
+          version=$(cat "build/release/generated/VERSION")
           echo "RELEASE_NAME=${version}" >> "$GITHUB_ENV"
           echo "RELEASE_TAG=v${version}" >> "$GITHUB_ENV"
 

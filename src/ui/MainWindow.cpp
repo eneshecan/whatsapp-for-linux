@@ -5,7 +5,7 @@
 #include <gtkmm/aboutdialog.h>
 #include <gtkmm/shortcutswindow.h>
 #include "Application.hpp"
-#include "../Version.hpp"
+#include "Config.hpp"
 #include "../util/Settings.hpp"
 
 namespace wfl::ui
@@ -306,7 +306,7 @@ namespace wfl::ui
         auto aboutDialog = Gtk::AboutDialog{};
 
         aboutDialog.set_title("About");
-        aboutDialog.set_version(VERSION);
+        aboutDialog.set_version(WFL_VERSION);
         aboutDialog.set_program_name("Whatsapp for Linux");
         aboutDialog.set_comments("An unofficial WhatsApp desktop application for linux.");
         aboutDialog.set_website("https://github.com/eneshecan/whatsapp-for-linux");

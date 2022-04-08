@@ -31,11 +31,6 @@
 # Common build directory
 build/
 
-# Build artifacts
-src/VERSION
-src/Version.hpp
-src/Resources.c
-
 # IDE folders
 .idea/
 .vscode/

@@ -1,0 +1,4 @@
+#pragma once
+
+#define WFL_VERSION "${WFL_VERSION}"
+#define WFL_APP_ID  "${WFL_APP_ID}"

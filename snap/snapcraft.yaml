@@ -16,11 +16,11 @@ parts:
       mkdir -p build/release && cd build/release && rm -f CMakeCache.txt
       echo "Configuring cmake to generate the version information"
       cmake -DCMAKE_BUILD_TYPE=Release ../..
-      cd ../..
-      sed -i.bak -e 's|Icon=com.github.eneshecan.WhatsAppForLinux|Icon=share/icons/hicolor/256x256/apps/com.github.eneshecan.WhatsAppForLinux.png|g' resource/desktop/com.github.eneshecan.WhatsAppForLinux.desktop
-      version=$(cat "src/VERSION")
+      version=$(cat "generated/VERSION")
       echo "Setting version to ${version}"
       snapcraftctl set-version $version
+      cd ../..
+      sed -i.bak -e 's|Icon=com.github.eneshecan.WhatsAppForLinux|Icon=share/icons/hicolor/256x256/apps/com.github.eneshecan.WhatsAppForLinux.png|g' resource/desktop/com.github.eneshecan.WhatsAppForLinux.desktop
     configflags:
       - -DCMAKE_BUILD_TYPE=Release
     build-packages:

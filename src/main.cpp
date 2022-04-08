@@ -2,6 +2,7 @@
 #include <clocale>
 #include <unistd.h>
 #include <iostream>
+#include "Config.hpp"
 #include "ui/Application.hpp"
 #include "ui/MainWindow.hpp"
 #include "util/Settings.hpp"
@@ -34,7 +35,7 @@ int main(int argc, char** argv)
 
     redirectOutputToLogger();
 
-    auto app = wfl::ui::Application{argc, argv, "com.github.eneshecan.WhatsAppForLinux", Gio::APPLICATION_HANDLES_OPEN};
+    auto app = wfl::ui::Application{argc, argv, WFL_APP_ID, Gio::APPLICATION_HANDLES_OPEN};
 
     signal(SIGINT,  sigterm);
     signal(SIGTERM, sigterm);

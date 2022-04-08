@@ -1,6 +1,7 @@
 #include "TrayIcon.hpp"
 #include <utility>
 #include <gtkmm/icontheme.h>
+#include "Config.hpp"
 
 namespace wfl::ui
 {
@@ -30,7 +31,7 @@ namespace wfl::ui
     }
 
     TrayIcon::TrayIcon()
-        : m_appIndicator{app_indicator_new("com.github.eneshecan.WhatsAppForLinux.Tray", "", APP_INDICATOR_CATEGORY_COMMUNICATIONS)}
+        : m_appIndicator{app_indicator_new(WFL_APP_ID ".Tray", "", APP_INDICATOR_CATEGORY_COMMUNICATIONS)}
         , m_popupMenu{}
         , m_signalShow{}
         , m_signalAbout{}
