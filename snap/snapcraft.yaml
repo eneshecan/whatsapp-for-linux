@@ -1,10 +1,8 @@
 name: whatsapp-for-linux
 base: core18
-summary: Unofficial WhatsApp client
-description: An unofficial WhatsApp desktop application for linux
 grade: stable
 confinement: strict
-adopt-info: whatsapp-for-linux
+adopt-info: metadata
 
 parts:
   whatsapp-for-linux:
@@ -13,8 +11,6 @@ parts:
     plugin: cmake
     override-pull: |
       snapcraftctl pull
-      echo "Setting version to ${RELEASE_VERSION}"
-      snapcraftctl set-version ${RELEASE_VERSION}
       sed -i.bak -e 's|Icon=com.github.eneshecan.WhatsAppForLinux|Icon=share/icons/hicolor/256x256/apps/com.github.eneshecan.WhatsAppForLinux.png|g' resource/desktop/com.github.eneshecan.WhatsAppForLinux.desktop
     configflags:
       - -DCMAKE_BUILD_TYPE=Release
@@ -31,6 +27,11 @@ parts:
       - gstreamer1.0-plugins-good
       - gstreamer1.0-plugins-bad
       - gstreamer1.0-libav
+
+  metadata:
+    plugin: dump
+    source: .
+    parse-info: [resource/desktop/com.github.eneshecan.WhatsAppForLinux.appdata.xml]
 
 slots:
   dbus-app:

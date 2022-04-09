@@ -82,6 +82,8 @@ make install
 
 ## Packaging
 
+Set `RELEASE_VERSION` environment variable before packaging. The actual version can be read from `generated/VERSION` file in the build directory.
+
 ### Debian
 
 ```bash
