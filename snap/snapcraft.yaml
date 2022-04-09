@@ -2,7 +2,7 @@ name: whatsapp-for-linux
 base: core18
 grade: stable
 confinement: strict
-adopt-info: metadata
+adopt-info: whatsapp-for-linux
 
 parts:
   whatsapp-for-linux:
@@ -16,6 +16,7 @@ parts:
       - -DCMAKE_BUILD_TYPE=Release
     build-packages:
       - build-essential
+      - libxml2-utils
       - libgtkmm-3.0-dev
       - libwebkit2gtk-4.0-dev
       - libayatana-appindicator3-dev
@@ -27,11 +28,7 @@ parts:
       - gstreamer1.0-plugins-good
       - gstreamer1.0-plugins-bad
       - gstreamer1.0-libav
-
-  metadata:
-    plugin: dump
-    source: .
-    parse-info: [resource/desktop/com.github.eneshecan.WhatsAppForLinux.appdata.xml]
+    parse-info: [share/metainfo/com.github.eneshecan.WhatsAppForLinux.appdata.xml]
 
 slots:
   dbus-app:
