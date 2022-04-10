@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.8)
 project(
     whatsapp-for-linux
-    VERSION 1.4.2
+    VERSION 1.4.3
     DESCRIPTION "An unofficial WhatsApp desktop application for Linux"
     LANGUAGES C CXX)
 
