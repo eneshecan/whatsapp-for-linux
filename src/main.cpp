@@ -11,7 +11,7 @@ namespace
 {
     void redirectOutputToLogger()
     {
-        auto const fl = ::popen("logger -i -s -t whatsapp-for-linux", "w");
+        auto const fl = ::popen("logger -i -s -t " WFL_NAME, "w");
         if (!fl)
         {
             auto const errorNumber = errno;

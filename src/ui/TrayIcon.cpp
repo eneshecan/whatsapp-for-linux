@@ -11,8 +11,8 @@ namespace wfl::ui
         {
             constexpr auto const WHATSAPP_TRAY                     = "whatsapp-tray";
             constexpr auto const WHATSAPP_TRAY_ATTENTION           = "whatsapp-tray-attention";
-            constexpr auto const WHATSAPP_FOR_LINUX_TRAY           = "com.github.eneshecan.WhatsAppForLinux-tray";
-            constexpr auto const WHATSAPP_FOR_LINUX_TRAY_ATTENTION = "com.github.eneshecan.WhatsAppForLinux-tray-attention";
+            constexpr auto const WHATSAPP_FOR_LINUX_TRAY           = WFL_ICON "-tray";
+            constexpr auto const WHATSAPP_FOR_LINUX_TRAY_ATTENTION = WFL_ICON "-tray-attention";
 
             auto const iconTheme = Gtk::IconTheme::get_default();
             if (iconTheme->has_icon(WHATSAPP_TRAY) && iconTheme->has_icon(WHATSAPP_TRAY_ATTENTION))
@@ -38,8 +38,8 @@ namespace wfl::ui
         , m_signalQuit{}
     {
         auto const [trayIconName, attentionIconName] = getTrayIconNames();
-        app_indicator_set_icon_full(m_appIndicator, trayIconName, "Whatsapp for Linux Tray");
-        app_indicator_set_attention_icon_full(m_appIndicator, attentionIconName, "Whatsapp for Linux Tray Attention");
+        app_indicator_set_icon_full(m_appIndicator, trayIconName, WFL_FRIENDLY_NAME " Tray");
+        app_indicator_set_attention_icon_full(m_appIndicator, attentionIconName, WFL_FRIENDLY_NAME "Tray Attention");
 
         auto const showMenuItem = Gtk::manage(new Gtk::MenuItem{"Show"});
         auto const aboutMenuItem = Gtk::manage(new Gtk::MenuItem{"About"});

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2020-2022 Enes Hecan <nshecan@gmail.com> -->
 <component type="desktop-application">
-  <id>com.github.eneshecan.WhatsAppForLinux</id>
+  <id>${WFL_APP_ID}</id>
   <metadata_license>FSFAP</metadata_license>
   <project_license>GPL-3.0</project_license>
-  <name>WhatsApp for Linux</name>
-  <summary>An unofficial WhatsApp desktop application for Linux.</summary>
+  <name>${WFL_FRIENDLY_NAME}</name>
+  <summary>${WFL_DESCRIPTION}</summary>
   <content_rating type="oars-1.1"/>
 
   <description>
@@ -14,7 +14,7 @@
     </p>
   </description>
 
-  <launchable type="desktop-id">com.github.eneshecan.WhatsAppForLinux.desktop</launchable>
+  <launchable type="desktop-id">${WFL_APP_ID}.desktop</launchable>
 
   <screenshots>
     <screenshot type="default">
@@ -34,6 +34,6 @@
   </mimetypes>
 
   <releases>
-    <release version="1.4.2" date="2022-03-29"/>
+    <release version="${WFL_VERSION}" date="${WFL_BUILD_DATE}"/>
   </releases>
 </component>
