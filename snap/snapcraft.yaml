@@ -11,7 +11,9 @@ parts:
     plugin: cmake
     override-pull: |
       snapcraftctl pull
-      sed -i.bak -e 's|Icon=${WFL_ICON}|Icon=share/icons/hicolor/256x256/apps/${WFL_ICON}|g' resource/desktop/com.github.eneshecan.WhatsAppForLinux.desktop.in
+      version=$(cat "build/release/generated/VERSION")
+      snapcraftctl set-version $version
+      sed -i.bak -e 's|Icon=${WFL_ICON}|Icon=share/icons/hicolor/256x256/apps/${WFL_ICON}.png|g' resource/desktop/com.github.eneshecan.WhatsAppForLinux.desktop.in
     configflags:
       - -DCMAKE_BUILD_TYPE=Release
     build-packages:
