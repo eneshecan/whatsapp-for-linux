@@ -38,6 +38,14 @@ jobs:
         id: snapcraft
         uses: snapcore/action-build@v1
 
+      - name: Publish Snap to Store
+        id: snapcraft-publish
+        uses: snapcore/action-publish@v1
+        with:
+          store_login: ${{ secrets.SNAP_STORE_LOGIN }}
+          snap: ${{ steps.snapcraft.outputs.snap }}
+          release: stable
+
       - name: Build AppImage Package
         id: appimage
         uses: AppImageCrafters/build-appimage@master
