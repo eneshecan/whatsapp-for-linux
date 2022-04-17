@@ -23,8 +23,8 @@
     </screenshot>
   </screenshots>
 
-  <url type="homepage">https://github.com/eneshecan/whatsapp-for-linux</url>
-  <url type="bugtracker">https://github.com/eneshecan/whatsapp-for-linux/issues</url>
+  <url type="homepage">${WFL_HOMEPAGE}</url>
+  <url type="bugtracker">${WFL_HOMEPAGE}/issues</url>
 
   <developer_name>Enes Hecan</developer_name>
   <update_contact>nshecan_AT_gmail.com</update_contact>

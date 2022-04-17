@@ -9,8 +9,7 @@ namespace wfl::util
     class SettingMap
     {
         public:
-            SettingMap()  = default;
-            ~SettingMap() = default;
+            SettingMap();
 
         public:
             bool loadFromFile(std::string const& fileName);
@@ -28,6 +27,10 @@ namespace wfl::util
 
 
 
+
+    inline SettingMap::SettingMap()
+        : m_map{}
+    {}
 
     inline bool SettingMap::loadFromFile(std::string const& fileName)
     {

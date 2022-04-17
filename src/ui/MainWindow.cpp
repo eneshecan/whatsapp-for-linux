@@ -309,7 +309,7 @@ namespace wfl::ui
         aboutDialog.set_version(WFL_VERSION);
         aboutDialog.set_program_name(WFL_FRIENDLY_NAME);
         aboutDialog.set_comments(WFL_DESCRIPTION);
-        aboutDialog.set_website("https://github.com/eneshecan/whatsapp-for-linux");
+        aboutDialog.set_website(WFL_HOMEPAGE);
         aboutDialog.set_website_label("Github Repository");
         aboutDialog.set_license_type(Gtk::LICENSE_GPL_3_0);
 
