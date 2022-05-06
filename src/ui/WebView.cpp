@@ -111,6 +111,8 @@ namespace wfl::ui
                 allowedOrigins->data = origin;
 
                 webkit_web_context_initialize_notification_permissions(context, allowedOrigins, nullptr);
+
+                g_list_free(allowedOrigins);
             }
             else
             {
