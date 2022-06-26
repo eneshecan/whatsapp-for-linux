@@ -41,7 +41,6 @@ namespace wfl::ui
 
     bool PreferencesWindow::onCloseToTray(bool state)
     {
-        std::cerr << "State " << state << std::endl;
         m_trayIcon->setVisible(state);
         util::Settings::getInstance().setCloseToTray(state);
 
