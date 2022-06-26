@@ -42,6 +42,7 @@ add_executable(${CMAKE_PROJECT_NAME}
     src/util/Settings.cpp
     src/ui/Application.cpp
     src/ui/MainWindow.cpp
+    src/ui/PreferencesWindow.cpp
     src/ui/PhoneNumberDialog.cpp
     src/ui/TrayIcon.cpp
     src/ui/WebView.cpp

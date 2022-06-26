@@ -2,6 +2,7 @@
 <gresources>
   <gresource prefix="main">
     <file>ui/MainWindow.ui</file>
+    <file>ui/PreferencesWindow.ui</file>
     <file>ui/PhoneNumberDialog.ui</file>
     <file>ui/ShortcutsWindow.ui</file>
     <file>image/icons/hicolor/16x16/apps/com.github.eneshecan.WhatsAppForLinux.png</file>

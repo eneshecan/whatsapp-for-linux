@@ -22,6 +22,7 @@ namespace wfl::ui
         public:
             void            refresh();
             WebKitLoadEvent getLoadStatus() const noexcept;
+            void            setHwAccelPolicy(WebKitHardwareAccelerationPolicy policy);
             void            sendRequest(std::string url);
             void            openPhoneNumber(std::string const& phoneNumber);
             void            zoomIn();

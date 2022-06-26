@@ -193,6 +193,8 @@ namespace wfl::ui
 
         auto const settings = webkit_web_view_get_settings(*this);
         webkit_settings_set_enable_developer_extras(settings, TRUE);
+        auto hwAccelPolicy = static_cast<WebKitHardwareAccelerationPolicy>(util::Settings::getInstance().getHwAccel());
+        webkit_settings_set_hardware_acceleration_policy(settings, hwAccelPolicy);
 
         webkit_web_view_set_zoom_level(*this, m_zoomLevel);
         webkit_web_view_load_uri(*this, WHATSAPP_WEB_URI);
@@ -217,6 +219,12 @@ namespace wfl::ui
     WebKitLoadEvent WebView::getLoadStatus() const noexcept
     {
         return m_loadStatus;
+    }
+
+    void WebView::setHwAccelPolicy(WebKitHardwareAccelerationPolicy policy)
+    {
+        auto const settings = webkit_web_view_get_settings(*this);
+        webkit_settings_set_hardware_acceleration_policy(settings, policy);
     }
 
     void WebView::sendRequest(std::string url)

@@ -65,6 +65,10 @@ namespace wfl::util
         {
             m_map.set_boolean(groupName, key, value);
         }
+        else if constexpr (std::is_same_v<ValueType, int>)
+        {
+            m_map.set_integer(groupName, key, value);
+        }
         else if constexpr (std::is_same_v<ValueType, double>)
         {
             m_map.set_double(groupName, key, value);
@@ -87,6 +91,10 @@ namespace wfl::util
             if constexpr (std::is_same_v<ValueType, bool>)
             {
                 return m_map.get_boolean(groupName, key);
+            }
+            else if constexpr (std::is_same_v<ValueType, int>)
+            {
+                return m_map.get_integer(groupName, key);
             }
             else if constexpr (std::is_same_v<ValueType, double>)
             {

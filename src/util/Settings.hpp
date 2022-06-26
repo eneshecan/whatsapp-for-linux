@@ -26,6 +26,8 @@ namespace wfl::util
             bool   getStartInTray() const;
             void   setAutostart(bool autostart);
             bool   getAutostart();
+            void   setHwAccel(int hwAccel);
+            int    getHwAccel() const;
 
         private:
             Settings();

@@ -155,4 +155,14 @@ namespace wfl::util
         auto const desktopFile = Gio::File::create_for_path(AUTOSTART_DESKTOP_FILE_PATH);
         return desktopFile->query_exists();
     }
+
+    void Settings::setHwAccel(int hwAccel)
+    {
+        m_settingMap.setValue(GROUP_GENERAL, "hw_accel", hwAccel);
+    }
+
+    int Settings::getHwAccel() const
+    {
+        return m_settingMap.getValue(GROUP_GENERAL, "hw_accel", 1);
+    }
 }

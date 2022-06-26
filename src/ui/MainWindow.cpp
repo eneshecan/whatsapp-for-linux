@@ -15,6 +15,7 @@ namespace wfl::ui
         , m_trayIcon{}
         , m_webView{}
         , m_pendingUrl{}
+        , m_preferencesWindow{nullptr}
         , m_phoneNumberDialog{nullptr}
         , m_headerBar{nullptr}
         , m_shortcutsWindow{nullptr}
@@ -27,59 +28,51 @@ namespace wfl::ui
         set_icon_list({appIcon16x16, appIcon32x32, appIcon64x64, appIcon128x128});
         set_default_icon(appIcon64x64);
 
-        Gtk::Grid* mainGrid = nullptr;
-        refBuilder->get_widget("main_grid", mainGrid);
-        mainGrid->attach(m_webView, 0, 1, 1, 1);
+        Gtk::Grid* gridMain = nullptr;
+        refBuilder->get_widget("grid_main", gridMain);
+        gridMain->attach(m_webView, 0, 1, 1, 1);
 
-        Gtk::Button* openPhoneNumberButton = nullptr;
-        refBuilder->get_widget("open_phone_number_button", openPhoneNumberButton);
-        openPhoneNumberButton->signal_clicked().connect(sigc::mem_fun(*this, &MainWindow::onOpenPhoneNumber));
+        Gtk::Button* buttonOpenPhoneNumber = nullptr;
+        refBuilder->get_widget("button_open_phone_number", buttonOpenPhoneNumber);
+        buttonOpenPhoneNumber->signal_clicked().connect(sigc::mem_fun(*this, &MainWindow::onOpenPhoneNumber));
 
-        Gtk::Button* refreshButton = nullptr;
-        refBuilder->get_widget("refresh_button", refreshButton);
-        refreshButton->signal_clicked().connect(sigc::mem_fun(*this, &MainWindow::onRefresh));
+        Gtk::Button* buttonRefresh = nullptr;
+        refBuilder->get_widget("button_refresh", buttonRefresh);
+        buttonRefresh->signal_clicked().connect(sigc::mem_fun(*this, &MainWindow::onRefresh));
 
-        refBuilder->get_widget("header_bar", m_headerBar);
+        refBuilder->get_widget("headerbar", m_headerBar);
 
-        Gtk::ModelButton* startInTrayButton = nullptr;
-        refBuilder->get_widget("start_in_tray_button", startInTrayButton);
-        startInTrayButton->signal_clicked().connect(sigc::bind(sigc::mem_fun(*this, &MainWindow::onStartInTray), startInTrayButton));
+        Gtk::ModelButton* buttonFullscreen = nullptr;
+        refBuilder->get_widget("button_fullscreen", buttonFullscreen);
+        buttonFullscreen->signal_clicked().connect(sigc::mem_fun(*this, &MainWindow::onFullscreen));
 
-        Gtk::ModelButton* autostartButton = nullptr;
-        refBuilder->get_widget("autostart_button", autostartButton);
-        autostartButton->signal_clicked().connect(sigc::bind(sigc::mem_fun(*this, &MainWindow::onAutostart), autostartButton));
+        Gtk::Label* labelZoomLevel = nullptr;
+        refBuilder->get_widget("label_zoom_level", labelZoomLevel);
+        labelZoomLevel->set_label(m_webView.getZoomLevelString());
 
-        Gtk::ModelButton* closeToTrayButton = nullptr;
-        refBuilder->get_widget("close_to_tray_button", closeToTrayButton);
-        closeToTrayButton->signal_clicked().connect(sigc::bind(sigc::mem_fun(*this, &MainWindow::onCloseToTray), closeToTrayButton, startInTrayButton));
+        Gtk::Button* buttonZoomIn = nullptr;
+        refBuilder->get_widget("button_zoom_in", buttonZoomIn);
+        buttonZoomIn->signal_clicked().connect(sigc::bind(sigc::mem_fun(*this, &MainWindow::onZoomIn), labelZoomLevel));
 
-        Gtk::ModelButton* fullscreenButton = nullptr;
-        refBuilder->get_widget("fullscreen_button", fullscreenButton);
-        fullscreenButton->signal_clicked().connect(sigc::mem_fun(*this, &MainWindow::onFullscreen));
+        Gtk::Button* buttonZoomOut = nullptr;
+        refBuilder->get_widget("button_zoom_out", buttonZoomOut);
+        buttonZoomOut->signal_clicked().connect(sigc::bind(sigc::mem_fun(*this, &MainWindow::onZoomOut), labelZoomLevel));
 
-        Gtk::Label* zoomLevelLabel = nullptr;
-        refBuilder->get_widget("zoom_level_label", zoomLevelLabel);
-        zoomLevelLabel->set_label(m_webView.getZoomLevelString());
+        Gtk::ModelButton* buttonPreferences = nullptr;
+        refBuilder->get_widget("button_preferences", buttonPreferences);
+        buttonPreferences->signal_clicked().connect(sigc::mem_fun(*this, &MainWindow::onOpenPreferences));
 
-        Gtk::Button* zoomInButton = nullptr;
-        refBuilder->get_widget("zoom_in_button", zoomInButton);
-        zoomInButton->signal_clicked().connect(sigc::bind(sigc::mem_fun(*this, &MainWindow::onZoomIn), zoomLevelLabel));
+        Gtk::ModelButton* buttonShortcuts = nullptr;
+        refBuilder->get_widget("button_shortcuts", buttonShortcuts);
+        buttonShortcuts->signal_clicked().connect(sigc::mem_fun(*this, &MainWindow::onShortcuts));
 
-        Gtk::Button* zoomOutButton = nullptr;
-        refBuilder->get_widget("zoom_out_button", zoomOutButton);
-        zoomOutButton->signal_clicked().connect(sigc::bind(sigc::mem_fun(*this, &MainWindow::onZoomOut), zoomLevelLabel));
+        Gtk::ModelButton* buttonAbout = nullptr;
+        refBuilder->get_widget("button_about", buttonAbout);
+        buttonAbout->signal_clicked().connect(sigc::mem_fun(*this, &MainWindow::onAbout));
 
-        Gtk::ModelButton* shortcutsButton = nullptr;
-        refBuilder->get_widget("shortcuts_button", shortcutsButton);
-        shortcutsButton->signal_clicked().connect(sigc::mem_fun(*this, &MainWindow::onShortcuts));
-
-        Gtk::ModelButton* aboutButton = nullptr;
-        refBuilder->get_widget("about_button", aboutButton);
-        aboutButton->signal_clicked().connect(sigc::mem_fun(*this, &MainWindow::onAbout));
-
-        Gtk::ModelButton* quitButton = nullptr;
-        refBuilder->get_widget("quit_button", quitButton);
-        quitButton->signal_clicked().connect(sigc::mem_fun(*this, &MainWindow::onQuit));
+        Gtk::ModelButton* buttonQuit = nullptr;
+        refBuilder->get_widget("button_quit", buttonQuit);
+        buttonQuit->signal_clicked().connect(sigc::mem_fun(*this, &MainWindow::onQuit));
 
         m_webView.signalLoadStatus().connect(sigc::mem_fun(*this, &MainWindow::onLoadStatusChanged));
         m_webView.signalNotification().connect(sigc::mem_fun(*this, &MainWindow::onNotificationChanged));
@@ -91,10 +84,6 @@ namespace wfl::ui
         show_all();
 
         m_trayIcon.setVisible(util::Settings::getInstance().getCloseToTray());
-        closeToTrayButton->property_active() = m_trayIcon.isVisible();
-        startInTrayButton->property_active() = util::Settings::getInstance().getStartInTray() && m_trayIcon.isVisible();
-        startInTrayButton->set_sensitive(m_trayIcon.isVisible());
-        autostartButton->property_active() = util::Settings::getInstance().getAutostart();
 
         m_headerBar->set_visible(util::Settings::getInstance().getHeaderBar());
     }
@@ -190,6 +179,18 @@ namespace wfl::ui
         }
     }
 
+    void MainWindow::onOpenPreferences()
+    {
+        if (!m_preferencesWindow)
+        {
+            auto const refBuilder = Gtk::Builder::create_from_resource("/main/ui/PreferencesWindow.ui");
+            refBuilder->get_widget_derived("window_preferences", m_preferencesWindow, m_trayIcon, m_webView);
+        }
+
+        m_preferencesWindow->set_transient_for(*this);
+        m_preferencesWindow->show_all();
+    }
+
     void MainWindow::onOpenPhoneNumber()
     {
         if (!m_phoneNumberDialog)
@@ -239,37 +240,6 @@ namespace wfl::ui
             m_trayIcon.setVisible(false);
         }
         close();
-    }
-
-    void MainWindow::onCloseToTray(Gtk::ModelButton* closeToTrayButton, Gtk::ModelButton* startInTrayButton)
-    {
-        auto const visible = !closeToTrayButton->property_active();
-        closeToTrayButton->property_active() = visible;
-
-        m_trayIcon.setVisible(visible);
-        util::Settings::getInstance().setCloseToTray(visible);
-
-        if (!visible)
-        {
-            startInTrayButton->property_active() = false;
-        }
-        startInTrayButton->set_sensitive(visible);
-    }
-
-    void MainWindow::onStartInTray(Gtk::ModelButton* startInTrayButton)
-    {
-        auto const visible = !startInTrayButton->property_active();
-        startInTrayButton->property_active() = visible;
-
-        util::Settings::getInstance().setStartInTray(visible);
-    }
-
-    void MainWindow::onAutostart(Gtk::ModelButton* autostartButton)
-    {
-        auto const autostart = !autostartButton->property_active();
-        autostartButton->property_active() = autostart;
-
-        util::Settings::getInstance().setAutostart(autostart);
     }
 
     void MainWindow::onFullscreen()

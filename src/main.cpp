@@ -48,7 +48,7 @@ int main(int argc, char** argv)
         auto const refBuilder = Gtk::Builder::create_from_resource("/main/ui/MainWindow.ui");
 
         wfl::ui::MainWindow* window = nullptr;
-        refBuilder->get_widget_derived("main_window", window);
+        refBuilder->get_widget_derived("window_main", window);
         mainWindow.reset(window);
     }
     catch (Glib::Exception const& error)

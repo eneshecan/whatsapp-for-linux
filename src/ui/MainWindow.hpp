@@ -5,6 +5,7 @@
 #include <gtkmm/headerbar.h>
 #include <gtkmm/label.h>
 #include <gtkmm/modelbutton.h>
+#include "PreferencesWindow.hpp"
 #include "PhoneNumberDialog.hpp"
 #include "TrayIcon.hpp"
 #include "WebView.hpp"
@@ -28,14 +29,12 @@ namespace wfl::ui
         private:
             void onRefresh();
             void onLoadStatusChanged(WebKitLoadEvent loadEvent);
+            void onOpenPreferences();
             void onOpenPhoneNumber();
             void onPhoneNumberDialogResponse(int responseId);
             void onNotificationChanged(bool attention);
             void onShow();
             void onQuit();
-            void onCloseToTray(Gtk::ModelButton* closeToTrayButton, Gtk::ModelButton* startInTrayButton);
-            void onStartInTray(Gtk::ModelButton* startInTrayButton);
-            void onAutostart(Gtk::ModelButton* autostartButton);
             void onFullscreen();
             void onZoomIn(Gtk::Label* zoomLevelLabel);
             void onZoomOut(Gtk::Label* zoomLevelLabel);
@@ -46,6 +45,7 @@ namespace wfl::ui
             TrayIcon              m_trayIcon;
             WebView               m_webView;
             Glib::ustring         m_pendingUrl;
+            PreferencesWindow*    m_preferencesWindow;
             PhoneNumberDialog*    m_phoneNumberDialog;
             Gtk::HeaderBar*       m_headerBar;
             Gtk::ShortcutsWindow* m_shortcutsWindow;
