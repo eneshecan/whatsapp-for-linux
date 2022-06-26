@@ -14,22 +14,22 @@ namespace wfl::ui
         , m_switchAllowPermissions{nullptr}
     {
         refBuilder->get_widget("switch_close_to_tray", m_switchCloseToTray);
-        m_switchCloseToTray->signal_state_set().connect(sigc::mem_fun(*this, &PreferencesWindow::onCloseToTray), false);
+        m_switchCloseToTray->signal_state_set().connect(sigc::mem_fun(*this, &PreferencesWindow::onCloseToTrayChanged), false);
 
         refBuilder->get_widget("switch_start_in_tray", m_switchStartInTray);
-        m_switchStartInTray->signal_state_set().connect(sigc::mem_fun(*this, &PreferencesWindow::onStartInTray), false);
+        m_switchStartInTray->signal_state_set().connect(sigc::mem_fun(*this, &PreferencesWindow::onStartInTrayChanged), false);
 
         refBuilder->get_widget("switch_autostart", m_switchAutostart);
-        m_switchAutostart->signal_state_set().connect(sigc::mem_fun(*this, &PreferencesWindow::onAutostart), false);
+        m_switchAutostart->signal_state_set().connect(sigc::mem_fun(*this, &PreferencesWindow::onAutostartChanged), false);
 
         refBuilder->get_widget("combobox_hw_accel", m_comboboxHwAccel);
-        m_comboboxHwAccel->signal_changed().connect(sigc::mem_fun(*this, &PreferencesWindow::onHardwareAcceleration));
+        m_comboboxHwAccel->signal_changed().connect(sigc::mem_fun(*this, &PreferencesWindow::onHwAccelChanged));
         m_comboboxHwAccel->append("On Demand");
         m_comboboxHwAccel->append("Always");
         m_comboboxHwAccel->append("Never");
 
         refBuilder->get_widget("switch_allow_permissions", m_switchAllowPermissions);
-        m_switchAllowPermissions->signal_state_set().connect(sigc::mem_fun(*this, &PreferencesWindow::onAllowPermissions), false);
+        m_switchAllowPermissions->signal_state_set().connect(sigc::mem_fun(*this, &PreferencesWindow::onAllowPermissionsChanged), false);
 
         m_switchCloseToTray->set_state(m_trayIcon->isVisible());
         m_switchStartInTray->set_state(util::Settings::getInstance().getStartInTray() && m_trayIcon->isVisible());
@@ -39,7 +39,7 @@ namespace wfl::ui
         m_switchAllowPermissions->set_state(util::Settings::getInstance().getAllowPermissions());
     }
 
-    bool PreferencesWindow::onCloseToTray(bool state)
+    bool PreferencesWindow::onCloseToTrayChanged(bool state)
     {
         m_trayIcon->setVisible(state);
         util::Settings::getInstance().setCloseToTray(state);
@@ -53,28 +53,28 @@ namespace wfl::ui
         return false;
     }
 
-    bool PreferencesWindow::onStartInTray(bool state)
+    bool PreferencesWindow::onStartInTrayChanged(bool state) const
     {
         util::Settings::getInstance().setStartInTray(state);
 
         return false;
     }
 
-    bool PreferencesWindow::onAutostart(bool state)
+    bool PreferencesWindow::onAutostartChanged(bool state) const
     {
         util::Settings::getInstance().setAutostart(state);
 
         return false;
     }
 
-    bool PreferencesWindow::onAllowPermissions(bool state)
+    bool PreferencesWindow::onAllowPermissionsChanged(bool state) const
     {
         util::Settings::getInstance().setAllowPermissions(state);
 
         return false;
     }
 
-    void PreferencesWindow::onHardwareAcceleration()
+    void PreferencesWindow::onHwAccelChanged()
     {
         auto active = m_comboboxHwAccel->get_active_row_number();
         m_webView->setHwAccelPolicy(static_cast<WebKitHardwareAccelerationPolicy>(active));

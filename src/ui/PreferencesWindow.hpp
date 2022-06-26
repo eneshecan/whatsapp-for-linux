@@ -16,11 +16,11 @@ namespace wfl::ui
             PreferencesWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const& refBuilder, TrayIcon& trayIcon, WebView& webView);
 
         private:
-            bool onCloseToTray(bool state);
-            bool onStartInTray(bool state);
-            bool onAutostart(bool state);
-            bool onAllowPermissions(bool state);
-            void onHardwareAcceleration();
+            bool onCloseToTrayChanged(bool state);
+            bool onStartInTrayChanged(bool state) const;
+            bool onAutostartChanged(bool state) const;
+            bool onAllowPermissionsChanged(bool state) const;
+            void onHwAccelChanged();
 
         private:
             TrayIcon*          m_trayIcon;
