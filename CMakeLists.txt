@@ -3,7 +3,6 @@ project(
     whatsapp-for-linux
     VERSION 1.4.4
     DESCRIPTION "An unofficial WhatsApp desktop application for Linux"
-    HOMEPAGE_URL "https://github.com/eneshecan/whatsapp-for-linux"
     LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -11,7 +10,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(WFL_NAME ${CMAKE_PROJECT_NAME})
 set(WFL_FRIENDLY_NAME "WhatsApp for Linux")
 set(WFL_DESCRIPTION ${CMAKE_PROJECT_DESCRIPTION})
-set(WFL_HOMEPAGE ${CMAKE_PROJECT_HOMEPAGE_URL})
+set(WFL_HOMEPAGE "https://github.com/eneshecan/whatsapp-for-linux")
 set(WFL_VERSION ${CMAKE_PROJECT_VERSION})
 string(TIMESTAMP WFL_BUILD_DATE "%Y-%m-%d")
 set(WFL_APP_ID "com.github.eneshecan.WhatsAppForLinux")
