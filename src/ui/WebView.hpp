@@ -17,7 +17,6 @@ namespace wfl::ui
             WebView();
             ~WebView() override;
 
-        public:
             operator WebKitWebView*();
 
         public:
@@ -30,18 +29,20 @@ namespace wfl::ui
             double          getZoomLevel() const noexcept;
             std::string     getZoomLevelString() const noexcept;
 
-        public:
             sigc::signal<void, WebKitLoadEvent> signalLoadStatus() const noexcept;
             sigc::signal<void, bool>            signalNotification() const noexcept;
             sigc::signal<void>                  signalNotificationClicked() const noexcept;
 
         private:
-            void        setLoadStatus(WebKitLoadEvent loadEvent);
+            void onLoadStatusChanged(WebKitLoadEvent loadEvent);
+            bool onTimeout();
+
             friend void detail::loadChanged(WebKitWebView*, WebKitLoadEvent, gpointer);
 
         private:
             WebKitLoadEvent                     m_loadStatus;
             double                              m_zoomLevel;
+            bool                                m_stoppedResponding;
             sigc::signal<void, WebKitLoadEvent> m_signalLoadStatus;
             sigc::signal<void, bool>            m_signalNotification;
             sigc::signal<void>                  m_signalNotificationClicked;

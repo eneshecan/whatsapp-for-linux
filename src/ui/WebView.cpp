@@ -3,8 +3,10 @@
 #include <string>
 #include <optional>
 #include <locale>
+#include <glibmm/main.h>
 #include <gtkmm/messagedialog.h>
 #include <gtkmm/filechooserdialog.h>
+#include "Config.hpp"
 #include "../util/Settings.hpp"
 
 namespace wfl::ui
@@ -30,7 +32,7 @@ namespace wfl::ui
         gboolean permissionRequest(WebKitWebView*, WebKitPermissionRequest* request, GtkWindow*)
         {
             auto dialog = Gtk::MessageDialog{"Notification Request", false, Gtk::MESSAGE_QUESTION, Gtk::BUTTONS_YES_NO};
-            dialog.set_secondary_text("Would you like Whatsapp to send you notifications?");
+            dialog.set_secondary_text("Would you like " WFL_FRIENDLY_NAME " to send you notifications?");
 
             auto const result = dialog.run();
             switch (result)
@@ -157,7 +159,7 @@ namespace wfl::ui
         {
             if (auto const webView = reinterpret_cast<WebView*>(userData); webView)
             {
-                webView->setLoadStatus(loadEvent);
+                webView->onLoadStatusChanged(loadEvent);
             }
         }
     }
@@ -167,6 +169,7 @@ namespace wfl::ui
         : Gtk::Widget{webkit_web_view_new()}
         , m_loadStatus{WEBKIT_LOAD_STARTED}
         , m_zoomLevel{util::Settings::getInstance().getZoomLevel()}
+        , m_stoppedResponding{false}
         , m_signalLoadStatus{}
         , m_signalNotification{}
         , m_signalNotificationClicked{}
@@ -179,6 +182,7 @@ namespace wfl::ui
         g_signal_connect(*this, "show-notification", G_CALLBACK(showNotification), this);
         g_signal_connect(webContext, "download-started", G_CALLBACK(downloadStarted), nullptr);
         g_signal_connect(webContext, "initialize-notification-permissions", G_CALLBACK(initializeNotificationPermission), nullptr);
+        Glib::signal_timeout().connect(sigc::mem_fun(*this, &WebView::onTimeout), 5000);
 
         if (auto const lang = getSystemLanguage(); lang.has_value())
         {
@@ -197,6 +201,7 @@ namespace wfl::ui
     WebView::~WebView()
     {
         util::Settings::getInstance().setZoomLevel(m_zoomLevel);
+        webkit_web_view_terminate_web_process(*this);
     }
 
     WebView::operator WebKitWebView*()
@@ -292,9 +297,35 @@ namespace wfl::ui
         return m_signalNotificationClicked;
     }
 
-    void WebView::setLoadStatus(WebKitLoadEvent loadEvent)
+    void WebView::onLoadStatusChanged(WebKitLoadEvent loadEvent)
     {
         m_loadStatus = loadEvent;
         m_signalLoadStatus.emit(m_loadStatus);
+    }
+
+    bool WebView::onTimeout()
+    {
+        auto responsive = webkit_web_view_get_is_web_process_responsive(*this);
+        // Give a second chance to WebView for recovering itself by checking if it stopped responding before
+        if (!responsive && m_stoppedResponding)
+        {
+            auto dialog = Gtk::MessageDialog{"Unresponsive", false, Gtk::MESSAGE_QUESTION, Gtk::BUTTONS_YES_NO, true};
+            dialog.set_secondary_text(WFL_FRIENDLY_NAME " is not responding. Would you like to reload?");
+
+            auto const result = dialog.run();
+            switch (result)
+            {
+                case Gtk::RESPONSE_YES:
+                    webkit_web_view_terminate_web_process(*this);
+                    webkit_web_view_reload(*this);
+                    break;
+                case Gtk::RESPONSE_NO:
+                default:
+                    break;
+            }
+        }
+        m_stoppedResponding = !responsive;
+
+        return true;
     }
 }
