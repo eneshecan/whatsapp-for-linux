@@ -4,13 +4,13 @@ namespace wfl::ui
 {
     PhoneNumberDialog::PhoneNumberDialog(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const& refBuilder)
         : Gtk::Dialog{cobject}
-        , m_okButton{nullptr}
-        , m_phoneNumberEntry{nullptr}
+        , m_buttonOk{nullptr}
+        , m_entryPhoneNumber{nullptr}
     {
-        refBuilder->get_widget("ok_button", m_okButton);
+        refBuilder->get_widget("button_ok", m_buttonOk);
 
-        refBuilder->get_widget("phone_number_entry", m_phoneNumberEntry);
-        m_phoneNumberEntry->signal_changed().connect(sigc::mem_fun(*this, &PhoneNumberDialog::onTextChange));
+        refBuilder->get_widget("entry_phone_number", m_entryPhoneNumber);
+        m_entryPhoneNumber->signal_changed().connect(sigc::mem_fun(*this, &PhoneNumberDialog::onTextChange));
 
         signal_show().connect(sigc::mem_fun(*this, &PhoneNumberDialog::onShow));
         signal_response().connect(sigc::hide(sigc::mem_fun(*this, &PhoneNumberDialog::hide)));
@@ -20,18 +20,18 @@ namespace wfl::ui
 
     void PhoneNumberDialog::onShow()
     {
-        m_phoneNumberEntry->set_text({});
+        m_entryPhoneNumber->set_text({});
     }
 
     void PhoneNumberDialog::onTextChange()
     {
-        auto const text = m_phoneNumberEntry->get_text();
+        auto const text = m_entryPhoneNumber->get_text();
 
-        m_okButton->set_sensitive(!text.empty() && std::all_of(text.begin(), text.end(), [](unsigned char c) { return std::isdigit(c); }));
+        m_buttonOk->set_sensitive(!text.empty() && std::all_of(text.begin(), text.end(), [](unsigned char c) { return std::isdigit(c); }));
     }
 
     Glib::ustring PhoneNumberDialog::getPhoneNumber()
     {
-        return m_phoneNumberEntry->get_text();
+        return m_entryPhoneNumber->get_text();
     }
 }

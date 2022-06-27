@@ -4,8 +4,8 @@
   <requires lib="gtk+" version="3.22"/>
   <object class="GtkWindow" id="window_preferences">
     <property name="can-focus">False</property>
-    <property name="default-width">480</property>
-    <property name="default-height">270</property>
+    <property name="default-width">640</property>
+    <property name="default-height">360</property>
     <child>
       <object class="GtkNotebook" id="notebook_preferences">
         <property name="visible">True</property>

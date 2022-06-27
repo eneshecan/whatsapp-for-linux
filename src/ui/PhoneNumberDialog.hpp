@@ -21,7 +21,7 @@ namespace wfl::ui
             void onTextChange();
 
         private:
-            Gtk::Button* m_okButton;
-            Gtk::Entry*  m_phoneNumberEntry;
+            Gtk::Button* m_buttonOk;
+            Gtk::Entry*  m_entryPhoneNumber;
     };
 }

@@ -85,9 +85,11 @@
           </packing>
         </child>
         <child>
-          <object class="GtkSeparator" id="separator_1">
+          <object class="GtkModelButton" id="button_fullscreen">
             <property name="visible">True</property>
-            <property name="can-focus">False</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+            <property name="text" translatable="yes">Fullscreen</property>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -96,11 +98,9 @@
           </packing>
         </child>
         <child>
-          <object class="GtkModelButton" id="button_fullscreen">
+          <object class="GtkSeparator" id="separator_1">
             <property name="visible">True</property>
-            <property name="can-focus">True</property>
-            <property name="receives-default">True</property>
-            <property name="text" translatable="yes">Fullscreen</property>
+            <property name="can-focus">False</property>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -122,17 +122,6 @@
           </packing>
         </child>
         <child>
-          <object class="GtkSeparator" id="separator_2">
-            <property name="visible">True</property>
-            <property name="can-focus">False</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">6</property>
-          </packing>
-        </child>
-        <child>
           <object class="GtkModelButton" id="button_shortcuts">
             <property name="visible">True</property>
             <property name="can-focus">True</property>
@@ -142,7 +131,7 @@
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="position">7</property>
+            <property name="position">4</property>
           </packing>
         </child>
         <child>
@@ -155,7 +144,7 @@
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="position">8</property>
+            <property name="position">5</property>
           </packing>
         </child>
         <child>
@@ -168,7 +157,7 @@
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="position">9</property>
+            <property name="position">6</property>
           </packing>
         </child>
       </object>

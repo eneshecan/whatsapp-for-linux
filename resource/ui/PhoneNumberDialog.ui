@@ -9,13 +9,13 @@
     <property name="border-width">10</property>
     <property name="use-header-bar">1</property>
     <child type="action">
-      <object class="GtkButton" id="cancel_button">
+      <object class="GtkButton" id="button_cancel">
         <property name="label">gtk-cancel</property>
         <property name="use-stock">True</property>
       </object>
     </child>
     <child type="action">
-      <object class="GtkButton" id="ok_button">
+      <object class="GtkButton" id="button_ok">
         <property name="label">gtk-ok</property>
         <property name="can-default">True</property>
         <property name="use-stock">True</property>
@@ -28,7 +28,7 @@
         <property name="orientation">vertical</property>
         <property name="spacing">4</property>
         <child>
-          <object class="GtkLabel" id="phone_number_label">
+          <object class="GtkLabel" id="label_phone_number">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="label" translatable="yes">Enter phone number (only digits)</property>
@@ -36,7 +36,7 @@
           </object>
         </child>
         <child>
-          <object class="GtkEntry" id="phone_number_entry">
+          <object class="GtkEntry" id="entry_phone_number">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="hexpand">True</property>
@@ -46,8 +46,8 @@
       </object>
     </child>
     <action-widgets>
-      <action-widget response="cancel">cancel_button</action-widget>
-      <action-widget response="ok" default="true">ok_button</action-widget>
+      <action-widget response="cancel">button_cancel</action-widget>
+      <action-widget response="ok" default="true">button_ok</action-widget>
     </action-widgets>
   </object>
 </interface>
