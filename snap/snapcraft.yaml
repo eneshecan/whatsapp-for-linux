@@ -1,5 +1,5 @@
 name: whatsapp-for-linux
-base: core18
+base: core20
 grade: stable
 confinement: strict
 adopt-info: whatsapp-for-linux
@@ -11,26 +11,52 @@ parts:
     plugin: cmake
     override-pull: |
       snapcraftctl pull
-      version=$(cat "build/release/generated/VERSION")
-      snapcraftctl set-version $version
-      sed -i.bak -e 's|Icon=${WFL_ICON}|Icon=share/icons/hicolor/256x256/apps/${WFL_ICON}.png|g' resource/desktop/com.github.eneshecan.WhatsAppForLinux.desktop.in
-    configflags:
+      sed -i.bak -e 's|Icon=${WFL_ICON}|Icon=usr/local/share/icons/hicolor/256x256/apps/com.github.eneshecan.WhatsAppForLinux.png|g' resource/desktop/com.github.eneshecan.WhatsAppForLinux.desktop.in
+    cmake-parameters:
       - -DCMAKE_BUILD_TYPE=Release
     build-packages:
-      - build-essential
-      - libxml2-utils
+      - intltool
+      - libsigc++-2.0-dev
       - libgtkmm-3.0-dev
       - libwebkit2gtk-4.0-dev
       - libayatana-appindicator3-dev
     stage-packages:
-      - libgtkmm-3.0-1v5
+      - libwebkit2gtk-4.0-37
       - libayatana-appindicator3-1
       - glib-networking
       - gstreamer1.0-plugins-base
       - gstreamer1.0-plugins-good
       - gstreamer1.0-plugins-bad
       - gstreamer1.0-libav
-    parse-info: [share/metainfo/com.github.eneshecan.WhatsAppForLinux.appdata.xml]
+    parse-info:
+      - generated/com.github.eneshecan.WhatsAppForLinux.appdata.xml
+
+  cleanup:
+    after: [whatsapp-for-linux]
+    plugin: nil
+    build-snaps: [core20, gnome-3-38-2004, gtk-common-themes]
+    override-prime: |
+      set -eux
+      for snap in "core20" "gnome-3-38-2004" "gtk-common-themes"; do
+        cd "/snap/$snap/current" && find . -type f,l -exec rm -f "$SNAPCRAFT_PRIME/{}" "$SNAPCRAFT_PRIME/usr/{}" \;
+      done
+      for CRUFT in bug lintian man; do
+        rm -rf $SNAPCRAFT_PRIME/usr/share/$CRUFT
+      done
+      find $SNAPCRAFT_PRIME/usr/share/doc/ -type f -not -name 'copyright' -delete
+      find $SNAPCRAFT_PRIME/usr/share -type d -empty -delete
+
+  gnome-3-38-extension:
+    build-packages:
+      - gcc
+    build-snaps:
+      - gnome-3-38-2004-sdk/latest/stable
+    make-parameters:
+      - WITH_PYTHON=3.8
+      - PLATFORM_PLUG=gnome-3-38-2004
+    plugin: make
+    source: $SNAPCRAFT_EXTENSIONS_DIR/desktop
+    source-subdir: gnome
 
 slots:
   dbus-app:
@@ -40,11 +66,16 @@ slots:
 
 apps:
   whatsapp-for-linux:
-    command: bin/whatsapp-for-linux
-    desktop: share/applications/com.github.eneshecan.WhatsAppForLinux.desktop
+    command: usr/local/bin/whatsapp-for-linux
+    desktop: usr/local/share/applications/com.github.eneshecan.WhatsAppForLinux.desktop
     common-id: com.github.eneshecan.WhatsAppForLinux
-    extensions: [gnome-3-28]  # This takes care of most of the things for us
     plugs:
+      - desktop
+      - desktop-legacy
+      - gsettings
+      - opengl
+      - wayland
+      - x11
       - network
       - network-manager
       - network-manager-observe
@@ -54,8 +85,51 @@ apps:
       - audio-record
       - home
       - removable-media
-      - opengl
       - upower-observe
       - screen-inhibit-control
     slots:
       - dbus-app
+    command-chain:
+      - snap/command-chain/desktop-launch
+
+assumes:
+  - snapd2.43
+
+plugs:
+  desktop:
+    mount-host-font-cache: false
+  gnome-3-38-2004:
+    default-provider: gnome-3-38-2004
+    interface: content
+    target: $SNAP/gnome-platform
+  gtk-3-themes:
+    default-provider: gtk-common-themes
+    interface: content
+    target: $SNAP/data-dir/themes
+  icon-themes:
+    default-provider: gtk-common-themes
+    interface: content
+    target: $SNAP/data-dir/icons
+  sound-themes:
+    default-provider: gtk-common-themes
+    interface: content
+    target: $SNAP/data-dir/sounds
+
+environment:
+  GTK_USE_PORTAL: '1'
+  SNAP_DESKTOP_RUNTIME: $SNAP/gnome-platform
+
+hooks:
+  configure:
+    command-chain:
+      - snap/command-chain/hooks-configure-desktop
+    plugs:
+      - desktop
+
+layout:
+  /usr/lib/$SNAPCRAFT_ARCH_TRIPLET/webkit2gtk-4.0:
+    bind: $SNAP/gnome-platform/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/webkit2gtk-4.0
+  /usr/share/libdrm:
+    bind: $SNAP/gnome-platform/usr/share/libdrm
+  /usr/share/xml/iso-codes:
+    bind: $SNAP/gnome-platform/usr/share/xml/iso-codes
