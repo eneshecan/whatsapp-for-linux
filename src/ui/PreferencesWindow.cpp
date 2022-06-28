@@ -7,20 +7,19 @@ namespace wfl::ui
         : Gtk::Window{cobject}
         , m_trayIcon{&trayIcon}
         , m_webView{&webView}
-        , m_switchCloseToTray{nullptr}
         , m_switchStartInTray{nullptr}
-        , m_switchAutostart{nullptr}
         , m_comboboxHwAccel{nullptr}
-        , m_switchAllowPermissions{nullptr}
     {
-        refBuilder->get_widget("switch_close_to_tray", m_switchCloseToTray);
-        m_switchCloseToTray->signal_state_set().connect(sigc::mem_fun(*this, &PreferencesWindow::onCloseToTrayChanged), false);
+        Gtk::Switch* switchCloseToTray = nullptr;
+        refBuilder->get_widget("switch_close_to_tray", switchCloseToTray);
+        switchCloseToTray->signal_state_set().connect(sigc::mem_fun(*this, &PreferencesWindow::onCloseToTrayChanged), false);
 
         refBuilder->get_widget("switch_start_in_tray", m_switchStartInTray);
         m_switchStartInTray->signal_state_set().connect(sigc::mem_fun(*this, &PreferencesWindow::onStartInTrayChanged), false);
 
-        refBuilder->get_widget("switch_autostart", m_switchAutostart);
-        m_switchAutostart->signal_state_set().connect(sigc::mem_fun(*this, &PreferencesWindow::onAutostartChanged), false);
+        Gtk::Switch* switchAutostart = nullptr;
+        refBuilder->get_widget("switch_autostart", switchAutostart);
+        switchAutostart->signal_state_set().connect(sigc::mem_fun(*this, &PreferencesWindow::onAutostartChanged), false);
 
         refBuilder->get_widget("combobox_hw_accel", m_comboboxHwAccel);
         m_comboboxHwAccel->signal_changed().connect(sigc::mem_fun(*this, &PreferencesWindow::onHwAccelChanged));
@@ -28,15 +27,16 @@ namespace wfl::ui
         m_comboboxHwAccel->append("Always");
         m_comboboxHwAccel->append("Never");
 
-        refBuilder->get_widget("switch_allow_permissions", m_switchAllowPermissions);
-        m_switchAllowPermissions->signal_state_set().connect(sigc::mem_fun(*this, &PreferencesWindow::onAllowPermissionsChanged), false);
+        Gtk::Switch* switchAllowPermissions = nullptr;
+        refBuilder->get_widget("switch_allow_permissions", switchAllowPermissions);
+        switchAllowPermissions->signal_state_set().connect(sigc::mem_fun(*this, &PreferencesWindow::onAllowPermissionsChanged), false);
 
-        m_switchCloseToTray->set_state(m_trayIcon->isVisible());
+        switchCloseToTray->set_state(m_trayIcon->isVisible());
         m_switchStartInTray->set_state(util::Settings::getInstance().getStartInTray() && m_trayIcon->isVisible());
         m_switchStartInTray->set_sensitive(m_trayIcon->isVisible());
-        m_switchAutostart->set_state(util::Settings::getInstance().getAutostart());
+        switchAutostart->set_state(util::Settings::getInstance().getAutostart());
         m_comboboxHwAccel->set_active(util::Settings::getInstance().getHwAccel());
-        m_switchAllowPermissions->set_state(util::Settings::getInstance().getAllowPermissions());
+        switchAllowPermissions->set_state(util::Settings::getInstance().getAllowPermissions());
     }
 
     bool PreferencesWindow::onCloseToTrayChanged(bool state)

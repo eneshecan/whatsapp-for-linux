@@ -25,11 +25,7 @@ namespace wfl::ui
         private:
             TrayIcon*          m_trayIcon;
             WebView*           m_webView;
-
-            Gtk::Switch*       m_switchCloseToTray;
             Gtk::Switch*       m_switchStartInTray;
-            Gtk::Switch*       m_switchAutostart;
             Gtk::ComboBoxText* m_comboboxHwAccel;
-            Gtk::Switch*       m_switchAllowPermissions;
     };
 }
