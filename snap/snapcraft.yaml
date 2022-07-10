@@ -24,6 +24,8 @@ parts:
       - libwebkit2gtk-4.0-37
       - libayatana-appindicator3-1
       - glib-networking
+      - libglu1-mesa
+      - freeglut3
       - gstreamer1.0-plugins-base
       - gstreamer1.0-plugins-good
       - gstreamer1.0-plugins-bad
@@ -80,6 +82,8 @@ apps:
       - network-manager
       - network-manager-observe
       - browser-support
+      - system-observe
+      - process-control
       - camera
       - audio-playback
       - audio-record
