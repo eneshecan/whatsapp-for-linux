@@ -81,6 +81,7 @@ apps:
       - network
       - network-manager
       - network-manager-observe
+      - network-status
       - browser-support
       - system-observe
       - process-control
