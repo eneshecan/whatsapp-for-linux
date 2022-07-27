@@ -1,28 +1,13 @@
-#include <cstdio>
 #include <clocale>
-#include <unistd.h>
 #include <iostream>
 #include "Config.hpp"
 #include "ui/Application.hpp"
 #include "ui/MainWindow.hpp"
+#include "util/Helper.hpp"
 #include "util/Settings.hpp"
 
 namespace
 {
-    void redirectOutputToLogger()
-    {
-        auto const fl = ::popen("logger -i -s -t " WFL_NAME, "w");
-        if (!fl)
-        {
-            auto const errorNumber = errno;
-            std::cerr << "Failed to open pipe to logger: " << strerror(errorNumber) << std::endl;
-            return;
-        }
-
-        auto const fd = ::fileno(fl);
-        ::dup2(fd, STDERR_FILENO);
-    }
-
     void sigterm(int)
     {
         wfl::ui::Application::getInstance().quit();
@@ -33,9 +18,9 @@ int main(int argc, char** argv)
 {
     setlocale(LC_ALL, "");
 
-    redirectOutputToLogger();
-
     auto app = wfl::ui::Application{argc, argv, WFL_APP_ID, Gio::APPLICATION_HANDLES_OPEN};
+
+    wfl::util::redirectOutputToLogger();
 
     signal(SIGINT,  sigterm);
     signal(SIGTERM, sigterm);

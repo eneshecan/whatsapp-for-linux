@@ -39,6 +39,7 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR}/generated/)
 add_executable(${CMAKE_PROJECT_NAME}
     src/main.cpp
     ${CMAKE_CURRENT_BINARY_DIR}/generated/Resources.c
+    src/util/Helper.cpp
     src/util/Settings.cpp
     src/ui/Application.cpp
     src/ui/MainWindow.cpp
