@@ -49,7 +49,7 @@ Check out [releases](https://github.com/eneshecan/whatsapp-for-linux/releases) f
 
 ## Dependencies
 
-* cmake >= 3.8
+* cmake >= 3.12
 * gtkmm-3.0
 * webkit2gtk-4.0
 * ayatana-appindicator3-0.1
