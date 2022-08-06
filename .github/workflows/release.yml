@@ -51,8 +51,6 @@ jobs:
         uses: AppImageCrafters/build-appimage@v1
         with:
           recipe: "./appimage/AppImageBuilder.yml"
-        env:
-          UPDATE_INFO: gh-releases-zsync|eneshecan|whatsapp-for-linux|${{ env.RELEASE_VERSION }}|*x86_64.AppImage.zsync
 
       - name: Push Tag
         id: push-tag
