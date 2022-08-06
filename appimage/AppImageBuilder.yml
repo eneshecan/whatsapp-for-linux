@@ -8,6 +8,8 @@ AppDir:
     version: !ENV ${RELEASE_VERSION}
     exec: usr/bin/whatsapp-for-linux
     exec_args: $@
+  after_bundle: |
+    find "$APPDIR"/usr/lib* -name 'libwebkit*' -exec sed -i -e "s|/usr|././|g" '{}' \;
   apt:
     arch: amd64
     allow_unauthenticated: true
@@ -252,10 +254,6 @@ AppDir:
       - /lib/x86_64-linux-gnu/libwayland-egl.so.1
       - /lib/x86_64-linux-gnu/libwayland-server.so.0
       - /lib/x86_64-linux-gnu/libwebkit2gtk-4.0.so.37
-      - /lib/x86_64-linux-gnu/webkit2gtk-4.0/WebKitWebProcess
-      - /lib/x86_64-linux-gnu/webkit2gtk-4.0/WebKitNetworkProcess
-      - /lib/x86_64-linux-gnu/webkit2gtk-4.0/MiniBrowser
-      - /lib/x86_64-linux-gnu/webkit2gtk-4.0/injected-bundle/libwebkit2gtkinjectedbundle.so
       - /lib/x86_64-linux-gnu/libwebp.so.6
       - /lib/x86_64-linux-gnu/libwebpdemux.so.2
       - /lib/x86_64-linux-gnu/libwebpmux.so.3
