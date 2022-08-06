@@ -48,7 +48,7 @@ jobs:
 
       - name: Build AppImage Package
         id: appimage
-        uses: AppImageCrafters/build-appimage@master
+        uses: AppImageCrafters/build-appimage@v1
         with:
           recipe: "./appimage/AppImageBuilder.yml"
         env:
