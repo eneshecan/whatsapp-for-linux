@@ -15,7 +15,7 @@ jobs:
       - name: Install Dependencies
         run: |
           sudo apt update && sudo apt upgrade
-          sudo apt -y install build-essential cmake pkg-config libgtkmm-3.0-dev libwebkit2gtk-4.0-dev libayatana-appindicator3-dev debhelper zsync
+          sudo apt -y install build-essential cmake pkg-config libgtkmm-3.0-dev libwebkit2gtk-4.0-dev libayatana-appindicator3-dev debhelper zsync squashfs-tools
 
       - name: Build & Install
         run: |
@@ -40,9 +40,11 @@ jobs:
 
       - name: Build AppImage Package
         id: appimage
-        uses: AppImageCrafters/build-appimage@v1
+        uses: AppImageCrafters/build-appimage@master
         with:
           recipe: "./appimage/AppImageBuilder.yml"
+        env:
+          UPDATE_INFO: gh-releases-zsync|eneshecan|whatsapp-for-linux|${{ env.RELEASE_VERSION }}|*x86_64.AppImage.zsync
 
       - name: Publish Snap to Store
         id: snapcraft-publish
