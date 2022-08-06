@@ -38,6 +38,12 @@ jobs:
         id: snapcraft
         uses: snapcore/action-build@v1
 
+      - name: Build AppImage Package
+        id: appimage
+        uses: AppImageCrafters/build-appimage@v1
+        with:
+          recipe: "./appimage/AppImageBuilder.yml"
+
       - name: Publish Snap to Store
         id: snapcraft-publish
         uses: snapcore/action-publish@v1
@@ -45,12 +51,6 @@ jobs:
           store_login: ${{ secrets.SNAP_STORE_LOGIN }}
           snap: ${{ steps.snapcraft.outputs.snap }}
           release: stable
-
-      - name: Build AppImage Package
-        id: appimage
-        uses: AppImageCrafters/build-appimage@v1
-        with:
-          recipe: "./appimage/AppImageBuilder.yml"
 
       - name: Push Tag
         id: push-tag
