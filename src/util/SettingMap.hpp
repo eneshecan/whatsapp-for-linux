@@ -40,7 +40,7 @@ namespace wfl::util
         }
         catch (Glib::Error const& error)
         {
-            std::cerr << "SettingMap: Failed to load setting map from file: " << error.what() << std::endl;
+            std::cerr << "SettingMap: Failed to load setting map from file: " << error.what().c_str() << std::endl;
             return false;
         }
     }
@@ -53,7 +53,7 @@ namespace wfl::util
         }
         catch (Glib::Error const& error)
         {
-            std::cerr << "SettingMap: Failed to save setting map to file: " << error.what() << std::endl;
+            std::cerr << "SettingMap: Failed to save setting map to file: " << error.what().c_str() << std::endl;
             return false;
         }
     }
@@ -111,7 +111,7 @@ namespace wfl::util
         }
         catch (Glib::KeyFileError const& error)
         {
-            std::cerr << "SettingMap: " <<  error.what() << ", returning default value." << std::endl;
+            std::cerr << "SettingMap: " << error.what().c_str() << ", returning default value." << std::endl;
             return defaultValue;
         }
     }
