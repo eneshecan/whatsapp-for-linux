@@ -43,14 +43,14 @@ int main(int argc, char** argv)
     }
 
     app.signal_open().connect([&app, &mainWindow](Gtk::Application::type_vec_files const& files, const Glib::ustring&)
-    {
-        if (!files.empty())
         {
-            // Activate the application if it's not running
-            app.activate();
-            mainWindow->openUrl(files.at(0U)->get_uri());
-        }
-    });
+            if (!files.empty())
+            {
+                // Activate the application if it's not running
+                app.activate();
+                mainWindow->openUrl(files.at(0U)->get_uri());
+            }
+        });
 
     auto retCode = 0;
 
