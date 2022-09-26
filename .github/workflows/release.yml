@@ -66,6 +66,7 @@ jobs:
         uses: heinrichreimer/github-changelog-generator-action@v2.3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          onlyLastTag: true
           stripGeneratorNotice: true
 
       - name: Create Release
