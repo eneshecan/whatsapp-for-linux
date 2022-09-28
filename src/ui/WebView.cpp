@@ -313,7 +313,7 @@ namespace wfl::ui
 
     bool WebView::onTimeout()
     {
-        auto responsive = webkit_web_view_get_is_web_process_responsive(*this);
+        auto const responsive = webkit_web_view_get_is_web_process_responsive(*this);
         // Give a second chance to WebView for recovering itself by checking if it stopped responding before
         if (!responsive && m_stoppedResponding)
         {
