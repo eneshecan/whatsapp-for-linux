@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.38.2 -->
+<!-- Generated with glade 3.40.0 -->
 <interface>
   <requires lib="gtk+" version="3.22"/>
   <object class="GtkWindow" id="window_preferences">
@@ -11,7 +11,7 @@
         <property name="visible">True</property>
         <property name="can-focus">True</property>
         <child>
-          <!-- n-columns=2 n-rows=4 -->
+          <!-- n-columns=2 n-rows=3 -->
           <object class="GtkGrid" id="grid_general">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
@@ -94,30 +94,6 @@
                 <property name="top-attach">2</property>
               </packing>
             </child>
-            <child>
-              <object class="GtkLabel" id="label_hw_accel">
-                <property name="visible">True</property>
-                <property name="can-focus">False</property>
-                <property name="halign">start</property>
-                <property name="label" translatable="yes">Hardware Acceleration</property>
-              </object>
-              <packing>
-                <property name="left-attach">0</property>
-                <property name="top-attach">3</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkComboBoxText" id="combobox_hw_accel">
-                <property name="visible">True</property>
-                <property name="can-focus">False</property>
-                <property name="tooltip-text" translatable="yes">Set hardware acceleration policy used by webkit</property>
-                <property name="halign">end</property>
-              </object>
-              <packing>
-                <property name="left-attach">1</property>
-                <property name="top-attach">3</property>
-              </packing>
-            </child>
           </object>
         </child>
         <child type="tab">
@@ -131,8 +107,8 @@
           </packing>
         </child>
         <child>
-          <!-- n-columns=2 n-rows=1 -->
-          <object class="GtkGrid" id="grid_network">
+          <!-- n-columns=2 n-rows=2 -->
+          <object class="GtkGrid" id="grid_web">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <property name="margin-start">8</property>
@@ -143,6 +119,18 @@
             <property name="column-spacing">8</property>
             <property name="column-homogeneous">True</property>
             <child>
+              <object class="GtkLabel" id="label_hw_accel">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="halign">start</property>
+                <property name="label" translatable="yes">Hardware Acceleration</property>
+              </object>
+              <packing>
+                <property name="left-attach">0</property>
+                <property name="top-attach">0</property>
+              </packing>
+            </child>
+            <child>
               <object class="GtkLabel" id="label_allow_permissions">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
@@ -151,6 +139,18 @@
               </object>
               <packing>
                 <property name="left-attach">0</property>
+                <property name="top-attach">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkComboBoxText" id="combobox_hw_accel">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="tooltip-text" translatable="yes">Set hardware acceleration policy used by webkit</property>
+                <property name="halign">end</property>
+              </object>
+              <packing>
+                <property name="left-attach">1</property>
                 <property name="top-attach">0</property>
               </packing>
             </child>
@@ -163,7 +163,7 @@
               </object>
               <packing>
                 <property name="left-attach">1</property>
-                <property name="top-attach">0</property>
+                <property name="top-attach">1</property>
               </packing>
             </child>
           </object>
@@ -172,10 +172,10 @@
           </packing>
         </child>
         <child type="tab">
-          <object class="GtkLabel" id="label_network">
+          <object class="GtkLabel" id="label_web">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
-            <property name="label" translatable="yes">Network</property>
+            <property name="label" translatable="yes">Web</property>
           </object>
           <packing>
             <property name="position">1</property>

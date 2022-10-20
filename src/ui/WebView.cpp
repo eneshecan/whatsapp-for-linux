@@ -34,20 +34,9 @@ namespace wfl::ui
             auto dialog = Gtk::MessageDialog{"Notification Request", false, Gtk::MESSAGE_QUESTION, Gtk::BUTTONS_YES_NO};
             dialog.set_secondary_text("Would you like " WFL_FRIENDLY_NAME " to send you notifications?");
 
-            auto const result = dialog.run();
-            switch (result)
-            {
-                case Gtk::RESPONSE_YES:
-                    webkit_permission_request_allow(request);
-                    util::Settings::getInstance().setAllowPermissions(true);
-                    break;
-                case Gtk::RESPONSE_NO:
-                    webkit_permission_request_deny(request);
-                    util::Settings::getInstance().setAllowPermissions(false);
-                    break;
-                default:
-                    break;
-            }
+            auto const allow = (dialog.run() == Gtk::RESPONSE_YES);
+            allow ? webkit_permission_request_allow(request) : webkit_permission_request_deny(request);
+            util::Settings::getInstance().setValue("web", "allow-permissions", allow);
 
             return TRUE;
         }
@@ -106,7 +95,7 @@ namespace wfl::ui
 
         void initializeNotificationPermission(WebKitWebContext* context, gpointer)
         {
-            if (util::Settings::getInstance().getAllowPermissions())
+            if (util::Settings::getInstance().getValue<bool>("web", "allow-permissions"))
             {
                 auto const origin = webkit_security_origin_new_for_uri(WHATSAPP_WEB_URI);
                 auto const allowedOrigins = g_list_alloc();
@@ -168,7 +157,6 @@ namespace wfl::ui
     WebView::WebView()
         : Gtk::Widget{webkit_web_view_new()}
         , m_loadStatus{WEBKIT_LOAD_STARTED}
-        , m_zoomLevel{util::Settings::getInstance().getZoomLevel()}
         , m_stoppedResponding{false}
         , m_signalLoadStatus{}
         , m_signalNotification{}
@@ -193,16 +181,15 @@ namespace wfl::ui
 
         auto const settings = webkit_web_view_get_settings(*this);
         webkit_settings_set_enable_developer_extras(settings, TRUE);
-        auto hwAccelPolicy = static_cast<WebKitHardwareAccelerationPolicy>(util::Settings::getInstance().getHwAccel());
+        auto hwAccelPolicy = static_cast<WebKitHardwareAccelerationPolicy>(util::Settings::getInstance().getValue<int>("web", "hw-accel", 1));
         webkit_settings_set_hardware_acceleration_policy(settings, hwAccelPolicy);
 
-        webkit_web_view_set_zoom_level(*this, m_zoomLevel);
+        webkit_web_view_set_zoom_level(*this, util::Settings::getInstance().getValue<double>("general", "zoom-level", 1.0));
         webkit_web_view_load_uri(*this, WHATSAPP_WEB_URI);
     }
 
     WebView::~WebView()
     {
-        util::Settings::getInstance().setZoomLevel(m_zoomLevel);
         webkit_web_view_terminate_web_process(*this);
     }
 
@@ -262,30 +249,30 @@ namespace wfl::ui
 
     void WebView::zoomIn()
     {
-        m_zoomLevel = webkit_web_view_get_zoom_level(*this);
-        if (m_zoomLevel < 2)
+        if (auto zoomLevel = webkit_web_view_get_zoom_level(*this); zoomLevel < 2.0)
         {
-            m_zoomLevel += 0.05;
-            webkit_web_view_set_zoom_level(*this, m_zoomLevel);
+            zoomLevel += 0.05;
+            webkit_web_view_set_zoom_level(*this, zoomLevel);
+            util::Settings::getInstance().setValue("general", "zoom-level", zoomLevel);
         }
     }
 
     void WebView::zoomOut()
     {
-        m_zoomLevel = webkit_web_view_get_zoom_level(*this);
-        if (m_zoomLevel > 0.5)
+        if (auto zoomLevel = webkit_web_view_get_zoom_level(*this); zoomLevel > 0.5)
         {
-            m_zoomLevel -= 0.05;
-            webkit_web_view_set_zoom_level(*this, m_zoomLevel);
+            zoomLevel -= 0.05;
+            webkit_web_view_set_zoom_level(*this, zoomLevel);
+            util::Settings::getInstance().setValue("general", "zoom-level", zoomLevel);
         }
     }
 
-    double WebView::getZoomLevel() const noexcept
+    double WebView::getZoomLevel()
     {
-        return m_zoomLevel;
+        return webkit_web_view_get_zoom_level(*this);
     }
 
-    std::string WebView::getZoomLevelString() const noexcept
+    std::string WebView::getZoomLevelString()
     {
         return std::to_string(static_cast<int>(std::round(getZoomLevel() * 100))).append("%");
     }

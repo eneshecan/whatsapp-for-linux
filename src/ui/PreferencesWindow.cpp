@@ -32,17 +32,17 @@ namespace wfl::ui
         switchAllowPermissions->signal_state_set().connect(sigc::mem_fun(*this, &PreferencesWindow::onAllowPermissionsChanged), false);
 
         switchCloseToTray->set_state(m_trayIcon->isVisible());
-        m_switchStartInTray->set_state(util::Settings::getInstance().getStartInTray() && m_trayIcon->isVisible());
+        m_switchStartInTray->set_state(util::Settings::getInstance().getValue<bool>("general", "start-in-tray") && m_trayIcon->isVisible());
         m_switchStartInTray->set_sensitive(m_trayIcon->isVisible());
-        switchAutostart->set_state(util::Settings::getInstance().getAutostart());
-        m_comboboxHwAccel->set_active(util::Settings::getInstance().getHwAccel());
-        switchAllowPermissions->set_state(util::Settings::getInstance().getAllowPermissions());
+        switchAutostart->set_state(util::Settings::getInstance().getValue<bool>("general", "autostart"));
+        m_comboboxHwAccel->set_active(util::Settings::getInstance().getValue<int>("web", "hw-accel", 1));
+        switchAllowPermissions->set_state(util::Settings::getInstance().getValue<bool>("web", "allow-permissions"));
     }
 
     bool PreferencesWindow::onCloseToTrayChanged(bool state)
     {
         m_trayIcon->setVisible(state);
-        util::Settings::getInstance().setCloseToTray(state);
+        util::Settings::getInstance().setValue("general", "close-to-tray", state);
 
         if (!state)
         {
@@ -55,21 +55,21 @@ namespace wfl::ui
 
     bool PreferencesWindow::onStartInTrayChanged(bool state) const
     {
-        util::Settings::getInstance().setStartInTray(state);
+        util::Settings::getInstance().setValue("general", "start-in-tray", state);
 
         return false;
     }
 
     bool PreferencesWindow::onAutostartChanged(bool state) const
     {
-        util::Settings::getInstance().setAutostart(state);
+        util::Settings::getInstance().setValue("general", "autostart", state);
 
         return false;
     }
 
     bool PreferencesWindow::onAllowPermissionsChanged(bool state) const
     {
-        util::Settings::getInstance().setAllowPermissions(state);
+        util::Settings::getInstance().setValue("web", "allow-permissions", state);
 
         return false;
     }
@@ -78,6 +78,6 @@ namespace wfl::ui
     {
         auto active = m_comboboxHwAccel->get_active_row_number();
         m_webView->setHwAccelPolicy(static_cast<WebKitHardwareAccelerationPolicy>(active));
-        util::Settings::getInstance().setHwAccel(active);
+        util::Settings::getInstance().setValue("web", "hw-accel", active);
     }
 }

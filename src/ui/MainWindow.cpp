@@ -83,9 +83,8 @@ namespace wfl::ui
 
         show_all();
 
-        m_trayIcon.setVisible(util::Settings::getInstance().getCloseToTray());
-
-        m_headerBar->set_visible(util::Settings::getInstance().getHeaderBar());
+        m_trayIcon.setVisible(util::Settings::getInstance().getValue<bool>("general", "close-to-tray"));
+        m_headerBar->set_visible(util::Settings::getInstance().getValue<bool>("general", "header-bar", true));
     }
 
     void MainWindow::openUrl(std::string const& url)
@@ -114,7 +113,7 @@ namespace wfl::ui
                 {
                     auto const visible = !m_headerBar->is_visible();
                     m_headerBar->set_visible(visible);
-                    util::Settings::getInstance().setHeaderBar(visible);
+                    util::Settings::getInstance().setValue("general", "header-bar", visible);
                     return true;
                 }
                 break;

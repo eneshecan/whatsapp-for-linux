@@ -16,10 +16,10 @@ namespace wfl::util
             bool saveToFile(std::string const& fileName);
 
             template<typename ValueType>
-            void setValue(Glib::ustring const& groupName, Glib::ustring const& key, ValueType const& value);
+            void setValue(Glib::ustring const& group, Glib::ustring const& key, ValueType value);
 
             template<typename ValueType>
-            ValueType getValue(Glib::ustring const& groupName, Glib::ustring const& key, ValueType const& defaultValue = {}) const noexcept;
+            ValueType getValue(Glib::ustring const& group, Glib::ustring const& key, ValueType defaultValue = {}) const noexcept;
 
         private:
             Glib::KeyFile m_map;
@@ -59,59 +59,59 @@ namespace wfl::util
     }
 
     template<typename ValueType>
-    inline void SettingMap::setValue(Glib::ustring const& groupName, Glib::ustring const& key, ValueType const& value)
+    inline void SettingMap::setValue(Glib::ustring const& group, Glib::ustring const& key, ValueType value)
     {
         if constexpr (std::is_same_v<ValueType, bool>)
         {
-            m_map.set_boolean(groupName, key, value);
+            m_map.set_boolean(group, key, value);
         }
         else if constexpr (std::is_same_v<ValueType, int>)
         {
-            m_map.set_integer(groupName, key, value);
+            m_map.set_integer(group, key, value);
         }
         else if constexpr (std::is_same_v<ValueType, double>)
         {
-            m_map.set_double(groupName, key, value);
+            m_map.set_double(group, key, value);
         }
         else if constexpr (std::is_same_v<ValueType, Glib::ustring>)
         {
-            m_map.set_string(groupName, key, value);
+            m_map.set_string(group, key, value);
         }
         else
         {
-            m_map.set_value(groupName, key, value);
+            m_map.set_value(group, key, value);
         }
     }
 
     template<typename ValueType>
-    inline ValueType SettingMap::getValue(Glib::ustring const& groupName, Glib::ustring const& key, ValueType const& defaultValue) const noexcept
+    inline ValueType SettingMap::getValue(Glib::ustring const& group, Glib::ustring const& key, ValueType defaultValue) const noexcept
     {
         try
         {
             if constexpr (std::is_same_v<ValueType, bool>)
             {
-                return m_map.get_boolean(groupName, key);
+                return m_map.get_boolean(group, key);
             }
             else if constexpr (std::is_same_v<ValueType, int>)
             {
-                return m_map.get_integer(groupName, key);
+                return m_map.get_integer(group, key);
             }
             else if constexpr (std::is_same_v<ValueType, double>)
             {
-                return m_map.get_double(groupName, key);
+                return m_map.get_double(group, key);
             }
             else if constexpr (std::is_same_v<ValueType, Glib::ustring>)
             {
-                return m_map.get_string(groupName, key);
+                return m_map.get_string(group, key);
             }
             else
             {
-                return m_map.get_value(groupName, key);
+                return m_map.get_value(group, key);
             }
         }
         catch (Glib::KeyFileError const& error)
         {
-            std::cerr << "SettingMap: " << error.what().c_str() << ", returning default value." << std::endl;
+            std::cerr << "SettingMap: " << error.what().c_str() << ", returning default value: " << defaultValue << std::endl;
             return defaultValue;
         }
     }

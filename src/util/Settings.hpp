@@ -14,26 +14,50 @@ namespace wfl::util
             Settings& operator=(Settings const&) = delete;
 
         public:
-            void   setCloseToTray(bool enable);
-            bool   getCloseToTray() const;
-            void   setAllowPermissions(bool allow);
-            bool   getAllowPermissions() const;
-            void   setZoomLevel(double zoomLevel);
-            double getZoomLevel() const;
-            void   setHeaderBar(bool enable);
-            bool   getHeaderBar() const;
-            void   setStartInTray(bool enable);
-            bool   getStartInTray() const;
-            void   setAutostart(bool autostart);
-            bool   getAutostart();
-            void   setHwAccel(int hwAccel);
-            int    getHwAccel() const;
+            template<typename ValueType>
+            void setValue(Glib::ustring const& group, Glib::ustring const& key, ValueType value);
+
+            template<typename ValueType>
+            ValueType getValue(Glib::ustring const& group, Glib::ustring const& key, ValueType defaultValue = {});
 
         private:
             Settings();
             ~Settings();
 
         private:
+            void setAutostart(bool autostart);
+            bool getAutostart();
+
+        private:
             SettingMap m_settingMap;
     };
+
+
+
+
+    template<typename ValueType>
+    inline void Settings::setValue(Glib::ustring const& group, Glib::ustring const& key, ValueType value)
+    {
+        if ((group == "general") && (key == "autostart") && std::is_same_v<ValueType, bool>)
+        {
+            setAutostart(value);
+        }
+        else
+        {
+            m_settingMap.setValue(group, key, value);
+        }
+    }
+
+    template<typename ValueType>
+    inline ValueType Settings::getValue(Glib::ustring const& group, Glib::ustring const& key, ValueType defaultValue)
+    {
+        if ((group == "general") && (key == "autostart") && std::is_same_v<ValueType, bool>)
+        {
+            return getAutostart();
+        }
+        else
+        {
+            return m_settingMap.getValue(group, key, defaultValue);
+        }
+    }
 }
