@@ -1,6 +1,6 @@
 # WhatsApp for Linux
 
-An unofficial WhatsApp desktop application written in C++.
+An unofficial WhatsApp desktop application for Linux.
 
 <p align="left">
     <a href="https://flathub.org/apps/details/com.github.eneshecan.WhatsAppForLinux">
@@ -28,6 +28,11 @@ An unofficial WhatsApp desktop application written in C++.
 [![Action Status](https://github.com/eneshecan/whatsapp-for-linux/workflows/Release/badge.svg)](https://github.com/eneshecan/whatsapp-for-linux/actions)
 
 ![App Window](screenshot/app.png)
+
+
+## About
+
+WhatsApp for Linux is an unofficial WhatsApp desktop application written in C++ with the help of gtkmm and WebKitGtk libraries. Check out [wiki](https://github.com/eneshecan/whatsapp-for-linux/wiki) for further details.
 
 
 ## Features
