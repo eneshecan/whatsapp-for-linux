@@ -11,7 +11,7 @@
         <property name="visible">True</property>
         <property name="can-focus">True</property>
         <child>
-          <!-- n-columns=2 n-rows=3 -->
+          <!-- n-columns=2 n-rows=4 -->
           <object class="GtkGrid" id="grid_general">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
@@ -47,6 +47,18 @@
               </packing>
             </child>
             <child>
+              <object class="GtkLabel" id="label_start_minimized">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="halign">start</property>
+                <property name="label" translatable="yes">Start Minimized</property>
+              </object>
+              <packing>
+                <property name="left-attach">0</property>
+                <property name="top-attach">2</property>
+              </packing>
+            </child>
+            <child>
               <object class="GtkLabel" id="label_autostart">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
@@ -55,7 +67,7 @@
               </object>
               <packing>
                 <property name="left-attach">0</property>
-                <property name="top-attach">2</property>
+                <property name="top-attach">3</property>
               </packing>
             </child>
             <child>
@@ -83,6 +95,18 @@
               </packing>
             </child>
             <child>
+              <object class="GtkSwitch" id="switch_start_minimized">
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="tooltip-text" translatable="yes">Start application as minimized</property>
+                <property name="halign">end</property>
+              </object>
+              <packing>
+                <property name="left-attach">1</property>
+                <property name="top-attach">2</property>
+              </packing>
+            </child>
+            <child>
               <object class="GtkSwitch" id="switch_autostart">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
@@ -91,7 +115,7 @@
               </object>
               <packing>
                 <property name="left-attach">1</property>
-                <property name="top-attach">2</property>
+                <property name="top-attach">3</property>
               </packing>
             </child>
           </object>
