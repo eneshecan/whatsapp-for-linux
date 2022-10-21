@@ -52,19 +52,17 @@ int main(int argc, char** argv)
             }
         });
 
-    auto retCode = 0;
-
     if (wfl::util::Settings::getInstance().getValue<bool>("general", "start-in-tray")
         && wfl::util::Settings::getInstance().getValue<bool>("general", "close-to-tray"))
     {
         mainWindow->hide();
         wfl::ui::Application::getInstance().keepAlive();
-        retCode = app.run();
+        return app.run();
     }
-    else
+    else if (wfl::util::Settings::getInstance().getValue<bool>("general", "start-minimized"))
     {
-        retCode = app.run(*mainWindow);
+        mainWindow->iconify();
     }
 
-    return retCode;
+    return app.run(*mainWindow);
 }

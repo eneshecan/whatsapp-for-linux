@@ -18,6 +18,7 @@ namespace wfl::ui
         private:
             bool onCloseToTrayChanged(bool state);
             bool onStartInTrayChanged(bool state) const;
+            bool onStartMinimizedChanged(bool state) const;
             bool onAutostartChanged(bool state) const;
             bool onAllowPermissionsChanged(bool state) const;
             void onHwAccelChanged();
@@ -26,6 +27,7 @@ namespace wfl::ui
             TrayIcon*          m_trayIcon;
             WebView*           m_webView;
             Gtk::Switch*       m_switchStartInTray;
+            Gtk::Switch*       m_switchStartMinimized;
             Gtk::ComboBoxText* m_comboboxHwAccel;
     };
 }
