@@ -5,7 +5,7 @@ We are really happy you're reading this, because we need volunteers to help this
 ## Code
 
 You can contribute by opening issues, resolving any issue especially [good first issues](https://github.com/eneshecan/whatsapp-for-linux/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22),
-improving documentation etc.
+improving documentation, adding translations in your language etc.
 
 ### Submitting changes
 

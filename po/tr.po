@@ -1,0 +1,177 @@
+# Turkish translation file for whatsapp-for-linux
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the whatsapp-for-linux package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: whatsapp-for-linux\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-10-23 23:14+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Enes Hecan <nshecan@gmail.com>\n"
+"Language-Team: Russian <>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../src/ui/MainWindow.cpp:278 ../src/ui/TrayIcon.cpp:46
+#: ../resource/ui/MainWindow.ui.h:4
+msgid "About"
+msgstr "Hakkında"
+
+#: ../src/ui/PreferencesWindow.cpp:30
+msgid "On Demand"
+msgstr "Gerektikçe"
+
+#: ../src/ui/PreferencesWindow.cpp:31
+msgid "Always"
+msgstr "Daima"
+
+#: ../src/ui/PreferencesWindow.cpp:32
+msgid "Never"
+msgstr "Asla"
+
+#: ../src/ui/TrayIcon.cpp:45
+msgid "Show"
+msgstr "Göster"
+
+#: ../src/ui/TrayIcon.cpp:47 ../resource/ui/MainWindow.ui.h:5
+#: ../resource/ui/ShortcutsWindow.ui.h:7
+msgid "Quit"
+msgstr "Çıkış"
+
+#: ../src/ui/WebView.cpp:34
+msgid "Notification Request"
+msgstr "Bildirim Talebi"
+
+#: ../src/ui/WebView.cpp:35
+msgid "Would you like to allow notifications?"
+msgstr "Bildirimlere izin vermek istiyor musunuz?"
+
+#: ../src/ui/WebView.cpp:69
+msgid "Save File"
+msgstr "Dosyayı Kaydet"
+
+#: ../src/ui/WebView.cpp:70
+msgid "Ok"
+msgstr "Tamam"
+
+#: ../src/ui/WebView.cpp:71
+msgid "Cancel"
+msgstr "İptal"
+
+#: ../src/ui/WebView.cpp:307
+msgid "Unresponsive"
+msgstr "Cevap vermiyor"
+
+#: ../src/ui/WebView.cpp:308
+msgid "The application is not responding. Would you like to reload?"
+msgstr "Uygulama cevap vermiyor. Yeniden yüklemek ister misiniz?"
+
+#: ../resource/ui/MainWindow.ui.h:1
+msgid "Fullscreen"
+msgstr "Tam Ekran"
+
+#: ../resource/ui/MainWindow.ui.h:2 ../resource/ui/PreferencesWindow.ui.h:15
+msgid "Preferences"
+msgstr "Tercihler"
+
+#: ../resource/ui/MainWindow.ui.h:3 ../resource/ui/ShortcutsWindow.ui.h:6
+msgid "Keyboard Shortcuts"
+msgstr "Klavye kısayolları"
+
+#: ../resource/ui/MainWindow.ui.h:6
+msgid "WhatsApp"
+msgstr ""
+
+#: ../resource/ui/MainWindow.ui.h:7
+msgid "WhatsApp for Linux"
+msgstr ""
+
+#: ../resource/ui/MainWindow.ui.h:8
+msgid "Refresh"
+msgstr "Yenile"
+
+#: ../resource/ui/MainWindow.ui.h:9 ../resource/ui/PhoneNumberDialog.ui.h:1
+msgid "Open chat by phone number"
+msgstr "Telefon numarasıyla sohbeti aç"
+
+#: ../resource/ui/PhoneNumberDialog.ui.h:2
+msgid "Enter phone number (only digits)"
+msgstr "Telefon numarasını gir (sadece rakamlar)"
+
+#: ../resource/ui/PreferencesWindow.ui.h:1
+msgid "Close to Tray"
+msgstr "Traye küçült"
+
+#: ../resource/ui/PreferencesWindow.ui.h:2
+msgid "Start in Tray"
+msgstr "Trayde başlat"
+
+#: ../resource/ui/PreferencesWindow.ui.h:3
+msgid "Start Minimized"
+msgstr "Başlangıçta küçült"
+
+#: ../resource/ui/PreferencesWindow.ui.h:4
+msgid "Autostart"
+msgstr "Otomatik başlat"
+
+#: ../resource/ui/PreferencesWindow.ui.h:5
+msgid "Enable tray icon"
+msgstr "Trayi etkinleştir"
+
+#: ../resource/ui/PreferencesWindow.ui.h:6
+msgid "Start application as closed to tray"
+msgstr "Uygulamayı trayde başlat"
+
+#: ../resource/ui/PreferencesWindow.ui.h:7
+msgid "Start application as minimized"
+msgstr "Uygulamayı simge durumuna küçültülmüş olarak başlat"
+
+#: ../resource/ui/PreferencesWindow.ui.h:8
+msgid "Start application after system boots"
+msgstr "Sistem yüklendikten sonra uygulamayı başlat"
+
+#: ../resource/ui/PreferencesWindow.ui.h:9
+#: ../resource/ui/ShortcutsWindow.ui.h:2
+msgid "General"
+msgstr "Genel"
+
+#: ../resource/ui/PreferencesWindow.ui.h:10
+msgid "Hardware Acceleration"
+msgstr "Donanım hızlandırma"
+
+#: ../resource/ui/PreferencesWindow.ui.h:11
+msgid "Allow Permissions"
+msgstr "Bildirimlere İzin Ver"
+
+#: ../resource/ui/PreferencesWindow.ui.h:12
+msgid "Set hardware acceleration policy used by webkit"
+msgstr "Webkit tarafından kullanılan donanım hızlandırma politikasını ayarlayın"
+
+#: ../resource/ui/PreferencesWindow.ui.h:13
+msgid "Allow permissions on application startup"
+msgstr "Uygulama başlangıcında bildirimlere izin ver"
+
+#: ../resource/ui/PreferencesWindow.ui.h:14
+msgid "Web"
+msgstr "Ağ"
+
+#: ../resource/ui/ShortcutsWindow.ui.h:1
+msgid "Shortcuts"
+msgstr "Kısayollar"
+
+#: ../resource/ui/ShortcutsWindow.ui.h:3
+msgid "Refresh Page"
+msgstr "Sayfayı yenile"
+
+#: ../resource/ui/ShortcutsWindow.ui.h:4
+msgid "Enter/Exit Fullscreen"
+msgstr "Tam Ekrana Gir/Çık"
+
+#: ../resource/ui/ShortcutsWindow.ui.h:5
+msgid "Show/Hide Header Bar"
+msgstr "Başlık Çubuğunu Göster/Gizle"

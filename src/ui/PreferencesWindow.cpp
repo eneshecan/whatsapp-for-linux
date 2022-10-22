@@ -1,4 +1,5 @@
 #include "PreferencesWindow.hpp"
+#include <glibmm/i18n.h>
 #include "../util/Settings.hpp"
 
 namespace wfl::ui
@@ -26,9 +27,9 @@ namespace wfl::ui
 
         refBuilder->get_widget("combobox_hw_accel", m_comboboxHwAccel);
         m_comboboxHwAccel->signal_changed().connect(sigc::mem_fun(*this, &PreferencesWindow::onHwAccelChanged));
-        m_comboboxHwAccel->append("On Demand");
-        m_comboboxHwAccel->append("Always");
-        m_comboboxHwAccel->append("Never");
+        m_comboboxHwAccel->append(_("On Demand"));
+        m_comboboxHwAccel->append(_("Always"));
+        m_comboboxHwAccel->append(_("Never"));
 
         Gtk::Switch* switchAllowPermissions = nullptr;
         refBuilder->get_widget("switch_allow_permissions", switchAllowPermissions);

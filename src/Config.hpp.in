@@ -8,3 +8,5 @@
 #define WFL_BUILD_DATE    "${WFL_BUILD_DATE}"
 #define WFL_APP_ID        "${WFL_APP_ID}"
 #define WFL_ICON          "${WFL_ICON}"
+#define WFL_LOCALEDIR     "${WFL_LOCALEDIR}"
+#define GETTEXT_PACKAGE   "${GETTEXT_PACKAGE}"

@@ -1,4 +1,5 @@
 #include "MainWindow.hpp"
+#include <glibmm/i18n.h>
 #include <gtkmm/grid.h>
 #include <gtkmm/button.h>
 #include <gtkmm/modelbutton.h>
@@ -274,7 +275,7 @@ namespace wfl::ui
     {
         auto aboutDialog = Gtk::AboutDialog{};
 
-        aboutDialog.set_title("About");
+        aboutDialog.set_title(_("About"));
         aboutDialog.set_version(WFL_VERSION);
         aboutDialog.set_program_name(WFL_FRIENDLY_NAME);
         aboutDialog.set_comments(WFL_DESCRIPTION);

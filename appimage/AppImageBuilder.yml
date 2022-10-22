@@ -18,6 +18,7 @@ AppDir:
       - sourceline: deb http://archive.ubuntu.com/ubuntu/ jammy main restricted universe multiverse
         key_url: 'http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3b4fe6acc0b21f32'
     include:
+      - intltool
       - libgtkmm-3.0-1v5:amd64
       - libwebkit2gtk-4.0-37:amd64
       - libayatana-appindicator3-1:amd64
@@ -282,8 +283,7 @@ AppDir:
       - /lib/x86_64-linux-gnu/libzvbi.so.0
       - /usr/lib/locale/locale-archive
       - /usr/lib/x86_64-linux-gnu/gtk-3.0/3.0.0/immodules.cache
-      - /usr/share//mime//mime.cache
-      - /usr/share//mime/mime.cache
+      - /usr/share/mime/mime.cache
     exclude:
       - usr/share/man
       - usr/share/doc/*/README.*

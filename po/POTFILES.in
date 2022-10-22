@@ -1,0 +1,8 @@
+src/ui/MainWindow.cpp
+src/ui/PreferencesWindow.cpp
+src/ui/TrayIcon.cpp
+src/ui/WebView.cpp
+[type: gettext/glade] resource/ui/MainWindow.ui
+[type: gettext/glade] resource/ui/PhoneNumberDialog.ui
+[type: gettext/glade] resource/ui/PreferencesWindow.ui
+[type: gettext/glade] resource/ui/ShortcutsWindow.ui

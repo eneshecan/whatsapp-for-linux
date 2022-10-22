@@ -3,10 +3,10 @@
 #include <string>
 #include <optional>
 #include <locale>
+#include <glibmm/i18n.h>
 #include <glibmm/main.h>
 #include <gtkmm/messagedialog.h>
 #include <gtkmm/filechooserdialog.h>
-#include "Config.hpp"
 #include "../util/Settings.hpp"
 
 namespace wfl::ui
@@ -31,8 +31,8 @@ namespace wfl::ui
 
         gboolean permissionRequest(WebKitWebView*, WebKitPermissionRequest* request, GtkWindow*)
         {
-            auto dialog = Gtk::MessageDialog{"Notification Request", false, Gtk::MESSAGE_QUESTION, Gtk::BUTTONS_YES_NO};
-            dialog.set_secondary_text("Would you like " WFL_FRIENDLY_NAME " to send you notifications?");
+            auto dialog = Gtk::MessageDialog{_("Notification Request"), false, Gtk::MESSAGE_QUESTION, Gtk::BUTTONS_YES_NO};
+            dialog.set_secondary_text(_("Would you like to allow notifications?"));
 
             auto const allow = (dialog.run() == Gtk::RESPONSE_YES);
             allow ? webkit_permission_request_allow(request) : webkit_permission_request_deny(request);
@@ -66,9 +66,9 @@ namespace wfl::ui
 
         gboolean downloadDecideDestination(WebKitDownload* download, char* suggestedFilename, gpointer)
         {
-            auto dialog = Gtk::FileChooserDialog{"Save File", Gtk::FILE_CHOOSER_ACTION_SAVE};
-            dialog.add_button("Ok", Gtk::RESPONSE_OK);
-            dialog.add_button("Cancel", Gtk::RESPONSE_CANCEL);
+            auto dialog = Gtk::FileChooserDialog{_("Save File"), Gtk::FILE_CHOOSER_ACTION_SAVE};
+            dialog.add_button(_("Ok"), Gtk::RESPONSE_OK);
+            dialog.add_button(_("Cancel"), Gtk::RESPONSE_CANCEL);
             dialog.set_current_name(suggestedFilename);
 
             auto const result = dialog.run();
@@ -304,8 +304,8 @@ namespace wfl::ui
         // Give a second chance to WebView for recovering itself by checking if it stopped responding before
         if (!responsive && m_stoppedResponding)
         {
-            auto dialog = Gtk::MessageDialog{"Unresponsive", false, Gtk::MESSAGE_QUESTION, Gtk::BUTTONS_YES_NO, true};
-            dialog.set_secondary_text(WFL_FRIENDLY_NAME " is not responding. Would you like to reload?");
+            auto dialog = Gtk::MessageDialog{_("Unresponsive"), false, Gtk::MESSAGE_QUESTION, Gtk::BUTTONS_YES_NO, true};
+            dialog.set_secondary_text(_("The application is not responding. Would you like to reload?"));
 
             auto const result = dialog.run();
             switch (result)

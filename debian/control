@@ -4,6 +4,7 @@ Priority: optional
 Maintainer: Enes Hecan <nshecan@gmail.com>
 Build-Depends: cmake,
                debhelper (>=10),
+               intltool,
                libayatana-appindicator3-dev,
                libgtkmm-3.0-dev,
                libwebkit2gtk-4.0-dev,

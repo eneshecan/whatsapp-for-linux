@@ -1,5 +1,6 @@
 #include <clocale>
 #include <iostream>
+#include <glibmm/i18n.h>
 #include "Config.hpp"
 #include "ui/Application.hpp"
 #include "ui/MainWindow.hpp"
@@ -17,6 +18,10 @@ namespace
 int main(int argc, char** argv)
 {
     setlocale(LC_ALL, "");
+
+    bindtextdomain(GETTEXT_PACKAGE, WFL_LOCALEDIR);
+    bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
+    textdomain(GETTEXT_PACKAGE);
 
     auto app = wfl::ui::Application{argc, argv, WFL_APP_ID, Gio::APPLICATION_HANDLES_OPEN};
 

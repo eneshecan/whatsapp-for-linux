@@ -43,6 +43,7 @@ WhatsApp for Linux is an unofficial WhatsApp desktop application written in C++ 
 * Autostart with system
 * Fullscreen mode
 * Show/Hide headerbar by pressing *Alt+H*
+* Localization support in system language
 * Spell check in system language. You might need to install the corresponding dictionary to get this working i.e. `aspell-en` package for English
 * Open chat by phone number
 
@@ -55,6 +56,7 @@ Check out [releases](https://github.com/eneshecan/whatsapp-for-linux/releases) f
 ## Dependencies
 
 * cmake >= 3.12
+* intltool
 * gtkmm-3.0
 * webkit2gtk-4.0
 * ayatana-appindicator3-0.1
