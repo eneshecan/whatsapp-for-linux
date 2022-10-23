@@ -116,7 +116,7 @@ appimage-builder --skip-test --recipe ./appimage/AppImageBuilder.yml
 
 ## Contributing
 
-Please read [contributing](.github/contributing.md).
+Please read [contributing](CONTRIBUTING.md).
 
 ### Code Contributors
 
