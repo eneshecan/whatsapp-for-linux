@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: whatsapp-for-linux\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-23 23:18+0200\n"
+"POT-Creation-Date: 2022-10-26 22:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,17 +17,21 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/ui/MainWindow.cpp:278 ../src/ui/TrayIcon.cpp:46
+#: ../src/ui/MainWindow.cpp:287 ../src/ui/TrayIcon.cpp:46
 #: ../resource/ui/MainWindow.ui.h:4
 msgid "About"
 msgstr ""
 
-#: ../src/ui/MainWindow.cpp:283
-msgid "Github Repository"
+#: ../src/ui/MainWindow.cpp:289 ../resource/ui/MainWindow.ui.h:7
+msgid "WhatsApp for Linux"
 msgstr ""
 
-#: ../src/ui/MainWindow.cpp:281
+#: ../src/ui/MainWindow.cpp:290
 msgid "An unofficial WhatsApp desktop application for Linux"
+msgstr ""
+
+#: ../src/ui/MainWindow.cpp:292
+msgid "Github Repository"
 msgstr ""
 
 #: ../src/ui/PreferencesWindow.cpp:30
@@ -47,7 +51,7 @@ msgid "Show"
 msgstr ""
 
 #: ../src/ui/TrayIcon.cpp:47 ../resource/ui/MainWindow.ui.h:5
-#: ../resource/ui/ShortcutsWindow.ui.h:7
+#: ../resource/ui/ShortcutsWindow.ui.h:8
 msgid "Quit"
 msgstr ""
 
@@ -87,16 +91,12 @@ msgstr ""
 msgid "Preferences"
 msgstr ""
 
-#: ../resource/ui/MainWindow.ui.h:3 ../resource/ui/ShortcutsWindow.ui.h:6
+#: ../resource/ui/MainWindow.ui.h:3 ../resource/ui/ShortcutsWindow.ui.h:7
 msgid "Keyboard Shortcuts"
 msgstr ""
 
 #: ../resource/ui/MainWindow.ui.h:6
 msgid "WhatsApp"
-msgstr ""
-
-#: ../resource/ui/MainWindow.ui.h:7 ../src/ui/MainWindow.cpp:280
-msgid "WhatsApp for Linux"
 msgstr ""
 
 #: ../resource/ui/MainWindow.ui.h:8
@@ -182,4 +182,8 @@ msgstr ""
 
 #: ../resource/ui/ShortcutsWindow.ui.h:5
 msgid "Show/Hide Header Bar"
+msgstr ""
+
+#: ../resource/ui/ShortcutsWindow.ui.h:6
+msgid "Open Preferences"
 msgstr ""

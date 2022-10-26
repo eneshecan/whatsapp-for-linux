@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: whatsapp-for-linux\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-23 23:18+0200\n"
+"POT-Creation-Date: 2022-10-26 22:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Enes Hecan <nshecan@gmail.com>\n"
 "Language-Team: Turkish <>\n"
@@ -17,18 +17,22 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/ui/MainWindow.cpp:278 ../src/ui/TrayIcon.cpp:46
+#: ../src/ui/MainWindow.cpp:287 ../src/ui/TrayIcon.cpp:46
 #: ../resource/ui/MainWindow.ui.h:4
 msgid "About"
 msgstr "Hakkında"
 
-#: ../src/ui/MainWindow.cpp:283
-msgid "Github Repository"
-msgstr "Github"
+#: ../src/ui/MainWindow.cpp:289 ../resource/ui/MainWindow.ui.h:7
+msgid "WhatsApp for Linux"
+msgstr "Linux için WhatsApp"
 
-#: ../src/ui/MainWindow.cpp:281
+#: ../src/ui/MainWindow.cpp:290
 msgid "An unofficial WhatsApp desktop application for Linux"
 msgstr "Linux için resmi olmayan bir WhatsApp masaüstü uygulaması"
+
+#: ../src/ui/MainWindow.cpp:292
+msgid "Github Repository"
+msgstr "Github"
 
 #: ../src/ui/PreferencesWindow.cpp:30
 msgid "On Demand"
@@ -47,7 +51,7 @@ msgid "Show"
 msgstr "Göster"
 
 #: ../src/ui/TrayIcon.cpp:47 ../resource/ui/MainWindow.ui.h:5
-#: ../resource/ui/ShortcutsWindow.ui.h:7
+#: ../resource/ui/ShortcutsWindow.ui.h:8
 msgid "Quit"
 msgstr "Çıkış"
 
@@ -87,17 +91,13 @@ msgstr "Tam Ekran"
 msgid "Preferences"
 msgstr "Tercihler"
 
-#: ../resource/ui/MainWindow.ui.h:3 ../resource/ui/ShortcutsWindow.ui.h:6
+#: ../resource/ui/MainWindow.ui.h:3 ../resource/ui/ShortcutsWindow.ui.h:7
 msgid "Keyboard Shortcuts"
 msgstr "Klavye kısayolları"
 
 #: ../resource/ui/MainWindow.ui.h:6
 msgid "WhatsApp"
 msgstr ""
-
-#: ../resource/ui/MainWindow.ui.h:7 ../src/ui/MainWindow.cpp:280
-msgid "WhatsApp for Linux"
-msgstr "Linux için WhatsApp"
 
 #: ../resource/ui/MainWindow.ui.h:8
 msgid "Refresh"
@@ -183,3 +183,7 @@ msgstr "Tam Ekrana Gir/Çık"
 #: ../resource/ui/ShortcutsWindow.ui.h:5
 msgid "Show/Hide Header Bar"
 msgstr "Başlık Çubuğunu Göster/Gizle"
+
+#: ../resource/ui/ShortcutsWindow.ui.h:6
+msgid "Open Preferences"
+msgstr "Tercihleri Aç"
