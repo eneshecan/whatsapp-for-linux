@@ -4,6 +4,8 @@
   <requires lib="gtk+" version="3.22"/>
   <object class="GtkWindow" id="window_preferences">
     <property name="can-focus">False</property>
+    <property name="modal">True</property>
+    <property name="window-position">center-on-parent</property>
     <property name="default-width">640</property>
     <property name="default-height">360</property>
     <child>
