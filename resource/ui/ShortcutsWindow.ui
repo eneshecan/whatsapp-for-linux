@@ -37,6 +37,13 @@
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="visible">1</property>
+                <property name="accelerator">&lt;ctrl&gt;P</property>
+                <property name="title" translatable="yes">Open Preferences</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">1</property>
                 <property name="accelerator">&lt;ctrl&gt;question</property>
                 <property name="title" translatable="yes">Keyboard Shortcuts</property>
               </object>

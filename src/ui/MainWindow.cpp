@@ -119,6 +119,15 @@ namespace wfl::ui
                 }
                 break;
 
+            case GDK_KEY_P:
+            case GDK_KEY_p:
+                if (keyEvent->state & GDK_CONTROL_MASK)
+                {
+                    onOpenPreferences();
+                    return true;
+                }
+                break;
+
             case GDK_KEY_Q:
             case GDK_KEY_q:
                 if (keyEvent->state & GDK_CONTROL_MASK)
