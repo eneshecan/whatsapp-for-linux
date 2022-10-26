@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: whatsapp-for-linux\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-23 23:14+0200\n"
+"POT-Creation-Date: 2022-10-23 23:18+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Enes Hecan <nshecan@gmail.com>\n"
 "Language-Team: Turkish <>\n"
@@ -21,6 +21,14 @@ msgstr ""
 #: ../resource/ui/MainWindow.ui.h:4
 msgid "About"
 msgstr "Hakkında"
+
+#: ../src/ui/MainWindow.cpp:283
+msgid "Github Repository"
+msgstr "Github"
+
+#: ../src/ui/MainWindow.cpp:281
+msgid "An unofficial WhatsApp desktop application for Linux"
+msgstr "Linux için resmi olmayan bir WhatsApp masaüstü uygulaması"
 
 #: ../src/ui/PreferencesWindow.cpp:30
 msgid "On Demand"
@@ -87,9 +95,9 @@ msgstr "Klavye kısayolları"
 msgid "WhatsApp"
 msgstr ""
 
-#: ../resource/ui/MainWindow.ui.h:7
+#: ../resource/ui/MainWindow.ui.h:7 ../src/ui/MainWindow.cpp:280
 msgid "WhatsApp for Linux"
-msgstr ""
+msgstr "Linux için WhatsApp"
 
 #: ../resource/ui/MainWindow.ui.h:8
 msgid "Refresh"

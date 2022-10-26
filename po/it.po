@@ -25,7 +25,7 @@ msgstr "Informazioni"
 
 #: ../src/ui/MainWindow.cpp:283
 msgid "Github Repository"
-msgstr "GitHub"
+msgstr "Github"
 
 #: ../src/ui/MainWindow.cpp:281
 msgid "An unofficial WhatsApp desktop application for Linux"
