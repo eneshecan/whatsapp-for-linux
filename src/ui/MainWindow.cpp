@@ -277,10 +277,10 @@ namespace wfl::ui
 
         aboutDialog.set_title(_("About"));
         aboutDialog.set_version(WFL_VERSION);
-        aboutDialog.set_program_name(WFL_FRIENDLY_NAME);
-        aboutDialog.set_comments(WFL_DESCRIPTION);
+        aboutDialog.set_program_name(_("WhatsApp for Linux"));
+        aboutDialog.set_comments(_("An unofficial WhatsApp desktop application for Linux"));
         aboutDialog.set_website(WFL_HOMEPAGE);
-        aboutDialog.set_website_label("Github Repository");
+        aboutDialog.set_website_label(_("Github Repository"));
         aboutDialog.set_license_type(Gtk::LICENSE_GPL_3_0);
 
         aboutDialog.set_transient_for(*this);
