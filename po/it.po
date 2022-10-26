@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: whatsapp-for-linux\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-23 23:18+0200\n"
-"PO-Revision-Date: 2022-10-26 19:28+0200\n"
+"PO-Revision-Date: 2022-10-26 19:57+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: it\n"
@@ -22,6 +22,14 @@ msgstr ""
 #: ../resource/ui/MainWindow.ui.h:4
 msgid "About"
 msgstr "Informazioni"
+
+#: ../src/ui/MainWindow.cpp:283
+msgid "Github Repository"
+msgstr "GitHub"
+
+#: ../src/ui/MainWindow.cpp:281
+msgid "An unofficial WhatsApp desktop application for Linux"
+msgstr "Un'applicazione WhatsApp non ufficiale per Linux"
 
 #: ../src/ui/PreferencesWindow.cpp:30
 msgid "On Demand"
@@ -88,7 +96,7 @@ msgstr "Scorciatoie da tastiera"
 msgid "WhatsApp"
 msgstr "WhatsApp"
 
-#: ../resource/ui/MainWindow.ui.h:7
+#: ../resource/ui/MainWindow.ui.h:7 ../src/ui/MainWindow.cpp:280
 msgid "WhatsApp for Linux"
 msgstr "WhatsApp per Linux"
 
