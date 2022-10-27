@@ -33,7 +33,7 @@ msgstr "Un'applicazione WhatsApp non ufficiale per Linux"
 
 #: ../src/ui/MainWindow.cpp:292
 msgid "Github Repository"
-msgstr "Github"
+msgstr "GitHub"
 
 #: ../src/ui/PreferencesWindow.cpp:30
 msgid "On Demand"
@@ -183,4 +183,4 @@ msgstr "Mostra/nascondi barra del titolo"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:6
 msgid "Open Preferences"
-msgstr "Apri Preferenze"
+msgstr "Apri preferenze"
