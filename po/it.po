@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: whatsapp-for-linux\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-26 22:38+0200\n"
+"POT-Creation-Date: 2022-10-27 09:20+0200\n"
 "PO-Revision-Date: 2022-10-26 19:57+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "About"
 msgstr "Informazioni"
 
-#: ../src/ui/MainWindow.cpp:289 ../resource/ui/MainWindow.ui.h:7
+#: ../src/ui/MainWindow.cpp:289 ../resource/ui/MainWindow.ui.h:6
 msgid "WhatsApp for Linux"
 msgstr "WhatsApp per Linux"
 
@@ -96,15 +96,11 @@ msgstr "Preferenze"
 msgid "Keyboard Shortcuts"
 msgstr "Scorciatoie da tastiera"
 
-#: ../resource/ui/MainWindow.ui.h:6
-msgid "WhatsApp"
-msgstr "WhatsApp"
-
-#: ../resource/ui/MainWindow.ui.h:8
+#: ../resource/ui/MainWindow.ui.h:7
 msgid "Refresh"
 msgstr "Ricarica"
 
-#: ../resource/ui/MainWindow.ui.h:9 ../resource/ui/PhoneNumberDialog.ui.h:1
+#: ../resource/ui/MainWindow.ui.h:8 ../resource/ui/PhoneNumberDialog.ui.h:1
 msgid "Open chat by phone number"
 msgstr "Apri chat dal numero di telefono"
 

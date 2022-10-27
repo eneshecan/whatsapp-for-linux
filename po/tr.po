@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: whatsapp-for-linux\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-26 22:38+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"POT-Creation-Date: 2022-10-27 09:20+0200\n"
+"PO-Revision-Date: 2022-10-27 09:20+0200\n"
 "Last-Translator: Enes Hecan <nshecan@gmail.com>\n"
 "Language-Team: Turkish <>\n"
 "Language: tr\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "About"
 msgstr "Hakkında"
 
-#: ../src/ui/MainWindow.cpp:289 ../resource/ui/MainWindow.ui.h:7
+#: ../src/ui/MainWindow.cpp:289 ../resource/ui/MainWindow.ui.h:6
 msgid "WhatsApp for Linux"
 msgstr "Linux için WhatsApp"
 
@@ -95,15 +95,11 @@ msgstr "Tercihler"
 msgid "Keyboard Shortcuts"
 msgstr "Klavye kısayolları"
 
-#: ../resource/ui/MainWindow.ui.h:6
-msgid "WhatsApp"
-msgstr ""
-
-#: ../resource/ui/MainWindow.ui.h:8
+#: ../resource/ui/MainWindow.ui.h:7
 msgid "Refresh"
 msgstr "Yenile"
 
-#: ../resource/ui/MainWindow.ui.h:9 ../resource/ui/PhoneNumberDialog.ui.h:1
+#: ../resource/ui/MainWindow.ui.h:8 ../resource/ui/PhoneNumberDialog.ui.h:1
 msgid "Open chat by phone number"
 msgstr "Telefon numarasıyla sohbeti aç"
 
