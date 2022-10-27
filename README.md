@@ -10,7 +10,7 @@ An unofficial WhatsApp desktop application for Linux.
         <img align="center" alt="Get it from the Snap Store" src="https://snapcraft.io/static/images/badges/en/snap-store-black.svg" width="120">
     </a>
     <a href="https://aur.archlinux.org/packages/whatsapp-for-linux">
-        <img align="center" alt="Get it from the AUR" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Arch_Linux_logo.svg/200px-Arch_Linux_logo.svg.png" width="120">
+        <img align="center" alt="Get it from the AUR" src="https://archlinux.org/static/logos/archlinux-logo-dark-scalable.518881f04ca9.svg" width="120">
     </a>
     <a href="https://gpo.zugaina.org/Overlays/guru/net-im/whatsapp-for-linux">
         <img align="center" alt="Get it from the Gentoo Overlay Guru" src="https://gpo.zugaina.org/img/logo.png" width="120">
