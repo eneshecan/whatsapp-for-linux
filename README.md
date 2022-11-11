@@ -21,6 +21,9 @@ An unofficial WhatsApp desktop application for Linux.
     <a href="https://github.com/OpenMandrivaAssociation/whatsapp-for-linux/tree/master">
         <img align="center" alt="Get it from the OpenMandrive Cooker" src="https://www.openmandriva.org/squelettes/img/OM-300pl.png" width="120">
     </a>
+        <a href="https://madb.mageia.org/package/show/name/whatsapp-for-linux">
+        <img align="center" alt="Get it from Mageia" src="https://www.mageia.org/g/media/logo/mageia-2013.png" width="120">
+    </a>
 </p>
 
 [![Action Status](https://github.com/eneshecan/whatsapp-for-linux/workflows/Build/badge.svg)](https://github.com/eneshecan/whatsapp-for-linux/actions)
