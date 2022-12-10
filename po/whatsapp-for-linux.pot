@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: whatsapp-for-linux\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-27 09:20+0200\n"
+"POT-Creation-Date: 2022-12-10 22:56+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,15 +34,15 @@ msgstr ""
 msgid "Github Repository"
 msgstr ""
 
-#: ../src/ui/PreferencesWindow.cpp:30
+#: ../src/ui/PreferencesWindow.cpp:35
 msgid "On Demand"
 msgstr ""
 
-#: ../src/ui/PreferencesWindow.cpp:31
+#: ../src/ui/PreferencesWindow.cpp:36
 msgid "Always"
 msgstr ""
 
-#: ../src/ui/PreferencesWindow.cpp:32
+#: ../src/ui/PreferencesWindow.cpp:37
 msgid "Never"
 msgstr ""
 
@@ -87,7 +87,7 @@ msgstr ""
 msgid "Fullscreen"
 msgstr ""
 
-#: ../resource/ui/MainWindow.ui.h:2 ../resource/ui/PreferencesWindow.ui.h:15
+#: ../resource/ui/MainWindow.ui.h:2 ../resource/ui/PreferencesWindow.ui.h:18
 msgid "Preferences"
 msgstr ""
 
@@ -145,22 +145,34 @@ msgid "General"
 msgstr ""
 
 #: ../resource/ui/PreferencesWindow.ui.h:10
-msgid "Hardware Acceleration"
+msgid "Prefer Dark Theme"
 msgstr ""
 
 #: ../resource/ui/PreferencesWindow.ui.h:11
-msgid "Allow Permissions"
+msgid "Prefer dark theme for the application if system theme includes a dark variant"
 msgstr ""
 
 #: ../resource/ui/PreferencesWindow.ui.h:12
-msgid "Set hardware acceleration policy used by webkit"
+msgid "Appearance"
 msgstr ""
 
 #: ../resource/ui/PreferencesWindow.ui.h:13
-msgid "Allow permissions on application startup"
+msgid "Hardware Acceleration"
 msgstr ""
 
 #: ../resource/ui/PreferencesWindow.ui.h:14
+msgid "Allow Permissions"
+msgstr ""
+
+#: ../resource/ui/PreferencesWindow.ui.h:15
+msgid "Set hardware acceleration policy used by webkit"
+msgstr ""
+
+#: ../resource/ui/PreferencesWindow.ui.h:16
+msgid "Allow permissions on application startup"
+msgstr ""
+
+#: ../resource/ui/PreferencesWindow.ui.h:17
 msgid "Web"
 msgstr ""
 
