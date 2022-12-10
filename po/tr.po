@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: whatsapp-for-linux\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-27 09:20+0200\n"
+"POT-Creation-Date: 2022-12-10 22:56+0100\n"
 "PO-Revision-Date: 2022-10-27 09:20+0200\n"
 "Last-Translator: Enes Hecan <nshecan@gmail.com>\n"
 "Language-Team: Turkish <>\n"
@@ -34,15 +34,15 @@ msgstr "Linux için resmi olmayan bir WhatsApp masaüstü uygulaması"
 msgid "Github Repository"
 msgstr "Github"
 
-#: ../src/ui/PreferencesWindow.cpp:30
+#: ../src/ui/PreferencesWindow.cpp:35
 msgid "On Demand"
 msgstr "Gerektikçe"
 
-#: ../src/ui/PreferencesWindow.cpp:31
+#: ../src/ui/PreferencesWindow.cpp:36
 msgid "Always"
 msgstr "Daima"
 
-#: ../src/ui/PreferencesWindow.cpp:32
+#: ../src/ui/PreferencesWindow.cpp:37
 msgid "Never"
 msgstr "Asla"
 
@@ -87,7 +87,7 @@ msgstr "Uygulama cevap vermiyor. Yeniden yüklemek ister misiniz?"
 msgid "Fullscreen"
 msgstr "Tam Ekran"
 
-#: ../resource/ui/MainWindow.ui.h:2 ../resource/ui/PreferencesWindow.ui.h:15
+#: ../resource/ui/MainWindow.ui.h:2 ../resource/ui/PreferencesWindow.ui.h:18
 msgid "Preferences"
 msgstr "Tercihler"
 
@@ -109,19 +109,19 @@ msgstr "Telefon numarasını gir (sadece rakamlar)"
 
 #: ../resource/ui/PreferencesWindow.ui.h:1
 msgid "Close to Tray"
-msgstr "Traye küçült"
+msgstr "Traye Küçült"
 
 #: ../resource/ui/PreferencesWindow.ui.h:2
 msgid "Start in Tray"
-msgstr "Trayde başlat"
+msgstr "Trayde Başlat"
 
 #: ../resource/ui/PreferencesWindow.ui.h:3
 msgid "Start Minimized"
-msgstr "Başlangıçta küçült"
+msgstr "Başlangıçta Küçült"
 
 #: ../resource/ui/PreferencesWindow.ui.h:4
 msgid "Autostart"
-msgstr "Otomatik başlat"
+msgstr "Otomatik Başlat"
 
 #: ../resource/ui/PreferencesWindow.ui.h:5
 msgid "Enable tray icon"
@@ -145,22 +145,34 @@ msgid "General"
 msgstr "Genel"
 
 #: ../resource/ui/PreferencesWindow.ui.h:10
-msgid "Hardware Acceleration"
-msgstr "Donanım hızlandırma"
+msgid "Prefer Dark Theme"
+msgstr "Koyu Temayı Tercih Et"
 
 #: ../resource/ui/PreferencesWindow.ui.h:11
+msgid "Prefer dark theme for the application if system theme includes a dark variant"
+msgstr "Sistem teması karanlık bir değişken içeriyorsa, uygulama için koyu temayı tercih et"
+
+#: ../resource/ui/PreferencesWindow.ui.h:12
+msgid "Appearance"
+msgstr "Dış Görünüş"
+
+#: ../resource/ui/PreferencesWindow.ui.h:13
+msgid "Hardware Acceleration"
+msgstr "Donanım Hızlandırma"
+
+#: ../resource/ui/PreferencesWindow.ui.h:14
 msgid "Allow Permissions"
 msgstr "Bildirimlere İzin Ver"
 
-#: ../resource/ui/PreferencesWindow.ui.h:12
+#: ../resource/ui/PreferencesWindow.ui.h:15
 msgid "Set hardware acceleration policy used by webkit"
-msgstr "Webkit tarafından kullanılan donanım hızlandırma politikasını ayarlayın"
+msgstr "Webkit tarafından kullanılan donanım hızlandırma politikasını ayarla"
 
-#: ../resource/ui/PreferencesWindow.ui.h:13
+#: ../resource/ui/PreferencesWindow.ui.h:16
 msgid "Allow permissions on application startup"
 msgstr "Uygulama başlangıcında bildirimlere izin ver"
 
-#: ../resource/ui/PreferencesWindow.ui.h:14
+#: ../resource/ui/PreferencesWindow.ui.h:17
 msgid "Web"
 msgstr "Ağ"
 
@@ -170,7 +182,7 @@ msgstr "Kısayollar"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:3
 msgid "Refresh Page"
-msgstr "Sayfayı yenile"
+msgstr "Sayfayı Yenile"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:4
 msgid "Enter/Exit Fullscreen"
