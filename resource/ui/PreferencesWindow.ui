@@ -128,8 +128,56 @@
             <property name="can-focus">False</property>
             <property name="label" translatable="yes">General</property>
           </object>
+        </child>
+        <child>
+          <!-- n-columns=2 n-rows=1 -->
+          <object class="GtkGrid" id="grid_appearance">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="margin-start">8</property>
+            <property name="margin-end">8</property>
+            <property name="margin-top">8</property>
+            <property name="margin-bottom">8</property>
+            <property name="row-spacing">8</property>
+            <property name="column-spacing">8</property>
+            <property name="column-homogeneous">True</property>
+            <child>
+              <object class="GtkLabel" id="label_prefer_dark_theme">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="halign">start</property>
+                <property name="label" translatable="yes">Prefer Dark Theme</property>
+              </object>
+              <packing>
+                <property name="left-attach">0</property>
+                <property name="top-attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkSwitch" id="switch_prefer_dark_theme">
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="tooltip-text" translatable="yes">Prefer dark theme for the application if system theme includes a dark variant</property>
+                <property name="halign">end</property>
+              </object>
+              <packing>
+                <property name="left-attach">1</property>
+                <property name="top-attach">0</property>
+              </packing>
+            </child>
+          </object>
           <packing>
-            <property name="tab-fill">False</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child type="tab">
+          <object class="GtkLabel" id="label_appearance">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="label" translatable="yes">Appearance</property>
+          </object>
+          <packing>
+            <property name="position">1</property>
           </packing>
         </child>
         <child>
@@ -194,7 +242,7 @@
             </child>
           </object>
           <packing>
-            <property name="position">1</property>
+            <property name="position">2</property>
           </packing>
         </child>
         <child type="tab">
@@ -204,8 +252,7 @@
             <property name="label" translatable="yes">Web</property>
           </object>
           <packing>
-            <property name="position">1</property>
-            <property name="tab-fill">False</property>
+            <property name="position">2</property>
           </packing>
         </child>
       </object>

@@ -1,5 +1,6 @@
 #include "PreferencesWindow.hpp"
 #include <glibmm/i18n.h>
+#include <gtkmm/settings.h>
 #include "../util/Settings.hpp"
 
 namespace wfl::ui
@@ -25,6 +26,10 @@ namespace wfl::ui
         refBuilder->get_widget("switch_autostart", switchAutostart);
         switchAutostart->signal_state_set().connect(sigc::mem_fun(*this, &PreferencesWindow::onAutostartChanged), false);
 
+        Gtk::Switch* switchPreferDarkTheme = nullptr;
+        refBuilder->get_widget("switch_prefer_dark_theme", switchPreferDarkTheme);
+        switchPreferDarkTheme->signal_state_set().connect(sigc::mem_fun(*this, &PreferencesWindow::onPreferDarkThemeChanged), false);
+
         refBuilder->get_widget("combobox_hw_accel", m_comboboxHwAccel);
         m_comboboxHwAccel->signal_changed().connect(sigc::mem_fun(*this, &PreferencesWindow::onHwAccelChanged));
         m_comboboxHwAccel->append(_("On Demand"));
@@ -40,6 +45,7 @@ namespace wfl::ui
         m_switchStartInTray->set_sensitive(m_trayIcon->isVisible());
         m_switchStartMinimized->set_state(util::Settings::getInstance().getValue<bool>("general", "start-minimized"));
         switchAutostart->set_state(util::Settings::getInstance().getValue<bool>("general", "autostart"));
+        switchPreferDarkTheme->set_state(util::Settings::getInstance().getValue<bool>("appearance", "prefer-dark-theme"));
         m_comboboxHwAccel->set_active(util::Settings::getInstance().getValue<int>("web", "hw-accel", 1));
         switchAllowPermissions->set_state(util::Settings::getInstance().getValue<bool>("web", "allow-permissions"));
     }
@@ -91,6 +97,16 @@ namespace wfl::ui
         return false;
     }
 
+    bool PreferencesWindow::onPreferDarkThemeChanged(bool state) const
+    {
+        auto const settings = Gtk::Settings::get_default();
+        settings->property_gtk_application_prefer_dark_theme().set_value(state);
+
+        util::Settings::getInstance().setValue("appearance", "prefer-dark-theme", state);
+
+        return false;
+    }
+
     bool PreferencesWindow::onAllowPermissionsChanged(bool state) const
     {
         util::Settings::getInstance().setValue("web", "allow-permissions", state);
@@ -98,7 +114,7 @@ namespace wfl::ui
         return false;
     }
 
-    void PreferencesWindow::onHwAccelChanged()
+    void PreferencesWindow::onHwAccelChanged() const
     {
         auto active = m_comboboxHwAccel->get_active_row_number();
         m_webView->setHwAccelPolicy(static_cast<WebKitHardwareAccelerationPolicy>(active));

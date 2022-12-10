@@ -20,8 +20,9 @@ namespace wfl::ui
             bool onStartInTrayChanged(bool state) const;
             bool onStartMinimizedChanged(bool state) const;
             bool onAutostartChanged(bool state) const;
+            bool onPreferDarkThemeChanged(bool state) const;
             bool onAllowPermissionsChanged(bool state) const;
-            void onHwAccelChanged();
+            void onHwAccelChanged() const;
 
         private:
             TrayIcon*          m_trayIcon;

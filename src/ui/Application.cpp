@@ -1,4 +1,6 @@
 #include "Application.hpp"
+#include <gtkmm/settings.h>
+#include "../util/Settings.hpp"
 
 namespace wfl::ui
 {
@@ -39,5 +41,14 @@ namespace wfl::ui
             Gtk::Application::release();
             m_onHold = false;
         }
+    }
+
+    void Application::on_activate()
+    {
+        auto const settings = Gtk::Settings::get_default();
+        auto const preferDark = util::Settings::getInstance().getValue<bool>("appearance", "prefer-dark-theme");
+        settings->property_gtk_application_prefer_dark_theme().set_value(preferDark);
+
+        Gtk::Application::on_activate();
     }
 }

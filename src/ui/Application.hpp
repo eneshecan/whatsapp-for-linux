@@ -17,6 +17,9 @@ namespace wfl::ui
             void keepAlive();
             void endKeepAlive();
 
+        protected:
+            virtual void on_activate() override;
+
         private:
             static Application* m_instance;
 
