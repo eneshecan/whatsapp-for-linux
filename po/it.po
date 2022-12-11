@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: whatsapp-for-linux\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-27 09:20+0200\n"
-"PO-Revision-Date: 2022-10-26 19:57+0200\n"
+"POT-Creation-Date: 2022-12-10 22:56+0100\n"
+"PO-Revision-Date: 2022-12-11 17:15+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: ../src/ui/MainWindow.cpp:287 ../src/ui/TrayIcon.cpp:46
 #: ../resource/ui/MainWindow.ui.h:4
@@ -35,15 +35,15 @@ msgstr "Un'applicazione WhatsApp non ufficiale per Linux"
 msgid "Github Repository"
 msgstr "GitHub"
 
-#: ../src/ui/PreferencesWindow.cpp:30
+#: ../src/ui/PreferencesWindow.cpp:35
 msgid "On Demand"
 msgstr "Manuale"
 
-#: ../src/ui/PreferencesWindow.cpp:31
+#: ../src/ui/PreferencesWindow.cpp:36
 msgid "Always"
 msgstr "Sempre"
 
-#: ../src/ui/PreferencesWindow.cpp:32
+#: ../src/ui/PreferencesWindow.cpp:37
 msgid "Never"
 msgstr "Mai"
 
@@ -88,7 +88,7 @@ msgstr "L'applicazione non risponde. Ricaricare?"
 msgid "Fullscreen"
 msgstr "Schermo intero"
 
-#: ../resource/ui/MainWindow.ui.h:2 ../resource/ui/PreferencesWindow.ui.h:15
+#: ../resource/ui/MainWindow.ui.h:2 ../resource/ui/PreferencesWindow.ui.h:18
 msgid "Preferences"
 msgstr "Preferenze"
 
@@ -146,22 +146,34 @@ msgid "General"
 msgstr "Generale"
 
 #: ../resource/ui/PreferencesWindow.ui.h:10
+msgid "Prefer Dark Theme"
+msgstr "Preferisci tema scuro"
+
+#: ../resource/ui/PreferencesWindow.ui.h:11
+msgid "Prefer dark theme for the application if system theme includes a dark variant"
+msgstr "Usa un tema scuro se il tema di sistema include una variante scura"
+
+#: ../resource/ui/PreferencesWindow.ui.h:12
+msgid "Appearance"
+msgstr "Aspetto"
+
+#: ../resource/ui/PreferencesWindow.ui.h:13
 msgid "Hardware Acceleration"
 msgstr "Accelerazione hardware"
 
-#: ../resource/ui/PreferencesWindow.ui.h:11
+#: ../resource/ui/PreferencesWindow.ui.h:14
 msgid "Allow Permissions"
 msgstr "Consenti permessi"
 
-#: ../resource/ui/PreferencesWindow.ui.h:12
+#: ../resource/ui/PreferencesWindow.ui.h:15
 msgid "Set hardware acceleration policy used by webkit"
 msgstr "Imposta la politica di accelerazione hardware usata da webkit"
 
-#: ../resource/ui/PreferencesWindow.ui.h:13
+#: ../resource/ui/PreferencesWindow.ui.h:16
 msgid "Allow permissions on application startup"
 msgstr "Consenti i permessi all'avvio dell'applicazione"
 
-#: ../resource/ui/PreferencesWindow.ui.h:14
+#: ../resource/ui/PreferencesWindow.ui.h:17
 msgid "Web"
 msgstr "Web"
 
