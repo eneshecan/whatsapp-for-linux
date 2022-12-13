@@ -1,11 +1,11 @@
 cmake_minimum_required(VERSION 3.12)
 project(
-    whatsapp-for-linux
-    VERSION 1.5.0
-    DESCRIPTION "An unofficial WhatsApp desktop application for Linux"
-    HOMEPAGE_URL "https://github.com/eneshecan/whatsapp-for-linux"
-    LANGUAGES C CXX
-)
+        whatsapp-for-linux
+        VERSION 1.5.1
+        DESCRIPTION "An unofficial WhatsApp desktop application for Linux"
+        HOMEPAGE_URL "https://github.com/eneshecan/whatsapp-for-linux"
+        LANGUAGES C CXX
+    )
 
 include(GNUInstallDirs)
 
