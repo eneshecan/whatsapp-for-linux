@@ -159,7 +159,7 @@ namespace wfl::ui
         return Gtk::ApplicationWindow::on_window_state_event(windowStateEvent);
     }
 
-    bool MainWindow::on_delete_event(GdkEventAny* any_event)
+    bool MainWindow::on_delete_event(GdkEventAny*)
     {
         if (m_trayIcon.isVisible())
         {
@@ -289,7 +289,7 @@ namespace wfl::ui
         aboutDialog.set_program_name(_("WhatsApp for Linux"));
         aboutDialog.set_comments(_("An unofficial WhatsApp desktop application for Linux"));
         aboutDialog.set_website(WFL_HOMEPAGE);
-        aboutDialog.set_website_label(_("Github Repository"));
+        aboutDialog.set_website_label(_("GitHub Repository"));
         aboutDialog.set_license_type(Gtk::LICENSE_GPL_3_0);
 
         aboutDialog.set_transient_for(*this);

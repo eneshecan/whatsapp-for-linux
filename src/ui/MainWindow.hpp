@@ -24,7 +24,7 @@ namespace wfl::ui
         protected:
             bool on_key_press_event(GdkEventKey* keyEvent) override;
             bool on_window_state_event(GdkEventWindowState* windowStateEvent) override;
-            bool on_delete_event(GdkEventAny* any_event) override;
+            bool on_delete_event(GdkEventAny*) override;
 
         private:
             void onRefresh();
