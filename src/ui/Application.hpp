@@ -4,8 +4,7 @@
 
 namespace wfl::ui
 {
-    class Application
-        : public Gtk::Application
+    class Application : public Gtk::Application
     {
         public:
             static Application& getInstance();

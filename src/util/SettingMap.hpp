@@ -28,9 +28,7 @@ namespace wfl::util
 
 
 
-    inline SettingMap::SettingMap()
-        : m_map{}
-    {}
+    inline SettingMap::SettingMap() = default;
 
     inline bool SettingMap::loadFromFile(std::string const& fileName)
     {

@@ -50,7 +50,7 @@ IndentExternBlock: AfterExternBlock
 IndentPPDirectives: None
 IndentWrappedFunctionNames: false
 InsertTrailingCommas: None
-MaxEmptyLinesToKeep: 2
+MaxEmptyLinesToKeep: 4
 NamespaceIndentation: All
 PointerAlignment: Left
 ReflowComments: false

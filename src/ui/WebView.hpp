@@ -10,8 +10,7 @@ namespace wfl::ui
         void loadChanged(WebKitWebView*, WebKitLoadEvent loadEvent, gpointer userData);
     }
 
-    class WebView
-        : public Gtk::Widget
+    class WebView : public Gtk::Widget
     {
         public:
             WebView();

@@ -10,7 +10,7 @@ namespace wfl::util
             static Settings& getInstance();
 
         public:
-            Settings(Settings const&) = delete;
+            Settings(Settings const&)            = delete;
             Settings& operator=(Settings const&) = delete;
 
         public:

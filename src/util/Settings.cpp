@@ -64,19 +64,20 @@ namespace wfl::util
         auto destDesktopFile = Gio::File::create_for_path(AUTOSTART_DESKTOP_FILE_PATH);
         if (autostart)
         {
-            constexpr auto const possible_desktop_file_paths = std::array<char const*, 3>{
-                "/usr/local/share/applications/" WFL_APP_ID ".desktop",
-                "/usr/share/applications/" WFL_APP_ID ".desktop",
-                "/snap/whatsapp-for-linux/current/share/applications/" WFL_APP_ID ".desktop"
-            };
+            constexpr auto const possibleDesktopFilePaths
+                = std::array<char const*, 3>{"/usr/local/share/applications/" WFL_APP_ID ".desktop",
+                                             "/usr/share/applications/" WFL_APP_ID ".desktop",
+                                             "/snap/whatsapp-for-linux/current/share/applications/" WFL_APP_ID ".desktop"};
 
-            auto const it = std::find_if(possible_desktop_file_paths.begin(), possible_desktop_file_paths.end(),[](auto const& elem)
-                {
-                    auto const file = Gio::File::create_for_path(elem);
-                    return file->query_exists();
-                });
+            auto const it = std::find_if(possibleDesktopFilePaths.begin(),
+                                         possibleDesktopFilePaths.end(),
+                                         [](auto const& elem)
+                                         {
+                                             auto const file = Gio::File::create_for_path(elem);
+                                             return file->query_exists();
+                                         });
 
-            if (it == possible_desktop_file_paths.end())
+            if (it == possibleDesktopFilePaths.end())
             {
                 std::cerr << "Settings: Failed to find desktop file" << std::endl;
                 return;

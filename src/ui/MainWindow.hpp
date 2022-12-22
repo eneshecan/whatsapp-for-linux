@@ -12,8 +12,7 @@
 
 namespace wfl::ui
 {
-    class MainWindow
-        : public Gtk::ApplicationWindow
+    class MainWindow : public Gtk::ApplicationWindow
     {
         public:
             MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const& refBuilder);

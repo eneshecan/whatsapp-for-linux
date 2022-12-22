@@ -48,9 +48,9 @@ namespace wfl::ui
                 case WEBKIT_POLICY_DECISION_TYPE_NEW_WINDOW_ACTION:
                 {
                     auto const navigationDecision = WEBKIT_NAVIGATION_POLICY_DECISION(decision);
-                    auto const navigationAction = webkit_navigation_policy_decision_get_navigation_action(navigationDecision);
-                    auto const request = webkit_navigation_action_get_request(navigationAction);
-                    auto const uri = webkit_uri_request_get_uri(request);
+                    auto const navigationAction   = webkit_navigation_policy_decision_get_navigation_action(navigationDecision);
+                    auto const request            = webkit_navigation_action_get_request(navigationAction);
+                    auto const uri                = webkit_uri_request_get_uri(request);
 
                     if (GError* error = nullptr; !gtk_show_uri_on_window(nullptr, uri, GDK_CURRENT_TIME, &error))
                     {
@@ -97,9 +97,9 @@ namespace wfl::ui
         {
             if (util::Settings::getInstance().getValue<bool>("web", "allow-permissions"))
             {
-                auto const origin = webkit_security_origin_new_for_uri(WHATSAPP_WEB_URI);
+                auto const origin         = webkit_security_origin_new_for_uri(WHATSAPP_WEB_URI);
                 auto const allowedOrigins = g_list_alloc();
-                allowedOrigins->data = origin;
+                allowedOrigins->data      = origin;
 
                 webkit_web_context_initialize_notification_permissions(context, allowedOrigins, nullptr);
 
@@ -225,14 +225,14 @@ namespace wfl::ui
 
             auto script = std::string{};
             script.append("(function(){"
-                "var a = document.createElement(\"a\");"
-                "a.href = \"");
+                          "var a = document.createElement(\"a\");"
+                          "a.href = \"");
             script.append(url);
             script.append("\";"
-                "document.body.appendChild(a);"
-                "a.click();"
-                "a.remove();"
-                "})();");
+                          "document.body.appendChild(a);"
+                          "a.click();"
+                          "a.remove();"
+                          "})();");
 
             webkit_web_view_run_javascript(*this, script.c_str(), nullptr, nullptr, nullptr);
         }

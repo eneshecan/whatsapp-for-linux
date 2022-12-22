@@ -7,8 +7,7 @@
 
 namespace wfl::ui
 {
-    class PhoneNumberDialog
-        : public Gtk::Dialog
+    class PhoneNumberDialog : public Gtk::Dialog
     {
         public:
             PhoneNumberDialog(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const& refBuilder);

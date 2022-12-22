@@ -42,18 +42,18 @@ namespace wfl::ui
         app_indicator_set_icon_full(m_appIndicator, trayIconName, WFL_FRIENDLY_NAME " Tray");
         app_indicator_set_attention_icon_full(m_appIndicator, attentionIconName, WFL_FRIENDLY_NAME "Tray Attention");
 
-        auto const showMenuItem = Gtk::manage(new Gtk::MenuItem{_("Show")});
+        auto const showMenuItem  = Gtk::manage(new Gtk::MenuItem{_("Show")});
         auto const aboutMenuItem = Gtk::manage(new Gtk::MenuItem{_("About")});
-        auto const quitMenuItem = Gtk::manage(new Gtk::MenuItem{_("Quit")});
+        auto const quitMenuItem  = Gtk::manage(new Gtk::MenuItem{_("Quit")});
         m_popupMenu.append(*showMenuItem);
         m_popupMenu.append(*aboutMenuItem);
         m_popupMenu.append(*quitMenuItem);
 
         app_indicator_set_menu(m_appIndicator, m_popupMenu.gobj());
 
-        showMenuItem->signal_activate().connect([this]{ m_signalShow.emit(); });
-        aboutMenuItem->signal_activate().connect([this]{ m_signalAbout.emit(); });
-        quitMenuItem->signal_activate().connect([this]{ m_signalQuit.emit(); });
+        showMenuItem->signal_activate().connect([this] { m_signalShow.emit(); });
+        aboutMenuItem->signal_activate().connect([this] { m_signalAbout.emit(); });
+        quitMenuItem->signal_activate().connect([this] { m_signalQuit.emit(); });
 
         m_popupMenu.show_all();
 

@@ -9,8 +9,7 @@
 
 namespace wfl::ui
 {
-    class PreferencesWindow
-        : public Gtk::Window
+    class PreferencesWindow : public Gtk::Window
     {
         public:
             PreferencesWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const& refBuilder, TrayIcon& trayIcon, WebView& webView);

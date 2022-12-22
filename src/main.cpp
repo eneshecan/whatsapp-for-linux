@@ -27,7 +27,7 @@ int main(int argc, char** argv)
 
     wfl::util::redirectOutputToLogger();
 
-    signal(SIGINT,  sigterm);
+    signal(SIGINT, sigterm);
     signal(SIGTERM, sigterm);
     signal(SIGPIPE, SIG_IGN);
 
@@ -47,7 +47,8 @@ int main(int argc, char** argv)
         return 1;
     }
 
-    app.signal_open().connect([&app, &mainWindow](Gtk::Application::type_vec_files const& files, const Glib::ustring&)
+    app.signal_open().connect(
+        [&app, &mainWindow](Gtk::Application::type_vec_files const& files, const Glib::ustring&)
         {
             if (!files.empty())
             {
