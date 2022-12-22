@@ -152,7 +152,7 @@ namespace wfl::ui
         return Gtk::ApplicationWindow::on_key_press_event(keyEvent);
     }
 
-    bool MainWindow::on_window_state_event(GdkEventWindowState *windowStateEvent)
+    bool MainWindow::on_window_state_event(GdkEventWindowState* windowStateEvent)
     {
         m_fullscreen = (windowStateEvent->new_window_state & GDK_WINDOW_STATE_FULLSCREEN);
 
