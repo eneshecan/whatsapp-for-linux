@@ -26,7 +26,7 @@ An unofficial WhatsApp desktop application for Linux.
     </a>
 </p>
 
-[![Action Status](https://github.com/eneshecan/whatsapp-for-linux/workflows/Lint/badge.svg)](https://github.com/eneshecan/whatsapp-for-linux/actions/workflows/lint.yml)
+[![Action Status](https://github.com/eneshecan/whatsapp-for-linux/workflows/Linter/badge.svg)](https://github.com/eneshecan/whatsapp-for-linux/actions/workflows/linter.yml)
 [![Action Status](https://github.com/eneshecan/whatsapp-for-linux/workflows/Build/badge.svg)](https://github.com/eneshecan/whatsapp-for-linux/actions/workflows/build.yml)
 [![Action Status](https://github.com/eneshecan/whatsapp-for-linux/workflows/Install/badge.svg)](https://github.com/eneshecan/whatsapp-for-linux/actions/workflows/install.yml)
 [![Action Status](https://github.com/eneshecan/whatsapp-for-linux/workflows/Release/badge.svg)](https://github.com/eneshecan/whatsapp-for-linux/actions/workflows/release.yml)
