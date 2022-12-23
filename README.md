@@ -53,7 +53,7 @@ Check out [wiki](https://github.com/eneshecan/whatsapp-for-linux/wiki) for furth
 * Open chat by phone number
 
 
-## Using Whatsapp for Linux
+## Using WhatsApp for Linux
 
 The application is available from a number of Linux distributions:
 
