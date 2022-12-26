@@ -67,6 +67,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           onlyLastTag: true
+          unreleased: false
           stripGeneratorNotice: true
 
       - name: Create Release
