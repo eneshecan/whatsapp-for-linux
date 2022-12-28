@@ -147,6 +147,18 @@ msgid "General"
 msgstr "Общие"
 
 #: ../resource/ui/PreferencesWindow.ui.h:10
+msgid "Prefer Dark Theme"
+msgstr "Предпочитать Тёмную Тему"
+
+#: ../resource/ui/PreferencesWindow.ui.h:11
+msgid "Prefer dark theme for the application if system theme includes a dark variant"
+msgstr "Предпочитать тёмную тему, если система предусматривает тёмный вариант"
+
+#: ../resource/ui/PreferencesWindow.ui.h:12
+msgid "Appearance"
+msgstr "Внешний вид"
+
+#: ../resource/ui/PreferencesWindow.ui.h:10
 msgid "Hardware Acceleration"
 msgstr "Аппаратное ускорение"
 
