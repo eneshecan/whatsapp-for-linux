@@ -21,7 +21,7 @@ msgid "An unofficial WhatsApp desktop application for Linux"
 msgstr "An unofficial WhatsApp desktop application for Linux"
 
 #: ../src/ui/MainWindow.cpp:292
-msgid "Github Repository"
+msgid "GitHub Repository"
 msgstr "GitHub Repository"
 
 #: ../src/ui/PreferencesWindow.cpp:35
@@ -185,8 +185,3 @@ msgstr "Show/Hide Header Bar"
 #: ../resource/ui/ShortcutsWindow.ui.h:6
 msgid "Open Preferences"
 msgstr "Open Preferences"
-
-#: ../src/ui/MainWindow.cpp:292
-msgid "GitHub Repository"
-msgstr "GitHub Repository"
-
