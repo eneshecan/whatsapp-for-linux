@@ -32,7 +32,7 @@ msgid "An unofficial WhatsApp desktop application for Linux"
 msgstr "Un'applicazione WhatsApp non ufficiale per Linux"
 
 #: ../src/ui/MainWindow.cpp:292
-msgid "Github Repository"
+msgid "GitHub Repository"
 msgstr "GitHub"
 
 #: ../src/ui/PreferencesWindow.cpp:35

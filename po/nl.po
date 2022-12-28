@@ -32,8 +32,8 @@ msgid "An unofficial WhatsApp desktop application for Linux"
 msgstr "Een onofficiële WhatsApp-desktoptoepassing voor Linux"
 
 #: ../src/ui/MainWindow.cpp:292
-msgid "Github Repository"
-msgstr "Github"
+msgid "GitHub Repository"
+msgstr "GitHub"
 
 #: ../src/ui/PreferencesWindow.cpp:35
 msgid "On Demand"
