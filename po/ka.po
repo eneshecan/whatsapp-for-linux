@@ -1,0 +1,198 @@
+# Georgian translation for whatsapp-for-linux
+# Copyright (C) 2023 whatsapp-for-linux authors
+# This file is distributed under the same license as the whatsapp-for-linux package.
+# Ekaterine Papava <katopapava@gmail.com>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: whatsapp-for-linux\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-10 22:56+0100\n"
+"PO-Revision-Date: 2023-01-07 12:25+0100\n"
+"Last-Translator: Ekaterine Papava <katopapava@gmail.com>\n"
+"Language-Team: Georgian <(nothing)>\n"
+"Language: ka\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.2.2\n"
+
+#: ../src/ui/MainWindow.cpp:287 ../src/ui/TrayIcon.cpp:46
+#: ../resource/ui/MainWindow.ui.h:4
+msgid "About"
+msgstr "შესახებ"
+
+#: ../src/ui/MainWindow.cpp:289 ../resource/ui/MainWindow.ui.h:6
+msgid "WhatsApp for Linux"
+msgstr "WhatsApp-ი ლინუქსისთვის"
+
+#: ../src/ui/MainWindow.cpp:290
+msgid "An unofficial WhatsApp desktop application for Linux"
+msgstr "WhatsApp-ის არაოფიციალური აპლიკაცია ლინუქსისთვის"
+
+#: ../src/ui/MainWindow.cpp:292
+msgid "GitHub Repository"
+msgstr "GitHub -ის რეპოზიტორია"
+
+#: ../src/ui/PreferencesWindow.cpp:35
+msgid "On Demand"
+msgstr "საჭიროებისამებრ"
+
+#: ../src/ui/PreferencesWindow.cpp:36
+msgid "Always"
+msgstr "ყოველთვის"
+
+#: ../src/ui/PreferencesWindow.cpp:37
+msgid "Never"
+msgstr "არასოდეს"
+
+#: ../src/ui/TrayIcon.cpp:45
+msgid "Show"
+msgstr "ჩვენება"
+
+#: ../src/ui/TrayIcon.cpp:47 ../resource/ui/MainWindow.ui.h:5
+#: ../resource/ui/ShortcutsWindow.ui.h:8
+msgid "Quit"
+msgstr "&გასვლა"
+
+#: ../src/ui/WebView.cpp:34
+msgid "Notification Request"
+msgstr "გაფრთხილების მოთხოვნა"
+
+#: ../src/ui/WebView.cpp:35
+msgid "Would you like to allow notifications?"
+msgstr "გნებავთ, დაუშვათ გაფრთხილებები?"
+
+#: ../src/ui/WebView.cpp:69
+msgid "Save File"
+msgstr "ფაილის შენახვა"
+
+#: ../src/ui/WebView.cpp:70
+msgid "Ok"
+msgstr "დიახ"
+
+#: ../src/ui/WebView.cpp:71
+msgid "Cancel"
+msgstr "გაუქმენა"
+
+#: ../src/ui/WebView.cpp:307
+msgid "Unresponsive"
+msgstr "არ პასუხობს"
+
+#: ../src/ui/WebView.cpp:308
+msgid "The application is not responding. Would you like to reload?"
+msgstr "აპლიკაცია არ პასუხობს. გნებავთ, გადატვირთოთ?"
+
+#: ../resource/ui/MainWindow.ui.h:1
+msgid "Fullscreen"
+msgstr "მთელ ეკრანზე"
+
+#: ../resource/ui/MainWindow.ui.h:2 ../resource/ui/PreferencesWindow.ui.h:18
+msgid "Preferences"
+msgstr "მორგება"
+
+#: ../resource/ui/MainWindow.ui.h:3 ../resource/ui/ShortcutsWindow.ui.h:7
+msgid "Keyboard Shortcuts"
+msgstr "სხარტი კლავიშები"
+
+#: ../resource/ui/MainWindow.ui.h:7
+msgid "Refresh"
+msgstr "განახლება"
+
+#: ../resource/ui/MainWindow.ui.h:8 ../resource/ui/PhoneNumberDialog.ui.h:1
+msgid "Open chat by phone number"
+msgstr "ტელეფონის ნომერთან სასაუბროს გახსნა"
+
+#: ../resource/ui/PhoneNumberDialog.ui.h:2
+msgid "Enter phone number (only digits)"
+msgstr "შეიყვანეთ ტელეფონის ნომერი (მხოლოდ ციფრები)"
+
+#: ../resource/ui/PreferencesWindow.ui.h:1
+msgid "Close to Tray"
+msgstr "სისტემური პანელის ხატულაში ჩახურვა"
+
+#: ../resource/ui/PreferencesWindow.ui.h:2
+msgid "Start in Tray"
+msgstr "სისტემური პანელის ხატულაში გაშვება"
+
+#: ../resource/ui/PreferencesWindow.ui.h:3
+msgid "Start Minimized"
+msgstr "ჩაკეცილად გაშვება"
+
+#: ../resource/ui/PreferencesWindow.ui.h:4
+msgid "Autostart"
+msgstr "ავტომატური გაშვება"
+
+#: ../resource/ui/PreferencesWindow.ui.h:5
+msgid "Enable tray icon"
+msgstr "სისტემის კუთხეში ხატულის ჩართვა"
+
+#: ../resource/ui/PreferencesWindow.ui.h:6
+msgid "Start application as closed to tray"
+msgstr "აპლიკაციის სისტემის კუთხეში, დახურულად გაშვება"
+
+#: ../resource/ui/PreferencesWindow.ui.h:7
+msgid "Start application as minimized"
+msgstr "აპლიკაციის ჩაკეცილად გაშვება"
+
+#: ../resource/ui/PreferencesWindow.ui.h:8
+msgid "Start application after system boots"
+msgstr "აპლიკაციის სისტემის ჩატვირთვისას გაშვება"
+
+#: ../resource/ui/PreferencesWindow.ui.h:9
+#: ../resource/ui/ShortcutsWindow.ui.h:2
+msgid "General"
+msgstr "მთავარი"
+
+#: ../resource/ui/PreferencesWindow.ui.h:10
+msgid "Prefer Dark Theme"
+msgstr "მუქი თემის არჩევანი"
+
+#: ../resource/ui/PreferencesWindow.ui.h:11
+msgid "Prefer dark theme for the application if system theme includes a dark variant"
+msgstr "თუ სისტემის თემა შეიცავს მუქ თემას, აპლიკაციაშიც მუქი თემის გამოყენება"
+
+#: ../resource/ui/PreferencesWindow.ui.h:12
+msgid "Appearance"
+msgstr "გარემოს იერსახე"
+
+#: ../resource/ui/PreferencesWindow.ui.h:13
+msgid "Hardware Acceleration"
+msgstr "აპარატურული აჩქარება"
+
+#: ../resource/ui/PreferencesWindow.ui.h:14
+msgid "Allow Permissions"
+msgstr "წვდომების დაშვება"
+
+#: ../resource/ui/PreferencesWindow.ui.h:15
+msgid "Set hardware acceleration policy used by webkit"
+msgstr "Webkit-ის მიერ აპარატურული აჩქარების გამოყენების პოლიტიკის დაყენება"
+
+#: ../resource/ui/PreferencesWindow.ui.h:16
+msgid "Allow permissions on application startup"
+msgstr "წვდომების დაშვება აპლიკაციის გაშვებისას"
+
+#: ../resource/ui/PreferencesWindow.ui.h:17
+msgid "Web"
+msgstr "ვები"
+
+#: ../resource/ui/ShortcutsWindow.ui.h:1
+msgid "Shortcuts"
+msgstr "მალსახმობები"
+
+#: ../resource/ui/ShortcutsWindow.ui.h:3
+msgid "Refresh Page"
+msgstr "გვერდის განახლება"
+
+#: ../resource/ui/ShortcutsWindow.ui.h:4
+msgid "Enter/Exit Fullscreen"
+msgstr "სრული ეკრანის ჩართ/გამორთ"
+
+#: ../resource/ui/ShortcutsWindow.ui.h:5
+msgid "Show/Hide Header Bar"
+msgstr "თავსართის ზოლის ჩვენება/დამალვა"
+
+#: ../resource/ui/ShortcutsWindow.ui.h:6
+msgid "Open Preferences"
+msgstr "მორგების ფანჯრის გახსნა"
