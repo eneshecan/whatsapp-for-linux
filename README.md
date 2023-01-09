@@ -96,6 +96,14 @@ make update-translation
 make install
 ```
 
+### Uninstall
+
+```bash
+# Run inside the build directory if you want to uninstall all files
+# install_manifest.txt file is created when you run make install
+xargs rm < install_manifest.txt
+```
+
 
 ## Packaging
 
