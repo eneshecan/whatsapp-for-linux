@@ -1,0 +1,198 @@
+# Template translation file for whatsapp-for-linux
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the whatsapp-for-linux package.
+# Claudio Ferreira <filhocf@gmail.com>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: whatsapp-for-linux\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-10 22:56+0100\n"
+"PO-Revision-Date: 2022-12-26 15:57-0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pt-br\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.1.1\n"
+
+#: ../src/ui/MainWindow.cpp:287 ../src/ui/TrayIcon.cpp:46
+#: ../resource/ui/MainWindow.ui.h:4
+msgid "About"
+msgstr "Sobre"
+
+#: ../src/ui/MainWindow.cpp:289 ../resource/ui/MainWindow.ui.h:6
+msgid "WhatsApp for Linux"
+msgstr "WhatsApp para Linux"
+
+#: ../src/ui/MainWindow.cpp:290
+msgid "An unofficial WhatsApp desktop application for Linux"
+msgstr "Aplicação não oficial de WhatsApp para Linux"
+
+#: ../src/ui/MainWindow.cpp:292
+msgid "GitHub Repository"
+msgstr "Repositório GitHub"
+
+#: ../src/ui/PreferencesWindow.cpp:35
+msgid "On Demand"
+msgstr "Sob demanda"
+
+#: ../src/ui/PreferencesWindow.cpp:36
+msgid "Always"
+msgstr "Sempre"
+
+#: ../src/ui/PreferencesWindow.cpp:37
+msgid "Never"
+msgstr "Nunca"
+
+#: ../src/ui/TrayIcon.cpp:45
+msgid "Show"
+msgstr "Mostrar"
+
+#: ../src/ui/TrayIcon.cpp:47 ../resource/ui/MainWindow.ui.h:5
+#: ../resource/ui/ShortcutsWindow.ui.h:8
+msgid "Quit"
+msgstr "Sair"
+
+#: ../src/ui/WebView.cpp:34
+msgid "Notification Request"
+msgstr "Requisição de Notificação"
+
+#: ../src/ui/WebView.cpp:35
+msgid "Would you like to allow notifications?"
+msgstr "Deseja permitir as notificações?"
+
+#: ../src/ui/WebView.cpp:69
+msgid "Save File"
+msgstr "Salvar arquivo"
+
+#: ../src/ui/WebView.cpp:70
+msgid "Ok"
+msgstr "Ok"
+
+#: ../src/ui/WebView.cpp:71
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: ../src/ui/WebView.cpp:307
+msgid "Unresponsive"
+msgstr "No responde"
+
+#: ../src/ui/WebView.cpp:308
+msgid "The application is not responding. Would you like to reload?"
+msgstr "A aplicação não responde. Deseja recarregá-la?"
+
+#: ../resource/ui/MainWindow.ui.h:1
+msgid "Fullscreen"
+msgstr "Tela cheia"
+
+#: ../resource/ui/MainWindow.ui.h:2 ../resource/ui/PreferencesWindow.ui.h:18
+msgid "Preferences"
+msgstr "Preferências"
+
+#: ../resource/ui/MainWindow.ui.h:3 ../resource/ui/ShortcutsWindow.ui.h:7
+msgid "Keyboard Shortcuts"
+msgstr "Atalhos de teclado"
+
+#: ../resource/ui/MainWindow.ui.h:7
+msgid "Refresh"
+msgstr "Atualizar"
+
+#: ../resource/ui/MainWindow.ui.h:8 ../resource/ui/PhoneNumberDialog.ui.h:1
+msgid "Open chat by phone number"
+msgstr "Abrir chat pelo número de telefone"
+
+#: ../resource/ui/PhoneNumberDialog.ui.h:2
+msgid "Enter phone number (only digits)"
+msgstr "Introduza o número de telefone (somente números)"
+
+#: ../resource/ui/PreferencesWindow.ui.h:1
+msgid "Close to Tray"
+msgstr "Fechar para a bandeja"
+
+#: ../resource/ui/PreferencesWindow.ui.h:2
+msgid "Start in Tray"
+msgstr "Iniciar na bandeja"
+
+#: ../resource/ui/PreferencesWindow.ui.h:3
+msgid "Start Minimized"
+msgstr "Iniciar minimizado"
+
+#: ../resource/ui/PreferencesWindow.ui.h:4
+msgid "Autostart"
+msgstr "Início automático"
+
+#: ../resource/ui/PreferencesWindow.ui.h:5
+msgid "Enable tray icon"
+msgstr "Habilitar o ícone na bandeja"
+
+#: ../resource/ui/PreferencesWindow.ui.h:6
+msgid "Start application as closed to tray"
+msgstr "Iniciar a aplicação minimizada na bandeja"
+
+#: ../resource/ui/PreferencesWindow.ui.h:7
+msgid "Start application as minimized"
+msgstr "Iniciar a aplicação minimizada"
+
+#: ../resource/ui/PreferencesWindow.ui.h:8
+msgid "Start application after system boots"
+msgstr "Iniciar a aplicação depois do inicio do sistema"
+
+#: ../resource/ui/PreferencesWindow.ui.h:9
+#: ../resource/ui/ShortcutsWindow.ui.h:2
+msgid "General"
+msgstr "Geral"
+
+#: ../resource/ui/PreferencesWindow.ui.h:10
+msgid "Prefer Dark Theme"
+msgstr "Preferir tema escuro"
+
+#: ../resource/ui/PreferencesWindow.ui.h:11
+msgid "Prefer dark theme for the application if system theme includes a dark variant"
+msgstr "Preferir um tema escuro para a aplicação se o tema do sistema inclui uma variante escura"
+
+#: ../resource/ui/PreferencesWindow.ui.h:12
+msgid "Appearance"
+msgstr "Aparência"
+
+#: ../resource/ui/PreferencesWindow.ui.h:13
+msgid "Hardware Acceleration"
+msgstr "Aceleração por hardware"
+
+#: ../resource/ui/PreferencesWindow.ui.h:14
+msgid "Allow Permissions"
+msgstr "Autorizar permissões"
+
+#: ../resource/ui/PreferencesWindow.ui.h:15
+msgid "Set hardware acceleration policy used by webkit"
+msgstr "Definir a política de aceleração de hardware usada pelo webkit"
+
+#: ../resource/ui/PreferencesWindow.ui.h:16
+msgid "Allow permissions on application startup"
+msgstr "Permitir permissões ao iniciar a aplicação"
+
+#: ../resource/ui/PreferencesWindow.ui.h:17
+msgid "Web"
+msgstr "Página web"
+
+#: ../resource/ui/ShortcutsWindow.ui.h:1
+msgid "Shortcuts"
+msgstr "Atalhos"
+
+#: ../resource/ui/ShortcutsWindow.ui.h:3
+msgid "Refresh Page"
+msgstr "Atualizar página"
+
+#: ../resource/ui/ShortcutsWindow.ui.h:4
+msgid "Enter/Exit Fullscreen"
+msgstr "Entrar/Sair da tela cheia"
+
+#: ../resource/ui/ShortcutsWindow.ui.h:5
+msgid "Show/Hide Header Bar"
+msgstr "Mostrar/Ocultar barra de cabeçalho"
+
+#: ../resource/ui/ShortcutsWindow.ui.h:6
+msgid "Open Preferences"
+msgstr "Abrir Preferências"
