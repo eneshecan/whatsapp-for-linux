@@ -29,6 +29,7 @@ jobs:
           version=$(cat "build/release/generated/VERSION")
           echo "RELEASE_VERSION=${version}" >> "$GITHUB_ENV"
           echo "RELEASE_TAG=v${version}" >> "$GITHUB_ENV"
+          sed -i -E "s/\((.*?)\)/(${version})/g" debian/changelog
 
       - name: Build Debian Package
         id: dpkg-buildpackage
