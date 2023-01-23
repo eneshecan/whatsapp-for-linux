@@ -107,12 +107,11 @@ xargs rm < install_manifest.txt
 
 ## Packaging
 
-Set `RELEASE_VERSION` environment variable before packaging. The actual version can be read from `generated/VERSION` file in the build directory.
-
 ### Debian
 
 ```bash
-# Build the package
+# Don't forget to update the version number (0) in debian/changelog before this
+# Build the package.
 dpkg-buildpackage -uc -us -ui
 ```
 
