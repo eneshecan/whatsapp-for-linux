@@ -35,8 +35,9 @@ namespace wfl::ui
             void onShow();
             void onQuit();
             void onFullscreen();
-            void onZoomIn(Gtk::Label* zoomLevelLabel);
-            void onZoomOut(Gtk::Label* zoomLevelLabel);
+            void onZoomIn(Gtk::Button* buttonZoomLevel);
+            void onZoomOut(Gtk::Button* buttonZoomLevel);
+            void onResetZoom(Gtk::Button* buttonZoomLevel);
             void onShortcuts();
             void onAbout();
 

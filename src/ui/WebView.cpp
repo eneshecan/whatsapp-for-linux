@@ -216,8 +216,7 @@ namespace wfl::ui
 
     void WebView::sendRequest(std::string url)
     {
-        auto const uriPrefix = std::string{"whatsapp:/"};
-        if (url.find(uriPrefix) != std::string::npos)
+        if (auto const uriPrefix = std::string{"whatsapp:/"}; url.find(uriPrefix) != std::string::npos)
         {
             url.replace(0U, uriPrefix.size(), WHATSAPP_WEB_URI);
 
@@ -266,6 +265,14 @@ namespace wfl::ui
             util::Settings::getInstance().setValue("general", "zoom-level", zoomLevel);
         }
     }
+
+    void WebView::resetZoom()
+    {
+        auto const defaultLevel = 1.0;
+        webkit_web_view_set_zoom_level(*this, defaultLevel);
+        util::Settings::getInstance().setValue("general", "zoom-level", defaultLevel);
+    }
+
 
     double WebView::getZoomLevel()
     {

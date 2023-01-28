@@ -26,6 +26,7 @@ namespace wfl::ui
             void            openPhoneNumber(std::string const& phoneNumber);
             void            zoomIn();
             void            zoomOut();
+            void            resetZoom();
             double          getZoomLevel();
             std::string     getZoomLevelString();
 
