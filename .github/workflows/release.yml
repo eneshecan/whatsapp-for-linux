@@ -33,7 +33,11 @@ jobs:
 
       - name: Build Debian Package
         id: dpkg-buildpackage
-        run: dpkg-buildpackage -uc -us -ui
+        uses: jtdor/build-deb-action@v1
+        env:
+          DEB_BUILD_OPTIONS: noautodbgsym
+        with:
+          buildpackage-opts: -uc -us -ui
 
       - name: Build Snap Package
         id: snapcraft
