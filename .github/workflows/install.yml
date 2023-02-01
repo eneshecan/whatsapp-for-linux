@@ -17,7 +17,7 @@ jobs:
       - name: Install Dependencies
         run: |
           sudo apt update
-          sudo apt -y install build-essential intltool libgtkmm-3.0-dev libwebkit2gtk-4.0-dev libayatana-appindicator3-dev libcanberra
+          sudo apt -y install build-essential intltool libgtkmm-3.0-dev libwebkit2gtk-4.0-dev libayatana-appindicator3-dev libcanberra-dev
 
       - name: Configure
         run: mkdir build

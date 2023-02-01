@@ -13,7 +13,6 @@ namespace wfl::util
         ca_context_change_props(m_context, CA_PROP_APPLICATION_NAME, WFL_FRIENDLY_NAME, nullptr);
         ca_context_change_props(m_context, CA_PROP_APPLICATION_VERSION, WFL_VERSION, nullptr);
         ca_context_change_props(m_context, CA_PROP_APPLICATION_ICON_NAME, WFL_ICON, nullptr);
-        ca_context_change_props(m_context, CA_PROP_EVENT_ID, 0U, nullptr);
         ca_context_change_props(m_context, CA_PROP_EVENT_DESCRIPTION, WFL_FRIENDLY_NAME " Notification", nullptr);
     }
 
