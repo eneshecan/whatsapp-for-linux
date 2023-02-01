@@ -15,6 +15,7 @@ namespace wfl::ui
         : Gtk::ApplicationWindow{cobject}
         , m_trayIcon{}
         , m_webView{}
+        , m_sound{}
         , m_pendingUrl{}
         , m_preferencesWindow{nullptr}
         , m_phoneNumberDialog{nullptr}
@@ -224,11 +225,16 @@ namespace wfl::ui
         }
     }
 
-    void MainWindow::onNotificationChanged(bool attention)
+    void MainWindow::onNotificationChanged(bool show)
     {
         if (!is_visible())
         {
-            m_trayIcon.setAttention(attention);
+            m_trayIcon.setAttention(show);
+        }
+
+        if (show)
+        {
+            m_sound.play("message-new-instant");
         }
     }
 

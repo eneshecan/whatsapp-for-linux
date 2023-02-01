@@ -53,6 +53,9 @@ include_directories(${WEBKIT_INCLUDE_DIRS})
 pkg_check_modules(APPINDICATOR ayatana-appindicator3-0.1 REQUIRED)
 include_directories(${APPINDICATOR_INCLUDE_DIRS})
 
+pkg_check_modules(CANBERRA libcanberra REQUIRED)
+include_directories(${CANBERRA_INCLUDE_DIRS})
+
 include_directories(${CMAKE_CURRENT_BINARY_DIR}/generated/)
 
 add_executable(${CMAKE_PROJECT_NAME}
@@ -60,6 +63,7 @@ add_executable(${CMAKE_PROJECT_NAME}
         ${CMAKE_CURRENT_BINARY_DIR}/generated/Resources.c
         src/util/Helper.cpp
         src/util/Settings.cpp
+        src/util/Sound.cpp
         src/ui/Application.cpp
         src/ui/MainWindow.cpp
         src/ui/PreferencesWindow.cpp
@@ -67,7 +71,13 @@ add_executable(${CMAKE_PROJECT_NAME}
         src/ui/TrayIcon.cpp
         src/ui/WebView.cpp
     )
-target_link_libraries(${CMAKE_PROJECT_NAME} ${GTKMM_LIBRARIES} ${WEBKIT_LIBRARIES} ${APPINDICATOR_LIBRARIES} ${Intl_LIBRARIES})
+target_link_libraries(${CMAKE_PROJECT_NAME}
+        ${GTKMM_LIBRARIES}
+        ${WEBKIT_LIBRARIES}
+        ${APPINDICATOR_LIBRARIES}
+        ${CANBERRA_LIBRARIES}
+        ${Intl_LIBRARIES}
+    )
 
 install(TARGETS ${CMAKE_PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_BINDIR})
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/generated/${WFL_APP_ID}.desktop DESTINATION ${CMAKE_INSTALL_DATADIR}/applications)

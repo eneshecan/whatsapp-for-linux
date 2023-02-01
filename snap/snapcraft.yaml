@@ -16,6 +16,7 @@ parts:
       - -DCMAKE_BUILD_TYPE=Release
     build-packages:
       - intltool
+      - libcanberra-dev
       - libsigc++-2.0-dev
       - libgtkmm-3.0-dev
       - libwebkit2gtk-4.0-dev

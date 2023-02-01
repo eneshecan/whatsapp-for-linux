@@ -9,6 +9,7 @@
 #include "PhoneNumberDialog.hpp"
 #include "TrayIcon.hpp"
 #include "WebView.hpp"
+#include "../util/Sound.hpp"
 
 namespace wfl::ui
 {
@@ -31,7 +32,7 @@ namespace wfl::ui
             void onOpenPreferences();
             void onOpenPhoneNumber();
             void onPhoneNumberDialogResponse(int responseId);
-            void onNotificationChanged(bool attention);
+            void onNotificationChanged(bool show);
             void onShow();
             void onQuit();
             void onFullscreen();
@@ -44,6 +45,7 @@ namespace wfl::ui
         private:
             TrayIcon              m_trayIcon;
             WebView               m_webView;
+            util::Sound           m_sound;
             Glib::ustring         m_pendingUrl;
             PreferencesWindow*    m_preferencesWindow;
             PhoneNumberDialog*    m_phoneNumberDialog;

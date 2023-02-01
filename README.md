@@ -67,6 +67,7 @@ The application is available from a number of Linux distributions:
 * gtkmm-3.0
 * webkit2gtk-4.0
 * ayatana-appindicator3-0.1
+* libcanberra
 
 
 ## Build & Run

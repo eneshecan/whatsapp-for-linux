@@ -8,6 +8,7 @@ Build-Depends: cmake,
                libayatana-appindicator3-dev,
                libgtkmm-3.0-dev,
                libwebkit2gtk-4.0-dev,
+               libcanberra-dev,
                pkg-config
 Standards-Version: 4.5.1
 Homepage: https://github.com/eneshecan/whatsapp-for-linux

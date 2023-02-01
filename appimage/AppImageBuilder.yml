@@ -22,6 +22,7 @@ AppDir:
       - libgtkmm-3.0-1v5:amd64
       - libwebkit2gtk-4.0-37:amd64
       - libayatana-appindicator3-1:amd64
+      - libcanberra-dev
       - glib-networking:amd64
       - gstreamer1.0-libav:amd64
       - gstreamer1.0-plugins-bad:amd64
