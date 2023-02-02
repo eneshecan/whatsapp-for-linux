@@ -1,48 +1,34 @@
-# Turkish translation file for whatsapp-for-linux
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the whatsapp-for-linux package.
-# Enes Hecan <nshecan@gmail.com>, 2022.
-#
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: whatsapp-for-linux\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-10 22:56+0100\n"
-"PO-Revision-Date: 2022-10-27 09:20+0200\n"
-"Last-Translator: Enes Hecan <nshecan@gmail.com>\n"
-"Language-Team: Turkish <>\n"
-"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: WhatsApp for Linux\n"
+"Language: tr\n"
 
-#: ../src/ui/MainWindow.cpp:287 ../src/ui/TrayIcon.cpp:46
+#: ../src/ui/MainWindow.cpp:300 ../src/ui/TrayIcon.cpp:46
 #: ../resource/ui/MainWindow.ui.h:4
 msgid "About"
 msgstr "Hakkında"
 
-#: ../src/ui/MainWindow.cpp:289 ../resource/ui/MainWindow.ui.h:6
+#: ../src/ui/MainWindow.cpp:302 ../resource/ui/MainWindow.ui.h:6
 msgid "WhatsApp for Linux"
 msgstr "Linux için WhatsApp"
 
-#: ../src/ui/MainWindow.cpp:290
+#: ../src/ui/MainWindow.cpp:303
 msgid "An unofficial WhatsApp desktop application for Linux"
 msgstr "Linux için resmi olmayan bir WhatsApp masaüstü uygulaması"
 
-#: ../src/ui/MainWindow.cpp:292
-msgid "GitHub Repository"
-msgstr "GitHub"
-
-#: ../src/ui/PreferencesWindow.cpp:35
+#: ../src/ui/PreferencesWindow.cpp:40
 msgid "On Demand"
 msgstr "Gerektikçe"
 
-#: ../src/ui/PreferencesWindow.cpp:36
+#: ../src/ui/PreferencesWindow.cpp:41
 msgid "Always"
 msgstr "Daima"
 
-#: ../src/ui/PreferencesWindow.cpp:37
+#: ../src/ui/PreferencesWindow.cpp:42
 msgid "Never"
 msgstr "Asla"
 
@@ -75,11 +61,11 @@ msgstr "Tamam"
 msgid "Cancel"
 msgstr "İptal"
 
-#: ../src/ui/WebView.cpp:307
+#: ../src/ui/WebView.cpp:314
 msgid "Unresponsive"
 msgstr "Cevap vermiyor"
 
-#: ../src/ui/WebView.cpp:308
+#: ../src/ui/WebView.cpp:315
 msgid "The application is not responding. Would you like to reload?"
 msgstr "Uygulama cevap vermiyor. Yeniden yüklemek ister misiniz?"
 
@@ -87,7 +73,7 @@ msgstr "Uygulama cevap vermiyor. Yeniden yüklemek ister misiniz?"
 msgid "Fullscreen"
 msgstr "Tam Ekran"
 
-#: ../resource/ui/MainWindow.ui.h:2 ../resource/ui/PreferencesWindow.ui.h:18
+#: ../resource/ui/MainWindow.ui.h:2 ../resource/ui/PreferencesWindow.ui.h:20
 msgid "Preferences"
 msgstr "Tercihler"
 
@@ -139,40 +125,40 @@ msgstr "Uygulamayı simge durumuna küçültülmüş olarak başlat"
 msgid "Start application after system boots"
 msgstr "Sistem yüklendikten sonra uygulamayı başlat"
 
-#: ../resource/ui/PreferencesWindow.ui.h:9
+#: ../resource/ui/PreferencesWindow.ui.h:11
 #: ../resource/ui/ShortcutsWindow.ui.h:2
 msgid "General"
 msgstr "Genel"
 
-#: ../resource/ui/PreferencesWindow.ui.h:10
+#: ../resource/ui/PreferencesWindow.ui.h:12
 msgid "Prefer Dark Theme"
 msgstr "Koyu Temayı Tercih Et"
 
-#: ../resource/ui/PreferencesWindow.ui.h:11
+#: ../resource/ui/PreferencesWindow.ui.h:13
 msgid "Prefer dark theme for the application if system theme includes a dark variant"
 msgstr "Sistem teması karanlık bir değişken içeriyorsa, uygulama için koyu temayı tercih et"
 
-#: ../resource/ui/PreferencesWindow.ui.h:12
+#: ../resource/ui/PreferencesWindow.ui.h:14
 msgid "Appearance"
 msgstr "Dış Görünüş"
 
-#: ../resource/ui/PreferencesWindow.ui.h:13
+#: ../resource/ui/PreferencesWindow.ui.h:15
 msgid "Hardware Acceleration"
 msgstr "Donanım Hızlandırma"
 
-#: ../resource/ui/PreferencesWindow.ui.h:14
+#: ../resource/ui/PreferencesWindow.ui.h:16
 msgid "Allow Permissions"
 msgstr "Bildirimlere İzin Ver"
 
-#: ../resource/ui/PreferencesWindow.ui.h:15
+#: ../resource/ui/PreferencesWindow.ui.h:17
 msgid "Set hardware acceleration policy used by webkit"
 msgstr "Webkit tarafından kullanılan donanım hızlandırma politikasını ayarla"
 
-#: ../resource/ui/PreferencesWindow.ui.h:16
+#: ../resource/ui/PreferencesWindow.ui.h:18
 msgid "Allow permissions on application startup"
 msgstr "Uygulama başlangıcında bildirimlere izin ver"
 
-#: ../resource/ui/PreferencesWindow.ui.h:17
+#: ../resource/ui/PreferencesWindow.ui.h:19
 msgid "Web"
 msgstr "Ağ"
 
@@ -195,3 +181,16 @@ msgstr "Başlık Çubuğunu Göster/Gizle"
 #: ../resource/ui/ShortcutsWindow.ui.h:6
 msgid "Open Preferences"
 msgstr "Tercihleri Aç"
+
+#: ../src/ui/MainWindow.cpp:305
+msgid "GitHub Repository"
+msgstr "GitHub"
+
+#: ../resource/ui/PreferencesWindow.ui.h:9
+msgid "Enable Notification Sounds"
+msgstr "Bildirim Seslerini Etkinleştir"
+
+#: ../resource/ui/PreferencesWindow.ui.h:10
+msgid "Play sound on a notification raised by the application"
+msgstr "Uygulama tarafından oluşturulan bir bildirimde ses çal"
+
