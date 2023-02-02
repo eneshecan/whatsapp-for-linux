@@ -232,7 +232,7 @@ namespace wfl::ui
             m_trayIcon.setAttention(show);
         }
 
-        if (show)
+        if (show && util::Settings::getInstance().getValue<bool>("general", "notification-sounds", true))
         {
             m_sound.play("message-new-instant");
         }

@@ -10,6 +10,8 @@ namespace wfl::ui
         , m_trayIcon{&trayIcon}
         , m_webView{&webView}
         , m_switchStartInTray{nullptr}
+        , m_switchStartMinimized{nullptr}
+        , m_switchNotificationSounds{nullptr}
         , m_comboboxHwAccel{nullptr}
     {
         Gtk::Switch* switchCloseToTray = nullptr;
@@ -25,6 +27,9 @@ namespace wfl::ui
         Gtk::Switch* switchAutostart = nullptr;
         refBuilder->get_widget("switch_autostart", switchAutostart);
         switchAutostart->signal_state_set().connect(sigc::mem_fun(*this, &PreferencesWindow::onAutostartChanged), false);
+
+        refBuilder->get_widget("switch_notification_sounds", m_switchNotificationSounds);
+        m_switchNotificationSounds->signal_state_set().connect(sigc::mem_fun(*this, &PreferencesWindow::onNotificationSoundsChanged), false);
 
         Gtk::Switch* switchPreferDarkTheme = nullptr;
         refBuilder->get_widget("switch_prefer_dark_theme", switchPreferDarkTheme);
@@ -45,6 +50,7 @@ namespace wfl::ui
         m_switchStartInTray->set_sensitive(m_trayIcon->isVisible());
         m_switchStartMinimized->set_state(util::Settings::getInstance().getValue<bool>("general", "start-minimized"));
         switchAutostart->set_state(util::Settings::getInstance().getValue<bool>("general", "autostart"));
+        m_switchNotificationSounds->set_state(util::Settings::getInstance().getValue<bool>("general", "notification-sounds", true));
         switchPreferDarkTheme->set_state(util::Settings::getInstance().getValue<bool>("appearance", "prefer-dark-theme"));
         m_comboboxHwAccel->set_active(util::Settings::getInstance().getValue<int>("web", "hw-accel", 1));
         switchAllowPermissions->set_state(util::Settings::getInstance().getValue<bool>("web", "allow-permissions"));
@@ -93,6 +99,13 @@ namespace wfl::ui
     bool PreferencesWindow::onAutostartChanged(bool state) const
     {
         util::Settings::getInstance().setValue("general", "autostart", state);
+
+        return false;
+    }
+
+    bool PreferencesWindow::onNotificationSoundsChanged(bool state) const
+    {
+        util::Settings::getInstance().setValue("general", "notification-sounds", state);
 
         return false;
     }
