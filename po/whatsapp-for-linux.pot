@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: whatsapp-for-linux\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-10 22:56+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2023-02-02 16:32+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -17,32 +17,32 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/ui/MainWindow.cpp:287 ../src/ui/TrayIcon.cpp:46
+#: ../src/ui/MainWindow.cpp:300 ../src/ui/TrayIcon.cpp:46
 #: ../resource/ui/MainWindow.ui.h:4
 msgid "About"
 msgstr ""
 
-#: ../src/ui/MainWindow.cpp:289 ../resource/ui/MainWindow.ui.h:6
+#: ../src/ui/MainWindow.cpp:302 ../resource/ui/MainWindow.ui.h:6
 msgid "WhatsApp for Linux"
 msgstr ""
 
-#: ../src/ui/MainWindow.cpp:290
+#: ../src/ui/MainWindow.cpp:303
 msgid "An unofficial WhatsApp desktop application for Linux"
 msgstr ""
 
-#: ../src/ui/MainWindow.cpp:292
+#: ../src/ui/MainWindow.cpp:305
 msgid "GitHub Repository"
 msgstr ""
 
-#: ../src/ui/PreferencesWindow.cpp:35
+#: ../src/ui/PreferencesWindow.cpp:40
 msgid "On Demand"
 msgstr ""
 
-#: ../src/ui/PreferencesWindow.cpp:36
+#: ../src/ui/PreferencesWindow.cpp:41
 msgid "Always"
 msgstr ""
 
-#: ../src/ui/PreferencesWindow.cpp:37
+#: ../src/ui/PreferencesWindow.cpp:42
 msgid "Never"
 msgstr ""
 
@@ -75,11 +75,11 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: ../src/ui/WebView.cpp:307
+#: ../src/ui/WebView.cpp:314
 msgid "Unresponsive"
 msgstr ""
 
-#: ../src/ui/WebView.cpp:308
+#: ../src/ui/WebView.cpp:315
 msgid "The application is not responding. Would you like to reload?"
 msgstr ""
 
@@ -87,7 +87,7 @@ msgstr ""
 msgid "Fullscreen"
 msgstr ""
 
-#: ../resource/ui/MainWindow.ui.h:2 ../resource/ui/PreferencesWindow.ui.h:18
+#: ../resource/ui/MainWindow.ui.h:2 ../resource/ui/PreferencesWindow.ui.h:20
 msgid "Preferences"
 msgstr ""
 
@@ -140,39 +140,47 @@ msgid "Start application after system boots"
 msgstr ""
 
 #: ../resource/ui/PreferencesWindow.ui.h:9
+msgid "Enable Notification Sounds"
+msgstr ""
+
+#: ../resource/ui/PreferencesWindow.ui.h:10
+msgid "Play sound on a notification raised by the application"
+msgstr ""
+
+#: ../resource/ui/PreferencesWindow.ui.h:11
 #: ../resource/ui/ShortcutsWindow.ui.h:2
 msgid "General"
 msgstr ""
 
-#: ../resource/ui/PreferencesWindow.ui.h:10
+#: ../resource/ui/PreferencesWindow.ui.h:12
 msgid "Prefer Dark Theme"
 msgstr ""
 
-#: ../resource/ui/PreferencesWindow.ui.h:11
+#: ../resource/ui/PreferencesWindow.ui.h:13
 msgid "Prefer dark theme for the application if system theme includes a dark variant"
 msgstr ""
 
-#: ../resource/ui/PreferencesWindow.ui.h:12
+#: ../resource/ui/PreferencesWindow.ui.h:14
 msgid "Appearance"
 msgstr ""
 
-#: ../resource/ui/PreferencesWindow.ui.h:13
+#: ../resource/ui/PreferencesWindow.ui.h:15
 msgid "Hardware Acceleration"
 msgstr ""
 
-#: ../resource/ui/PreferencesWindow.ui.h:14
+#: ../resource/ui/PreferencesWindow.ui.h:16
 msgid "Allow Permissions"
 msgstr ""
 
-#: ../resource/ui/PreferencesWindow.ui.h:15
+#: ../resource/ui/PreferencesWindow.ui.h:17
 msgid "Set hardware acceleration policy used by webkit"
 msgstr ""
 
-#: ../resource/ui/PreferencesWindow.ui.h:16
+#: ../resource/ui/PreferencesWindow.ui.h:18
 msgid "Allow permissions on application startup"
 msgstr ""
 
-#: ../resource/ui/PreferencesWindow.ui.h:17
+#: ../resource/ui/PreferencesWindow.ui.h:19
 msgid "Web"
 msgstr ""
 
