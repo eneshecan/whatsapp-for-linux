@@ -45,9 +45,9 @@ namespace wfl::ui
         refBuilder->get_widget("switch_allow_permissions", switchAllowPermissions);
         switchAllowPermissions->signal_state_set().connect(sigc::mem_fun(*this, &PreferencesWindow::onAllowPermissionsChanged), false);
 
-        Gtk::SpinButton* spinButtonMinFontSize = nullptr;
-        refBuilder->get_widget("spinbutton_min_font_size", spinButtonMinFontSize);
-        spinButtonMinFontSize->signal_value_changed().connect(sigc::bind(sigc::mem_fun(*this, &PreferencesWindow::onMinFontSizeChanged), spinButtonMinFontSize));
+        Gtk::SpinButton* spinMinFontSize = nullptr;
+        refBuilder->get_widget("spinbutton_min_font_size", spinMinFontSize);
+        spinMinFontSize->signal_value_changed().connect(sigc::bind(sigc::mem_fun(*this, &PreferencesWindow::onMinFontSizeChanged), spinMinFontSize));
 
         switchCloseToTray->set_state(m_trayIcon->isVisible());
         m_switchStartInTray->set_state(util::Settings::getInstance().getValue<bool>("general", "start-in-tray") && m_trayIcon->isVisible());
@@ -58,7 +58,7 @@ namespace wfl::ui
         switchPreferDarkTheme->set_state(util::Settings::getInstance().getValue<bool>("appearance", "prefer-dark-theme"));
         m_comboboxHwAccel->set_active(util::Settings::getInstance().getValue<int>("web", "hw-accel", 1));
         switchAllowPermissions->set_state(util::Settings::getInstance().getValue<bool>("web", "allow-permissions"));
-        spinButtonMinFontSize->set_value(util::Settings::getInstance().getValue<int>("web", "min-font-size", 0));
+        spinMinFontSize->set_value(util::Settings::getInstance().getValue<int>("web", "min-font-size", 0));
     }
 
     bool PreferencesWindow::onCloseToTrayChanged(bool state)

@@ -24,7 +24,7 @@ namespace wfl::ui
             bool onPreferDarkThemeChanged(bool state) const;
             bool onAllowPermissionsChanged(bool state) const;
             void onHwAccelChanged() const;
-            void onMinFontSizeChanged(Gtk::SpinButton *spinButtonMinFontSize) const;
+            void onMinFontSizeChanged(Gtk::SpinButton* spinButtonMinFontSize) const;
 
         private:
             TrayIcon*          m_trayIcon;
