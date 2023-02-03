@@ -1,49 +1,34 @@
-# Georgian translation for whatsapp-for-linux
-# Copyright (C) 2023 whatsapp-for-linux authors
-# This file is distributed under the same license as the whatsapp-for-linux package.
-# Ekaterine Papava <katopapava@gmail.com>, 2023.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: whatsapp-for-linux\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-10 22:56+0100\n"
-"PO-Revision-Date: 2023-01-07 12:25+0100\n"
-"Last-Translator: Ekaterine Papava <katopapava@gmail.com>\n"
-"Language-Team: Georgian <(nothing)>\n"
-"Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: WhatsApp for Linux\n"
+"Language: ka\n"
 
-#: ../src/ui/MainWindow.cpp:287 ../src/ui/TrayIcon.cpp:46
+#: ../src/ui/MainWindow.cpp:300 ../src/ui/TrayIcon.cpp:46
 #: ../resource/ui/MainWindow.ui.h:4
 msgid "About"
 msgstr "შესახებ"
 
-#: ../src/ui/MainWindow.cpp:289 ../resource/ui/MainWindow.ui.h:6
+#: ../src/ui/MainWindow.cpp:302 ../resource/ui/MainWindow.ui.h:6
 msgid "WhatsApp for Linux"
 msgstr "WhatsApp-ი ლინუქსისთვის"
 
-#: ../src/ui/MainWindow.cpp:290
+#: ../src/ui/MainWindow.cpp:303
 msgid "An unofficial WhatsApp desktop application for Linux"
 msgstr "WhatsApp-ის არაოფიციალური აპლიკაცია ლინუქსისთვის"
 
-#: ../src/ui/MainWindow.cpp:292
-msgid "GitHub Repository"
-msgstr "GitHub -ის რეპოზიტორია"
-
-#: ../src/ui/PreferencesWindow.cpp:35
+#: ../src/ui/PreferencesWindow.cpp:40
 msgid "On Demand"
 msgstr "საჭიროებისამებრ"
 
-#: ../src/ui/PreferencesWindow.cpp:36
+#: ../src/ui/PreferencesWindow.cpp:41
 msgid "Always"
 msgstr "ყოველთვის"
 
-#: ../src/ui/PreferencesWindow.cpp:37
+#: ../src/ui/PreferencesWindow.cpp:42
 msgid "Never"
 msgstr "არასოდეს"
 
@@ -76,11 +61,11 @@ msgstr "დიახ"
 msgid "Cancel"
 msgstr "გაუქმენა"
 
-#: ../src/ui/WebView.cpp:307
+#: ../src/ui/WebView.cpp:314
 msgid "Unresponsive"
 msgstr "არ პასუხობს"
 
-#: ../src/ui/WebView.cpp:308
+#: ../src/ui/WebView.cpp:315
 msgid "The application is not responding. Would you like to reload?"
 msgstr "აპლიკაცია არ პასუხობს. გნებავთ, გადატვირთოთ?"
 
@@ -88,7 +73,7 @@ msgstr "აპლიკაცია არ პასუხობს. გნე�
 msgid "Fullscreen"
 msgstr "მთელ ეკრანზე"
 
-#: ../resource/ui/MainWindow.ui.h:2 ../resource/ui/PreferencesWindow.ui.h:18
+#: ../resource/ui/MainWindow.ui.h:2 ../resource/ui/PreferencesWindow.ui.h:20
 msgid "Preferences"
 msgstr "მორგება"
 
@@ -140,40 +125,40 @@ msgstr "აპლიკაციის ჩაკეცილად გაშვ�
 msgid "Start application after system boots"
 msgstr "აპლიკაციის სისტემის ჩატვირთვისას გაშვება"
 
-#: ../resource/ui/PreferencesWindow.ui.h:9
+#: ../resource/ui/PreferencesWindow.ui.h:11
 #: ../resource/ui/ShortcutsWindow.ui.h:2
 msgid "General"
 msgstr "მთავარი"
 
-#: ../resource/ui/PreferencesWindow.ui.h:10
+#: ../resource/ui/PreferencesWindow.ui.h:12
 msgid "Prefer Dark Theme"
 msgstr "მუქი თემის არჩევანი"
 
-#: ../resource/ui/PreferencesWindow.ui.h:11
+#: ../resource/ui/PreferencesWindow.ui.h:13
 msgid "Prefer dark theme for the application if system theme includes a dark variant"
 msgstr "თუ სისტემის თემა შეიცავს მუქ თემას, აპლიკაციაშიც მუქი თემის გამოყენება"
 
-#: ../resource/ui/PreferencesWindow.ui.h:12
+#: ../resource/ui/PreferencesWindow.ui.h:14
 msgid "Appearance"
 msgstr "გარემოს იერსახე"
 
-#: ../resource/ui/PreferencesWindow.ui.h:13
+#: ../resource/ui/PreferencesWindow.ui.h:15
 msgid "Hardware Acceleration"
 msgstr "აპარატურული აჩქარება"
 
-#: ../resource/ui/PreferencesWindow.ui.h:14
+#: ../resource/ui/PreferencesWindow.ui.h:16
 msgid "Allow Permissions"
 msgstr "წვდომების დაშვება"
 
-#: ../resource/ui/PreferencesWindow.ui.h:15
+#: ../resource/ui/PreferencesWindow.ui.h:17
 msgid "Set hardware acceleration policy used by webkit"
 msgstr "Webkit-ის მიერ აპარატურული აჩქარების გამოყენების პოლიტიკის დაყენება"
 
-#: ../resource/ui/PreferencesWindow.ui.h:16
+#: ../resource/ui/PreferencesWindow.ui.h:18
 msgid "Allow permissions on application startup"
 msgstr "წვდომების დაშვება აპლიკაციის გაშვებისას"
 
-#: ../resource/ui/PreferencesWindow.ui.h:17
+#: ../resource/ui/PreferencesWindow.ui.h:19
 msgid "Web"
 msgstr "ვები"
 
@@ -196,3 +181,16 @@ msgstr "თავსართის ზოლის ჩვენება/და
 #: ../resource/ui/ShortcutsWindow.ui.h:6
 msgid "Open Preferences"
 msgstr "მორგების ფანჯრის გახსნა"
+
+#: ../src/ui/MainWindow.cpp:305
+msgid "GitHub Repository"
+msgstr "GitHub -ის რეპოზიტორია"
+
+#: ../resource/ui/PreferencesWindow.ui.h:9
+msgid "Enable Notification Sounds"
+msgstr "Enable Notification Sounds"
+
+#: ../resource/ui/PreferencesWindow.ui.h:10
+msgid "Play sound on a notification raised by the application"
+msgstr "Play sound on a notification raised by the application"
+
