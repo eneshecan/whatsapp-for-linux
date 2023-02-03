@@ -61,11 +61,11 @@ msgstr "ОК"
 msgid "Cancel"
 msgstr "Отмена"
 
-#: ../src/ui/WebView.cpp:314
+#: ../src/ui/WebView.cpp:322
 msgid "Unresponsive"
 msgstr "Не отвечает"
 
-#: ../src/ui/WebView.cpp:315
+#: ../src/ui/WebView.cpp:323
 msgid "The application is not responding. Would you like to reload?"
 msgstr "Приложение не отвечает. Перезагрузить его?"
 
@@ -73,7 +73,7 @@ msgstr "Приложение не отвечает. Перезагрузить �
 msgid "Fullscreen"
 msgstr "На весь экран"
 
-#: ../resource/ui/MainWindow.ui.h:2 ../resource/ui/PreferencesWindow.ui.h:20
+#: ../resource/ui/MainWindow.ui.h:2 ../resource/ui/PreferencesWindow.ui.h:22
 msgid "Preferences"
 msgstr "Параметры"
 
@@ -158,7 +158,7 @@ msgstr "Установить политику аппаратного ускор�
 msgid "Allow permissions on application startup"
 msgstr "Предоставить разрешения при запуске приложения"
 
-#: ../resource/ui/PreferencesWindow.ui.h:19
+#: ../resource/ui/PreferencesWindow.ui.h:21
 msgid "Web"
 msgstr "Интернет"
 
@@ -193,4 +193,12 @@ msgstr "Enable Notification Sounds"
 #: ../resource/ui/PreferencesWindow.ui.h:10
 msgid "Play sound on a notification raised by the application"
 msgstr "Play sound on a notification raised by the application"
+
+#: ../resource/ui/PreferencesWindow.ui.h:19
+msgid "Minimum Font Size"
+msgstr "Minimum Font Size"
+
+#: ../resource/ui/PreferencesWindow.ui.h:20
+msgid "Minimum font size used to display text, values other than 0 can potentially break page layouts"
+msgstr "Minimum font size used to display text, values other than 0 can potentially break page layouts"
 
