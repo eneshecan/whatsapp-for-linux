@@ -61,11 +61,11 @@ msgstr "Salva"
 msgid "Cancel"
 msgstr "Annulla"
 
-#: ../src/ui/WebView.cpp:314
+#: ../src/ui/WebView.cpp:322
 msgid "Unresponsive"
 msgstr "Whatsapp non risponde"
 
-#: ../src/ui/WebView.cpp:315
+#: ../src/ui/WebView.cpp:323
 msgid "The application is not responding. Would you like to reload?"
 msgstr "L'applicazione non risponde. Ricaricare?"
 
@@ -73,7 +73,7 @@ msgstr "L'applicazione non risponde. Ricaricare?"
 msgid "Fullscreen"
 msgstr "Schermo intero"
 
-#: ../resource/ui/MainWindow.ui.h:2 ../resource/ui/PreferencesWindow.ui.h:20
+#: ../resource/ui/MainWindow.ui.h:2 ../resource/ui/PreferencesWindow.ui.h:22
 msgid "Preferences"
 msgstr "Preferenze"
 
@@ -158,7 +158,7 @@ msgstr "Imposta la politica di accelerazione hardware usata da webkit"
 msgid "Allow permissions on application startup"
 msgstr "Consenti i permessi all'avvio dell'applicazione"
 
-#: ../resource/ui/PreferencesWindow.ui.h:19
+#: ../resource/ui/PreferencesWindow.ui.h:21
 msgid "Web"
 msgstr "Web"
 
@@ -193,4 +193,12 @@ msgstr "Enable Notification Sounds"
 #: ../resource/ui/PreferencesWindow.ui.h:10
 msgid "Play sound on a notification raised by the application"
 msgstr "Play sound on a notification raised by the application"
+
+#: ../resource/ui/PreferencesWindow.ui.h:19
+msgid "Minimum Font Size"
+msgstr "Minimum Font Size"
+
+#: ../resource/ui/PreferencesWindow.ui.h:20
+msgid "Minimum font size used to display text, values other than 0 can potentially break page layouts"
+msgstr "Minimum font size used to display text, values other than 0 can potentially break page layouts"
 
