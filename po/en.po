@@ -67,11 +67,11 @@ msgstr "Ok"
 msgid "Cancel"
 msgstr "Cancel"
 
-#: ../src/ui/WebView.cpp:314
+#: ../src/ui/WebView.cpp:322
 msgid "Unresponsive"
 msgstr "Unresponsive"
 
-#: ../src/ui/WebView.cpp:315
+#: ../src/ui/WebView.cpp:323
 msgid "The application is not responding. Would you like to reload?"
 msgstr "The application is not responding. Would you like to reload?"
 
@@ -79,7 +79,7 @@ msgstr "The application is not responding. Would you like to reload?"
 msgid "Fullscreen"
 msgstr "Fullscreen"
 
-#: ../resource/ui/MainWindow.ui.h:2 ../resource/ui/PreferencesWindow.ui.h:20
+#: ../resource/ui/MainWindow.ui.h:2 ../resource/ui/PreferencesWindow.ui.h:22
 msgid "Preferences"
 msgstr "Preferences"
 
@@ -173,6 +173,14 @@ msgid "Allow permissions on application startup"
 msgstr "Allow permissions on application startup"
 
 #: ../resource/ui/PreferencesWindow.ui.h:19
+msgid "Minimum Font Size"
+msgstr "Minimum Font Size"
+
+#: ../resource/ui/PreferencesWindow.ui.h:20
+msgid "Minimum font size used to display text, values other than 0 can potentially break page layouts"
+msgstr "Minimum font size used to display text, values other than 0 can potentially break page layouts"
+
+#: ../resource/ui/PreferencesWindow.ui.h:21
 msgid "Web"
 msgstr "Web"
 
