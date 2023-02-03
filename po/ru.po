@@ -1,50 +1,34 @@
-# Russian translation file for whatsapp-for-linux
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the whatsapp-for-linux package.
-#
-# Olesya Gerasimenko <translation-team@basealt.ru>, 2022.
 msgid ""
 msgstr ""
-"Project-Id-Version: whatsapp-for-linux\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-10 22:56+0100\n"
-"PO-Revision-Date: 2022-11-11 10:36+0300\n"
-"Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
-"Language-Team: Basealt Translation Team\n"
-"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 22.04.3\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: WhatsApp for Linux\n"
+"Language: ru\n"
 
-#: ../src/ui/MainWindow.cpp:287 ../src/ui/TrayIcon.cpp:46
+#: ../src/ui/MainWindow.cpp:300 ../src/ui/TrayIcon.cpp:46
 #: ../resource/ui/MainWindow.ui.h:4
 msgid "About"
 msgstr "О программе"
 
-#: ../src/ui/MainWindow.cpp:289 ../resource/ui/MainWindow.ui.h:6
+#: ../src/ui/MainWindow.cpp:302 ../resource/ui/MainWindow.ui.h:6
 msgid "WhatsApp for Linux"
 msgstr "WhatsApp для Linux"
 
-#: ../src/ui/MainWindow.cpp:290
+#: ../src/ui/MainWindow.cpp:303
 msgid "An unofficial WhatsApp desktop application for Linux"
 msgstr "Неофициальное приложение WhatsApp для Linux"
 
-#: ../src/ui/MainWindow.cpp:292
-msgid "GitHub Repository"
-msgstr "Репозиторий на GitHub"
-
-#: ../src/ui/PreferencesWindow.cpp:35
+#: ../src/ui/PreferencesWindow.cpp:40
 msgid "On Demand"
 msgstr "По запросу"
 
-#: ../src/ui/PreferencesWindow.cpp:36
+#: ../src/ui/PreferencesWindow.cpp:41
 msgid "Always"
 msgstr "Всегда"
 
-#: ../src/ui/PreferencesWindow.cpp:37
+#: ../src/ui/PreferencesWindow.cpp:42
 msgid "Never"
 msgstr "Никогда"
 
@@ -77,11 +61,11 @@ msgstr "ОК"
 msgid "Cancel"
 msgstr "Отмена"
 
-#: ../src/ui/WebView.cpp:307
+#: ../src/ui/WebView.cpp:314
 msgid "Unresponsive"
 msgstr "Не отвечает"
 
-#: ../src/ui/WebView.cpp:308
+#: ../src/ui/WebView.cpp:315
 msgid "The application is not responding. Would you like to reload?"
 msgstr "Приложение не отвечает. Перезагрузить его?"
 
@@ -89,7 +73,7 @@ msgstr "Приложение не отвечает. Перезагрузить �
 msgid "Fullscreen"
 msgstr "На весь экран"
 
-#: ../resource/ui/MainWindow.ui.h:2 ../resource/ui/PreferencesWindow.ui.h:18
+#: ../resource/ui/MainWindow.ui.h:2 ../resource/ui/PreferencesWindow.ui.h:20
 msgid "Preferences"
 msgstr "Параметры"
 
@@ -141,40 +125,40 @@ msgstr "Запускать приложение в свёрнутом виде"
 msgid "Start application after system boots"
 msgstr "Запускать приложение после загрузки системы"
 
-#: ../resource/ui/PreferencesWindow.ui.h:9
+#: ../resource/ui/PreferencesWindow.ui.h:11
 #: ../resource/ui/ShortcutsWindow.ui.h:2
 msgid "General"
 msgstr "Общие"
 
-#: ../resource/ui/PreferencesWindow.ui.h:10
+#: ../resource/ui/PreferencesWindow.ui.h:12
 msgid "Prefer Dark Theme"
 msgstr "Предпочитать Тёмную Тему"
 
-#: ../resource/ui/PreferencesWindow.ui.h:11
+#: ../resource/ui/PreferencesWindow.ui.h:13
 msgid "Prefer dark theme for the application if system theme includes a dark variant"
 msgstr "Предпочитать тёмную тему, если система предусматривает тёмный вариант"
 
-#: ../resource/ui/PreferencesWindow.ui.h:12
+#: ../resource/ui/PreferencesWindow.ui.h:14
 msgid "Appearance"
 msgstr "Внешний вид"
 
-#: ../resource/ui/PreferencesWindow.ui.h:13
+#: ../resource/ui/PreferencesWindow.ui.h:15
 msgid "Hardware Acceleration"
 msgstr "Аппаратное ускорение"
 
-#: ../resource/ui/PreferencesWindow.ui.h:14
+#: ../resource/ui/PreferencesWindow.ui.h:16
 msgid "Allow Permissions"
 msgstr "Предоставить разрешения"
 
-#: ../resource/ui/PreferencesWindow.ui.h:15
+#: ../resource/ui/PreferencesWindow.ui.h:17
 msgid "Set hardware acceleration policy used by webkit"
 msgstr "Установить политику аппаратного ускорения, используемую webkit"
 
-#: ../resource/ui/PreferencesWindow.ui.h:16
+#: ../resource/ui/PreferencesWindow.ui.h:18
 msgid "Allow permissions on application startup"
 msgstr "Предоставить разрешения при запуске приложения"
 
-#: ../resource/ui/PreferencesWindow.ui.h:17
+#: ../resource/ui/PreferencesWindow.ui.h:19
 msgid "Web"
 msgstr "Интернет"
 
@@ -197,3 +181,16 @@ msgstr "Показать или скрыть строку заголовка"
 #: ../resource/ui/ShortcutsWindow.ui.h:6
 msgid "Open Preferences"
 msgstr "Открыть параметры"
+
+#: ../src/ui/MainWindow.cpp:305
+msgid "GitHub Repository"
+msgstr "Репозиторий на GitHub"
+
+#: ../resource/ui/PreferencesWindow.ui.h:9
+msgid "Enable Notification Sounds"
+msgstr "Enable Notification Sounds"
+
+#: ../resource/ui/PreferencesWindow.ui.h:10
+msgid "Play sound on a notification raised by the application"
+msgstr "Play sound on a notification raised by the application"
+
