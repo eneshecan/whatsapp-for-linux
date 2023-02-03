@@ -196,9 +196,9 @@ msgstr "Speel een geluid af als er een melding wordt getoond"
 
 #: ../resource/ui/PreferencesWindow.ui.h:19
 msgid "Minimum Font Size"
-msgstr "Minimum Font Size"
+msgstr "Minimale tekstgrootte"
 
 #: ../resource/ui/PreferencesWindow.ui.h:20
 msgid "Minimum font size used to display text, values other than 0 can potentially break page layouts"
-msgstr "Minimum font size used to display text, values other than 0 can potentially break page layouts"
+msgstr "De minimale tekstgrootte in berichten en het invoerveld. Let op: waarden hoger dan 0 kunnen de indeling verstoren."
 
