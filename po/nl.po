@@ -200,5 +200,5 @@ msgstr "Minimale tekstgrootte"
 
 #: ../resource/ui/PreferencesWindow.ui.h:20
 msgid "Minimum font size used to display text, values other than 0 can potentially break page layouts"
-msgstr "De minimale tekstgrootte in berichten en het invoerveld. Let op: waarden hoger dan 0 kunnen de indeling verstoren."
+msgstr "De minimale tekstgrootte van berichten en het invoerveld. Let op: waarden hoger dan 0 kunnen de indeling verstoren."
 
