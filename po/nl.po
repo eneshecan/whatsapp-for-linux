@@ -1,49 +1,34 @@
-# Template translation file for whatsapp-for-linux
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the whatsapp-for-linux package.
-#
-# Heimen Stoffels <vistausss@fastmail.com>, 2022.
 msgid ""
 msgstr ""
-"Project-Id-Version: whatsapp-for-linux\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-10 22:56+0100\n"
-"PO-Revision-Date: 2022-12-11 19:42+0100\n"
-"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
-"Language-Team: Dutch\n"
-"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: WhatsApp for Linux\n"
+"Language: nl\n"
 
-#: ../src/ui/MainWindow.cpp:287 ../src/ui/TrayIcon.cpp:46
+#: ../src/ui/MainWindow.cpp:300 ../src/ui/TrayIcon.cpp:46
 #: ../resource/ui/MainWindow.ui.h:4
 msgid "About"
 msgstr "Over"
 
-#: ../src/ui/MainWindow.cpp:289 ../resource/ui/MainWindow.ui.h:6
+#: ../src/ui/MainWindow.cpp:302 ../resource/ui/MainWindow.ui.h:6
 msgid "WhatsApp for Linux"
 msgstr "WhatsApp voor Linux"
 
-#: ../src/ui/MainWindow.cpp:290
+#: ../src/ui/MainWindow.cpp:303
 msgid "An unofficial WhatsApp desktop application for Linux"
 msgstr "Een onofficiële WhatsApp-desktoptoepassing voor Linux"
 
-#: ../src/ui/MainWindow.cpp:292
-msgid "GitHub Repository"
-msgstr "GitHub"
-
-#: ../src/ui/PreferencesWindow.cpp:35
+#: ../src/ui/PreferencesWindow.cpp:40
 msgid "On Demand"
 msgstr "Op afroep"
 
-#: ../src/ui/PreferencesWindow.cpp:36
+#: ../src/ui/PreferencesWindow.cpp:41
 msgid "Always"
 msgstr "Altijd"
 
-#: ../src/ui/PreferencesWindow.cpp:37
+#: ../src/ui/PreferencesWindow.cpp:42
 msgid "Never"
 msgstr "Nooit"
 
@@ -76,11 +61,11 @@ msgstr "Oké"
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: ../src/ui/WebView.cpp:307
+#: ../src/ui/WebView.cpp:314
 msgid "Unresponsive"
 msgstr "Niet bereikbaar"
 
-#: ../src/ui/WebView.cpp:308
+#: ../src/ui/WebView.cpp:315
 msgid "The application is not responding. Would you like to reload?"
 msgstr "Het programma reageert niet. Wil je het opnieuw starten?"
 
@@ -88,7 +73,7 @@ msgstr "Het programma reageert niet. Wil je het opnieuw starten?"
 msgid "Fullscreen"
 msgstr "Schermvullende weergave"
 
-#: ../resource/ui/MainWindow.ui.h:2 ../resource/ui/PreferencesWindow.ui.h:18
+#: ../resource/ui/MainWindow.ui.h:2 ../resource/ui/PreferencesWindow.ui.h:20
 msgid "Preferences"
 msgstr "Instellingen"
 
@@ -140,40 +125,40 @@ msgstr "Start het programma geminimaliseerd"
 msgid "Start application after system boots"
 msgstr "Start het programma na het opstarten van de computer"
 
-#: ../resource/ui/PreferencesWindow.ui.h:9
+#: ../resource/ui/PreferencesWindow.ui.h:11
 #: ../resource/ui/ShortcutsWindow.ui.h:2
 msgid "General"
 msgstr "Algemeen"
 
-#: ../resource/ui/PreferencesWindow.ui.h:10
+#: ../resource/ui/PreferencesWindow.ui.h:12
 msgid "Prefer Dark Theme"
 msgstr "Donker thema gebruiken"
 
-#: ../resource/ui/PreferencesWindow.ui.h:11
+#: ../resource/ui/PreferencesWindow.ui.h:13
 msgid "Prefer dark theme for the application if system theme includes a dark variant"
 msgstr "Stel het donkere thema in als het systeemthema een donkere variant kent"
 
-#: ../resource/ui/PreferencesWindow.ui.h:12
+#: ../resource/ui/PreferencesWindow.ui.h:14
 msgid "Appearance"
 msgstr "Vormgeving"
 
-#: ../resource/ui/PreferencesWindow.ui.h:13
+#: ../resource/ui/PreferencesWindow.ui.h:15
 msgid "Hardware Acceleration"
 msgstr "Hardwareversnelling"
 
-#: ../resource/ui/PreferencesWindow.ui.h:14
+#: ../resource/ui/PreferencesWindow.ui.h:16
 msgid "Allow Permissions"
 msgstr "Rechten verlenen"
 
-#: ../resource/ui/PreferencesWindow.ui.h:15
+#: ../resource/ui/PreferencesWindow.ui.h:17
 msgid "Set hardware acceleration policy used by webkit"
 msgstr "Stel de door WebKit gebruikte hardwareversnellingsmethode in"
 
-#: ../resource/ui/PreferencesWindow.ui.h:16
+#: ../resource/ui/PreferencesWindow.ui.h:18
 msgid "Allow permissions on application startup"
 msgstr "Verleen de vereiste rechten automatisch na het opstarten"
 
-#: ../resource/ui/PreferencesWindow.ui.h:17
+#: ../resource/ui/PreferencesWindow.ui.h:19
 msgid "Web"
 msgstr "Web"
 
@@ -196,3 +181,16 @@ msgstr "Kopbalk tonen/verbergen"
 #: ../resource/ui/ShortcutsWindow.ui.h:6
 msgid "Open Preferences"
 msgstr "Instellingen openen"
+
+#: ../src/ui/MainWindow.cpp:305
+msgid "GitHub Repository"
+msgstr "GitHub"
+
+#: ../resource/ui/PreferencesWindow.ui.h:9
+msgid "Enable Notification Sounds"
+msgstr "Meldingsgeluiden inschakelen"
+
+#: ../resource/ui/PreferencesWindow.ui.h:10
+msgid "Play sound on a notification raised by the application"
+msgstr "Speel een geluid af als er een melding wordt getoond"
+
