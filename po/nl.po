@@ -61,11 +61,11 @@ msgstr "Oké"
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: ../src/ui/WebView.cpp:314
+#: ../src/ui/WebView.cpp:322
 msgid "Unresponsive"
 msgstr "Niet bereikbaar"
 
-#: ../src/ui/WebView.cpp:315
+#: ../src/ui/WebView.cpp:323
 msgid "The application is not responding. Would you like to reload?"
 msgstr "Het programma reageert niet. Wil je het opnieuw starten?"
 
@@ -73,7 +73,7 @@ msgstr "Het programma reageert niet. Wil je het opnieuw starten?"
 msgid "Fullscreen"
 msgstr "Schermvullende weergave"
 
-#: ../resource/ui/MainWindow.ui.h:2 ../resource/ui/PreferencesWindow.ui.h:20
+#: ../resource/ui/MainWindow.ui.h:2 ../resource/ui/PreferencesWindow.ui.h:22
 msgid "Preferences"
 msgstr "Instellingen"
 
@@ -158,7 +158,7 @@ msgstr "Stel de door WebKit gebruikte hardwareversnellingsmethode in"
 msgid "Allow permissions on application startup"
 msgstr "Verleen de vereiste rechten automatisch na het opstarten"
 
-#: ../resource/ui/PreferencesWindow.ui.h:19
+#: ../resource/ui/PreferencesWindow.ui.h:21
 msgid "Web"
 msgstr "Web"
 
@@ -193,4 +193,12 @@ msgstr "Meldingsgeluiden inschakelen"
 #: ../resource/ui/PreferencesWindow.ui.h:10
 msgid "Play sound on a notification raised by the application"
 msgstr "Speel een geluid af als er een melding wordt getoond"
+
+#: ../resource/ui/PreferencesWindow.ui.h:19
+msgid "Minimum Font Size"
+msgstr "Minimum Font Size"
+
+#: ../resource/ui/PreferencesWindow.ui.h:20
+msgid "Minimum font size used to display text, values other than 0 can potentially break page layouts"
+msgstr "Minimum font size used to display text, values other than 0 can potentially break page layouts"
 
