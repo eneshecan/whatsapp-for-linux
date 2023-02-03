@@ -4,6 +4,7 @@
 #include <gtkmm/window.h>
 #include <gtkmm/switch.h>
 #include <gtkmm/comboboxtext.h>
+#include <gtkmm/spinbutton.h>
 #include "TrayIcon.hpp"
 #include "WebView.hpp"
 
@@ -23,6 +24,7 @@ namespace wfl::ui
             bool onPreferDarkThemeChanged(bool state) const;
             bool onAllowPermissionsChanged(bool state) const;
             void onHwAccelChanged() const;
+            void onMinFontSizeChanged(Gtk::SpinButton *spinButtonMinFontSize) const;
 
         private:
             TrayIcon*          m_trayIcon;

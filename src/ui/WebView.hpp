@@ -29,6 +29,7 @@ namespace wfl::ui
             void            resetZoom();
             double          getZoomLevel();
             std::string     getZoomLevelString();
+            void            setMinFontSize(unsigned int fontSize);
 
             sigc::signal<void, WebKitLoadEvent> signalLoadStatus() const noexcept;
             sigc::signal<void, bool>            signalNotification() const noexcept;
