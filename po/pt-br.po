@@ -1,49 +1,34 @@
-# Template translation file for whatsapp-for-linux
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the whatsapp-for-linux package.
-# Claudio Ferreira <filhocf@gmail.com>, 2023.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: whatsapp-for-linux\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-10 22:56+0100\n"
-"PO-Revision-Date: 2022-12-26 15:57-0300\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: pt-br\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: WhatsApp for Linux\n"
+"Language: pt-br\n"
 
-#: ../src/ui/MainWindow.cpp:287 ../src/ui/TrayIcon.cpp:46
+#: ../src/ui/MainWindow.cpp:300 ../src/ui/TrayIcon.cpp:46
 #: ../resource/ui/MainWindow.ui.h:4
 msgid "About"
 msgstr "Sobre"
 
-#: ../src/ui/MainWindow.cpp:289 ../resource/ui/MainWindow.ui.h:6
+#: ../src/ui/MainWindow.cpp:302 ../resource/ui/MainWindow.ui.h:6
 msgid "WhatsApp for Linux"
 msgstr "WhatsApp para Linux"
 
-#: ../src/ui/MainWindow.cpp:290
+#: ../src/ui/MainWindow.cpp:303
 msgid "An unofficial WhatsApp desktop application for Linux"
 msgstr "Aplicação não oficial de WhatsApp para Linux"
 
-#: ../src/ui/MainWindow.cpp:292
-msgid "GitHub Repository"
-msgstr "Repositório GitHub"
-
-#: ../src/ui/PreferencesWindow.cpp:35
+#: ../src/ui/PreferencesWindow.cpp:40
 msgid "On Demand"
 msgstr "Sob demanda"
 
-#: ../src/ui/PreferencesWindow.cpp:36
+#: ../src/ui/PreferencesWindow.cpp:41
 msgid "Always"
 msgstr "Sempre"
 
-#: ../src/ui/PreferencesWindow.cpp:37
+#: ../src/ui/PreferencesWindow.cpp:42
 msgid "Never"
 msgstr "Nunca"
 
@@ -76,11 +61,11 @@ msgstr "Ok"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: ../src/ui/WebView.cpp:307
+#: ../src/ui/WebView.cpp:314
 msgid "Unresponsive"
 msgstr "No responde"
 
-#: ../src/ui/WebView.cpp:308
+#: ../src/ui/WebView.cpp:315
 msgid "The application is not responding. Would you like to reload?"
 msgstr "A aplicação não responde. Deseja recarregá-la?"
 
@@ -88,7 +73,7 @@ msgstr "A aplicação não responde. Deseja recarregá-la?"
 msgid "Fullscreen"
 msgstr "Tela cheia"
 
-#: ../resource/ui/MainWindow.ui.h:2 ../resource/ui/PreferencesWindow.ui.h:18
+#: ../resource/ui/MainWindow.ui.h:2 ../resource/ui/PreferencesWindow.ui.h:20
 msgid "Preferences"
 msgstr "Preferências"
 
@@ -140,40 +125,40 @@ msgstr "Iniciar a aplicação minimizada"
 msgid "Start application after system boots"
 msgstr "Iniciar a aplicação depois do inicio do sistema"
 
-#: ../resource/ui/PreferencesWindow.ui.h:9
+#: ../resource/ui/PreferencesWindow.ui.h:11
 #: ../resource/ui/ShortcutsWindow.ui.h:2
 msgid "General"
 msgstr "Geral"
 
-#: ../resource/ui/PreferencesWindow.ui.h:10
+#: ../resource/ui/PreferencesWindow.ui.h:12
 msgid "Prefer Dark Theme"
 msgstr "Preferir tema escuro"
 
-#: ../resource/ui/PreferencesWindow.ui.h:11
+#: ../resource/ui/PreferencesWindow.ui.h:13
 msgid "Prefer dark theme for the application if system theme includes a dark variant"
 msgstr "Preferir um tema escuro para a aplicação se o tema do sistema inclui uma variante escura"
 
-#: ../resource/ui/PreferencesWindow.ui.h:12
+#: ../resource/ui/PreferencesWindow.ui.h:14
 msgid "Appearance"
 msgstr "Aparência"
 
-#: ../resource/ui/PreferencesWindow.ui.h:13
+#: ../resource/ui/PreferencesWindow.ui.h:15
 msgid "Hardware Acceleration"
 msgstr "Aceleração por hardware"
 
-#: ../resource/ui/PreferencesWindow.ui.h:14
+#: ../resource/ui/PreferencesWindow.ui.h:16
 msgid "Allow Permissions"
 msgstr "Autorizar permissões"
 
-#: ../resource/ui/PreferencesWindow.ui.h:15
+#: ../resource/ui/PreferencesWindow.ui.h:17
 msgid "Set hardware acceleration policy used by webkit"
 msgstr "Definir a política de aceleração de hardware usada pelo webkit"
 
-#: ../resource/ui/PreferencesWindow.ui.h:16
+#: ../resource/ui/PreferencesWindow.ui.h:18
 msgid "Allow permissions on application startup"
 msgstr "Permitir permissões ao iniciar a aplicação"
 
-#: ../resource/ui/PreferencesWindow.ui.h:17
+#: ../resource/ui/PreferencesWindow.ui.h:19
 msgid "Web"
 msgstr "Página web"
 
@@ -196,3 +181,16 @@ msgstr "Mostrar/Ocultar barra de cabeçalho"
 #: ../resource/ui/ShortcutsWindow.ui.h:6
 msgid "Open Preferences"
 msgstr "Abrir Preferências"
+
+#: ../src/ui/MainWindow.cpp:305
+msgid "GitHub Repository"
+msgstr "Repositório GitHub"
+
+#: ../resource/ui/PreferencesWindow.ui.h:9
+msgid "Enable Notification Sounds"
+msgstr "Enable Notification Sounds"
+
+#: ../resource/ui/PreferencesWindow.ui.h:10
+msgid "Play sound on a notification raised by the application"
+msgstr "Play sound on a notification raised by the application"
+
