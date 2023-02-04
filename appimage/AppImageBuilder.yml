@@ -87,6 +87,7 @@ AppDir:
       - /lib/x86_64-linux-gnu/libcairo-gobject.so.2
       - /lib/x86_64-linux-gnu/libcairo.so.2
       - /lib/x86_64-linux-gnu/libcairomm-1.0.so.1
+      - /lib/x86_64-linux-gnu/libcanberra.so.0
       - /lib/x86_64-linux-gnu/libchromaprint.so.1
       - /lib/x86_64-linux-gnu/libcodec2.so.0.9
       - /lib/x86_64-linux-gnu/libcrypto.so.1.1
