@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: WhatsApp for Linux\n"
 "Language: ru\n"
 
-#: ../src/ui/MainWindow.cpp:300 ../src/ui/TrayIcon.cpp:46
+#: ../src/ui/MainWindow.cpp:338 ../src/ui/TrayIcon.cpp:46
 #: ../resource/ui/MainWindow.ui.h:4
 msgid "About"
 msgstr "О программе"
 
-#: ../src/ui/MainWindow.cpp:302 ../resource/ui/MainWindow.ui.h:6
+#: ../src/ui/MainWindow.cpp:340 ../resource/ui/MainWindow.ui.h:6
 msgid "WhatsApp for Linux"
 msgstr "WhatsApp для Linux"
 
-#: ../src/ui/MainWindow.cpp:303
+#: ../src/ui/MainWindow.cpp:341
 msgid "An unofficial WhatsApp desktop application for Linux"
 msgstr "Неофициальное приложение WhatsApp для Linux"
 
@@ -37,7 +37,7 @@ msgid "Show"
 msgstr "Показывать"
 
 #: ../src/ui/TrayIcon.cpp:47 ../resource/ui/MainWindow.ui.h:5
-#: ../resource/ui/ShortcutsWindow.ui.h:8
+#: ../resource/ui/ShortcutsWindow.ui.h:10
 msgid "Quit"
 msgstr "Выход"
 
@@ -77,7 +77,7 @@ msgstr "На весь экран"
 msgid "Preferences"
 msgstr "Параметры"
 
-#: ../resource/ui/MainWindow.ui.h:3 ../resource/ui/ShortcutsWindow.ui.h:7
+#: ../resource/ui/MainWindow.ui.h:3 ../resource/ui/ShortcutsWindow.ui.h:9
 msgid "Keyboard Shortcuts"
 msgstr "Комбинации клавиш"
 
@@ -170,19 +170,19 @@ msgstr "Комбинации клавиш"
 msgid "Refresh Page"
 msgstr "Обновить страницу"
 
-#: ../resource/ui/ShortcutsWindow.ui.h:4
+#: ../resource/ui/ShortcutsWindow.ui.h:6
 msgid "Enter/Exit Fullscreen"
 msgstr "Включить или отключить полноэкранный режим"
 
-#: ../resource/ui/ShortcutsWindow.ui.h:5
+#: ../resource/ui/ShortcutsWindow.ui.h:7
 msgid "Show/Hide Header Bar"
 msgstr "Показать или скрыть строку заголовка"
 
-#: ../resource/ui/ShortcutsWindow.ui.h:6
+#: ../resource/ui/ShortcutsWindow.ui.h:8
 msgid "Open Preferences"
 msgstr "Открыть параметры"
 
-#: ../src/ui/MainWindow.cpp:305
+#: ../src/ui/MainWindow.cpp:343
 msgid "GitHub Repository"
 msgstr "Репозиторий на GitHub"
 
@@ -201,4 +201,12 @@ msgstr "Minimum Font Size"
 #: ../resource/ui/PreferencesWindow.ui.h:20
 msgid "Minimum font size used to display text, values other than 0 can potentially break page layouts"
 msgstr "Minimum font size used to display text, values other than 0 can potentially break page layouts"
+
+#: ../resource/ui/ShortcutsWindow.ui.h:4
+msgid "Zoom In"
+msgstr "Zoom In"
+
+#: ../resource/ui/ShortcutsWindow.ui.h:5
+msgid "Zoom Out"
+msgstr "Zoom Out"
 
