@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: WhatsApp for Linux\n"
 "Language: nl\n"
 
-#: ../src/ui/MainWindow.cpp:300 ../src/ui/TrayIcon.cpp:46
+#: ../src/ui/MainWindow.cpp:338 ../src/ui/TrayIcon.cpp:46
 #: ../resource/ui/MainWindow.ui.h:4
 msgid "About"
 msgstr "Over"
 
-#: ../src/ui/MainWindow.cpp:302 ../resource/ui/MainWindow.ui.h:6
+#: ../src/ui/MainWindow.cpp:340 ../resource/ui/MainWindow.ui.h:6
 msgid "WhatsApp for Linux"
 msgstr "WhatsApp voor Linux"
 
-#: ../src/ui/MainWindow.cpp:303
+#: ../src/ui/MainWindow.cpp:341
 msgid "An unofficial WhatsApp desktop application for Linux"
 msgstr "Een onofficiële WhatsApp-desktoptoepassing voor Linux"
 
@@ -37,7 +37,7 @@ msgid "Show"
 msgstr "Tonen"
 
 #: ../src/ui/TrayIcon.cpp:47 ../resource/ui/MainWindow.ui.h:5
-#: ../resource/ui/ShortcutsWindow.ui.h:8
+#: ../resource/ui/ShortcutsWindow.ui.h:10
 msgid "Quit"
 msgstr "Afsluiten"
 
@@ -77,7 +77,7 @@ msgstr "Schermvullende weergave"
 msgid "Preferences"
 msgstr "Instellingen"
 
-#: ../resource/ui/MainWindow.ui.h:3 ../resource/ui/ShortcutsWindow.ui.h:7
+#: ../resource/ui/MainWindow.ui.h:3 ../resource/ui/ShortcutsWindow.ui.h:9
 msgid "Keyboard Shortcuts"
 msgstr "Sneltoetsen"
 
@@ -170,19 +170,19 @@ msgstr "Sneltoetsen"
 msgid "Refresh Page"
 msgstr "Pagina vernieuwen"
 
-#: ../resource/ui/ShortcutsWindow.ui.h:4
+#: ../resource/ui/ShortcutsWindow.ui.h:6
 msgid "Enter/Exit Fullscreen"
 msgstr "Schermvullende weergave aan/uit"
 
-#: ../resource/ui/ShortcutsWindow.ui.h:5
+#: ../resource/ui/ShortcutsWindow.ui.h:7
 msgid "Show/Hide Header Bar"
 msgstr "Kopbalk tonen/verbergen"
 
-#: ../resource/ui/ShortcutsWindow.ui.h:6
+#: ../resource/ui/ShortcutsWindow.ui.h:8
 msgid "Open Preferences"
 msgstr "Instellingen openen"
 
-#: ../src/ui/MainWindow.cpp:305
+#: ../src/ui/MainWindow.cpp:343
 msgid "GitHub Repository"
 msgstr "GitHub"
 
@@ -201,4 +201,12 @@ msgstr "Minimale tekstgrootte"
 #: ../resource/ui/PreferencesWindow.ui.h:20
 msgid "Minimum font size used to display text, values other than 0 can potentially break page layouts"
 msgstr "De minimale tekstgrootte van berichten en het invoerveld. Let op: waarden hoger dan 0 kunnen de indeling verstoren."
+
+#: ../resource/ui/ShortcutsWindow.ui.h:4
+msgid "Zoom In"
+msgstr "Zoom In"
+
+#: ../resource/ui/ShortcutsWindow.ui.h:5
+msgid "Zoom Out"
+msgstr "Zoom Out"
 
