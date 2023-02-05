@@ -17,20 +17,20 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/ui/MainWindow.cpp:300 ../src/ui/TrayIcon.cpp:46
+#: ../src/ui/MainWindow.cpp:338 ../src/ui/TrayIcon.cpp:46
 #: ../resource/ui/MainWindow.ui.h:4
 msgid "About"
 msgstr ""
 
-#: ../src/ui/MainWindow.cpp:302 ../resource/ui/MainWindow.ui.h:6
+#: ../src/ui/MainWindow.cpp:340 ../resource/ui/MainWindow.ui.h:6
 msgid "WhatsApp for Linux"
 msgstr ""
 
-#: ../src/ui/MainWindow.cpp:303
+#: ../src/ui/MainWindow.cpp:341
 msgid "An unofficial WhatsApp desktop application for Linux"
 msgstr ""
 
-#: ../src/ui/MainWindow.cpp:305
+#: ../src/ui/MainWindow.cpp:343
 msgid "GitHub Repository"
 msgstr ""
 
@@ -51,7 +51,7 @@ msgid "Show"
 msgstr ""
 
 #: ../src/ui/TrayIcon.cpp:47 ../resource/ui/MainWindow.ui.h:5
-#: ../resource/ui/ShortcutsWindow.ui.h:8
+#: ../resource/ui/ShortcutsWindow.ui.h:10
 msgid "Quit"
 msgstr ""
 
@@ -91,7 +91,7 @@ msgstr ""
 msgid "Preferences"
 msgstr ""
 
-#: ../resource/ui/MainWindow.ui.h:3 ../resource/ui/ShortcutsWindow.ui.h:7
+#: ../resource/ui/MainWindow.ui.h:3 ../resource/ui/ShortcutsWindow.ui.h:9
 msgid "Keyboard Shortcuts"
 msgstr ""
 
@@ -157,7 +157,8 @@ msgid "Prefer Dark Theme"
 msgstr ""
 
 #: ../resource/ui/PreferencesWindow.ui.h:13
-msgid "Prefer dark theme for the application if system theme includes a dark variant"
+msgid ""
+"Prefer dark theme for the application if system theme includes a dark variant"
 msgstr ""
 
 #: ../resource/ui/PreferencesWindow.ui.h:14
@@ -201,13 +202,21 @@ msgid "Refresh Page"
 msgstr ""
 
 #: ../resource/ui/ShortcutsWindow.ui.h:4
-msgid "Enter/Exit Fullscreen"
+msgid "Zoom In"
 msgstr ""
 
 #: ../resource/ui/ShortcutsWindow.ui.h:5
-msgid "Show/Hide Header Bar"
+msgid "Zoom Out"
 msgstr ""
 
 #: ../resource/ui/ShortcutsWindow.ui.h:6
+msgid "Enter/Exit Fullscreen"
+msgstr ""
+
+#: ../resource/ui/ShortcutsWindow.ui.h:7
+msgid "Show/Hide Header Bar"
+msgstr ""
+
+#: ../resource/ui/ShortcutsWindow.ui.h:8
 msgid "Open Preferences"
 msgstr ""
