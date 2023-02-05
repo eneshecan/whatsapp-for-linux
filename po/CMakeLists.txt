@@ -2,12 +2,12 @@ file(GLOB PO_FILES *.po)
 
 add_custom_command(
         OUTPUT ${CMAKE_PROJECT_NAME}.pot
-        COMMAND intltool-update -g ${CMAKE_PROJECT_NAME} -p
+        COMMAND intltool-update -g ${CMAKE_PROJECT_NAME} -p && intltool-update --dist --gettext-package=whatsapp-for-linux --output-file=en.po en
         WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-        COMMENT "Updating default translation file"
+        COMMENT "Updating default translation files"
     )
 
-add_custom_target(update-translation DEPENDS ${CMAKE_PROJECT_NAME}.pot)
+add_custom_target(update-translations DEPENDS ${CMAKE_PROJECT_NAME}.pot en.po)
 
 foreach (LANG ${PO_FILES})
     get_filename_component(LANG ${LANG} NAME)
