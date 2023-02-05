@@ -23,6 +23,7 @@ namespace wfl::ui
 
         protected:
             bool on_key_press_event(GdkEventKey* keyEvent) override;
+            bool on_scroll_event(GdkEventScroll* scrollEvent) override;
             bool on_window_state_event(GdkEventWindowState* windowStateEvent) override;
             bool on_delete_event(GdkEventAny*) override;
 
@@ -36,9 +37,9 @@ namespace wfl::ui
             void onShow();
             void onQuit();
             void onFullscreen();
-            void onZoomIn(Gtk::Button* buttonZoomLevel);
-            void onZoomOut(Gtk::Button* buttonZoomLevel);
-            void onResetZoom(Gtk::Button* buttonZoomLevel);
+            void onZoomIn();
+            void onZoomOut();
+            void onResetZoom();
             void onShortcuts();
             void onAbout();
 
@@ -51,6 +52,7 @@ namespace wfl::ui
             PhoneNumberDialog*    m_phoneNumberDialog;
             Gtk::HeaderBar*       m_headerBar;
             Gtk::ShortcutsWindow* m_shortcutsWindow;
+            Gtk::Button*          m_buttonZoomLevel;
             bool                  m_fullscreen;
     };
 }

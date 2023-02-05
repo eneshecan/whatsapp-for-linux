@@ -21,6 +21,7 @@ namespace wfl::ui
         , m_phoneNumberDialog{nullptr}
         , m_headerBar{nullptr}
         , m_shortcutsWindow{nullptr}
+        , m_buttonZoomLevel{nullptr}
         , m_fullscreen{false}
     {
         auto const appIcon16x16   = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/16x16/apps/" WFL_ICON ".png");
@@ -48,18 +49,17 @@ namespace wfl::ui
         refBuilder->get_widget("button_fullscreen", buttonFullscreen);
         buttonFullscreen->signal_clicked().connect(sigc::mem_fun(*this, &MainWindow::onFullscreen));
 
-        Gtk::Button* buttonZoomLevel = nullptr;
-        refBuilder->get_widget("button_zoom_level", buttonZoomLevel);
-        buttonZoomLevel->set_label(m_webView.getZoomLevelString());
-        buttonZoomLevel->signal_clicked().connect(sigc::bind(sigc::mem_fun(*this, &MainWindow::onResetZoom), buttonZoomLevel));
+        refBuilder->get_widget("button_zoom_level", m_buttonZoomLevel);
+        m_buttonZoomLevel->set_label(m_webView.getZoomLevelString());
+        m_buttonZoomLevel->signal_clicked().connect(sigc::mem_fun(*this, &MainWindow::onResetZoom));
 
         Gtk::Button* buttonZoomIn = nullptr;
         refBuilder->get_widget("button_zoom_in", buttonZoomIn);
-        buttonZoomIn->signal_clicked().connect(sigc::bind(sigc::mem_fun(*this, &MainWindow::onZoomIn), buttonZoomLevel));
+        buttonZoomIn->signal_clicked().connect(sigc::mem_fun(*this, &MainWindow::onZoomIn));
 
         Gtk::Button* buttonZoomOut = nullptr;
         refBuilder->get_widget("button_zoom_out", buttonZoomOut);
-        buttonZoomOut->signal_clicked().connect(sigc::bind(sigc::mem_fun(*this, &MainWindow::onZoomOut), buttonZoomLevel));
+        buttonZoomOut->signal_clicked().connect(sigc::mem_fun(*this, &MainWindow::onZoomOut));
 
         Gtk::ModelButton* buttonPreferences = nullptr;
         refBuilder->get_widget("button_preferences", buttonPreferences);
@@ -104,54 +104,92 @@ namespace wfl::ui
 
     bool MainWindow::on_key_press_event(GdkEventKey* keyEvent)
     {
-        switch (keyEvent->keyval)
+        if (keyEvent->state & GDK_CONTROL_MASK)
         {
-            case GDK_KEY_F11:
-                onFullscreen();
-                return true;
+            switch (keyEvent->keyval)
+            {
+                case GDK_KEY_P:
+                case GDK_KEY_p:
+                    onOpenPreferences();
+                    return true;
 
-            case GDK_KEY_H:
-            case GDK_KEY_h:
-                if (keyEvent->state & GDK_MOD1_MASK)
+                case GDK_KEY_Q:
+                case GDK_KEY_q:
+                    onQuit();
+                    return true;
+
+                case GDK_KEY_question:
+                    onShortcuts();
+                    return true;
+
+                case GDK_KEY_plus:
+                    onZoomIn();
+                    return true;
+
+                case GDK_KEY_minus:
+                    onZoomOut();
+                    return true;
+
+                default:
+                    break;
+            }
+        }
+        else if (keyEvent->state & GDK_MOD1_MASK)
+        {
+            switch (keyEvent->keyval)
+            {
+                case GDK_KEY_H:
+                case GDK_KEY_h:
                 {
                     auto const visible = !m_headerBar->is_visible();
                     m_headerBar->set_visible(visible);
                     util::Settings::getInstance().setValue("general", "header-bar", visible);
                     return true;
                 }
-                break;
 
-            case GDK_KEY_P:
-            case GDK_KEY_p:
-                if (keyEvent->state & GDK_CONTROL_MASK)
-                {
-                    onOpenPreferences();
+                default:
+                    break;
+            }
+        }
+        else
+        {
+            switch (keyEvent->keyval)
+            {
+                case GDK_KEY_F11:
+                    onFullscreen();
                     return true;
-                }
-                break;
 
-            case GDK_KEY_Q:
-            case GDK_KEY_q:
-                if (keyEvent->state & GDK_CONTROL_MASK)
-                {
-                    onQuit();
-                    return true;
-                }
-                break;
-
-            case GDK_KEY_question:
-                if (keyEvent->state & GDK_CONTROL_MASK)
-                {
-                    onShortcuts();
-                    return true;
-                }
-                break;
-
-            default:
-                break;
+                default:
+                    break;
+            }
         }
 
+
         return Gtk::ApplicationWindow::on_key_press_event(keyEvent);
+    }
+
+    bool MainWindow::on_scroll_event(GdkEventScroll* scrollEvent)
+    {
+        if (scrollEvent->state & GDK_CONTROL_MASK)
+        {
+            switch (scrollEvent->direction)
+            {
+                case GDK_SCROLL_UP:
+                case GDK_SCROLL_RIGHT:
+                    onZoomIn();
+                    return true;
+
+                case GDK_SCROLL_DOWN:
+                case GDK_SCROLL_LEFT:
+                    onZoomOut();
+                    return true;
+
+                default:
+                    break;
+            }
+        }
+
+        return Gtk::ApplicationWindow::on_scroll_event(scrollEvent);
     }
 
     bool MainWindow::on_window_state_event(GdkEventWindowState* windowStateEvent)
@@ -263,22 +301,22 @@ namespace wfl::ui
         m_fullscreen ? unfullscreen() : fullscreen();
     }
 
-    void MainWindow::onZoomIn(Gtk::Button* buttonZoomLevel)
+    void MainWindow::onZoomIn()
     {
         m_webView.zoomIn();
-        buttonZoomLevel->set_label(m_webView.getZoomLevelString());
+        m_buttonZoomLevel->set_label(m_webView.getZoomLevelString());
     }
 
-    void MainWindow::onZoomOut(Gtk::Button* buttonZoomLevel)
+    void MainWindow::onZoomOut()
     {
         m_webView.zoomOut();
-        buttonZoomLevel->set_label(m_webView.getZoomLevelString());
+        m_buttonZoomLevel->set_label(m_webView.getZoomLevelString());
     }
 
-    void MainWindow::onResetZoom(Gtk::Button* buttonZoomLevel)
+    void MainWindow::onResetZoom()
     {
         m_webView.resetZoom();
-        buttonZoomLevel->set_label(m_webView.getZoomLevelString());
+        m_buttonZoomLevel->set_label(m_webView.getZoomLevelString());
     }
 
     void MainWindow::onShortcuts()

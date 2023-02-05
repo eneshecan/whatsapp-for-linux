@@ -23,6 +23,20 @@
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="visible">1</property>
+                <property name="accelerator">&lt;ctrl&gt;plus</property>
+                <property name="title" translatable="yes">Zoom In</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">1</property>
+                <property name="accelerator">&lt;ctrl&gt;minus</property>
+                <property name="title" translatable="yes">Zoom Out</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">1</property>
                 <property name="accelerator">F11</property>
                 <property name="title" translatable="yes">Enter/Exit Fullscreen</property>
               </object>
