@@ -196,17 +196,17 @@ msgstr "Uygulama tarafından oluşturulan bir bildirimde ses çal"
 
 #: ../resource/ui/PreferencesWindow.ui.h:19
 msgid "Minimum Font Size"
-msgstr "Minimum Font Size"
+msgstr "Minimum Yazı Tipi Boyutu"
 
 #: ../resource/ui/PreferencesWindow.ui.h:20
 msgid "Minimum font size used to display text, values other than 0 can potentially break page layouts"
-msgstr "Minimum font size used to display text, values other than 0 can potentially break page layouts"
+msgstr "Metni görüntülemek için kullanılan minimum yazı tipi boyutu, 0 dışındaki değerler potansiyel olarak sayfa düzenlerini bozabilir"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:4
 msgid "Zoom In"
-msgstr "Zoom In"
+msgstr "Yakınlaştır"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:5
 msgid "Zoom Out"
-msgstr "Zoom Out"
+msgstr "Uzaklaştır"
 
