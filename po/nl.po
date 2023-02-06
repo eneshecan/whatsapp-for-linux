@@ -204,9 +204,9 @@ msgstr "De minimale tekstgrootte van berichten en het invoerveld. Let op: waarde
 
 #: ../resource/ui/ShortcutsWindow.ui.h:4
 msgid "Zoom In"
-msgstr "Zoom In"
+msgstr "Inzoomen"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:5
 msgid "Zoom Out"
-msgstr "Zoom Out"
+msgstr "Uitzoomen"
 
