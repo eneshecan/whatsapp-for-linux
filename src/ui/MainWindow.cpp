@@ -164,7 +164,6 @@ namespace wfl::ui
             }
         }
 
-
         return Gtk::ApplicationWindow::on_key_press_event(keyEvent);
     }
 
