@@ -164,6 +164,8 @@ namespace wfl::ui
             }
         }
 
+        if (keyEvent->state & GDK_MOD1_MASK)
+            keyEvent->state += GDK_META_MASK;
 
         return Gtk::ApplicationWindow::on_key_press_event(keyEvent);
     }
