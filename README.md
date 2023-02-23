@@ -30,6 +30,7 @@ An unofficial WhatsApp desktop application for Linux.
 [![Action Status](https://github.com/eneshecan/whatsapp-for-linux/workflows/Build/badge.svg)](https://github.com/eneshecan/whatsapp-for-linux/actions/workflows/build.yml)
 [![Action Status](https://github.com/eneshecan/whatsapp-for-linux/workflows/Install/badge.svg)](https://github.com/eneshecan/whatsapp-for-linux/actions/workflows/install.yml)
 [![Action Status](https://github.com/eneshecan/whatsapp-for-linux/workflows/Release/badge.svg)](https://github.com/eneshecan/whatsapp-for-linux/actions/workflows/release.yml)
+[![POEditor](https://img.shields.io/badge/Translations-POEditor-brightgreen)](https://poeditor.com/join/project/jMGkxVn3vN)
 
 ![App Window](screenshot/app.png)
 
