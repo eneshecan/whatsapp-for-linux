@@ -338,14 +338,4 @@ namespace wfl::ui
 
         return true;
     }
-
-    bool WebView::on_key_press_event(GdkEventKey* keyEvent)
-    {
-        // This is required for keyboard shortcuts on WhatsApp Web to work. Since it is running
-        // on WebKit, WhatsApp Web listens for Mac's [CMD] key instead of the standard [ALT] key.
-        if (keyEvent->state & GDK_MOD1_MASK)
-            keyEvent->state += GDK_META_MASK;
-
-        return Gtk::Widget::on_key_press_event(keyEvent);
-    }
 }

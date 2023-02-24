@@ -35,9 +35,6 @@ namespace wfl::ui
             sigc::signal<void, bool>            signalNotification() const noexcept;
             sigc::signal<void>                  signalNotificationClicked() const noexcept;
 
-        protected:
-            bool on_key_press_event(GdkEventKey* keyEvent) override;
-
         private:
             void onLoadStatusChanged(WebKitLoadEvent loadEvent);
             bool onTimeout();
