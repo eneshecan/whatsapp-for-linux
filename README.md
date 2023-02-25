@@ -43,9 +43,11 @@ Check out [wiki](https://github.com/eneshecan/whatsapp-for-linux/wiki) for furth
 
 ## Features
 
-* Features come with whatsapp web except audio and image capture
+* Features come with WhatsApp Web except audio/video capture and calls
+  * WhatsApp specific keyboard shortcuts work with *Alt* key instead of *Cmd*
 * Zoom in/out
 * System tray icon
+* Notification sounds
 * Autostart with system
 * Fullscreen mode
 * Show/Hide headerbar by pressing *Alt+H*
