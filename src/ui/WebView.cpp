@@ -31,8 +31,8 @@ namespace wfl::ui
 
         gboolean permissionRequest(WebKitWebView*, WebKitPermissionRequest* request, GtkWindow*)
         {
-            auto dialog = Gtk::MessageDialog{_("Notification Request"), false, Gtk::MESSAGE_QUESTION, Gtk::BUTTONS_YES_NO};
-            dialog.set_secondary_text(_("Would you like to allow notifications?"));
+            auto dialog = Gtk::MessageDialog{_("Permission Request"), false, Gtk::MESSAGE_QUESTION, Gtk::BUTTONS_YES_NO};
+            dialog.set_secondary_text(_("Would you like to allow permissions?"));
 
             auto const allow = (dialog.run() == Gtk::RESPONSE_YES);
             allow ? webkit_permission_request_allow(request) : webkit_permission_request_deny(request);
