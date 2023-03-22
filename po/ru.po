@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: WhatsApp for Linux\n"
 "Language: ru\n"
 
-#: ../src/ui/MainWindow.cpp:338 ../src/ui/TrayIcon.cpp:46
+#: ../src/ui/MainWindow.cpp:344 ../src/ui/TrayIcon.cpp:46
 #: ../resource/ui/MainWindow.ui.h:4
 msgid "About"
 msgstr "О программе"
 
-#: ../src/ui/MainWindow.cpp:340 ../resource/ui/MainWindow.ui.h:6
+#: ../src/ui/MainWindow.cpp:346 ../resource/ui/MainWindow.ui.h:6
 msgid "WhatsApp for Linux"
 msgstr "WhatsApp для Linux"
 
-#: ../src/ui/MainWindow.cpp:341
+#: ../src/ui/MainWindow.cpp:347
 msgid "An unofficial WhatsApp desktop application for Linux"
 msgstr "Неофициальное приложение WhatsApp для Linux"
 
@@ -41,31 +41,23 @@ msgstr "Показывать"
 msgid "Quit"
 msgstr "Выход"
 
-#: ../src/ui/WebView.cpp:34
-msgid "Notification Request"
-msgstr "Запрос уведомлений"
-
-#: ../src/ui/WebView.cpp:35
-msgid "Would you like to allow notifications?"
-msgstr "Разрешить уведомления?"
-
-#: ../src/ui/WebView.cpp:69
+#: ../src/ui/WebView.cpp:75
 msgid "Save File"
 msgstr "Сохранить файл"
 
-#: ../src/ui/WebView.cpp:70
+#: ../src/ui/WebView.cpp:76
 msgid "Ok"
 msgstr "ОК"
 
-#: ../src/ui/WebView.cpp:71
+#: ../src/ui/WebView.cpp:77
 msgid "Cancel"
 msgstr "Отмена"
 
-#: ../src/ui/WebView.cpp:322
+#: ../src/ui/WebView.cpp:328
 msgid "Unresponsive"
 msgstr "Не отвечает"
 
-#: ../src/ui/WebView.cpp:323
+#: ../src/ui/WebView.cpp:329
 msgid "The application is not responding. Would you like to reload?"
 msgstr "Приложение не отвечает. Перезагрузить его?"
 
@@ -182,7 +174,7 @@ msgstr "Показать или скрыть строку заголовка"
 msgid "Open Preferences"
 msgstr "Открыть параметры"
 
-#: ../src/ui/MainWindow.cpp:343
+#: ../src/ui/MainWindow.cpp:349
 msgid "GitHub Repository"
 msgstr "Репозиторий на GitHub"
 
@@ -209,4 +201,12 @@ msgstr "Zoom In"
 #: ../resource/ui/ShortcutsWindow.ui.h:5
 msgid "Zoom Out"
 msgstr "Zoom Out"
+
+#: ../src/ui/WebView.cpp:40
+msgid "Permission Request"
+msgstr "Permission Request"
+
+#: ../src/ui/WebView.cpp:41
+msgid "Would you like to allow permissions?"
+msgstr "Would you like to allow permissions?"
 
