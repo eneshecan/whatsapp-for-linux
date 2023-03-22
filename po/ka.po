@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: WhatsApp for Linux\n"
 "Language: ka\n"
 
-#: ../src/ui/MainWindow.cpp:338 ../src/ui/TrayIcon.cpp:46
+#: ../src/ui/MainWindow.cpp:344 ../src/ui/TrayIcon.cpp:46
 #: ../resource/ui/MainWindow.ui.h:4
 msgid "About"
 msgstr "შესახებ"
 
-#: ../src/ui/MainWindow.cpp:340 ../resource/ui/MainWindow.ui.h:6
+#: ../src/ui/MainWindow.cpp:346 ../resource/ui/MainWindow.ui.h:6
 msgid "WhatsApp for Linux"
 msgstr "WhatsApp-ი ლინუქსისთვის"
 
-#: ../src/ui/MainWindow.cpp:341
+#: ../src/ui/MainWindow.cpp:347
 msgid "An unofficial WhatsApp desktop application for Linux"
 msgstr "WhatsApp-ის არაოფიციალური აპლიკაცია ლინუქსისთვის"
 
@@ -41,31 +41,23 @@ msgstr "ჩვენება"
 msgid "Quit"
 msgstr "&გასვლა"
 
-#: ../src/ui/WebView.cpp:34
-msgid "Notification Request"
-msgstr "გაფრთხილების მოთხოვნა"
-
-#: ../src/ui/WebView.cpp:35
-msgid "Would you like to allow notifications?"
-msgstr "გნებავთ, დაუშვათ გაფრთხილებები?"
-
-#: ../src/ui/WebView.cpp:69
+#: ../src/ui/WebView.cpp:75
 msgid "Save File"
 msgstr "ფაილის შენახვა"
 
-#: ../src/ui/WebView.cpp:70
+#: ../src/ui/WebView.cpp:76
 msgid "Ok"
 msgstr "დიახ"
 
-#: ../src/ui/WebView.cpp:71
+#: ../src/ui/WebView.cpp:77
 msgid "Cancel"
 msgstr "გაუქმენა"
 
-#: ../src/ui/WebView.cpp:322
+#: ../src/ui/WebView.cpp:328
 msgid "Unresponsive"
 msgstr "არ პასუხობს"
 
-#: ../src/ui/WebView.cpp:323
+#: ../src/ui/WebView.cpp:329
 msgid "The application is not responding. Would you like to reload?"
 msgstr "აპლიკაცია არ პასუხობს. გნებავთ, გადატვირთოთ?"
 
@@ -182,7 +174,7 @@ msgstr "თავსართის ზოლის ჩვენება/და
 msgid "Open Preferences"
 msgstr "მორგების ფანჯრის გახსნა"
 
-#: ../src/ui/MainWindow.cpp:343
+#: ../src/ui/MainWindow.cpp:349
 msgid "GitHub Repository"
 msgstr "GitHub -ის რეპოზიტორია"
 
@@ -209,4 +201,12 @@ msgstr "Zoom In"
 #: ../resource/ui/ShortcutsWindow.ui.h:5
 msgid "Zoom Out"
 msgstr "Zoom Out"
+
+#: ../src/ui/WebView.cpp:40
+msgid "Permission Request"
+msgstr "Permission Request"
+
+#: ../src/ui/WebView.cpp:41
+msgid "Would you like to allow permissions?"
+msgstr "Would you like to allow permissions?"
 
