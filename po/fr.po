@@ -96,3 +96,116 @@ msgstr "Ouvrir le chat par numéro de téléphone"
 #: ../resource/ui/PhoneNumberDialog.ui.h:2
 msgid "Enter phone number (only digits)"
 msgstr "Entrez le numéro de téléphone (chiffres uniquement)"
+
+#: ../resource/ui/PreferencesWindow.ui.h:1
+msgid "Close to Tray"
+msgstr "Fermer vers la barre de notification"
+
+#: ../resource/ui/PreferencesWindow.ui.h:2
+msgid "Start in Tray"
+msgstr "Démarrer dans la barre de notification"
+
+#: ../resource/ui/PreferencesWindow.ui.h:3
+msgid "Start Minimized"
+msgstr "Démarrer minimisé"
+
+#: ../resource/ui/PreferencesWindow.ui.h:4
+msgid "Autostart"
+msgstr "Démarrage automatique"
+
+#: ../resource/ui/PreferencesWindow.ui.h:5
+msgid "Enable tray icon"
+msgstr "Activer l'icône dans la barre de notification"
+
+#: ../resource/ui/PreferencesWindow.ui.h:6
+msgid "Start application as closed to tray"
+msgstr "Démarrer l'application en la fermant dans la barre de notification"
+
+#: ../resource/ui/PreferencesWindow.ui.h:7
+msgid "Start application as minimized"
+msgstr "Démarrer l'application minimisée"
+
+#: ../resource/ui/PreferencesWindow.ui.h:8
+msgid "Start application after system boots"
+msgstr "Démarrer l'application après le démarrage du système"
+
+#: ../resource/ui/PreferencesWindow.ui.h:9
+msgid "Enable Notification Sounds"
+msgstr "Activer les sons de notification"
+
+#: ../resource/ui/PreferencesWindow.ui.h:10
+msgid "Play sound on a notification raised by the application"
+msgstr "Jouer un son lorsqu'une notification est émise par l'application"
+
+#: ../resource/ui/PreferencesWindow.ui.h:11
+#: ../resource/ui/ShortcutsWindow.ui.h:2
+msgid "General"
+msgstr "Général"
+
+#: ../resource/ui/PreferencesWindow.ui.h:12
+msgid "Prefer Dark Theme"
+msgstr "Préférer le thème sombre"
+
+#: ../resource/ui/PreferencesWindow.ui.h:13
+msgid "Prefer dark theme for the application if system theme includes a dark variant"
+msgstr "Préférer le thème sombre pour l'application si le thème du système inclut une variante sombre"
+
+#: ../resource/ui/PreferencesWindow.ui.h:14
+msgid "Appearance"
+msgstr "Apparence"
+
+#: ../resource/ui/PreferencesWindow.ui.h:15
+msgid "Hardware Acceleration"
+msgstr "Accélération matérielle"
+
+#: ../resource/ui/PreferencesWindow.ui.h:16
+msgid "Allow Permissions"
+msgstr "Autoriser les autorisations"
+
+#: ../resource/ui/PreferencesWindow.ui.h:17
+msgid "Set hardware acceleration policy used by webkit"
+msgstr "Définir la politique d'accélération matérielle utilisée par WebKit"
+
+#: ../resource/ui/PreferencesWindow.ui.h:18
+msgid "Allow permissions on application startup"
+msgstr "Autoriser les autorisations au démarrage de l'application"
+
+#: ../resource/ui/PreferencesWindow.ui.h:19
+msgid "Minimum Font Size"
+msgstr "Taille de police minimale"
+
+#: ../resource/ui/PreferencesWindow.ui.h:20
+msgid "Minimum font size used to display text, values other than 0 can potentially break page layouts"
+msgstr "Taille de police minimale utilisée pour afficher du texte, des valeurs autres que 0 peuvent potentiellement briser la mise en page des pages"
+
+#: ../resource/ui/PreferencesWindow.ui.h:21
+msgid "Web"
+msgstr "Web"
+
+#: ../resource/ui/ShortcutsWindow.ui.h:1
+msgid "Shortcuts"
+msgstr "Raccourcis"
+
+#: ../resource/ui/ShortcutsWindow.ui.h:3
+msgid "Refresh Page"
+msgstr "Actualiser la page"
+
+#: ../resource/ui/ShortcutsWindow.ui.h:4
+msgid "Zoom In"
+msgstr "Zoom avant"
+
+#: ../resource/ui/ShortcutsWindow.ui.h:5
+msgid "Zoom Out"
+msgstr "Zoom arrière"
+
+#: ../resource/ui/ShortcutsWindow.ui.h:6
+msgid "Enter/Exit Fullscreen"
+msgstr "Entrer/Sortir du mode plein écran"
+
+#: ../resource/ui/ShortcutsWindow.ui.h:7
+msgid "Show/Hide Header Bar"
+msgstr "Afficher/Masquer la barre d'en-tête"
+
+#: ../resource/ui/ShortcutsWindow.ui.h:8
+msgid "Open Preferences"
+msgstr "Ouvrir les préférences"
