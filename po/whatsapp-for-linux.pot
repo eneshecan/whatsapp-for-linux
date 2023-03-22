@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: whatsapp-for-linux\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-10 22:56+0100\n"
-"PO-Revision-Date: 2023-02-02 16:32+0100\n"
+"PO-Revision-Date: 2023-03-22 15:17+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -17,20 +17,20 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/ui/MainWindow.cpp:338 ../src/ui/TrayIcon.cpp:46
+#: ../src/ui/MainWindow.cpp:344 ../src/ui/TrayIcon.cpp:46
 #: ../resource/ui/MainWindow.ui.h:4
 msgid "About"
 msgstr ""
 
-#: ../src/ui/MainWindow.cpp:340 ../resource/ui/MainWindow.ui.h:6
+#: ../src/ui/MainWindow.cpp:346 ../resource/ui/MainWindow.ui.h:6
 msgid "WhatsApp for Linux"
 msgstr ""
 
-#: ../src/ui/MainWindow.cpp:341
+#: ../src/ui/MainWindow.cpp:347
 msgid "An unofficial WhatsApp desktop application for Linux"
 msgstr ""
 
-#: ../src/ui/MainWindow.cpp:343
+#: ../src/ui/MainWindow.cpp:349
 msgid "GitHub Repository"
 msgstr ""
 
@@ -55,31 +55,31 @@ msgstr ""
 msgid "Quit"
 msgstr ""
 
-#: ../src/ui/WebView.cpp:34
-msgid "Notification Request"
+#: ../src/ui/WebView.cpp:40
+msgid "Permission Request"
 msgstr ""
 
-#: ../src/ui/WebView.cpp:35
-msgid "Would you like to allow notifications?"
+#: ../src/ui/WebView.cpp:41
+msgid "Would you like to allow permissions?"
 msgstr ""
 
-#: ../src/ui/WebView.cpp:69
+#: ../src/ui/WebView.cpp:75
 msgid "Save File"
 msgstr ""
 
-#: ../src/ui/WebView.cpp:70
+#: ../src/ui/WebView.cpp:76
 msgid "Ok"
 msgstr ""
 
-#: ../src/ui/WebView.cpp:71
+#: ../src/ui/WebView.cpp:77
 msgid "Cancel"
 msgstr ""
 
-#: ../src/ui/WebView.cpp:322
+#: ../src/ui/WebView.cpp:328
 msgid "Unresponsive"
 msgstr ""
 
-#: ../src/ui/WebView.cpp:323
+#: ../src/ui/WebView.cpp:329
 msgid "The application is not responding. Would you like to reload?"
 msgstr ""
 
