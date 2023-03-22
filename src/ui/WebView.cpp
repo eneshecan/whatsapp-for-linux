@@ -31,6 +31,12 @@ namespace wfl::ui
 
         gboolean permissionRequest(WebKitWebView*, WebKitPermissionRequest* request, GtkWindow*)
         {
+            if (util::Settings::getInstance().getValue<bool>("web", "allow-permissions"))
+            {
+                webkit_permission_request_allow(request);
+                return TRUE;
+            }
+
             auto dialog = Gtk::MessageDialog{_("Permission Request"), false, Gtk::MESSAGE_QUESTION, Gtk::BUTTONS_YES_NO};
             dialog.set_secondary_text(_("Would you like to allow permissions?"));
 
