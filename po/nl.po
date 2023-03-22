@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: WhatsApp for Linux\n"
 "Language: nl\n"
 
-#: ../src/ui/MainWindow.cpp:338 ../src/ui/TrayIcon.cpp:46
+#: ../src/ui/MainWindow.cpp:344 ../src/ui/TrayIcon.cpp:46
 #: ../resource/ui/MainWindow.ui.h:4
 msgid "About"
 msgstr "Over"
 
-#: ../src/ui/MainWindow.cpp:340 ../resource/ui/MainWindow.ui.h:6
+#: ../src/ui/MainWindow.cpp:346 ../resource/ui/MainWindow.ui.h:6
 msgid "WhatsApp for Linux"
 msgstr "WhatsApp voor Linux"
 
-#: ../src/ui/MainWindow.cpp:341
+#: ../src/ui/MainWindow.cpp:347
 msgid "An unofficial WhatsApp desktop application for Linux"
 msgstr "Een onofficiële WhatsApp-desktoptoepassing voor Linux"
 
@@ -41,31 +41,23 @@ msgstr "Tonen"
 msgid "Quit"
 msgstr "Afsluiten"
 
-#: ../src/ui/WebView.cpp:34
-msgid "Notification Request"
-msgstr "Meldingsverzoek"
-
-#: ../src/ui/WebView.cpp:35
-msgid "Would you like to allow notifications?"
-msgstr "Wil je meldingen ontvangen?"
-
-#: ../src/ui/WebView.cpp:69
+#: ../src/ui/WebView.cpp:75
 msgid "Save File"
 msgstr "Bestand opslaan"
 
-#: ../src/ui/WebView.cpp:70
+#: ../src/ui/WebView.cpp:76
 msgid "Ok"
 msgstr "Oké"
 
-#: ../src/ui/WebView.cpp:71
+#: ../src/ui/WebView.cpp:77
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: ../src/ui/WebView.cpp:322
+#: ../src/ui/WebView.cpp:328
 msgid "Unresponsive"
 msgstr "Niet bereikbaar"
 
-#: ../src/ui/WebView.cpp:323
+#: ../src/ui/WebView.cpp:329
 msgid "The application is not responding. Would you like to reload?"
 msgstr "Het programma reageert niet. Wil je het opnieuw starten?"
 
@@ -182,7 +174,7 @@ msgstr "Kopbalk tonen/verbergen"
 msgid "Open Preferences"
 msgstr "Instellingen openen"
 
-#: ../src/ui/MainWindow.cpp:343
+#: ../src/ui/MainWindow.cpp:349
 msgid "GitHub Repository"
 msgstr "GitHub"
 
@@ -209,4 +201,12 @@ msgstr "Inzoomen"
 #: ../resource/ui/ShortcutsWindow.ui.h:5
 msgid "Zoom Out"
 msgstr "Uitzoomen"
+
+#: ../src/ui/WebView.cpp:40
+msgid "Permission Request"
+msgstr "Permission Request"
+
+#: ../src/ui/WebView.cpp:41
+msgid "Would you like to allow permissions?"
+msgstr "Would you like to allow permissions?"
 
