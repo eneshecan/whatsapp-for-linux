@@ -43,7 +43,7 @@ Check out [wiki](https://github.com/eneshecan/whatsapp-for-linux/wiki) for furth
 
 ## Features
 
-* Features come with WhatsApp Web except audio/video capture and calls
+* Features come with WhatsApp Web
   * WhatsApp specific keyboard shortcuts work with *Alt* key instead of *Cmd*
 * Zoom in/out
 * System tray icon
