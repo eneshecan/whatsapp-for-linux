@@ -204,9 +204,9 @@ msgstr "Zoom arrière"
 
 #: ../src/ui/WebView.cpp:40
 msgid "Permission Request"
-msgstr "Permission Request"
+msgstr "Requête de permission"
 
 #: ../src/ui/WebView.cpp:41
 msgid "Would you like to allow permissions?"
-msgstr "Would you like to allow permissions?"
+msgstr "Voulez vous autoriser les permissions?"
 
