@@ -23,65 +23,7 @@ set(GETTEXT_PACKAGE ${WFL_NAME})
 set(WFL_LOCALEDIR "${CMAKE_INSTALL_FULL_LOCALEDIR}")
 
 message(STATUS "${CMAKE_PROJECT_NAME} version: ${WFL_VERSION}")
-file(WRITE "${CMAKE_CURRENT_BINARY_DIR}/generated/VERSION" ${WFL_VERSION})
-configure_file(${CMAKE_SOURCE_DIR}/src/Config.hpp.in ${CMAKE_CURRENT_BINARY_DIR}/generated/Config.hpp)
-configure_file(${CMAKE_SOURCE_DIR}/resource/desktop/${WFL_APP_ID}.desktop.in ${CMAKE_CURRENT_BINARY_DIR}/generated/${WFL_APP_ID}.desktop)
-configure_file(${CMAKE_SOURCE_DIR}/resource/desktop/${WFL_APP_ID}.appdata.xml.in ${CMAKE_CURRENT_BINARY_DIR}/generated/${WFL_APP_ID}.appdata.xml)
 
-message(STATUS "Compiling UI resources")
-execute_process(
-        COMMAND glib-compile-resources --target=${CMAKE_CURRENT_BINARY_DIR}/generated/Resources.c --generate-source gresource.xml
-        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/resource
-    )
-
-find_package(PkgConfig REQUIRED)
-
-find_package(Intl REQUIRED)
-find_package(Gettext REQUIRED)
-include_directories(${Intl_INCLUDE_DIRS})
-link_directories(${INTL_LIBRARY_DIRS})
-
-pkg_check_modules(GTKMM gtkmm-3.0 REQUIRED)
-include_directories(${GTKMM_INCLUDE_DIRS})
-
-pkg_check_modules(WEBKIT webkit2gtk-4.0)
-if (NOT WEBKIT_FOUND)
-    pkg_check_modules(WEBKIT webkit2gtk-4.1 REQUIRED)
-endif()
-include_directories(${WEBKIT_INCLUDE_DIRS})
-
-pkg_check_modules(APPINDICATOR ayatana-appindicator3-0.1 REQUIRED)
-include_directories(${APPINDICATOR_INCLUDE_DIRS})
-
-pkg_check_modules(CANBERRA libcanberra REQUIRED)
-include_directories(${CANBERRA_INCLUDE_DIRS})
-
-include_directories(${CMAKE_CURRENT_BINARY_DIR}/generated/)
-
-add_executable(${CMAKE_PROJECT_NAME}
-        src/main.cpp
-        ${CMAKE_CURRENT_BINARY_DIR}/generated/Resources.c
-        src/util/Helper.cpp
-        src/util/Settings.cpp
-        src/util/Sound.cpp
-        src/ui/Application.cpp
-        src/ui/MainWindow.cpp
-        src/ui/PreferencesWindow.cpp
-        src/ui/PhoneNumberDialog.cpp
-        src/ui/TrayIcon.cpp
-        src/ui/WebView.cpp
-    )
-target_link_libraries(${CMAKE_PROJECT_NAME}
-        ${GTKMM_LIBRARIES}
-        ${WEBKIT_LIBRARIES}
-        ${APPINDICATOR_LIBRARIES}
-        ${CANBERRA_LIBRARIES}
-        ${Intl_LIBRARIES}
-    )
-
-install(TARGETS ${CMAKE_PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_BINDIR})
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/generated/${WFL_APP_ID}.desktop DESTINATION ${CMAKE_INSTALL_DATADIR}/applications)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/generated/${WFL_APP_ID}.appdata.xml DESTINATION ${CMAKE_INSTALL_DATADIR}/metainfo)
-install(DIRECTORY ${CMAKE_SOURCE_DIR}/resource/image/icons DESTINATION ${CMAKE_INSTALL_DATADIR})
-
+add_subdirectory(src)
+add_subdirectory(resource)
 add_subdirectory(po)

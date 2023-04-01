@@ -32,7 +32,7 @@ parts:
       - gstreamer1.0-plugins-bad
       - gstreamer1.0-libav
     parse-info:
-      - generated/com.github.eneshecan.WhatsAppForLinux.appdata.xml
+      - resource/com.github.eneshecan.WhatsAppForLinux.appdata.xml
 
   cleanup:
     after: [whatsapp-for-linux]
