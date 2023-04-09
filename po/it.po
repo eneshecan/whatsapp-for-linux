@@ -55,11 +55,11 @@ msgstr "Annulla"
 
 #: ../src/ui/WebView.cpp:328
 msgid "Unresponsive"
-msgstr "Whatsapp non risponde"
+msgstr "WhatsApp non risponde"
 
 #: ../src/ui/WebView.cpp:329
 msgid "The application is not responding. Would you like to reload?"
-msgstr "L'applicazione non risponde. Ricaricare?"
+msgstr "L'applicazione non risponde. Ricaricarla?"
 
 #: ../resource/ui/MainWindow.ui.h:1
 msgid "Fullscreen"
@@ -83,7 +83,7 @@ msgstr "Apri chat dal numero di telefono"
 
 #: ../resource/ui/PhoneNumberDialog.ui.h:2
 msgid "Enter phone number (only digits)"
-msgstr "Inserire il numero di telefono"
+msgstr "Inserisci il numero di telefono (solo cifre)"
 
 #: ../resource/ui/PreferencesWindow.ui.h:1
 msgid "Close to Tray"
@@ -180,33 +180,33 @@ msgstr "GitHub"
 
 #: ../resource/ui/PreferencesWindow.ui.h:9
 msgid "Enable Notification Sounds"
-msgstr "Enable Notification Sounds"
+msgstr "Abilita suoni di notifica"
 
 #: ../resource/ui/PreferencesWindow.ui.h:10
 msgid "Play sound on a notification raised by the application"
-msgstr "Play sound on a notification raised by the application"
+msgstr "Riproduci un suono su una notifica generata dall'applicazione"
 
 #: ../resource/ui/PreferencesWindow.ui.h:19
 msgid "Minimum Font Size"
-msgstr "Minimum Font Size"
+msgstr "Dimensione minima del font"
 
 #: ../resource/ui/PreferencesWindow.ui.h:20
 msgid "Minimum font size used to display text, values other than 0 can potentially break page layouts"
-msgstr "Minimum font size used to display text, values other than 0 can potentially break page layouts"
+msgstr "Dimensione minima del carattere utilizzata per visualizzare il testo, valori diversi da 0 possono rompere i layout di pagina"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:4
 msgid "Zoom In"
-msgstr "Zoom In"
+msgstr "Ingrandisci"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:5
 msgid "Zoom Out"
-msgstr "Zoom Out"
+msgstr "Riduci"
 
 #: ../src/ui/WebView.cpp:40
 msgid "Permission Request"
-msgstr "Permission Request"
+msgstr "Autorizzazione richiesta"
 
 #: ../src/ui/WebView.cpp:41
 msgid "Would you like to allow permissions?"
-msgstr "Would you like to allow permissions?"
+msgstr "Concedere le autorizzazioni?"
 
