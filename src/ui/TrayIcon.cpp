@@ -81,17 +81,17 @@ namespace wfl::ui
         app_indicator_set_status(m_appIndicator, (attention ? APP_INDICATOR_STATUS_ATTENTION : APP_INDICATOR_STATUS_ACTIVE));
     }
 
-    sigc::signal<void> TrayIcon::signalShow() const noexcept
+    sigc::signal<void>& TrayIcon::signalShow() noexcept
     {
         return m_signalShow;
     }
 
-    sigc::signal<void> TrayIcon::signalAbout() const noexcept
+    sigc::signal<void>& TrayIcon::signalAbout() noexcept
     {
         return m_signalAbout;
     }
 
-    sigc::signal<void> TrayIcon::signalQuit() const noexcept
+    sigc::signal<void>& TrayIcon::signalQuit() noexcept
     {
         return m_signalQuit;
     }

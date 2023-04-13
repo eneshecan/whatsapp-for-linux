@@ -16,9 +16,9 @@ namespace wfl::ui
             void setAttention(bool attention);
 
         public:
-            sigc::signal<void> signalShow() const noexcept;
-            sigc::signal<void> signalAbout() const noexcept;
-            sigc::signal<void> signalQuit() const noexcept;
+            sigc::signal<void>& signalShow() noexcept;
+            sigc::signal<void>& signalAbout() noexcept;
+            sigc::signal<void>& signalQuit() noexcept;
 
         private:
             AppIndicator*      m_appIndicator;

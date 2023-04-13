@@ -298,17 +298,17 @@ namespace wfl::ui
         webkit_settings_set_minimum_font_size(settings, fontSize);
     }
 
-    sigc::signal<void, WebKitLoadEvent> WebView::signalLoadStatus() const noexcept
+    sigc::signal<void, WebKitLoadEvent>& WebView::signalLoadStatus() noexcept
     {
         return m_signalLoadStatus;
     }
 
-    sigc::signal<void, bool> WebView::signalNotification() const noexcept
+    sigc::signal<void, bool>& WebView::signalNotification() noexcept
     {
         return m_signalNotification;
     }
 
-    sigc::signal<void> WebView::signalNotificationClicked() const noexcept
+    sigc::signal<void>& WebView::signalNotificationClicked() noexcept
     {
         return m_signalNotificationClicked;
     }
