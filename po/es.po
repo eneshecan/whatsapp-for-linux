@@ -18,7 +18,7 @@ msgstr "WhatsApp para Linux"
 
 #: ../src/ui/MainWindow.cpp:347
 msgid "An unofficial WhatsApp desktop application for Linux"
-msgstr "Aplicación no oficial de WhatsApp para Linux"
+msgstr "Una aplicación no oficial de WhatsApp para Linux"
 
 #: ../src/ui/PreferencesWindow.cpp:40
 msgid "On Demand"
@@ -59,7 +59,7 @@ msgstr "No responde"
 
 #: ../src/ui/WebView.cpp:329
 msgid "The application is not responding. Would you like to reload?"
-msgstr "La aplicación no responde. ¿Desea recargarla?"
+msgstr "La aplicación no responde. ¿Deseas recargarla?"
 
 #: ../resource/ui/MainWindow.ui.h:1
 msgid "Fullscreen"
@@ -83,7 +83,7 @@ msgstr "Abrir chat por número de teléfono"
 
 #: ../resource/ui/PhoneNumberDialog.ui.h:2
 msgid "Enter phone number (only digits)"
-msgstr "Introduzca el número de teléfono (sólo dígitos)"
+msgstr "Introduce el número de teléfono (sólo dígitos)"
 
 #: ../resource/ui/PreferencesWindow.ui.h:1
 msgid "Close to Tray"
@@ -180,33 +180,33 @@ msgstr "Repositorio GitHub"
 
 #: ../resource/ui/PreferencesWindow.ui.h:9
 msgid "Enable Notification Sounds"
-msgstr "Enable Notification Sounds"
+msgstr "Activar los sonidos de notificación"
 
 #: ../resource/ui/PreferencesWindow.ui.h:10
 msgid "Play sound on a notification raised by the application"
-msgstr "Play sound on a notification raised by the application"
+msgstr "Emitir sonido cuando haya una notificación de la aplicación"
 
 #: ../resource/ui/PreferencesWindow.ui.h:19
 msgid "Minimum Font Size"
-msgstr "Minimum Font Size"
+msgstr "Tamaño de fuente mínimo"
 
 #: ../resource/ui/PreferencesWindow.ui.h:20
 msgid "Minimum font size used to display text, values other than 0 can potentially break page layouts"
-msgstr "Minimum font size used to display text, values other than 0 can potentially break page layouts"
+msgstr "Tamaño de fuente mínimo usado para mostrar texto; los valores distintos de 0 pueden desfigurar el diseño de página"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:4
 msgid "Zoom In"
-msgstr "Zoom In"
+msgstr "Zoom de acercamiento"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:5
 msgid "Zoom Out"
-msgstr "Zoom Out"
+msgstr "Zoom de alejamiento"
 
 #: ../src/ui/WebView.cpp:40
 msgid "Permission Request"
-msgstr "Permission Request"
+msgstr "Petición de permiso"
 
 #: ../src/ui/WebView.cpp:41
 msgid "Would you like to allow permissions?"
-msgstr "Would you like to allow permissions?"
+msgstr "¿Quieres dar permiso?"
 
