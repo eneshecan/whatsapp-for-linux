@@ -10,40 +10,40 @@ msgstr ""
 #: ../src/ui/MainWindow.cpp:344 ../src/ui/TrayIcon.cpp:46
 #: ../resource/ui/MainWindow.ui.h:4
 msgid "About"
-msgstr "About"
+msgstr "Über"
 
 #: ../src/ui/MainWindow.cpp:346 ../resource/ui/MainWindow.ui.h:6
 msgid "WhatsApp for Linux"
-msgstr "WhatsApp for Linux"
+msgstr "WhatsApp für Linux"
 
 #: ../src/ui/MainWindow.cpp:347
 msgid "An unofficial WhatsApp desktop application for Linux"
-msgstr "An unofficial WhatsApp desktop application for Linux"
+msgstr "Eine inoffizieller WhatsApp Desktop App für Linux"
 
 #: ../src/ui/PreferencesWindow.cpp:40
 msgid "On Demand"
-msgstr "On Demand"
+msgstr "Auf Abruf"
 
 #: ../src/ui/PreferencesWindow.cpp:41
 msgid "Always"
-msgstr "Always"
+msgstr "Immer"
 
 #: ../src/ui/PreferencesWindow.cpp:42
 msgid "Never"
-msgstr "Never"
+msgstr "Niemals"
 
 #: ../src/ui/TrayIcon.cpp:45
 msgid "Show"
-msgstr "Show"
+msgstr "Zeige"
 
 #: ../src/ui/TrayIcon.cpp:47 ../resource/ui/MainWindow.ui.h:5
 #: ../resource/ui/ShortcutsWindow.ui.h:10
 msgid "Quit"
-msgstr "Quit"
+msgstr "Beenden"
 
 #: ../src/ui/WebView.cpp:75
 msgid "Save File"
-msgstr "Save File"
+msgstr "Speichere Datei"
 
 #: ../src/ui/WebView.cpp:76
 msgid "Ok"
@@ -51,51 +51,51 @@ msgstr "Ok"
 
 #: ../src/ui/WebView.cpp:77
 msgid "Cancel"
-msgstr "Cancel"
+msgstr "Abbrechen"
 
 #: ../src/ui/WebView.cpp:328
 msgid "Unresponsive"
-msgstr "Unresponsive"
+msgstr "Reagiert nicht"
 
 #: ../src/ui/WebView.cpp:329
 msgid "The application is not responding. Would you like to reload?"
-msgstr "The application is not responding. Would you like to reload?"
+msgstr "Die App reagiert nicht. Neu laden?"
 
 #: ../resource/ui/MainWindow.ui.h:1
 msgid "Fullscreen"
-msgstr "Fullscreen"
+msgstr "Vollbild"
 
 #: ../resource/ui/MainWindow.ui.h:2 ../resource/ui/PreferencesWindow.ui.h:22
 msgid "Preferences"
-msgstr "Preferences"
+msgstr "Einstellungen"
 
 #: ../resource/ui/MainWindow.ui.h:3 ../resource/ui/ShortcutsWindow.ui.h:9
 msgid "Keyboard Shortcuts"
-msgstr "Keyboard Shortcuts"
+msgstr "Tastaturkürzel"
 
 #: ../resource/ui/MainWindow.ui.h:7
 msgid "Refresh"
-msgstr "Refresh"
+msgstr "Neu laden"
 
 #: ../resource/ui/MainWindow.ui.h:8 ../resource/ui/PhoneNumberDialog.ui.h:1
 msgid "Open chat by phone number"
-msgstr "Open chat by phone number"
+msgstr "Chat nach Telefonnummer öffnen"
 
 #: ../resource/ui/PhoneNumberDialog.ui.h:2
 msgid "Enter phone number (only digits)"
-msgstr "Enter phone number (only digits)"
+msgstr "Gebe eine Telefonnummer ein (nur Zahlen)"
 
 #: ../resource/ui/PreferencesWindow.ui.h:1
 msgid "Close to Tray"
-msgstr "Close to Tray"
+msgstr "In Taskleiste minimieren"
 
 #: ../resource/ui/PreferencesWindow.ui.h:2
 msgid "Start in Tray"
-msgstr "Start in Tray"
+msgstr "In Taskleiste starten"
 
 #: ../resource/ui/PreferencesWindow.ui.h:3
 msgid "Start Minimized"
-msgstr "Start Minimized"
+msgstr "Minimiert starten"
 
 #: ../resource/ui/PreferencesWindow.ui.h:4
 msgid "Autostart"
@@ -103,52 +103,52 @@ msgstr "Autostart"
 
 #: ../resource/ui/PreferencesWindow.ui.h:5
 msgid "Enable tray icon"
-msgstr "Enable tray icon"
+msgstr "Taskleistensymbol aktivieren"
 
 #: ../resource/ui/PreferencesWindow.ui.h:6
 msgid "Start application as closed to tray"
-msgstr "Start application as closed to tray"
+msgstr "App in Taskleiste starten"
 
 #: ../resource/ui/PreferencesWindow.ui.h:7
 msgid "Start application as minimized"
-msgstr "Start application as minimized"
+msgstr "App minimiert starten"
 
 #: ../resource/ui/PreferencesWindow.ui.h:8
 msgid "Start application after system boots"
-msgstr "Start application after system boots"
+msgstr "App bei Systemstart starten"
 
 #: ../resource/ui/PreferencesWindow.ui.h:11
 #: ../resource/ui/ShortcutsWindow.ui.h:2
 msgid "General"
-msgstr "General"
+msgstr "Allgemein"
 
 #: ../resource/ui/PreferencesWindow.ui.h:12
 msgid "Prefer Dark Theme"
-msgstr "Prefer Dark Theme"
+msgstr "Verwende dunkles Design"
 
 #: ../resource/ui/PreferencesWindow.ui.h:13
 msgid "Prefer dark theme for the application if system theme includes a dark variant"
-msgstr "Prefer dark theme for the application if system theme includes a dark variant"
+msgstr "Dunkles Design für die App nutzen, wenn das System ein dunkles Design besitzt"
 
 #: ../resource/ui/PreferencesWindow.ui.h:14
 msgid "Appearance"
-msgstr "Appearance"
+msgstr "Erscheinungsbild"
 
 #: ../resource/ui/PreferencesWindow.ui.h:15
 msgid "Hardware Acceleration"
-msgstr "Hardware Acceleration"
+msgstr "Hardwarebeschleunigung"
 
 #: ../resource/ui/PreferencesWindow.ui.h:16
 msgid "Allow Permissions"
-msgstr "Allow Permissions"
+msgstr "Berechtigungen erlauben"
 
 #: ../resource/ui/PreferencesWindow.ui.h:17
 msgid "Set hardware acceleration policy used by webkit"
-msgstr "Set hardware acceleration policy used by webkit"
+msgstr "Richtlinie für die von Webkit verwendete Hardwarebeschleunigung festlegen"
 
 #: ../resource/ui/PreferencesWindow.ui.h:18
 msgid "Allow permissions on application startup"
-msgstr "Allow permissions on application startup"
+msgstr "Erlaube Berechtigungen bei Start der App"
 
 #: ../resource/ui/PreferencesWindow.ui.h:21
 msgid "Web"
@@ -156,23 +156,23 @@ msgstr "Web"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:1
 msgid "Shortcuts"
-msgstr "Shortcuts"
+msgstr "Tastenkürzel"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:3
 msgid "Refresh Page"
-msgstr "Refresh Page"
+msgstr "Seite neu laden"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:6
 msgid "Enter/Exit Fullscreen"
-msgstr "Enter/Exit Fullscreen"
+msgstr "Vollbild de-/aktivieren"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:7
 msgid "Show/Hide Header Bar"
-msgstr "Show/Hide Header Bar"
+msgstr "Kopfzeile anzeigen/verstecken"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:8
 msgid "Open Preferences"
-msgstr "Open Preferences"
+msgstr "Einstellungen öffnen"
 
 #: ../src/ui/MainWindow.cpp:349
 msgid "GitHub Repository"
@@ -180,33 +180,33 @@ msgstr "GitHub Repository"
 
 #: ../resource/ui/PreferencesWindow.ui.h:9
 msgid "Enable Notification Sounds"
-msgstr "Enable Notification Sounds"
+msgstr "Benachrichtigungstöne aktivieren"
 
 #: ../resource/ui/PreferencesWindow.ui.h:10
 msgid "Play sound on a notification raised by the application"
-msgstr "Play sound on a notification raised by the application"
+msgstr "Spiele einen Ton ab, wenn eine Benachrichtigung der App gesendet wird"
 
 #: ../resource/ui/PreferencesWindow.ui.h:19
 msgid "Minimum Font Size"
-msgstr "Minimum Font Size"
+msgstr "Minimale Textgröße"
 
 #: ../resource/ui/PreferencesWindow.ui.h:20
 msgid "Minimum font size used to display text, values other than 0 can potentially break page layouts"
-msgstr "Minimum font size used to display text, values other than 0 can potentially break page layouts"
+msgstr "Minimale Textgröße zum Anzeigen von Text, andere Werte als 0 können das Erscheinungsbild der Seite zerstören"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:4
 msgid "Zoom In"
-msgstr "Zoom In"
+msgstr "Ran zoomen"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:5
 msgid "Zoom Out"
-msgstr "Zoom Out"
+msgstr "Raus zoomen"
 
 #: ../src/ui/WebView.cpp:40
 msgid "Permission Request"
-msgstr "Permission Request"
+msgstr "Berechtigungsanfrage"
 
 #: ../src/ui/WebView.cpp:41
 msgid "Would you like to allow permissions?"
-msgstr "Would you like to allow permissions?"
+msgstr "Möchtest du die Berechtigungen erteilen?"
 
