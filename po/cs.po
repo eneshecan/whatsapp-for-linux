@@ -10,15 +10,15 @@ msgstr ""
 #: ../src/ui/MainWindow.cpp:344 ../src/ui/TrayIcon.cpp:46
 #: ../resource/ui/MainWindow.ui.h:4
 msgid "About"
-msgstr "About"
+msgstr "O stránkách"
 
 #: ../src/ui/MainWindow.cpp:346 ../resource/ui/MainWindow.ui.h:6
 msgid "WhatsApp for Linux"
-msgstr "WhatsApp for Linux"
+msgstr "WhatsApp pro Linux"
 
 #: ../src/ui/MainWindow.cpp:347
 msgid "An unofficial WhatsApp desktop application for Linux"
-msgstr "An unofficial WhatsApp desktop application for Linux"
+msgstr "Neoficiální desktopová aplikace WhatsApp pro Linux"
 
 #: ../src/ui/PreferencesWindow.cpp:40
 msgid "On Demand"
