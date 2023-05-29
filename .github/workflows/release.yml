@@ -115,7 +115,7 @@ jobs:
 
       - name: Publish Snap to Store
         id: snapcraft-publish
-        uses: snapcore/action-publish@v1
+        uses: snapcore/action-publish@master
         with:
           store_login: ${{ secrets.SNAP_STORE_LOGIN }}
           snap: ${{ steps.snapcraft.outputs.snap }}
