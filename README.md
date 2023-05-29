@@ -52,7 +52,7 @@ Check out [wiki](https://github.com/eneshecan/whatsapp-for-linux/wiki) for furth
 * Fullscreen mode
 * Show/Hide headerbar by pressing *Alt+H*
 * Localization support in system language
-* Spell check in system language. You might need to install the corresponding dictionary to get this working i.e. `aspell-en` package for English
+* Spell checking in system language. You need to install the corresponding dictionary to get this working i.e. `hunspell-en_us` package for US English
 * Open chat by phone number
 
 
@@ -71,6 +71,7 @@ The application is available from a number of Linux distributions:
 * webkit2gtk-4.0
 * ayatana-appindicator3-0.1
 * libcanberra
+* libhunspell (Optional for spell checking)
 
 
 ## Build & Run
