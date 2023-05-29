@@ -10,203 +10,205 @@ msgstr ""
 #: ../src/ui/MainWindow.cpp:344 ../src/ui/TrayIcon.cpp:46
 #: ../resource/ui/MainWindow.ui.h:4
 msgid "About"
-msgstr "About"
+msgstr "Névjegy"
 
 #: ../src/ui/MainWindow.cpp:346 ../resource/ui/MainWindow.ui.h:6
 msgid "WhatsApp for Linux"
-msgstr "WhatsApp for Linux"
+msgstr "WhatsApp Linuxra"
 
 #: ../src/ui/MainWindow.cpp:347
 msgid "An unofficial WhatsApp desktop application for Linux"
-msgstr "An unofficial WhatsApp desktop application for Linux"
+msgstr "Egy alternatív WhatsApp alkalmazás Linuxra"
 
 #: ../src/ui/PreferencesWindow.cpp:40
 msgid "On Demand"
-msgstr "On Demand"
+msgstr "Igény esetén"
 
 #: ../src/ui/PreferencesWindow.cpp:41
 msgid "Always"
-msgstr "Always"
+msgstr "Mindig"
 
 #: ../src/ui/PreferencesWindow.cpp:42
 msgid "Never"
-msgstr "Never"
+msgstr "Soha"
 
 #: ../src/ui/TrayIcon.cpp:45
 msgid "Show"
-msgstr "Show"
+msgstr "Megnyitás"
 
 #: ../src/ui/TrayIcon.cpp:47 ../resource/ui/MainWindow.ui.h:5
 #: ../resource/ui/ShortcutsWindow.ui.h:10
 msgid "Quit"
-msgstr "Quit"
+msgstr "Kilépés"
 
 #: ../src/ui/WebView.cpp:75
 msgid "Save File"
-msgstr "Save File"
+msgstr "Fájl mentése"
 
 #: ../src/ui/WebView.cpp:76
 msgid "Ok"
-msgstr "Ok"
+msgstr "Rendben"
 
 #: ../src/ui/WebView.cpp:77
 msgid "Cancel"
-msgstr "Cancel"
+msgstr "Mégse"
 
 #: ../src/ui/WebView.cpp:328
 msgid "Unresponsive"
-msgstr "Unresponsive"
+msgstr "Nem válszol"
 
 #: ../src/ui/WebView.cpp:329
 msgid "The application is not responding. Would you like to reload?"
-msgstr "The application is not responding. Would you like to reload?"
+msgstr "Az alkalmazás nem válaszol. Szeretné újraindítani?"
 
 #: ../resource/ui/MainWindow.ui.h:1
 msgid "Fullscreen"
-msgstr "Fullscreen"
+msgstr "Teljes képernyő"
 
 #: ../resource/ui/MainWindow.ui.h:2 ../resource/ui/PreferencesWindow.ui.h:22
 msgid "Preferences"
-msgstr "Preferences"
+msgstr "Beállítások"
 
 #: ../resource/ui/MainWindow.ui.h:3 ../resource/ui/ShortcutsWindow.ui.h:9
 msgid "Keyboard Shortcuts"
-msgstr "Keyboard Shortcuts"
+msgstr "Gyorsbillentyűk"
 
 #: ../resource/ui/MainWindow.ui.h:7
 msgid "Refresh"
-msgstr "Refresh"
+msgstr "Frissítés"
 
 #: ../resource/ui/MainWindow.ui.h:8 ../resource/ui/PhoneNumberDialog.ui.h:1
 msgid "Open chat by phone number"
-msgstr "Open chat by phone number"
+msgstr "Bejelentkezés telefonszámmal"
 
 #: ../resource/ui/PhoneNumberDialog.ui.h:2
 msgid "Enter phone number (only digits)"
-msgstr "Enter phone number (only digits)"
+msgstr "Telefonszám megadása (csak szám)"
 
 #: ../resource/ui/PreferencesWindow.ui.h:1
 msgid "Close to Tray"
-msgstr "Close to Tray"
+msgstr "Bezáráskor értesítési területre küldés"
 
 #: ../resource/ui/PreferencesWindow.ui.h:2
 msgid "Start in Tray"
-msgstr "Start in Tray"
+msgstr "Indítás az értesítési területen"
 
 #: ../resource/ui/PreferencesWindow.ui.h:3
 msgid "Start Minimized"
-msgstr "Start Minimized"
+msgstr "Indítás a háttérben"
 
 #: ../resource/ui/PreferencesWindow.ui.h:4
 msgid "Autostart"
-msgstr "Autostart"
+msgstr "Indítás a rendszerrel"
 
 #: ../resource/ui/PreferencesWindow.ui.h:5
 msgid "Enable tray icon"
-msgstr "Enable tray icon"
+msgstr "Alkalmazás megjelenítése az értesítési területen"
 
 #: ../resource/ui/PreferencesWindow.ui.h:6
 msgid "Start application as closed to tray"
-msgstr "Start application as closed to tray"
+msgstr "Alkalmazás indítása az értesítési területen"
 
 #: ../resource/ui/PreferencesWindow.ui.h:7
 msgid "Start application as minimized"
-msgstr "Start application as minimized"
+msgstr "Alkalmazás indítása kis méretben a tálcán"
 
 #: ../resource/ui/PreferencesWindow.ui.h:8
 msgid "Start application after system boots"
-msgstr "Start application after system boots"
+msgstr "Alkalmazás indítása a rendszerrel"
 
 #: ../resource/ui/PreferencesWindow.ui.h:11
 #: ../resource/ui/ShortcutsWindow.ui.h:2
 msgid "General"
-msgstr "General"
+msgstr "Általános"
 
 #: ../resource/ui/PreferencesWindow.ui.h:12
 msgid "Prefer Dark Theme"
-msgstr "Prefer Dark Theme"
+msgstr "Sötét téma használata"
 
 #: ../resource/ui/PreferencesWindow.ui.h:13
 msgid "Prefer dark theme for the application if system theme includes a dark variant"
-msgstr "Prefer dark theme for the application if system theme includes a dark variant"
+msgstr "Sötét téma engedélyezése, ha a rendszer támogatja azt"
 
 #: ../resource/ui/PreferencesWindow.ui.h:14
 msgid "Appearance"
-msgstr "Appearance"
+msgstr "Megjelenés"
 
 #: ../resource/ui/PreferencesWindow.ui.h:15
 msgid "Hardware Acceleration"
-msgstr "Hardware Acceleration"
+msgstr "Hardveres gyorsítás"
 
+#. Need some explanation what is the purpose of this option. What is it for and when it appears?
 #: ../resource/ui/PreferencesWindow.ui.h:16
 msgid "Allow Permissions"
-msgstr "Allow Permissions"
+msgstr "Értesítések engedélyezése"
 
 #: ../resource/ui/PreferencesWindow.ui.h:17
 msgid "Set hardware acceleration policy used by webkit"
-msgstr "Set hardware acceleration policy used by webkit"
+msgstr "Hardveres gyorsítás használata az alkalmazás működéséhez"
 
 #: ../resource/ui/PreferencesWindow.ui.h:18
 msgid "Allow permissions on application startup"
-msgstr "Allow permissions on application startup"
+msgstr "Natív értesítések engedélyezése"
 
 #: ../resource/ui/PreferencesWindow.ui.h:21
 msgid "Web"
-msgstr "Web"
+msgstr "Felület"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:1
 msgid "Shortcuts"
-msgstr "Shortcuts"
+msgstr "Gyorsbillentyűk"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:3
 msgid "Refresh Page"
-msgstr "Refresh Page"
+msgstr "Frissítés"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:6
 msgid "Enter/Exit Fullscreen"
-msgstr "Enter/Exit Fullscreen"
+msgstr "Teljes képernyő"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:7
 msgid "Show/Hide Header Bar"
-msgstr "Show/Hide Header Bar"
+msgstr "Ablakkeret elrejtése"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:8
 msgid "Open Preferences"
-msgstr "Open Preferences"
+msgstr "Beállítások"
 
 #: ../src/ui/MainWindow.cpp:349
 msgid "GitHub Repository"
-msgstr "GitHub Repository"
+msgstr "GitHub tároló"
 
 #: ../resource/ui/PreferencesWindow.ui.h:9
 msgid "Enable Notification Sounds"
-msgstr "Enable Notification Sounds"
+msgstr "Értesítési hangok engedélyezése"
 
 #: ../resource/ui/PreferencesWindow.ui.h:10
 msgid "Play sound on a notification raised by the application"
-msgstr "Play sound on a notification raised by the application"
+msgstr "Értesítési hangok lejátszása, ha üzenet érkezik"
 
 #: ../resource/ui/PreferencesWindow.ui.h:19
 msgid "Minimum Font Size"
-msgstr "Minimum Font Size"
+msgstr "Betűméret igazítása"
 
+#. Need some explanation.
 #: ../resource/ui/PreferencesWindow.ui.h:20
 msgid "Minimum font size used to display text, values other than 0 can potentially break page layouts"
-msgstr "Minimum font size used to display text, values other than 0 can potentially break page layouts"
+msgstr "Betűméret igazítása nagy felbontású, HiDPI kijelzőkhöz"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:4
 msgid "Zoom In"
-msgstr "Zoom In"
+msgstr "Nagyítás"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:5
 msgid "Zoom Out"
-msgstr "Zoom Out"
+msgstr "Kicsinyítés"
 
 #: ../src/ui/WebView.cpp:40
 msgid "Permission Request"
-msgstr "Permission Request"
+msgstr "Hozzáférés szükséges"
 
 #: ../src/ui/WebView.cpp:41
 msgid "Would you like to allow permissions?"
-msgstr "Would you like to allow permissions?"
+msgstr "Engedélyezi a szükséges jogosultságok létrehozását?"
 
