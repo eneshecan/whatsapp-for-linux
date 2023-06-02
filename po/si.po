@@ -1,0 +1,211 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: WhatsApp for Linux\n"
+"Language: si\n"
+
+#: ../src/ui/MainWindow.cpp:344 ../src/ui/TrayIcon.cpp:46
+#: ../resource/ui/MainWindow.ui.h:4
+msgid "About"
+msgstr "ගැන"
+
+#: ../src/ui/MainWindow.cpp:346 ../resource/ui/MainWindow.ui.h:6
+msgid "WhatsApp for Linux"
+msgstr "WhatsApp for Linux"
+
+#: ../src/ui/MainWindow.cpp:347
+msgid "An unofficial WhatsApp desktop application for Linux"
+msgstr "ලිනක්ස් සඳහා නිල නොවන WhatsApp ඩෙස්ක්ටොප් යෙදුමකි"
+
+#: ../src/ui/PreferencesWindow.cpp:40
+msgid "On Demand"
+msgstr "ඉල්ලුම මත"
+
+#: ../src/ui/PreferencesWindow.cpp:41
+msgid "Always"
+msgstr "සැමවිටම"
+
+#: ../src/ui/PreferencesWindow.cpp:42
+msgid "Never"
+msgstr "කවදාවත් නැහැ"
+
+#: ../src/ui/TrayIcon.cpp:45
+msgid "Show"
+msgstr "පෙන්වන්න"
+
+#: ../src/ui/TrayIcon.cpp:47 ../resource/ui/MainWindow.ui.h:5
+#: ../resource/ui/ShortcutsWindow.ui.h:10
+msgid "Quite"
+msgstr "තරමක්"
+
+#: ../src/ui/WebView.cpp:75
+msgid "Save File"
+msgstr "ගොනුව සුරකින්න"
+
+#: ../src/ui/WebView.cpp:76
+msgid "Ok"
+msgstr "හරි"
+
+#: ../src/ui/WebView.cpp:77
+msgid "Cancel"
+msgstr "අවලංගු කරන්න"
+
+#: ../src/ui/WebView.cpp:328
+msgid "Unresponsive"
+msgstr "Unresponsive"
+
+#: ../src/ui/WebView.cpp:329
+msgid "The application is not responding. Would you like to reload?"
+msgstr "යෙදුම ප්‍රතිචාර නොදක්වයි. ඔබ නැවත පූරණය කිරීමට කැමතිද?"
+
+#: ../resource/ui/MainWindow.ui.h:1
+msgid "Fullscreen"
+msgstr ""
+
+#: ../resource/ui/MainWindow.ui.h:2 ../resource/ui/PreferencesWindow.ui.h:22
+msgid "Preferences"
+msgstr ""
+
+#: ../resource/ui/MainWindow.ui.h:3 ../resource/ui/ShortcutsWindow.ui.h:9
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+#: ../resource/ui/MainWindow.ui.h:7
+msgid "Refresh"
+msgstr ""
+
+#: ../resource/ui/MainWindow.ui.h:8 ../resource/ui/PhoneNumberDialog.ui.h:1
+msgid "Open chat by phone number"
+msgstr ""
+
+#: ../resource/ui/PhoneNumberDialog.ui.h:2
+msgid "Enter phone number (only digits)"
+msgstr ""
+
+#: ../resource/ui/PreferencesWindow.ui.h:1
+msgid "Close to Tray"
+msgstr ""
+
+#: ../resource/ui/PreferencesWindow.ui.h:2
+msgid "Start in Tray"
+msgstr ""
+
+#: ../resource/ui/PreferencesWindow.ui.h:3
+msgid "Start Minimized"
+msgstr ""
+
+#: ../resource/ui/PreferencesWindow.ui.h:4
+msgid "Autostart"
+msgstr ""
+
+#: ../resource/ui/PreferencesWindow.ui.h:5
+msgid "Enable tray icon"
+msgstr ""
+
+#: ../resource/ui/PreferencesWindow.ui.h:6
+msgid "Start application as closed to tray"
+msgstr ""
+
+#: ../resource/ui/PreferencesWindow.ui.h:7
+msgid "Start application as minimized"
+msgstr ""
+
+#: ../resource/ui/PreferencesWindow.ui.h:8
+msgid "Start application after system boots"
+msgstr ""
+
+#: ../resource/ui/PreferencesWindow.ui.h:11
+#: ../resource/ui/ShortcutsWindow.ui.h:2
+msgid "General"
+msgstr ""
+
+#: ../resource/ui/PreferencesWindow.ui.h:12
+msgid "Prefer Dark Theme"
+msgstr ""
+
+#: ../resource/ui/PreferencesWindow.ui.h:13
+msgid "Prefer dark theme for the application if system theme includes a dark variant"
+msgstr ""
+
+#: ../resource/ui/PreferencesWindow.ui.h:14
+msgid "Appearance"
+msgstr ""
+
+#: ../resource/ui/PreferencesWindow.ui.h:15
+msgid "Hardware Acceleration"
+msgstr ""
+
+#: ../resource/ui/PreferencesWindow.ui.h:16
+msgid "Allow Permissions"
+msgstr ""
+
+#: ../resource/ui/PreferencesWindow.ui.h:17
+msgid "Set hardware acceleration policy used by webkit"
+msgstr ""
+
+#: ../resource/ui/PreferencesWindow.ui.h:18
+msgid "Allow permissions on application startup"
+msgstr ""
+
+#: ../resource/ui/PreferencesWindow.ui.h:21
+msgid "Web"
+msgstr ""
+
+#: ../resource/ui/ShortcutsWindow.ui.h:1
+msgid "Shortcuts"
+msgstr ""
+
+#: ../resource/ui/ShortcutsWindow.ui.h:3
+msgid "Refresh Page"
+msgstr ""
+
+#: ../resource/ui/ShortcutsWindow.ui.h:6
+msgid "Enter/Exit Fullscreen"
+msgstr ""
+
+#: ../resource/ui/ShortcutsWindow.ui.h:7
+msgid "Show/Hide Header Bar"
+msgstr ""
+
+#: ../resource/ui/ShortcutsWindow.ui.h:8
+msgid "Open Preferences"
+msgstr ""
+
+#: ../src/ui/MainWindow.cpp:349
+msgid "GitHub Repository"
+msgstr ""
+
+#: ../resource/ui/PreferencesWindow.ui.h:9
+msgid "Enable Notification Sounds"
+msgstr ""
+
+#: ../resource/ui/PreferencesWindow.ui.h:10
+msgid "Play sound on a notification raised by the application"
+msgstr ""
+
+#: ../resource/ui/PreferencesWindow.ui.h:19
+msgid "Minimum Font Size"
+msgstr ""
+
+#: ../resource/ui/PreferencesWindow.ui.h:20
+msgid "Minimum font size used to display text, values other than 0 can potentially break page layouts"
+msgstr ""
+
+#: ../resource/ui/ShortcutsWindow.ui.h:4
+msgid "Zoom In"
+msgstr ""
+
+#: ../resource/ui/ShortcutsWindow.ui.h:5
+msgid "Zoom Out"
+msgstr ""
+
+#: ../src/ui/WebView.cpp:40
+msgid "Permission Request"
+msgstr ""
+
+#: ../src/ui/WebView.cpp:41
+msgid "Would you like to allow permissions?"
+msgstr ""
