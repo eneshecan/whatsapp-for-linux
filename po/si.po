@@ -63,27 +63,27 @@ msgstr "යෙදුම ප්‍රතිචාර නොදක්වයි. �
 
 #: ../resource/ui/MainWindow.ui.h:1
 msgid "Fullscreen"
-msgstr ""
+msgstr "පුන් තිරය"
 
 #: ../resource/ui/MainWindow.ui.h:2 ../resource/ui/PreferencesWindow.ui.h:22
 msgid "Preferences"
-msgstr ""
+msgstr "මනාප"
 
 #: ../resource/ui/MainWindow.ui.h:3 ../resource/ui/ShortcutsWindow.ui.h:9
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "යතුරුපුවරු කෙටිමං"
 
 #: ../resource/ui/MainWindow.ui.h:7
 msgid "Refresh"
-msgstr ""
+msgstr "නැවුම් කරන්න"
 
 #: ../resource/ui/MainWindow.ui.h:8 ../resource/ui/PhoneNumberDialog.ui.h:1
 msgid "Open chat by phone number"
-msgstr ""
+msgstr "දුරකථන අංකයෙන් කතාබස් විවෘත කරන්න"
 
 #: ../resource/ui/PhoneNumberDialog.ui.h:2
 msgid "Enter phone number (only digits)"
-msgstr ""
+msgstr "දුරකථන අංකය ඇතුළත් කරන්න (ඉලක්කම් පමණි)"
 
 #: ../resource/ui/PreferencesWindow.ui.h:1
 msgid "Close to Tray"
@@ -99,7 +99,7 @@ msgstr ""
 
 #: ../resource/ui/PreferencesWindow.ui.h:4
 msgid "Autostart"
-msgstr ""
+msgstr "ස්වයංක්‍රීය ආරම්භය"
 
 #: ../resource/ui/PreferencesWindow.ui.h:5
 msgid "Enable tray icon"
@@ -111,11 +111,11 @@ msgstr ""
 
 #: ../resource/ui/PreferencesWindow.ui.h:7
 msgid "Start application as minimized"
-msgstr ""
+msgstr "අවම කළ පරිදි යෙදුම ආරම්භ කරන්න"
 
 #: ../resource/ui/PreferencesWindow.ui.h:8
 msgid "Start application after system boots"
-msgstr ""
+msgstr "පද්ධතිය ආරම්භ කිරීමෙන් පසු යෙදුම ආරම්භ කරන්න"
 
 #: ../resource/ui/PreferencesWindow.ui.h:11
 #: ../resource/ui/ShortcutsWindow.ui.h:2
@@ -124,31 +124,31 @@ msgstr ""
 
 #: ../resource/ui/PreferencesWindow.ui.h:12
 msgid "Prefer Dark Theme"
-msgstr ""
+msgstr "අඳුරු තේමාවට වැඩි කැමැත්තක් දක්වන්න"
 
 #: ../resource/ui/PreferencesWindow.ui.h:13
 msgid "Prefer dark theme for the application if system theme includes a dark variant"
-msgstr ""
+msgstr "පද්ධති තේමාවට අඳුරු ප්‍රභේදයක් ඇතුළත් නම් යෙදුම සඳහා අඳුරු තේමාවට කැමති වන්න"
 
 #: ../resource/ui/PreferencesWindow.ui.h:14
 msgid "Appearance"
-msgstr ""
+msgstr "පෙනුම"
 
 #: ../resource/ui/PreferencesWindow.ui.h:15
 msgid "Hardware Acceleration"
-msgstr ""
+msgstr "දෘඪාංග ත්වරණය"
 
 #: ../resource/ui/PreferencesWindow.ui.h:16
 msgid "Allow Permissions"
-msgstr ""
+msgstr "අවසර දෙන්න"
 
 #: ../resource/ui/PreferencesWindow.ui.h:17
 msgid "Set hardware acceleration policy used by webkit"
-msgstr ""
+msgstr "Webkit විසින් භාවිතා කරන දෘඪාංග ත්වරණ ප්‍රතිපත්තිය සකසන්න"
 
 #: ../resource/ui/PreferencesWindow.ui.h:18
 msgid "Allow permissions on application startup"
-msgstr ""
+msgstr "යෙදුම් ආරම්භයේදී අවසර දෙන්න"
 
 #: ../resource/ui/PreferencesWindow.ui.h:21
 msgid "Web"
@@ -156,11 +156,11 @@ msgstr ""
 
 #: ../resource/ui/ShortcutsWindow.ui.h:1
 msgid "Shortcuts"
-msgstr ""
+msgstr "කෙටිමං"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:3
 msgid "Refresh Page"
-msgstr ""
+msgstr "පිටුව නැවුම් කරන්න"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:6
 msgid "Enter/Exit Fullscreen"
@@ -176,7 +176,7 @@ msgstr ""
 
 #: ../src/ui/MainWindow.cpp:349
 msgid "GitHub Repository"
-msgstr ""
+msgstr "GitHub ගබඩාව"
 
 #: ../resource/ui/PreferencesWindow.ui.h:9
 msgid "Enable Notification Sounds"
@@ -192,7 +192,7 @@ msgstr ""
 
 #: ../resource/ui/PreferencesWindow.ui.h:20
 msgid "Minimum font size used to display text, values other than 0 can potentially break page layouts"
-msgstr ""
+msgstr "පෙළ සංදර්ශන කිරීමට භාවිතා කරන අවම අකුරු ප්‍රමාණය, 0 හැර වෙනත් අගයන් පිටු පිරිසැලසුම් බිඳ දැමිය හැක"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:4
 msgid "Zoom In"
@@ -204,8 +204,8 @@ msgstr ""
 
 #: ../src/ui/WebView.cpp:40
 msgid "Permission Request"
-msgstr ""
+msgstr "අවසර ඉල්ලීම"
 
 #: ../src/ui/WebView.cpp:41
 msgid "Would you like to allow permissions?"
-msgstr ""
+msgstr "ඔබ අවසර ලබා දීමට කැමතිද?"
