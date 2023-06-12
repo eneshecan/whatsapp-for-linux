@@ -180,15 +180,15 @@ msgstr "GitHub ගබඩාව"
 
 #: ../resource/ui/PreferencesWindow.ui.h:9
 msgid "Enable Notification Sounds"
-msgstr ""
+msgstr "දැනුම්දීම් ශබ්ද සබල කරන්න"
 
 #: ../resource/ui/PreferencesWindow.ui.h:10
 msgid "Play sound on a notification raised by the application"
-msgstr ""
+msgstr "යෙදුම මගින් මතු කරන ලද දැනුම්දීමක් මත ශබ්දය වාදනය කරන්න"
 
 #: ../resource/ui/PreferencesWindow.ui.h:19
 msgid "Minimum Font Size"
-msgstr ""
+msgstr "අවම අකුරු ප්‍රමාණය"
 
 #: ../resource/ui/PreferencesWindow.ui.h:20
 msgid "Minimum font size used to display text, values other than 0 can potentially break page layouts"
@@ -196,11 +196,11 @@ msgstr "පෙළ සංදර්ශන කිරීමට භාවිතා �
 
 #: ../resource/ui/ShortcutsWindow.ui.h:4
 msgid "Zoom In"
-msgstr ""
+msgstr "විශාලනය කරන්න"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:5
 msgid "Zoom Out"
-msgstr ""
+msgstr "විශාලනය කරන්න"
 
 #: ../src/ui/WebView.cpp:40
 msgid "Permission Request"
