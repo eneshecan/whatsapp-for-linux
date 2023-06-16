@@ -9,9 +9,7 @@
   <content_rating type="oars-1.1"/>
 
   <description>
-    <p>
-      WhatsApp for Linux is an unofficial WhatsApp desktop application written in C++.
-    </p>
+    <p>WhatsApp for Linux is an unofficial WhatsApp desktop application written in C++.</p>
   </description>
 
   <launchable type="desktop-id">${WFL_APP_ID}.desktop</launchable>
@@ -30,10 +28,15 @@
   <update_contact>nshecan_AT_gmail.com</update_contact>
 
   <mimetypes>
-     <mimetype>x-scheme-handler/whatsapp</mimetype>
+    <mimetype>x-scheme-handler/whatsapp</mimetype>
   </mimetypes>
 
   <releases>
-    <release version="${WFL_VERSION}" date="${WFL_BUILD_DATE}"/>
+    <release version="${WFL_VERSION}" date="${WFL_BUILD_DATE}">
+      <description>
+        <p>Stable ${WFL_VERSION} release.</p>
+      </description>
+      <url>https://github.com/eneshecan/whatsapp-for-linux/releases/tag/v${WFL_VERSION}</url>
+    </release>
   </releases>
 </component>
