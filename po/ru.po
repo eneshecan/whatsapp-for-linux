@@ -180,33 +180,33 @@ msgstr "Репозиторий на GitHub"
 
 #: ../resource/ui/PreferencesWindow.ui.h:9
 msgid "Enable Notification Sounds"
-msgstr ""
+msgstr "Включение звуковых сигналов уведомлений"
 
 #: ../resource/ui/PreferencesWindow.ui.h:10
 msgid "Play sound on a notification raised by the application"
-msgstr ""
+msgstr "Воспроизведение звука при появлении уведомления, вызванного приложением"
 
 #: ../resource/ui/PreferencesWindow.ui.h:19
 msgid "Minimum Font Size"
-msgstr ""
+msgstr "Минимальный размер шрифта"
 
 #: ../resource/ui/PreferencesWindow.ui.h:20
 msgid "Minimum font size used to display text, values other than 0 can potentially break page layouts"
-msgstr ""
+msgstr "Минимальный размер шрифта, используемый для отображения текста; значения, отличные от 0, могут нарушать макеты страниц"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:4
 msgid "Zoom In"
-msgstr ""
+msgstr "Увеличить"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:5
 msgid "Zoom Out"
-msgstr ""
+msgstr "Уменьшение масштаба"
 
 #: ../src/ui/WebView.cpp:40
 msgid "Permission Request"
-msgstr ""
+msgstr "Запрос разрешения"
 
 #: ../src/ui/WebView.cpp:41
 msgid "Would you like to allow permissions?"
-msgstr ""
+msgstr "Хотите ли вы разрешить разрешения?"
 
