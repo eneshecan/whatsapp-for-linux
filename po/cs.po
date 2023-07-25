@@ -22,191 +22,191 @@ msgstr "Neoficiální desktopová aplikace WhatsApp pro Linux"
 
 #: ../src/ui/PreferencesWindow.cpp:40
 msgid "On Demand"
-msgstr ""
+msgstr "Na vyžádání"
 
 #: ../src/ui/PreferencesWindow.cpp:41
 msgid "Always"
-msgstr ""
+msgstr "Vždy"
 
 #: ../src/ui/PreferencesWindow.cpp:42
 msgid "Never"
-msgstr ""
+msgstr "Nikdy"
 
 #: ../src/ui/TrayIcon.cpp:45
 msgid "Show"
-msgstr ""
+msgstr "Zobrazit"
 
 #: ../src/ui/TrayIcon.cpp:47 ../resource/ui/MainWindow.ui.h:5
 #: ../resource/ui/ShortcutsWindow.ui.h:10
 msgid "Quit"
-msgstr ""
+msgstr "Ukončit"
 
 #: ../src/ui/WebView.cpp:75
 msgid "Save File"
-msgstr ""
+msgstr "Uložit soubor"
 
 #: ../src/ui/WebView.cpp:76
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #: ../src/ui/WebView.cpp:77
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušit"
 
 #: ../src/ui/WebView.cpp:328
 msgid "Unresponsive"
-msgstr ""
+msgstr "Nereaguje"
 
 #: ../src/ui/WebView.cpp:329
 msgid "The application is not responding. Would you like to reload?"
-msgstr ""
+msgstr "Aplikace neodpovídá. Chcete ji znovu načíst?"
 
 #: ../resource/ui/MainWindow.ui.h:1
 msgid "Fullscreen"
-msgstr ""
+msgstr "Celá obrazovka"
 
 #: ../resource/ui/MainWindow.ui.h:2 ../resource/ui/PreferencesWindow.ui.h:22
 msgid "Preferences"
-msgstr ""
+msgstr "Předvolby"
 
 #: ../resource/ui/MainWindow.ui.h:3 ../resource/ui/ShortcutsWindow.ui.h:9
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Klávesové zkratky"
 
 #: ../resource/ui/MainWindow.ui.h:7
 msgid "Refresh"
-msgstr ""
+msgstr "Obnovit"
 
 #: ../resource/ui/MainWindow.ui.h:8 ../resource/ui/PhoneNumberDialog.ui.h:1
 msgid "Open chat by phone number"
-msgstr ""
+msgstr "Otevřít chat podle telefonního čísla"
 
 #: ../resource/ui/PhoneNumberDialog.ui.h:2
 msgid "Enter phone number (only digits)"
-msgstr ""
+msgstr "Zadejte telefonní číslo (pouze číslice)"
 
 #: ../resource/ui/PreferencesWindow.ui.h:1
 msgid "Close to Tray"
-msgstr ""
+msgstr "V blízkosti zásobníku"
 
 #: ../resource/ui/PreferencesWindow.ui.h:2
 msgid "Start in Tray"
-msgstr ""
+msgstr "Spuštění v zásobníku"
 
 #: ../resource/ui/PreferencesWindow.ui.h:3
 msgid "Start Minimized"
-msgstr ""
+msgstr "Spuštění minimalizované"
 
 #: ../resource/ui/PreferencesWindow.ui.h:4
 msgid "Autostart"
-msgstr ""
+msgstr "Automatické spuštění"
 
 #: ../resource/ui/PreferencesWindow.ui.h:5
 msgid "Enable tray icon"
-msgstr ""
+msgstr "Povolení ikony na liště"
 
 #: ../resource/ui/PreferencesWindow.ui.h:6
 msgid "Start application as closed to tray"
-msgstr ""
+msgstr "Spuštění aplikace jako zavřené na panelu"
 
 #: ../resource/ui/PreferencesWindow.ui.h:7
 msgid "Start application as minimized"
-msgstr ""
+msgstr "Spuštění aplikace jako minimalizované"
 
 #: ../resource/ui/PreferencesWindow.ui.h:8
 msgid "Start application after system boots"
-msgstr ""
+msgstr "Spuštění aplikace po spuštění systému"
 
 #: ../resource/ui/PreferencesWindow.ui.h:11
 #: ../resource/ui/ShortcutsWindow.ui.h:2
 msgid "General"
-msgstr ""
+msgstr "Obecné"
 
 #: ../resource/ui/PreferencesWindow.ui.h:12
 msgid "Prefer Dark Theme"
-msgstr ""
+msgstr "Preferovat tmavé téma"
 
 #: ../resource/ui/PreferencesWindow.ui.h:13
 msgid "Prefer dark theme for the application if system theme includes a dark variant"
-msgstr ""
+msgstr "Preferovat tmavé téma aplikace, pokud systémové téma obsahuje tmavou variantu."
 
 #: ../resource/ui/PreferencesWindow.ui.h:14
 msgid "Appearance"
-msgstr ""
+msgstr "Vzhled"
 
 #: ../resource/ui/PreferencesWindow.ui.h:15
 msgid "Hardware Acceleration"
-msgstr ""
+msgstr "Hardwarová akcelerace"
 
 #: ../resource/ui/PreferencesWindow.ui.h:16
 msgid "Allow Permissions"
-msgstr ""
+msgstr "Povolit oprávnění"
 
 #: ../resource/ui/PreferencesWindow.ui.h:17
 msgid "Set hardware acceleration policy used by webkit"
-msgstr ""
+msgstr "Nastavení zásad hardwarové akcelerace používaných sadou webkit"
 
 #: ../resource/ui/PreferencesWindow.ui.h:18
 msgid "Allow permissions on application startup"
-msgstr ""
+msgstr "Povolení oprávnění při spuštění aplikace"
 
 #: ../resource/ui/PreferencesWindow.ui.h:21
 msgid "Web"
-msgstr ""
+msgstr "Web"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:1
 msgid "Shortcuts"
-msgstr ""
+msgstr "Zkratky"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:3
 msgid "Refresh Page"
-msgstr ""
+msgstr "Obnovit stránku"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:6
 msgid "Enter/Exit Fullscreen"
-msgstr ""
+msgstr "Vstup/výstup na celou obrazovku"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:7
 msgid "Show/Hide Header Bar"
-msgstr ""
+msgstr "Zobrazit/skrýt panel záhlaví"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:8
 msgid "Open Preferences"
-msgstr ""
+msgstr "Otevřít předvolby"
 
 #: ../src/ui/MainWindow.cpp:349
 msgid "GitHub Repository"
-msgstr ""
+msgstr "Úložiště GitHub"
 
 #: ../resource/ui/PreferencesWindow.ui.h:9
 msgid "Enable Notification Sounds"
-msgstr ""
+msgstr "Povolení zvuků oznámení"
 
 #: ../resource/ui/PreferencesWindow.ui.h:10
 msgid "Play sound on a notification raised by the application"
-msgstr ""
+msgstr "Přehrávání zvuku při oznámení vyvolaném aplikací"
 
 #: ../resource/ui/PreferencesWindow.ui.h:19
 msgid "Minimum Font Size"
-msgstr ""
+msgstr "Minimální velikost písma"
 
 #: ../resource/ui/PreferencesWindow.ui.h:20
 msgid "Minimum font size used to display text, values other than 0 can potentially break page layouts"
-msgstr ""
+msgstr "Minimální velikost písma použitá pro zobrazení textu, hodnoty jiné než 0 mohou potenciálně narušit rozvržení stránky."
 
 #: ../resource/ui/ShortcutsWindow.ui.h:4
 msgid "Zoom In"
-msgstr ""
+msgstr "Přiblížení"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:5
 msgid "Zoom Out"
-msgstr ""
+msgstr "Zvětšení"
 
 #: ../src/ui/WebView.cpp:40
 msgid "Permission Request"
-msgstr ""
+msgstr "Žádost o povolení"
 
 #: ../src/ui/WebView.cpp:41
 msgid "Would you like to allow permissions?"
-msgstr ""
+msgstr "Chcete povolit oprávnění?"
 
