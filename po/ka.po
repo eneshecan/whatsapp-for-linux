@@ -180,33 +180,33 @@ msgstr "GitHub -ის რეპოზიტორია"
 
 #: ../resource/ui/PreferencesWindow.ui.h:9
 msgid "Enable Notification Sounds"
-msgstr ""
+msgstr "შეტყობინებების ხმების ჩართვა"
 
 #: ../resource/ui/PreferencesWindow.ui.h:10
 msgid "Play sound on a notification raised by the application"
-msgstr ""
+msgstr "ხმის დაკვრა აპლიკაციის მიერ მოწოდებულ შეტყობინებაზე"
 
 #: ../resource/ui/PreferencesWindow.ui.h:19
 msgid "Minimum Font Size"
-msgstr ""
+msgstr "შრიფტის მინიმალური ზომა"
 
 #: ../resource/ui/PreferencesWindow.ui.h:20
 msgid "Minimum font size used to display text, values other than 0 can potentially break page layouts"
-msgstr ""
+msgstr "ტექსტის საჩვენებლად გამოყენებული შრიფტის მინიმალური ზომა, 0-ის გარდა სხვა მნიშვნელობებმა შეიძლება პოტენციურად დაარღვიოს გვერდის განლაგება"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:4
 msgid "Zoom In"
-msgstr ""
+msgstr "Მიახლოება"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:5
 msgid "Zoom Out"
-msgstr ""
+msgstr "მასშტაბირება"
 
 #: ../src/ui/WebView.cpp:40
 msgid "Permission Request"
-msgstr ""
+msgstr "ნებართვის მოთხოვნა"
 
 #: ../src/ui/WebView.cpp:41
 msgid "Would you like to allow permissions?"
-msgstr ""
+msgstr "გსურთ ნებართვების დაშვება?"
 
