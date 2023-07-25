@@ -38,8 +38,8 @@ msgstr "පෙන්වන්න"
 
 #: ../src/ui/TrayIcon.cpp:47 ../resource/ui/MainWindow.ui.h:5
 #: ../resource/ui/ShortcutsWindow.ui.h:10
-msgid "Quite"
-msgstr "තරමක්"
+msgid "Quit"
+msgstr "ඉවත්"
 
 #: ../src/ui/WebView.cpp:75
 msgid "Save File"
@@ -55,7 +55,7 @@ msgstr "අවලංගු කරන්න"
 
 #: ../src/ui/WebView.cpp:328
 msgid "Unresponsive"
-msgstr ""
+msgstr "Unresponsive"
 
 #: ../src/ui/WebView.cpp:329
 msgid "The application is not responding. Would you like to reload?"
@@ -87,15 +87,15 @@ msgstr "දුරකථන අංකය ඇතුළත් කරන්න (ඉ�
 
 #: ../resource/ui/PreferencesWindow.ui.h:1
 msgid "Close to Tray"
-msgstr ""
+msgstr "තැටියට ආසන්නයි"
 
 #: ../resource/ui/PreferencesWindow.ui.h:2
 msgid "Start in Tray"
-msgstr ""
+msgstr "තැටියේ ආරම්භ කරන්න"
 
 #: ../resource/ui/PreferencesWindow.ui.h:3
 msgid "Start Minimized"
-msgstr ""
+msgstr "ආරම්භය අවම කර ඇත"
 
 #: ../resource/ui/PreferencesWindow.ui.h:4
 msgid "Autostart"
@@ -103,11 +103,11 @@ msgstr "ස්වයංක්‍රීය ආරම්භය"
 
 #: ../resource/ui/PreferencesWindow.ui.h:5
 msgid "Enable tray icon"
-msgstr ""
+msgstr "තැටි නිරූපකය සබල කරන්න"
 
 #: ../resource/ui/PreferencesWindow.ui.h:6
 msgid "Start application as closed to tray"
-msgstr ""
+msgstr "තැටියට වසා ඇති පරිදි යෙදුම ආරම්භ කරන්න"
 
 #: ../resource/ui/PreferencesWindow.ui.h:7
 msgid "Start application as minimized"
@@ -120,7 +120,7 @@ msgstr "පද්ධතිය ආරම්භ කිරීමෙන් පසු
 #: ../resource/ui/PreferencesWindow.ui.h:11
 #: ../resource/ui/ShortcutsWindow.ui.h:2
 msgid "General"
-msgstr ""
+msgstr "ජනරාල්"
 
 #: ../resource/ui/PreferencesWindow.ui.h:12
 msgid "Prefer Dark Theme"
@@ -152,7 +152,7 @@ msgstr "යෙදුම් ආරම්භයේදී අවසර දෙන්
 
 #: ../resource/ui/PreferencesWindow.ui.h:21
 msgid "Web"
-msgstr ""
+msgstr "වෙබ්"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:1
 msgid "Shortcuts"
@@ -164,15 +164,15 @@ msgstr "පිටුව නැවුම් කරන්න"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:6
 msgid "Enter/Exit Fullscreen"
-msgstr ""
+msgstr "සම්පූර්ණ තිරයට ඇතුළු වන්න/පිටවීම"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:7
 msgid "Show/Hide Header Bar"
-msgstr ""
+msgstr "ශීර්ෂ තීරුව පෙන්වන්න/සඟවන්න"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:8
 msgid "Open Preferences"
-msgstr ""
+msgstr "මනාප විවෘත කරන්න"
 
 #: ../src/ui/MainWindow.cpp:349
 msgid "GitHub Repository"
@@ -209,3 +209,4 @@ msgstr "අවසර ඉල්ලීම"
 #: ../src/ui/WebView.cpp:41
 msgid "Would you like to allow permissions?"
 msgstr "ඔබ අවසර ලබා දීමට කැමතිද?"
+
