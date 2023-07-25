@@ -95,7 +95,7 @@ msgstr "ট্রে এর মধ্যে খুলুন"
 
 #: ../resource/ui/PreferencesWindow.ui.h:3
 msgid "Start Minimized"
-msgstr "Start Minimized"
+msgstr "স্টার্ট মিনিমাইজড"
 
 #: ../resource/ui/PreferencesWindow.ui.h:4
 msgid "Autostart"
@@ -111,7 +111,7 @@ msgstr "ট্রে এর ভিতর বন্ধ্য অবস্থা�
 
 #: ../resource/ui/PreferencesWindow.ui.h:7
 msgid "Start application as minimized"
-msgstr "Start application as minimized"
+msgstr "ন্যূনতম হিসাবে অ্যাপ্লিকেশন শুরু করুন"
 
 #: ../resource/ui/PreferencesWindow.ui.h:8
 msgid "Start application after system boots"
@@ -124,11 +124,11 @@ msgstr "সাধারণ"
 
 #: ../resource/ui/PreferencesWindow.ui.h:12
 msgid "Prefer Dark Theme"
-msgstr "Prefer Dark Theme"
+msgstr "ডার্ক থিম পছন্দ করুন"
 
 #: ../resource/ui/PreferencesWindow.ui.h:13
 msgid "Prefer dark theme for the application if system theme includes a dark variant"
-msgstr "Prefer dark theme for the application if system theme includes a dark variant"
+msgstr "যদি সিস্টেম থিমে একটি অন্ধকার বৈকল্পিক অন্তর্ভুক্ত থাকে তবে অ্যাপ্লিকেশনের জন্য অন্ধকার থিম পছন্দ করুন৷"
 
 #: ../resource/ui/PreferencesWindow.ui.h:14
 msgid "Appearance"
@@ -136,19 +136,19 @@ msgstr "চেহারা"
 
 #: ../resource/ui/PreferencesWindow.ui.h:15
 msgid "Hardware Acceleration"
-msgstr "Hardware Acceleration"
+msgstr "হার্ডওয়্যার ত্বরণ"
 
 #: ../resource/ui/PreferencesWindow.ui.h:16
 msgid "Allow Permissions"
-msgstr "Allow Permissions"
+msgstr "অনুমতির অনুমতি দিন"
 
 #: ../resource/ui/PreferencesWindow.ui.h:17
 msgid "Set hardware acceleration policy used by webkit"
-msgstr "Set hardware acceleration policy used by webkit"
+msgstr "ওয়েবকিট দ্বারা ব্যবহৃত হার্ডওয়্যার ত্বরণ নীতি সেট করুন"
 
 #: ../resource/ui/PreferencesWindow.ui.h:18
 msgid "Allow permissions on application startup"
-msgstr "Allow permissions on application startup"
+msgstr "অ্যাপ্লিকেশন স্টার্টআপে অনুমতি দিন"
 
 #: ../resource/ui/PreferencesWindow.ui.h:21
 msgid "Web"
@@ -160,15 +160,15 @@ msgstr "শর্টকাট"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:3
 msgid "Refresh Page"
-msgstr "Refresh Page"
+msgstr "সতেজ পৃষ্ঠা"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:6
 msgid "Enter/Exit Fullscreen"
-msgstr "Enter/Exit Fullscreen"
+msgstr "পূর্ণস্ক্রীনে প্রবেশ/প্রস্থান করুন"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:7
 msgid "Show/Hide Header Bar"
-msgstr "Show/Hide Header Bar"
+msgstr "হেডার বার দেখান/লুকান"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:8
 msgid "Open Preferences"
@@ -180,19 +180,19 @@ msgstr "GitHub সংগ্রহস্থল"
 
 #: ../resource/ui/PreferencesWindow.ui.h:9
 msgid "Enable Notification Sounds"
-msgstr "Enable Notification Sounds"
+msgstr "বিজ্ঞপ্তির শব্দ সক্রিয় করুন"
 
 #: ../resource/ui/PreferencesWindow.ui.h:10
 msgid "Play sound on a notification raised by the application"
-msgstr "Play sound on a notification raised by the application"
+msgstr "অ্যাপ্লিকেশন দ্বারা উত্থাপিত একটি বিজ্ঞপ্তিতে শব্দ বাজান"
 
 #: ../resource/ui/PreferencesWindow.ui.h:19
 msgid "Minimum Font Size"
-msgstr "Minimum Font Size"
+msgstr "ন্যূনতম ফন্ট সাইজ"
 
 #: ../resource/ui/PreferencesWindow.ui.h:20
 msgid "Minimum font size used to display text, values other than 0 can potentially break page layouts"
-msgstr "Minimum font size used to display text, values other than 0 can potentially break page layouts"
+msgstr "টেক্সট প্রদর্শনের জন্য ব্যবহৃত ন্যূনতম ফন্টের আকার, 0 ব্যতীত অন্য মানগুলি সম্ভাব্যভাবে পৃষ্ঠার বিন্যাস ভেঙে দিতে পারে"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:4
 msgid "Zoom In"
@@ -204,9 +204,9 @@ msgstr "জুম আউট"
 
 #: ../src/ui/WebView.cpp:40
 msgid "Permission Request"
-msgstr "Permission Request"
+msgstr "অনুমতির অনুরোধ"
 
 #: ../src/ui/WebView.cpp:41
 msgid "Would you like to allow permissions?"
-msgstr "Would you like to allow permissions?"
+msgstr "আপনি কি অনুমতি দিতে চান?"
 
