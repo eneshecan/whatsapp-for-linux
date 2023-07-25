@@ -10,203 +10,203 @@ msgstr ""
 #: ../src/ui/MainWindow.cpp:344 ../src/ui/TrayIcon.cpp:46
 #: ../resource/ui/MainWindow.ui.h:4
 msgid "About"
-msgstr ""
+msgstr "এর সম্পর্কে"
 
 #: ../src/ui/MainWindow.cpp:346 ../resource/ui/MainWindow.ui.h:6
 msgid "WhatsApp for Linux"
-msgstr ""
+msgstr "WhatsApp for Linux"
 
 #: ../src/ui/MainWindow.cpp:347
 msgid "An unofficial WhatsApp desktop application for Linux"
-msgstr ""
+msgstr "Linux জন্য একটি অনানুষ্ঠানিক WhatsApp ডেস্কটপ অ্যাপ্লিকেশন"
 
 #: ../src/ui/PreferencesWindow.cpp:40
 msgid "On Demand"
-msgstr ""
+msgstr "চাহিদা সাপেক্ষে"
 
 #: ../src/ui/PreferencesWindow.cpp:41
 msgid "Always"
-msgstr ""
+msgstr "সর্বদা"
 
 #: ../src/ui/PreferencesWindow.cpp:42
 msgid "Never"
-msgstr ""
+msgstr "কখনই না"
 
 #: ../src/ui/TrayIcon.cpp:45
 msgid "Show"
-msgstr ""
+msgstr "দেখান"
 
 #: ../src/ui/TrayIcon.cpp:47 ../resource/ui/MainWindow.ui.h:5
 #: ../resource/ui/ShortcutsWindow.ui.h:10
 msgid "Quit"
-msgstr ""
+msgstr "প্রস্থান করুন"
 
 #: ../src/ui/WebView.cpp:75
 msgid "Save File"
-msgstr ""
+msgstr "ফাইল সংরক্ষণ করুন"
 
 #: ../src/ui/WebView.cpp:76
 msgid "Ok"
-msgstr ""
+msgstr "ঠিক আছে"
 
 #: ../src/ui/WebView.cpp:77
 msgid "Cancel"
-msgstr ""
+msgstr "বাতিল করুন"
 
 #: ../src/ui/WebView.cpp:328
 msgid "Unresponsive"
-msgstr ""
+msgstr "প্রতিক্রিয়াহীন"
 
 #: ../src/ui/WebView.cpp:329
 msgid "The application is not responding. Would you like to reload?"
-msgstr ""
+msgstr "আপ্লিকেশনটি সাড়া দিচ্ছেনা। আপনি কি পুনঃরাই খুলতে চান?"
 
 #: ../resource/ui/MainWindow.ui.h:1
 msgid "Fullscreen"
-msgstr ""
+msgstr "পূর্ণ স্ক্রিন"
 
 #: ../resource/ui/MainWindow.ui.h:2 ../resource/ui/PreferencesWindow.ui.h:22
 msgid "Preferences"
-msgstr ""
+msgstr "পছন্দসমূহ"
 
 #: ../resource/ui/MainWindow.ui.h:3 ../resource/ui/ShortcutsWindow.ui.h:9
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "কিবোর্ড শর্টকাট"
 
 #: ../resource/ui/MainWindow.ui.h:7
 msgid "Refresh"
-msgstr ""
+msgstr "রিফ্রেস"
 
 #: ../resource/ui/MainWindow.ui.h:8 ../resource/ui/PhoneNumberDialog.ui.h:1
 msgid "Open chat by phone number"
-msgstr ""
+msgstr "ফোন নম্বর ব্যবহার করে চ্যাট খুঁজুন"
 
 #: ../resource/ui/PhoneNumberDialog.ui.h:2
 msgid "Enter phone number (only digits)"
-msgstr ""
+msgstr "ফোন নম্বর দিন (শুধুমাত্র সংখ্যা)"
 
 #: ../resource/ui/PreferencesWindow.ui.h:1
 msgid "Close to Tray"
-msgstr ""
+msgstr "ট্রে এর ভিতর বন্ধ্য করুন"
 
 #: ../resource/ui/PreferencesWindow.ui.h:2
 msgid "Start in Tray"
-msgstr ""
+msgstr "ট্রে এর মধ্যে খুলুন"
 
 #: ../resource/ui/PreferencesWindow.ui.h:3
 msgid "Start Minimized"
-msgstr ""
+msgstr "Start Minimized"
 
 #: ../resource/ui/PreferencesWindow.ui.h:4
 msgid "Autostart"
-msgstr ""
+msgstr "স্বয়ংক্রিয়ভাবে খুলুন"
 
 #: ../resource/ui/PreferencesWindow.ui.h:5
 msgid "Enable tray icon"
-msgstr ""
+msgstr "ট্রে ইকন চালু করুন"
 
 #: ../resource/ui/PreferencesWindow.ui.h:6
 msgid "Start application as closed to tray"
-msgstr ""
+msgstr "ট্রে এর ভিতর বন্ধ্য অবস্থাই খুলুন"
 
 #: ../resource/ui/PreferencesWindow.ui.h:7
 msgid "Start application as minimized"
-msgstr ""
+msgstr "Start application as minimized"
 
 #: ../resource/ui/PreferencesWindow.ui.h:8
 msgid "Start application after system boots"
-msgstr ""
+msgstr "সিস্টেম বুট হলে আপ্লিকেশন খুলুন"
 
 #: ../resource/ui/PreferencesWindow.ui.h:11
 #: ../resource/ui/ShortcutsWindow.ui.h:2
 msgid "General"
-msgstr ""
+msgstr "সাধারণ"
 
 #: ../resource/ui/PreferencesWindow.ui.h:12
 msgid "Prefer Dark Theme"
-msgstr ""
+msgstr "Prefer Dark Theme"
 
 #: ../resource/ui/PreferencesWindow.ui.h:13
 msgid "Prefer dark theme for the application if system theme includes a dark variant"
-msgstr ""
+msgstr "Prefer dark theme for the application if system theme includes a dark variant"
 
 #: ../resource/ui/PreferencesWindow.ui.h:14
 msgid "Appearance"
-msgstr ""
+msgstr "চেহারা"
 
 #: ../resource/ui/PreferencesWindow.ui.h:15
 msgid "Hardware Acceleration"
-msgstr ""
+msgstr "Hardware Acceleration"
 
 #: ../resource/ui/PreferencesWindow.ui.h:16
 msgid "Allow Permissions"
-msgstr ""
+msgstr "Allow Permissions"
 
 #: ../resource/ui/PreferencesWindow.ui.h:17
 msgid "Set hardware acceleration policy used by webkit"
-msgstr ""
+msgstr "Set hardware acceleration policy used by webkit"
 
 #: ../resource/ui/PreferencesWindow.ui.h:18
 msgid "Allow permissions on application startup"
-msgstr ""
+msgstr "Allow permissions on application startup"
 
 #: ../resource/ui/PreferencesWindow.ui.h:21
 msgid "Web"
-msgstr ""
+msgstr "ওয়েব"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:1
 msgid "Shortcuts"
-msgstr ""
+msgstr "শর্টকাট"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:3
 msgid "Refresh Page"
-msgstr ""
+msgstr "Refresh Page"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:6
 msgid "Enter/Exit Fullscreen"
-msgstr ""
+msgstr "Enter/Exit Fullscreen"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:7
 msgid "Show/Hide Header Bar"
-msgstr ""
+msgstr "Show/Hide Header Bar"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:8
 msgid "Open Preferences"
-msgstr ""
+msgstr "পছন্দগুলি খুলুন"
 
 #: ../src/ui/MainWindow.cpp:349
 msgid "GitHub Repository"
-msgstr ""
+msgstr "GitHub সংগ্রহস্থল"
 
 #: ../resource/ui/PreferencesWindow.ui.h:9
 msgid "Enable Notification Sounds"
-msgstr ""
+msgstr "Enable Notification Sounds"
 
 #: ../resource/ui/PreferencesWindow.ui.h:10
 msgid "Play sound on a notification raised by the application"
-msgstr ""
+msgstr "Play sound on a notification raised by the application"
 
 #: ../resource/ui/PreferencesWindow.ui.h:19
 msgid "Minimum Font Size"
-msgstr ""
+msgstr "Minimum Font Size"
 
 #: ../resource/ui/PreferencesWindow.ui.h:20
 msgid "Minimum font size used to display text, values other than 0 can potentially break page layouts"
-msgstr ""
+msgstr "Minimum font size used to display text, values other than 0 can potentially break page layouts"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:4
 msgid "Zoom In"
-msgstr ""
+msgstr "জুম ইন"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:5
 msgid "Zoom Out"
-msgstr ""
+msgstr "জুম আউট"
 
 #: ../src/ui/WebView.cpp:40
 msgid "Permission Request"
-msgstr ""
+msgstr "Permission Request"
 
 #: ../src/ui/WebView.cpp:41
 msgid "Would you like to allow permissions?"
-msgstr ""
+msgstr "Would you like to allow permissions?"
 
