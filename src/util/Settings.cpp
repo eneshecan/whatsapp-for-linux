@@ -6,15 +6,6 @@
 
 namespace wfl::util
 {
-    namespace
-    {
-        auto const CONFIG_DIR                  = Glib::get_user_config_dir();
-        auto const CONFIG_APP_DIR              = CONFIG_DIR + "/" WFL_NAME;
-        auto const CONFIG_FILE_PATH            = CONFIG_APP_DIR + "/settings.conf";
-        auto const AUTOSTART_DESKTOP_FILE_PATH = CONFIG_DIR + "/autostart/" WFL_APP_ID ".desktop";
-    }
-
-
     Settings& Settings::getInstance()
     {
         static auto instance = Settings{};
@@ -23,10 +14,14 @@ namespace wfl::util
 
     Settings::Settings()
         : m_settingMap{}
+        , m_configDir{Glib::get_user_config_dir()}
+        , m_configAppDir{m_configDir + "/" WFL_NAME}
+        , m_configFilePath{m_configAppDir + "/settings.conf"}
+        , m_autostartDesktopFilePath{m_configDir + "/autostart/" WFL_APP_ID ".desktop"}
     {
-        if (auto const configFile = Gio::File::create_for_path(CONFIG_FILE_PATH); !configFile->query_exists())
+        if (auto const configFile = Gio::File::create_for_path(m_configFilePath); !configFile->query_exists())
         {
-            if (auto configDir = Gio::File::create_for_path(CONFIG_APP_DIR); !configDir->query_exists())
+            if (auto configDir = Gio::File::create_for_path(m_configAppDir); !configDir->query_exists())
             {
                 if (!configDir->make_directory())
                 {
@@ -42,17 +37,17 @@ namespace wfl::util
             }
         }
 
-        m_settingMap.loadFromFile(CONFIG_FILE_PATH);
+        m_settingMap.loadFromFile(m_configFilePath);
     }
 
     Settings::~Settings()
     {
-        m_settingMap.saveToFile(CONFIG_FILE_PATH);
+        m_settingMap.saveToFile(m_configFilePath);
     }
 
     void Settings::setAutostart(bool autostart)
     {
-        if (auto autostartDir = Gio::File::create_for_path(CONFIG_DIR + "/autostart"); !autostartDir->query_exists())
+        if (auto autostartDir = Gio::File::create_for_path(m_configDir + "/autostart"); !autostartDir->query_exists())
         {
             if (!autostartDir->make_directory())
             {
@@ -61,7 +56,7 @@ namespace wfl::util
             }
         }
 
-        auto destDesktopFile = Gio::File::create_for_path(AUTOSTART_DESKTOP_FILE_PATH);
+        auto destDesktopFile = Gio::File::create_for_path(m_autostartDesktopFilePath);
         if (autostart)
         {
             constexpr auto const possibleDesktopFilePaths = std::array<char const*, 3>{"/usr/local/share/applications/" WFL_APP_ID ".desktop",
@@ -98,7 +93,7 @@ namespace wfl::util
 
     bool Settings::getAutostart()
     {
-        auto const desktopFile = Gio::File::create_for_path(AUTOSTART_DESKTOP_FILE_PATH);
+        auto const desktopFile = Gio::File::create_for_path(m_autostartDesktopFilePath);
         return desktopFile->query_exists();
     }
 }

@@ -30,6 +30,11 @@ namespace wfl::util
 
         private:
             SettingMap m_settingMap;
+
+            Glib::ustring m_configDir;
+            Glib::ustring m_configAppDir;
+            Glib::ustring m_configFilePath;
+            Glib::ustring m_autostartDesktopFilePath;
     };
 
 
@@ -46,6 +51,8 @@ namespace wfl::util
         {
             m_settingMap.setValue(group, key, value);
         }
+
+        m_settingMap.saveToFile(m_configFilePath);
     }
 
     template<typename ValueType>
