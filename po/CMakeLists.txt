@@ -2,7 +2,7 @@ file(GLOB PO_FILES *.po)
 
 add_custom_command(
         OUTPUT ${CMAKE_PROJECT_NAME}.pot
-        COMMAND intltool-update -g ${CMAKE_PROJECT_NAME} -p && intltool-update --pot --gettext-package=${CMAKE_PROJECT_NAME}
+        COMMAND intltool-update --pot --gettext-package=${CMAKE_PROJECT_NAME}
         WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
         COMMENT "Updating template translation"
     )
