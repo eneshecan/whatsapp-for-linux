@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: WhatsApp for Linux\n"
 "Language: fr\n"
 
-#: ../src/ui/MainWindow.cpp:344 ../src/ui/TrayIcon.cpp:46
+#: ../src/ui/MainWindow.cpp:343 ../src/ui/TrayIcon.cpp:46
 #: ../resource/ui/MainWindow.ui.h:4
 msgid "About"
 msgstr "À propos"
 
-#: ../src/ui/MainWindow.cpp:346 ../resource/ui/MainWindow.ui.h:6
+#: ../src/ui/MainWindow.cpp:345 ../resource/ui/MainWindow.ui.h:6
 msgid "WhatsApp for Linux"
 msgstr "WhatsApp pour Linux"
 
-#: ../src/ui/MainWindow.cpp:347
+#: ../src/ui/MainWindow.cpp:346
 msgid "An unofficial WhatsApp desktop application for Linux"
 msgstr "Une application WhatsApp de bureau non officielle pour Linux"
 
@@ -174,7 +174,7 @@ msgstr "Afficher/Masquer la barre d'en-tête"
 msgid "Open Preferences"
 msgstr "Ouvrir les préférences"
 
-#: ../src/ui/MainWindow.cpp:349
+#: ../src/ui/MainWindow.cpp:348
 msgid "GitHub Repository"
 msgstr "Dépôt GitHub"
 
