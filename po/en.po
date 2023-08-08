@@ -7,18 +7,22 @@ msgstr ""
 "Project-Id-Version: WhatsApp for Linux\n"
 "Language: en\n"
 
-#: ../src/ui/MainWindow.cpp:344 ../src/ui/TrayIcon.cpp:46
+#: ../src/ui/MainWindow.cpp:343 ../src/ui/TrayIcon.cpp:46
 #: ../resource/ui/MainWindow.ui.h:4
 msgid "About"
 msgstr "About"
 
-#: ../src/ui/MainWindow.cpp:346 ../resource/ui/MainWindow.ui.h:6
+#: ../src/ui/MainWindow.cpp:345 ../resource/ui/MainWindow.ui.h:6
 msgid "WhatsApp for Linux"
 msgstr "WhatsApp for Linux"
 
-#: ../src/ui/MainWindow.cpp:347
+#: ../src/ui/MainWindow.cpp:346
 msgid "An unofficial WhatsApp desktop application for Linux"
 msgstr "An unofficial WhatsApp desktop application for Linux"
+
+#: ../src/ui/MainWindow.cpp:348
+msgid "GitHub Repository"
+msgstr "GitHub Repository"
 
 #: ../src/ui/PreferencesWindow.cpp:40
 msgid "On Demand"
@@ -40,6 +44,14 @@ msgstr "Show"
 #: ../resource/ui/ShortcutsWindow.ui.h:10
 msgid "Quit"
 msgstr "Quit"
+
+#: ../src/ui/WebView.cpp:40
+msgid "Permission Request"
+msgstr "Permission Request"
+
+#: ../src/ui/WebView.cpp:41
+msgid "Would you like to allow permissions?"
+msgstr "Would you like to allow permissions?"
 
 #: ../src/ui/WebView.cpp:75
 msgid "Save File"
@@ -117,6 +129,14 @@ msgstr "Start application as minimized"
 msgid "Start application after system boots"
 msgstr "Start application after system boots"
 
+#: ../resource/ui/PreferencesWindow.ui.h:9
+msgid "Enable Notification Sounds"
+msgstr "Enable Notification Sounds"
+
+#: ../resource/ui/PreferencesWindow.ui.h:10
+msgid "Play sound on a notification raised by the application"
+msgstr "Play sound on a notification raised by the application"
+
 #: ../resource/ui/PreferencesWindow.ui.h:11
 #: ../resource/ui/ShortcutsWindow.ui.h:2
 msgid "General"
@@ -150,6 +170,14 @@ msgstr "Set hardware acceleration policy used by webkit"
 msgid "Allow permissions on application startup"
 msgstr "Allow permissions on application startup"
 
+#: ../resource/ui/PreferencesWindow.ui.h:19
+msgid "Minimum Font Size"
+msgstr "Minimum Font Size"
+
+#: ../resource/ui/PreferencesWindow.ui.h:20
+msgid "Minimum font size used to display text, values other than 0 can potentially break page layouts"
+msgstr "Minimum font size used to display text, values other than 0 can potentially break page layouts"
+
 #: ../resource/ui/PreferencesWindow.ui.h:21
 msgid "Web"
 msgstr "Web"
@@ -162,6 +190,14 @@ msgstr "Shortcuts"
 msgid "Refresh Page"
 msgstr "Refresh Page"
 
+#: ../resource/ui/ShortcutsWindow.ui.h:4
+msgid "Zoom In"
+msgstr "Zoom In"
+
+#: ../resource/ui/ShortcutsWindow.ui.h:5
+msgid "Zoom Out"
+msgstr "Zoom Out"
+
 #: ../resource/ui/ShortcutsWindow.ui.h:6
 msgid "Enter/Exit Fullscreen"
 msgstr "Enter/Exit Fullscreen"
@@ -173,40 +209,3 @@ msgstr "Show/Hide Header Bar"
 #: ../resource/ui/ShortcutsWindow.ui.h:8
 msgid "Open Preferences"
 msgstr "Open Preferences"
-
-#: ../src/ui/MainWindow.cpp:349
-msgid "GitHub Repository"
-msgstr "GitHub Repository"
-
-#: ../resource/ui/PreferencesWindow.ui.h:9
-msgid "Enable Notification Sounds"
-msgstr "Enable Notification Sounds"
-
-#: ../resource/ui/PreferencesWindow.ui.h:10
-msgid "Play sound on a notification raised by the application"
-msgstr "Play sound on a notification raised by the application"
-
-#: ../resource/ui/PreferencesWindow.ui.h:19
-msgid "Minimum Font Size"
-msgstr "Minimum Font Size"
-
-#: ../resource/ui/PreferencesWindow.ui.h:20
-msgid "Minimum font size used to display text, values other than 0 can potentially break page layouts"
-msgstr "Minimum font size used to display text, values other than 0 can potentially break page layouts"
-
-#: ../resource/ui/ShortcutsWindow.ui.h:4
-msgid "Zoom In"
-msgstr "Zoom In"
-
-#: ../resource/ui/ShortcutsWindow.ui.h:5
-msgid "Zoom Out"
-msgstr "Zoom Out"
-
-#: ../src/ui/WebView.cpp:40
-msgid "Permission Request"
-msgstr "Permission Request"
-
-#: ../src/ui/WebView.cpp:41
-msgid "Would you like to allow permissions?"
-msgstr "Would you like to allow permissions?"
-
