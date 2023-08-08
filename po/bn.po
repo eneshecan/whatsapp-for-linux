@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: WhatsApp for Linux\n"
 "Language: bn\n"
 
-#: ../src/ui/MainWindow.cpp:344 ../src/ui/TrayIcon.cpp:46
+#: ../src/ui/MainWindow.cpp:343 ../src/ui/TrayIcon.cpp:46
 #: ../resource/ui/MainWindow.ui.h:4
 msgid "About"
 msgstr "এর সম্পর্কে"
 
-#: ../src/ui/MainWindow.cpp:346 ../resource/ui/MainWindow.ui.h:6
+#: ../src/ui/MainWindow.cpp:345 ../resource/ui/MainWindow.ui.h:6
 msgid "WhatsApp for Linux"
 msgstr "WhatsApp for Linux"
 
-#: ../src/ui/MainWindow.cpp:347
+#: ../src/ui/MainWindow.cpp:346
 msgid "An unofficial WhatsApp desktop application for Linux"
 msgstr "Linux জন্য একটি অনানুষ্ঠানিক WhatsApp ডেস্কটপ অ্যাপ্লিকেশন"
 
@@ -174,7 +174,7 @@ msgstr "হেডার বার দেখান/লুকান"
 msgid "Open Preferences"
 msgstr "পছন্দগুলি খুলুন"
 
-#: ../src/ui/MainWindow.cpp:349
+#: ../src/ui/MainWindow.cpp:348
 msgid "GitHub Repository"
 msgstr "GitHub সংগ্রহস্থল"
 
