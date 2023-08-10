@@ -9,8 +9,8 @@ msgstr ""
 
 #: ../src/ui/MainWindow.cpp:343 ../src/ui/TrayIcon.cpp:46
 #: ../resource/ui/MainWindow.ui.h:4
-msgid "O programie"
-msgstr "Über"
+msgid "About"
+msgstr "O programie"
 
 #: ../src/ui/MainWindow.cpp:345 ../resource/ui/MainWindow.ui.h:6
 msgid "WhatsApp for Linux"
