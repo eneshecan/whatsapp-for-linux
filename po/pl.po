@@ -55,7 +55,7 @@ msgstr "Anuluj"
 
 #: ../src/ui/WebView.cpp:328
 msgid "Unresponsive"
-msgstr "Nie odpowiada
+msgstr "Nie odpowiada"
 
 #: ../src/ui/WebView.cpp:329
 msgid "The application is not responding. Would you like to reload?"
