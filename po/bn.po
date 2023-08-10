@@ -95,7 +95,7 @@ msgstr "ট্রে এর মধ্যে খুলুন"
 
 #: ../resource/ui/PreferencesWindow.ui.h:3
 msgid "Start Minimized"
-msgstr "স্টার্ট মিনিমাইজড"
+msgstr "ছোট অবস্থাই চালু করুন"
 
 #: ../resource/ui/PreferencesWindow.ui.h:4
 msgid "Autostart"
@@ -160,7 +160,7 @@ msgstr "শর্টকাট"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:3
 msgid "Refresh Page"
-msgstr "সতেজ পৃষ্ঠা"
+msgstr "পৃষ্ঠা রিফ্রেশ করুন"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:6
 msgid "Enter/Exit Fullscreen"
@@ -192,7 +192,7 @@ msgstr "ন্যূনতম ফন্ট সাইজ"
 
 #: ../resource/ui/PreferencesWindow.ui.h:20
 msgid "Minimum font size used to display text, values other than 0 can potentially break page layouts"
-msgstr "টেক্সট প্রদর্শনের জন্য ব্যবহৃত ন্যূনতম ফন্টের আকার, 0 ব্যতীত অন্য মানগুলি সম্ভাব্যভাবে পৃষ্ঠার বিন্যাস ভেঙে দিতে পারে"
+msgstr "পাঠ্য প্রদর্শনের জন্য ব্যবহৃত ন্যূনতম ফন্টের আকার, 0 ব্যতীত অন্য মানগুলি সম্ভাব্যভাবে পৃষ্ঠার বিন্যাস ভেঙে দিতে পারে"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:4
 msgid "Zoom In"
