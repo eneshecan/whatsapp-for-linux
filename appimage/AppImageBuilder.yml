@@ -20,7 +20,7 @@ AppDir:
     include:
       - intltool
       - libgtkmm-3.0-1v5:amd64
-      - libwebkit2gtk-4.0-37:amd64
+      - libwebkit2gtk-4.1-0:amd64
       - libayatana-appindicator3-1:amd64
       - libcanberra-dev
       - glib-networking:amd64
@@ -257,7 +257,7 @@ AppDir:
       - /lib/x86_64-linux-gnu/libwayland-cursor.so.0
       - /lib/x86_64-linux-gnu/libwayland-egl.so.1
       - /lib/x86_64-linux-gnu/libwayland-server.so.0
-      - /lib/x86_64-linux-gnu/libwebkit2gtk-4.0.so.37
+      - /lib/x86_64-linux-gnu/libwebkit2gtk-4.1.so.0
       - /lib/x86_64-linux-gnu/webkit2gtk-4.0/WebKitWebProcess
       - /lib/x86_64-linux-gnu/webkit2gtk-4.0/WebKitNetworkProcess
       - /lib/x86_64-linux-gnu/webkit2gtk-4.0/MiniBrowser

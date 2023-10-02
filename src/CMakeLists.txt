@@ -12,9 +12,9 @@ link_directories(${INTL_LIBRARY_DIRS})
 pkg_check_modules(GTKMM gtkmm-3.0 REQUIRED)
 include_directories(${GTKMM_INCLUDE_DIRS})
 
-pkg_check_modules(WEBKIT webkit2gtk-4.0)
+pkg_check_modules(WEBKIT webkit2gtk-4.1)
 if (NOT WEBKIT_FOUND)
-    pkg_check_modules(WEBKIT webkit2gtk-4.1 REQUIRED)
+    pkg_check_modules(WEBKIT webkit2gtk-4.0 REQUIRED)
 endif()
 include_directories(${WEBKIT_INCLUDE_DIRS})
 

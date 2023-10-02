@@ -15,7 +15,7 @@ jobs:
       - name: Install Dependencies
         run: |
           sudo apt update
-          sudo apt -y install build-essential intltool cmake pkg-config libgtkmm-3.0-dev libwebkit2gtk-4.0-dev libayatana-appindicator3-dev libcanberra-dev debhelper zsync squashfs-tools
+          sudo apt -y install build-essential intltool cmake pkg-config libgtkmm-3.0-dev libwebkit2gtk-4.1-dev libayatana-appindicator3-dev libcanberra-dev debhelper zsync squashfs-tools
 
       - name: Build & Install
         run: |
