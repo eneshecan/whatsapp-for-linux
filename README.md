@@ -68,7 +68,7 @@ The application is available from a number of Linux distributions:
 * cmake >= 3.12
 * intltool
 * gtkmm-3.0
-* webkit2gtk-4.0
+* webkit2gtk-4.1
 * ayatana-appindicator3-0.1
 * libcanberra
 * libhunspell (Optional for spell checking)
