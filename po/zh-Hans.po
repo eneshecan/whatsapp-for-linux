@@ -10,7 +10,7 @@ msgstr ""
 #: ../src/ui/MainWindow.cpp:343 ../src/ui/TrayIcon.cpp:46
 #: ../resource/ui/MainWindow.ui.h:4
 msgid "About"
-msgstr "About"
+msgstr "关于"
 
 #: ../src/ui/MainWindow.cpp:345 ../resource/ui/MainWindow.ui.h:6
 msgid "WhatsApp for Linux"
@@ -18,137 +18,137 @@ msgstr "WhatsApp for Linux"
 
 #: ../src/ui/MainWindow.cpp:346
 msgid "An unofficial WhatsApp desktop application for Linux"
-msgstr "An unofficial WhatsApp desktop application for Linux"
+msgstr "供 Linux 使用的非官方 WhatsApp 桌面应用"
 
 #: ../src/ui/PreferencesWindow.cpp:40
 msgid "On Demand"
-msgstr "On Demand"
+msgstr "按需"
 
 #: ../src/ui/PreferencesWindow.cpp:41
 msgid "Always"
-msgstr "Always"
+msgstr "总是"
 
 #: ../src/ui/PreferencesWindow.cpp:42
 msgid "Never"
-msgstr "Never"
+msgstr "从不"
 
 #: ../src/ui/TrayIcon.cpp:45
 msgid "Show"
-msgstr "Show"
+msgstr "显示"
 
 #: ../src/ui/TrayIcon.cpp:47 ../resource/ui/MainWindow.ui.h:5
 #: ../resource/ui/ShortcutsWindow.ui.h:10
 msgid "Quit"
-msgstr "Quit"
+msgstr "退出"
 
 #: ../src/ui/WebView.cpp:75
 msgid "Save File"
-msgstr "Save File"
+msgstr "保存文件"
 
 #: ../src/ui/WebView.cpp:76
 msgid "Ok"
-msgstr "Ok"
+msgstr "确定"
 
 #: ../src/ui/WebView.cpp:77
 msgid "Cancel"
-msgstr "Cancel"
+msgstr "取消"
 
 #: ../src/ui/WebView.cpp:328
 msgid "Unresponsive"
-msgstr "Unresponsive"
+msgstr "未响应"
 
 #: ../src/ui/WebView.cpp:329
 msgid "The application is not responding. Would you like to reload?"
-msgstr "The application is not responding. Would you like to reload?"
+msgstr "应用没有响应，要重新加载吗？"
 
 #: ../resource/ui/MainWindow.ui.h:1
 msgid "Fullscreen"
-msgstr "Fullscreen"
+msgstr "全屏"
 
 #: ../resource/ui/MainWindow.ui.h:2 ../resource/ui/PreferencesWindow.ui.h:22
 msgid "Preferences"
-msgstr "Preferences"
+msgstr "首选项"
 
 #: ../resource/ui/MainWindow.ui.h:3 ../resource/ui/ShortcutsWindow.ui.h:9
 msgid "Keyboard Shortcuts"
-msgstr "Keyboard Shortcuts"
+msgstr "快捷键列表"
 
 #: ../resource/ui/MainWindow.ui.h:7
 msgid "Refresh"
-msgstr "Refresh"
+msgstr "刷新"
 
 #: ../resource/ui/MainWindow.ui.h:8 ../resource/ui/PhoneNumberDialog.ui.h:1
 msgid "Open chat by phone number"
-msgstr "Open chat by phone number"
+msgstr "从电话号码新建对话"
 
 #: ../resource/ui/PhoneNumberDialog.ui.h:2
 msgid "Enter phone number (only digits)"
-msgstr "Enter phone number (only digits)"
+msgstr "输入电话号码（仅数字）"
 
 #: ../resource/ui/PreferencesWindow.ui.h:1
 msgid "Close to Tray"
-msgstr "Close to Tray"
+msgstr "关闭至托盘"
 
 #: ../resource/ui/PreferencesWindow.ui.h:2
 msgid "Start in Tray"
-msgstr "Start in Tray"
+msgstr "启动至托盘"
 
 #: ../resource/ui/PreferencesWindow.ui.h:3
 msgid "Start Minimized"
-msgstr "Start Minimized"
+msgstr "最小化启动"
 
 #: ../resource/ui/PreferencesWindow.ui.h:4
 msgid "Autostart"
-msgstr "Autostart"
+msgstr "开机自启动"
 
 #: ../resource/ui/PreferencesWindow.ui.h:5
 msgid "Enable tray icon"
-msgstr "Enable tray icon"
+msgstr "启用托盘图标"
 
 #: ../resource/ui/PreferencesWindow.ui.h:6
 msgid "Start application as closed to tray"
-msgstr "Start application as closed to tray"
+msgstr "应用启动时关闭到托盘"
 
 #: ../resource/ui/PreferencesWindow.ui.h:7
 msgid "Start application as minimized"
-msgstr "Start application as minimized"
+msgstr "应用启动时最小化"
 
 #: ../resource/ui/PreferencesWindow.ui.h:8
 msgid "Start application after system boots"
-msgstr "Start application after system boots"
+msgstr "开机时启动应用"
 
 #: ../resource/ui/PreferencesWindow.ui.h:11
 #: ../resource/ui/ShortcutsWindow.ui.h:2
 msgid "General"
-msgstr "General"
+msgstr "通用"
 
 #: ../resource/ui/PreferencesWindow.ui.h:12
 msgid "Prefer Dark Theme"
-msgstr "Prefer Dark Theme"
+msgstr "深色模式优先"
 
 #: ../resource/ui/PreferencesWindow.ui.h:13
 msgid "Prefer dark theme for the application if system theme includes a dark variant"
-msgstr "Prefer dark theme for the application if system theme includes a dark variant"
+msgstr "系统主题支持时优先使用深色模式"
 
 #: ../resource/ui/PreferencesWindow.ui.h:14
 msgid "Appearance"
-msgstr "Appearance"
+msgstr "外观"
 
 #: ../resource/ui/PreferencesWindow.ui.h:15
 msgid "Hardware Acceleration"
-msgstr "Hardware Acceleration"
+msgstr "硬件加速"
 
 #: ../resource/ui/PreferencesWindow.ui.h:16
 msgid "Allow Permissions"
-msgstr "Allow Permissions"
+msgstr "授予权限"
 
 #: ../resource/ui/PreferencesWindow.ui.h:17
 msgid "Set hardware acceleration policy used by webkit"
-msgstr "Set hardware acceleration policy used by webkit"
+msgstr "设置 WebKit 的硬件加速模式"
 
 #: ../resource/ui/PreferencesWindow.ui.h:18
 msgid "Allow permissions on application startup"
-msgstr "Allow permissions on application startup"
+msgstr "应用启动时授予权限"
 
 #: ../resource/ui/PreferencesWindow.ui.h:21
 msgid "Web"
@@ -156,57 +156,57 @@ msgstr "Web"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:1
 msgid "Shortcuts"
-msgstr "Shortcuts"
+msgstr "快捷键"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:3
 msgid "Refresh Page"
-msgstr "Refresh Page"
+msgstr "刷新页面"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:6
 msgid "Enter/Exit Fullscreen"
-msgstr "Enter/Exit Fullscreen"
+msgstr "进入 / 退出全屏"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:7
 msgid "Show/Hide Header Bar"
-msgstr "Show/Hide Header Bar"
+msgstr "显示 / 隐藏标题栏"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:8
 msgid "Open Preferences"
-msgstr "Open Preferences"
+msgstr "打开首选项"
 
 #: ../src/ui/MainWindow.cpp:348
 msgid "GitHub Repository"
-msgstr "GitHub Repository"
+msgstr "GitHub 项目"
 
 #: ../resource/ui/PreferencesWindow.ui.h:9
 msgid "Enable Notification Sounds"
-msgstr "Enable Notification Sounds"
+msgstr "启用通知音效"
 
 #: ../resource/ui/PreferencesWindow.ui.h:10
 msgid "Play sound on a notification raised by the application"
-msgstr "Play sound on a notification raised by the application"
+msgstr "应用发出通知时播放音效"
 
 #: ../resource/ui/PreferencesWindow.ui.h:19
 msgid "Minimum Font Size"
-msgstr "Minimum Font Size"
+msgstr "最小字体大小"
 
 #: ../resource/ui/PreferencesWindow.ui.h:20
 msgid "Minimum font size used to display text, values other than 0 can potentially break page layouts"
-msgstr "Minimum font size used to display text, values other than 0 can potentially break page layouts"
+msgstr "界面文字的最小大小（设为非 0 值可能导致布局问题）"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:4
 msgid "Zoom In"
-msgstr "Zoom In"
+msgstr "放大"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:5
 msgid "Zoom Out"
-msgstr "Zoom Out"
+msgstr "缩小"
 
 #: ../src/ui/WebView.cpp:40
 msgid "Permission Request"
-msgstr "Permission Request"
+msgstr "请求权限"
 
 #: ../src/ui/WebView.cpp:41
 msgid "Would you like to allow permissions?"
-msgstr "Would you like to allow permissions?"
+msgstr "要授予权限吗？"
 
