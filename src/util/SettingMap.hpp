@@ -109,7 +109,6 @@ namespace wfl::util
         }
         catch (Glib::KeyFileError const& error)
         {
-            std::cerr << "SettingMap: " << error.what().c_str() << ", returning default value: " << defaultValue << std::endl;
             return defaultValue;
         }
     }
