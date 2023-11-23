@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.12)
 project(
         whatsapp-for-linux
-        VERSION 1.6.4
+        VERSION 1.6.5
         DESCRIPTION "An unofficial WhatsApp desktop application for Linux"
         HOMEPAGE_URL "https://github.com/eneshecan/whatsapp-for-linux"
         LANGUAGES C CXX
