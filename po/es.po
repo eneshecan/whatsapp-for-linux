@@ -87,15 +87,15 @@ msgstr "Introduce el número de teléfono (sólo dígitos)"
 
 #: ../resource/ui/PreferencesWindow.ui.h:1
 msgid "Close to Tray"
-msgstr "Cerrar hacia la bandeja"
+msgstr "Cerrar a la Bandeja"
 
 #: ../resource/ui/PreferencesWindow.ui.h:2
 msgid "Start in Tray"
-msgstr "Iniciar en la bandeja"
+msgstr "Iniciar en la Bandeja"
 
 #: ../resource/ui/PreferencesWindow.ui.h:3
 msgid "Start Minimized"
-msgstr "Iniciar minimizado"
+msgstr "Iniciar Minimizado"
 
 #: ../resource/ui/PreferencesWindow.ui.h:4
 msgid "Autostart"
@@ -124,7 +124,7 @@ msgstr "General"
 
 #: ../resource/ui/PreferencesWindow.ui.h:12
 msgid "Prefer Dark Theme"
-msgstr "Preferir tema oscuro"
+msgstr "Preferir Tema Oscuro"
 
 #: ../resource/ui/PreferencesWindow.ui.h:13
 msgid "Prefer dark theme for the application if system theme includes a dark variant"
@@ -140,7 +140,7 @@ msgstr "Aceleración por hardware"
 
 #: ../resource/ui/PreferencesWindow.ui.h:16
 msgid "Allow Permissions"
-msgstr "Autorizar permisos"
+msgstr "Autorizar Permisos"
 
 #: ../resource/ui/PreferencesWindow.ui.h:17
 msgid "Set hardware acceleration policy used by webkit"
@@ -180,7 +180,7 @@ msgstr "Repositorio GitHub"
 
 #: ../resource/ui/PreferencesWindow.ui.h:9
 msgid "Enable Notification Sounds"
-msgstr "Activar los sonidos de notificación"
+msgstr "Activar los Sonidos de Notificación"
 
 #: ../resource/ui/PreferencesWindow.ui.h:10
 msgid "Play sound on a notification raised by the application"
@@ -188,7 +188,7 @@ msgstr "Emitir sonido cuando haya una notificación de la aplicación"
 
 #: ../resource/ui/PreferencesWindow.ui.h:19
 msgid "Minimum Font Size"
-msgstr "Tamaño de fuente mínimo"
+msgstr "Tamaño de Fuente Mínimo"
 
 #: ../resource/ui/PreferencesWindow.ui.h:20
 msgid "Minimum font size used to display text, values other than 0 can potentially break page layouts"
@@ -196,11 +196,11 @@ msgstr "Tamaño de fuente mínimo usado para mostrar texto; los valores distinto
 
 #: ../resource/ui/ShortcutsWindow.ui.h:4
 msgid "Zoom In"
-msgstr "Zoom de acercamiento"
+msgstr "Acercar"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:5
 msgid "Zoom Out"
-msgstr "Zoom de alejamiento"
+msgstr "Alejar"
 
 #: ../src/ui/WebView.cpp:40
 msgid "Permission Request"
