@@ -4,25 +4,10 @@ An unofficial WhatsApp desktop application for Linux.
 
 <p align="left">
     <a href="https://flathub.org/apps/details/com.github.eneshecan.WhatsAppForLinux">
-        <img align="center" alt="Download on Flathub" src="https://flathub.org/assets/badges/flathub-badge-en.png" width="120">
+        <img align="center" alt="Download on Flathub" src="https://flathub.org/assets/badges/flathub-badge-en.png" width="200">
     </a>
     <a href="https://snapcraft.io/whatsapp-for-linux">
-        <img align="center" alt="Get it from the Snap Store" src="https://snapcraft.io/static/images/badges/en/snap-store-black.svg" width="120">
-    </a>
-    <a href="https://aur.archlinux.org/packages/whatsapp-for-linux">
-        <img align="center" alt="Get it from the AUR" src="https://archlinux.org/static/logos/archlinux-logo-dark-scalable.518881f04ca9.svg" width="120">
-    </a>
-    <a href="https://gpo.zugaina.org/Overlays/guru/net-im/whatsapp-for-linux">
-        <img align="center" alt="Get it from the Gentoo Overlay Guru" src="https://gpo.zugaina.org/img/logo.png" width="120">
-    </a>
-    <a href="https://github.com/NixOS/nixpkgs/blob/master/pkgs/applications/networking/instant-messengers/whatsapp-for-linux/default.nix">
-        <img align="center" alt="Get it from the nixpkgs" src="https://nixos.org/logo/nixos-hires.png" width="120">
-    </a>
-    <a href="https://github.com/OpenMandrivaAssociation/whatsapp-for-linux/tree/master">
-        <img align="center" alt="Get it from the OpenMandrive Cooker" src="https://www.openmandriva.org/squelettes/img/OM-300pl.png" width="120">
-    </a>
-        <a href="https://madb.mageia.org/package/show/name/whatsapp-for-linux">
-        <img align="center" alt="Get it from Mageia" src="https://www.mageia.org/g/media/logo/mageia-2013.png" width="120">
+        <img align="center" alt="Get it from the Snap Store" src="https://snapcraft.io/static/images/badges/en/snap-store-black.svg" width="200">
     </a>
 </p>
 
