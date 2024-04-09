@@ -287,13 +287,10 @@ namespace wfl::ui
         std::string cssContent = loadCssContent(cssFilePath);
 
         // Create the WebKitUserStyleSheet
-        WebKitUserStyleSheet* styleSheet = webkit_user_style_sheet_new(
-            cssContent.c_str(),
-            WEBKIT_USER_CONTENT_INJECT_ALL_FRAMES,
-            WEBKIT_USER_STYLE_LEVEL_USER,
-            nullptr, /* whitelist */
-            nullptr  /* blacklist */
-        );
+        WebKitUserStyleSheet* styleSheet
+            = webkit_user_style_sheet_new(cssContent.c_str(), WEBKIT_USER_CONTENT_INJECT_ALL_FRAMES, WEBKIT_USER_STYLE_LEVEL_USER, nullptr, /* whitelist */
+                nullptr                                                                                                                     /* blacklist */
+            );
 
         // Get the WebKitUserContentManager from the web view
         WebKitUserContentManager* manager = webkit_web_view_get_user_content_manager(*this);
