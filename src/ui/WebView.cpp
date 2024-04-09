@@ -175,8 +175,8 @@ namespace wfl::ui
     {
         auto const webContext = webkit_web_view_get_context(*this);
 
-        auto std::string configDir = Glib::get_user_config_dir();
-        auto std::string cssFilePath = configDir +  "/" + WFL_NAME + "/web.css";
+        std::string configDir   = Glib::get_user_config_dir();
+        std::string cssFilePath = configDir + "/" + WFL_NAME + "/web.css";
 
         g_signal_connect(*this, "load-changed", G_CALLBACK(detail::loadChanged), this);
         g_signal_connect(*this, "permission-request", G_CALLBACK(permissionRequest), nullptr);
@@ -268,20 +268,22 @@ namespace wfl::ui
         sendRequest("whatsapp://send?phone=" + phoneNumber);
     }
 
-    bool WebView::cssFileExists(const std::string& filePath) {
+    bool WebView::cssFileExists(const std::string& filePath)
+    {
         std::ifstream file(filePath);
         return file.good();
     }
 
-    std::string WebView::loadCssContent(const std::string& cssFilePath) {
-        auto std::ifstream cssFile(cssFilePath);
-        auto std::string cssContent((std::istreambuf_iterator<char>(cssFile)),
-                                std::istreambuf_iterator<char>());
+    std::string WebView::loadCssContent(const std::string& cssFilePath)
+    {
+        std::ifstream cssFile(cssFilePath);
+        std::string   cssContent((std::istreambuf_iterator<char>(cssFile)), std::istreambuf_iterator<char>());
 
         return cssContent;
     }
 
-    void WebView::applyCustomCss(const std::string& cssFilePath) {
+    void WebView::applyCustomCss(const std::string& cssFilePath)
+    {
         std::string cssContent = loadCssContent(cssFilePath);
 
         // Create the WebKitUserStyleSheet
