@@ -175,8 +175,8 @@ namespace wfl::ui
     {
         auto const webContext = webkit_web_view_get_context(*this);
 
-        std::string configDir = Glib::get_user_config_dir();
-        std::string cssFilePath = configDir +  "/" + WFL_NAME + "/custom.css";
+        auto std::string configDir = Glib::get_user_config_dir();
+        auto std::string cssFilePath = configDir +  "/" + WFL_NAME + "/web.css";
 
         g_signal_connect(*this, "load-changed", G_CALLBACK(detail::loadChanged), this);
         g_signal_connect(*this, "permission-request", G_CALLBACK(permissionRequest), nullptr);
@@ -202,7 +202,8 @@ namespace wfl::ui
 
         webkit_web_view_set_zoom_level(*this, util::Settings::getInstance().getValue<double>("general", "zoom-level", 1.0));
 
-        if (cssFileExists(cssFilePath)) {
+        if (cssFileExists(cssFilePath))
+        {
             applyCustomCss(cssFilePath);
         }
 
@@ -273,8 +274,8 @@ namespace wfl::ui
     }
 
     std::string WebView::loadCssContent(const std::string& cssFilePath) {
-        std::ifstream cssFile(cssFilePath);
-        std::string cssContent((std::istreambuf_iterator<char>(cssFile)),
+        auto std::ifstream cssFile(cssFilePath);
+        auto std::string cssContent((std::istreambuf_iterator<char>(cssFile)),
                                 std::istreambuf_iterator<char>());
 
         return cssContent;
