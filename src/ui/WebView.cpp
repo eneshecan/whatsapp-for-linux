@@ -151,6 +151,20 @@ namespace wfl::ui
 
             return FALSE;
         }
+
+        bool cssFileExists(const std::string& filePath)
+        {
+            auto const file = std::ifstream(filePath);
+            return file.good();
+        }
+
+        std::string loadCssContent(const std::string& cssFilePath)
+        {
+            auto cssFile    = std::ifstream(cssFilePath);
+            auto cssContent = std::string((std::istreambuf_iterator<char>(cssFile)), std::istreambuf_iterator<char>());
+
+            return cssContent;
+        }
     }
 
     namespace detail
@@ -268,33 +282,6 @@ namespace wfl::ui
         sendRequest("whatsapp://send?phone=" + phoneNumber);
     }
 
-    bool WebView::cssFileExists(const std::string& filePath)
-    {
-        auto file = std::ifstream(filePath);
-        return file.good();
-    }
-
-    std::string WebView::loadCssContent(const std::string& cssFilePath)
-    {
-        auto cssFile    = std::ifstream(cssFilePath);
-        auto cssContent = std::string((std::istreambuf_iterator<char>(cssFile)), std::istreambuf_iterator<char>());
-
-        return cssContent;
-    }
-
-    void WebView::applyCustomCss(const std::string& cssFilePath)
-    {
-        auto cssContent = loadCssContent(cssFilePath);
-
-        auto* styleSheet
-            = webkit_user_style_sheet_new(cssContent.c_str(), WEBKIT_USER_CONTENT_INJECT_ALL_FRAMES, WEBKIT_USER_STYLE_LEVEL_USER, nullptr, /* whitelist */
-                nullptr                                                                                                                     /* blacklist */
-            );
-
-        auto* manager = webkit_web_view_get_user_content_manager(*this);
-        webkit_user_content_manager_add_style_sheet(manager, styleSheet);
-    }
-
     void WebView::zoomIn()
     {
         if (auto zoomLevel = webkit_web_view_get_zoom_level(*this); zoomLevel < 2.0)
@@ -384,5 +371,16 @@ namespace wfl::ui
         m_stoppedResponding = !responsive;
 
         return true;
+    }
+
+    void WebView::applyCustomCss(const std::string& cssFilePath)
+    {
+        auto const cssContent = loadCssContent(cssFilePath);
+
+        auto* styleSheet
+            = webkit_user_style_sheet_new(cssContent.c_str(), WEBKIT_USER_CONTENT_INJECT_ALL_FRAMES, WEBKIT_USER_STYLE_LEVEL_USER, nullptr, nullptr);
+
+        auto* manager = webkit_web_view_get_user_content_manager(*this);
+        webkit_user_content_manager_add_style_sheet(manager, styleSheet);
     }
 }

@@ -30,17 +30,15 @@ namespace wfl::ui
             double          getZoomLevel();
             std::string     getZoomLevelString();
             void            setMinFontSize(unsigned int fontSize);
-            bool            cssFileExists(const std::string& filePath);
-            std::string     loadCssContent(const std::string& cssFilePath);
-            void            applyCustomCss(const std::string& cssFilePath);
 
             sigc::signal<void, WebKitLoadEvent>& signalLoadStatus() noexcept;
             sigc::signal<void, bool>&            signalNotification() noexcept;
             sigc::signal<void>&                  signalNotificationClicked() noexcept;
 
         private:
-            void onLoadStatusChanged(WebKitLoadEvent loadEvent);
-            bool onTimeout();
+            void        onLoadStatusChanged(WebKitLoadEvent loadEvent);
+            bool        onTimeout();
+            void        applyCustomCss(const std::string& cssFilePath);
 
             friend void detail::loadChanged(WebKitWebView*, WebKitLoadEvent, gpointer);
 
