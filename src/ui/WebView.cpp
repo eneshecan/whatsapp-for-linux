@@ -175,8 +175,8 @@ namespace wfl::ui
     {
         auto const webContext = webkit_web_view_get_context(*this);
 
-        std::string configDir   = Glib::get_user_config_dir();
-        std::string cssFilePath = configDir + "/" + WFL_NAME + "/web.css";
+        auto configDir   = Glib::get_user_config_dir();
+        auto cssFilePath = configDir + "/" + WFL_NAME + "/web.css";
 
         g_signal_connect(*this, "load-changed", G_CALLBACK(detail::loadChanged), this);
         g_signal_connect(*this, "permission-request", G_CALLBACK(permissionRequest), nullptr);
@@ -270,32 +270,28 @@ namespace wfl::ui
 
     bool WebView::cssFileExists(const std::string& filePath)
     {
-        std::ifstream file(filePath);
+        auto file = std::ifstream(filePath);
         return file.good();
     }
 
     std::string WebView::loadCssContent(const std::string& cssFilePath)
     {
-        std::ifstream cssFile(cssFilePath);
-        std::string   cssContent((std::istreambuf_iterator<char>(cssFile)), std::istreambuf_iterator<char>());
+        auto cssFile    = std::ifstream(cssFilePath);
+        auto cssContent = std::string((std::istreambuf_iterator<char>(cssFile)), std::istreambuf_iterator<char>());
 
         return cssContent;
     }
 
     void WebView::applyCustomCss(const std::string& cssFilePath)
     {
-        std::string cssContent = loadCssContent(cssFilePath);
+        auto cssContent = loadCssContent(cssFilePath);
 
-        // Create the WebKitUserStyleSheet
-        WebKitUserStyleSheet* styleSheet
+        auto* styleSheet
             = webkit_user_style_sheet_new(cssContent.c_str(), WEBKIT_USER_CONTENT_INJECT_ALL_FRAMES, WEBKIT_USER_STYLE_LEVEL_USER, nullptr, /* whitelist */
                 nullptr                                                                                                                     /* blacklist */
             );
 
-        // Get the WebKitUserContentManager from the web view
-        WebKitUserContentManager* manager = webkit_web_view_get_user_content_manager(*this);
-
-        // Add the stylesheet to the content manager
+        auto* manager = webkit_web_view_get_user_content_manager(*this);
         webkit_user_content_manager_add_style_sheet(manager, styleSheet);
     }
 
