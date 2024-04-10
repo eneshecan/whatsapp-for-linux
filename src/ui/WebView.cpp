@@ -1,13 +1,17 @@
 #include "WebView.hpp"
 #include <iostream>
 #include <string>
+#include <fstream>
+#include <streambuf>
 #include <optional>
 #include <locale>
 #include <glibmm/i18n.h>
 #include <glibmm/main.h>
+#include <glibmm/miscutils.h>
 #include <gtkmm/messagedialog.h>
 #include <gtkmm/filechooserdialog.h>
 #include "../util/Settings.hpp"
+#include "Config.hpp"
 
 namespace wfl::ui
 {
@@ -171,6 +175,9 @@ namespace wfl::ui
     {
         auto const webContext = webkit_web_view_get_context(*this);
 
+        auto configDir   = Glib::get_user_config_dir();
+        auto cssFilePath = configDir + "/" + WFL_NAME + "/web.css";
+
         g_signal_connect(*this, "load-changed", G_CALLBACK(detail::loadChanged), this);
         g_signal_connect(*this, "permission-request", G_CALLBACK(permissionRequest), nullptr);
         g_signal_connect(*this, "decide-policy", G_CALLBACK(decidePolicy), nullptr);
@@ -194,6 +201,11 @@ namespace wfl::ui
         webkit_settings_set_minimum_font_size(settings, util::Settings::getInstance().getValue<int>("web", "min-font-size", 0));
 
         webkit_web_view_set_zoom_level(*this, util::Settings::getInstance().getValue<double>("general", "zoom-level", 1.0));
+
+        if (cssFileExists(cssFilePath))
+        {
+            applyCustomCss(cssFilePath);
+        }
 
         webkit_web_view_load_uri(*this, WHATSAPP_WEB_URI);
     }
@@ -254,6 +266,33 @@ namespace wfl::ui
     void WebView::openPhoneNumber(std::string const& phoneNumber)
     {
         sendRequest("whatsapp://send?phone=" + phoneNumber);
+    }
+
+    bool WebView::cssFileExists(const std::string& filePath)
+    {
+        auto file = std::ifstream(filePath);
+        return file.good();
+    }
+
+    std::string WebView::loadCssContent(const std::string& cssFilePath)
+    {
+        auto cssFile    = std::ifstream(cssFilePath);
+        auto cssContent = std::string((std::istreambuf_iterator<char>(cssFile)), std::istreambuf_iterator<char>());
+
+        return cssContent;
+    }
+
+    void WebView::applyCustomCss(const std::string& cssFilePath)
+    {
+        auto cssContent = loadCssContent(cssFilePath);
+
+        auto* styleSheet
+            = webkit_user_style_sheet_new(cssContent.c_str(), WEBKIT_USER_CONTENT_INJECT_ALL_FRAMES, WEBKIT_USER_STYLE_LEVEL_USER, nullptr, /* whitelist */
+                nullptr                                                                                                                     /* blacklist */
+            );
+
+        auto* manager = webkit_web_view_get_user_content_manager(*this);
+        webkit_user_content_manager_add_style_sheet(manager, styleSheet);
     }
 
     void WebView::zoomIn()
