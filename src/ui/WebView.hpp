@@ -36,9 +36,9 @@ namespace wfl::ui
             sigc::signal<void>&                  signalNotificationClicked() noexcept;
 
         private:
-            void        onLoadStatusChanged(WebKitLoadEvent loadEvent);
-            bool        onTimeout();
-            void        applyCustomCss(const std::string& cssFilePath);
+            void onLoadStatusChanged(WebKitLoadEvent loadEvent);
+            bool onTimeout();
+            void applyCustomCss(const std::string& cssFilePath);
 
             friend void detail::loadChanged(WebKitWebView*, WebKitLoadEvent, gpointer);
 
