@@ -27,10 +27,6 @@
   <developer_name>Enes Hecan</developer_name>
   <update_contact>nshecan_AT_gmail.com</update_contact>
 
-  <mimetypes>
-    <mimetype>x-scheme-handler/whatsapp</mimetype>
-  </mimetypes>
-
   <releases>
     <release version="${WFL_VERSION}" date="${WFL_BUILD_DATE}">
       <description>
