@@ -19,10 +19,10 @@ parts:
       - libcanberra-dev
       - libsigc++-2.0-dev
       - libgtkmm-3.0-dev
-      - libwebkit2gtk-4.1-dev
+      - libwebkit2gtk-4.0-dev
       - libayatana-appindicator3-dev
     stage-packages:
-      - libwebkit2gtk-4.1-0
+      - libwebkit2gtk-4.0-37
       - libayatana-appindicator3-1
       - glib-networking
       - libglu1-mesa
@@ -133,8 +133,8 @@ hooks:
       - desktop
 
 layout:
-  /usr/lib/$SNAPCRAFT_ARCH_TRIPLET/webkit2gtk-4.1:
-    bind: $SNAP/gnome-platform/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/webkit2gtk-4.1
+  /usr/lib/$SNAPCRAFT_ARCH_TRIPLET/webkit2gtk-4.0:
+    bind: $SNAP/gnome-platform/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/webkit2gtk-4.0
   /usr/share/libdrm:
     bind: $SNAP/gnome-platform/usr/share/libdrm
   /usr/share/xml/iso-codes:
