@@ -95,7 +95,7 @@ msgstr "Spustit na liště"
 
 #: ../resource/ui/PreferencesWindow.ui.h:3
 msgid "Start Minimized"
-msgstr "Spustit minimalizované"
+msgstr "Spustit minimalizovaně"
 
 #: ../resource/ui/PreferencesWindow.ui.h:4
 msgid "Autostart"
@@ -103,11 +103,11 @@ msgstr "Automatické spuštění"
 
 #: ../resource/ui/PreferencesWindow.ui.h:5
 msgid "Enable tray icon"
-msgstr "Povolit ikony na liště"
+msgstr "Povolit ikonu na liště"
 
 #: ../resource/ui/PreferencesWindow.ui.h:6
 msgid "Start application as closed to tray"
-msgstr "Spustit aplikaci jakou zavřenou na na liště"
+msgstr "Spustit aplikaci jakou zavřenou na lištu"
 
 #: ../resource/ui/PreferencesWindow.ui.h:7
 msgid "Start application as minimized"
@@ -115,7 +115,7 @@ msgstr "Spustit aplikace minimalizovanou"
 
 #: ../resource/ui/PreferencesWindow.ui.h:8
 msgid "Start application after system boots"
-msgstr "Spustit aplikace po restartu"
+msgstr "Spustit aplikaci po restartu"
 
 #: ../resource/ui/PreferencesWindow.ui.h:11
 #: ../resource/ui/ShortcutsWindow.ui.h:2
@@ -185,14 +185,14 @@ msgstr "Povolit zvuky oznámení"
 #: ../resource/ui/PreferencesWindow.ui.h:10
 msgid "Play sound on a notification raised by the application"
 msgstr "Přehrát zvuky při oznámení vyvolaném aplikací"
-
+Added better support for Czech language
 #: ../resource/ui/PreferencesWindow.ui.h:19
 msgid "Minimum Font Size"
 msgstr "Minimální velikost písma"
 
 #: ../resource/ui/PreferencesWindow.ui.h:20
 msgid "Minimum font size used to display text, values other than 0 can potentially break page layouts"
-msgstr "Minimální velikost písma pro zobrazení textu, hodnoty jiné než 0 mohou potenciálně narušit rozvržení stránky."
+msgstr "Minimální velikost písma pro zobrazení textu, hodnoty jiné než 0 mohou narušit rozvržení stránky."
 
 #: ../resource/ui/ShortcutsWindow.ui.h:4
 msgid "Zoom In"
