@@ -185,7 +185,7 @@ msgstr "Povolit zvuky oznámení"
 #: ../resource/ui/PreferencesWindow.ui.h:10
 msgid "Play sound on a notification raised by the application"
 msgstr "Přehrát zvuky při oznámení vyvolaném aplikací"
-Added better support for Czech language
+
 #: ../resource/ui/PreferencesWindow.ui.h:19
 msgid "Minimum Font Size"
 msgstr "Minimální velikost písma"
