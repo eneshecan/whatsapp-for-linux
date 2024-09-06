@@ -10,7 +10,6 @@ msgstr ""
 "POT-Creation-Date: 2022-12-10 22:56+0100\n"
 "PO-Revision-Date: 2024-09-06 21:39+0300\n"
 "Last-Translator: Serhiy Yehorov <prapor@unixzone.org.ua>\n"
-"Language-Team: Ukrainian <kde-i18n-doc@kde.org>\n"
 "Language: uk_UA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,64 +25,64 @@ msgstr "Про програму"
 
 #: ../src/ui/MainWindow.cpp:345 ../resource/ui/MainWindow.ui.h:6
 msgid "WhatsApp for Linux"
-msgstr ""
+msgstr "WhatsApp для Linux"
 
 #: ../src/ui/MainWindow.cpp:346
 msgid "An unofficial WhatsApp desktop application for Linux"
-msgstr ""
+msgstr "Неофіційний клієнт WhatsApp для Linux"
 
 #: ../src/ui/MainWindow.cpp:348
 msgid "GitHub Repository"
-msgstr ""
+msgstr "Репозиторій GitHub"
 
 #: ../src/ui/PreferencesWindow.cpp:40
 msgid "On Demand"
-msgstr ""
+msgstr "За запитом"
 
 #: ../src/ui/PreferencesWindow.cpp:41
 msgid "Always"
-msgstr ""
+msgstr "Завжди"
 
 #: ../src/ui/PreferencesWindow.cpp:42
 msgid "Never"
-msgstr ""
+msgstr "Ніколи"
 
 #: ../src/ui/TrayIcon.cpp:45
 msgid "Show"
-msgstr ""
+msgstr "Показати"
 
 #: ../src/ui/TrayIcon.cpp:47 ../resource/ui/MainWindow.ui.h:5
 #: ../resource/ui/ShortcutsWindow.ui.h:10
 msgid "Quit"
-msgstr ""
+msgstr "Вийти"
 
 #: ../src/ui/WebView.cpp:40
 msgid "Permission Request"
-msgstr ""
+msgstr "Запит дозволу"
 
 #: ../src/ui/WebView.cpp:41
 msgid "Would you like to allow permissions?"
-msgstr ""
+msgstr "Чи хочете ви надати дозвіл?"
 
 #: ../src/ui/WebView.cpp:75
 msgid "Save File"
-msgstr ""
+msgstr "Зберегти файл"
 
 #: ../src/ui/WebView.cpp:76
 msgid "Ok"
-msgstr ""
+msgstr "Так"
 
 #: ../src/ui/WebView.cpp:77
 msgid "Cancel"
-msgstr ""
+msgstr "Скасувати"
 
 #: ../src/ui/WebView.cpp:328
 msgid "Unresponsive"
-msgstr ""
+msgstr "Не відповідає"
 
 #: ../src/ui/WebView.cpp:329
 msgid "The application is not responding. Would you like to reload?"
-msgstr ""
+msgstr "Програма не відповідає. Чи бажаєте перезапустити?"
 
 #: ../resource/ui/MainWindow.ui.h:1
 msgid "Fullscreen"
