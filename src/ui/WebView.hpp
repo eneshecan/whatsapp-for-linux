@@ -22,6 +22,7 @@ namespace wil::ui
             void            refresh();
             WebKitLoadEvent getLoadStatus() const noexcept;
             void            setHwAccelPolicy(WebKitHardwareAccelerationPolicy policy);
+            bool            pasteImageFromClipboard();
             void            sendRequest(std::string url);
             void            openPhoneNumber(std::string const& phoneNumber);
             void            zoomIn();

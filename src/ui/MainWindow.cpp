@@ -108,6 +108,14 @@ namespace wil::ui
         {
             switch (keyEvent->keyval)
             {
+                case GDK_KEY_V:
+                case GDK_KEY_v:
+                    if (m_webView.pasteImageFromClipboard())
+                    {
+                        return true;
+                    }
+                    break;
+
                 case GDK_KEY_P:
                 case GDK_KEY_p:
                     onOpenPreferences();
@@ -155,6 +163,13 @@ namespace wil::ui
         {
             switch (keyEvent->keyval)
             {
+                case GDK_KEY_Insert:
+                    if ((keyEvent->state & GDK_SHIFT_MASK) && m_webView.pasteImageFromClipboard())
+                    {
+                        return true;
+                    }
+                    break;
+
                 case GDK_KEY_F11:
                     onFullscreen();
                     return true;

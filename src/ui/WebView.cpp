@@ -1,6 +1,7 @@
 #include "WebView.hpp"
 #include <iostream>
 #include <string>
+#include <sstream>
 #include <fstream>
 #include <streambuf>
 #include <optional>
@@ -165,6 +166,52 @@ namespace wil::ui
 
             return cssContent;
         }
+
+        std::string buildClipboardImagePasteScript(std::string const& base64Image)
+        {
+            auto script = std::ostringstream{};
+            script << R"JS((async function() {
+const target = document.activeElement
+    || document.querySelector('[contenteditable="true"]')
+    || document.querySelector('[role="textbox"]')
+    || document.body;
+if (!target) {
+    return;
+}
+
+const binary = atob(")JS";
+            script << base64Image;
+            script << R"JS(");
+const bytes = new Uint8Array(binary.length);
+for (let index = 0; index < binary.length; ++index) {
+    bytes[index] = binary.charCodeAt(index);
+}
+
+const file = new File([bytes], "clipboard.png", { type: "image/png" });
+const transfer = new DataTransfer();
+transfer.items.add(file);
+
+const dispatchPaste = (node) => {
+    const pasteEvent = new ClipboardEvent("paste", { bubbles: true, cancelable: true });
+    Object.defineProperty(pasteEvent, "clipboardData", { value: transfer });
+    return node.dispatchEvent(pasteEvent);
+};
+
+const dispatchDrop = (node) => {
+    const dropEvent = new Event("drop", { bubbles: true, cancelable: true });
+    Object.defineProperty(dropEvent, "dataTransfer", { value: transfer });
+    return node.dispatchEvent(dropEvent);
+};
+
+target.focus();
+dispatchPaste(target);
+dispatchPaste(document);
+dispatchDrop(target);
+dispatchDrop(document);
+})();)JS";
+
+            return script.str();
+        }
     }
 
     namespace detail
@@ -248,6 +295,53 @@ namespace wil::ui
     {
         auto const settings = webkit_web_view_get_settings(*this);
         webkit_settings_set_hardware_acceleration_policy(settings, policy);
+    }
+
+    bool WebView::pasteImageFromClipboard()
+    {
+        if (m_loadStatus != WEBKIT_LOAD_FINISHED)
+        {
+            return false;
+        }
+
+        auto* clipboard = gtk_widget_get_clipboard(GTK_WIDGET(gobj()), GDK_SELECTION_CLIPBOARD);
+        if (!clipboard || !gtk_clipboard_wait_is_image_available(clipboard))
+        {
+            return false;
+        }
+
+        auto* image = gtk_clipboard_wait_for_image(clipboard);
+        if (!image)
+        {
+            return false;
+        }
+
+        gchar*     buffer     = nullptr;
+        gsize      bufferSize = 0U;
+        GError*    error      = nullptr;
+        auto const saved      = gdk_pixbuf_save_to_buffer(image, &buffer, &bufferSize, "png", &error, nullptr);
+        g_object_unref(image);
+
+        if (!saved)
+        {
+            if (error)
+            {
+                std::cerr << "WebView: Failed to save clipboard image: " << error->message << std::endl;
+                g_error_free(error);
+            }
+            return false;
+        }
+
+        auto const encodedImage = g_base64_encode(reinterpret_cast<guchar const*>(buffer), bufferSize);
+        g_free(buffer);
+
+        auto const base64Image = std::string{encodedImage};
+        g_free(encodedImage);
+
+        auto const script = buildClipboardImagePasteScript(base64Image);
+        webkit_web_view_run_javascript(*this, script.c_str(), nullptr, nullptr, nullptr);
+
+        return true;
     }
 
     void WebView::sendRequest(std::string url)
